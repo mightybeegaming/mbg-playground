@@ -1,0 +1,1 @@
+<footer>© 2026 MBG Playground. All rights reserved.</footer>
