@@ -40,7 +40,9 @@
 				</div>
 				<br />
 				<h3>PvP Server Information</h3>
-				<p>This is a PvP-focused server that offers almost the same experience as the PvE server, but with no restrictions.</p>
+				<ul>
+					<li>This is a PvP-focused server that offers almost the same experience as the PvE server, but with no restrictions.</li>
+				</ul>
 				<div class="info-grid">
 					<div class="info-box">
 						<strong>Status</strong><br>
