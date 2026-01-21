@@ -8,6 +8,5 @@ The goal is to make server information easy to access without needing to join th
 - Check server uptime.
 - View current players online.
 
-## Links
-- Website: https://mbgplayground.xyz/
-- Discord: https://mbgplayground.xyz/discord
+## Website
+- https://mbgplayground.xyz/
