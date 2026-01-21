@@ -78,6 +78,11 @@
 			<h2>MBG Playground</h2>
 		</div>
 		<div class="container">
+			<!-- Counter-Strike -->
+			<a class="card" href="counterstrike">
+				<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/10/header.jpg" alt="Counter-Strike">
+				<div class="card-title">Counter-Strike</div>
+			</a>
 			<!-- Project Zomboid -->
 			<a class="card" href="projectzomboid">
 				<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/108600/header.jpg" alt="Project Zomboid">
