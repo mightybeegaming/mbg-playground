@@ -10,6 +10,7 @@
 		<meta property="og:url" content="https://mbgplayground.xyz/" />
 		<meta property="og:image" content="https://i.postimg.cc/dtt48zrp/game-controller-orange.png" />
 		<meta property="og:type" content="website" />
+		<link rel="canonical" href="https://mbgplayground.xyz" />
 		<link rel="icon" href="icon.png" type="image/png">
 		<style>
 			body {

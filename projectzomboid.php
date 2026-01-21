@@ -10,6 +10,7 @@
 		<meta property="og:url" content="https://mbgplayground.xyz/projectzomboid" />
 		<meta property="og:image" content="data_discord/discordbanner.jpg" />
 		<meta property="og:type" content="website" />
+		<link rel="canonical" href="https://mbgplayground.xyz/projectzomboid" />
 		<link rel="icon" href="icon.png" type="image/png">
 		<link rel="stylesheet" href="common.css">
 	</head>
