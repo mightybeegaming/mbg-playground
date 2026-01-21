@@ -23,7 +23,6 @@
 				<h3>PvE Server Information</h3>
 				<ul>
 					<li>This is a beginner-friendly server that uses only lightweight quality-of-life and immersion mods.</li>
-					<li>Online Players: <span class="highlight"><?php include 'data_projectzomboid/online_players.php'?> / 100</span></li>
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">
@@ -35,16 +34,13 @@
 						<img src="https://uptime.mbgplayground.xyz/api/badge/61/uptime?style=for-the-badge" />
 					</div>
 					<div class="info-box">
-						<strong>Latency</strong><br>
-						<img src="https://uptime.mbgplayground.xyz/api/badge/61/response?style=for-the-badge" />
+						<strong>Online Players</strong><br>
+						<span class="highlight"><?php include 'data_projectzomboid/online_players.php'?> / 100</span>
 					</div>
 				</div>
 				<br />
 				<h3>PvP Server Information</h3>
-				<ul>
-					<li>This is a PvP-focused server that offers almost the same experience as the PvE server, but with no restrictions.</li>
-					<li>Online Players: <span class="highlight"><?php include 'data_projectzomboid/online_players_pvp.php'?> / 100</span></li>
-				</ul>
+				<p>This is a PvP-focused server that offers almost the same experience as the PvE server, but with no restrictions.</p>
 				<div class="info-grid">
 					<div class="info-box">
 						<strong>Status</strong><br>
@@ -55,8 +51,8 @@
 						<img src="https://uptime.mbgplayground.xyz/api/badge/64/uptime?style=for-the-badge" />
 					</div>
 					<div class="info-box">
-						<strong>Latency</strong><br>
-						<img src="https://uptime.mbgplayground.xyz/api/badge/64/response?style=for-the-badge" />
+						<strong>Online Players</strong><br>
+						<span class="highlight"><?php include 'data_projectzomboid/online_players_pvp.php'?> / 100</span>
 					</div>
 				</div>
 			</div>
