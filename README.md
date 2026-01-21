@@ -1,5 +1,5 @@
 # MBG Playground
-MBG Playground is built to help players quickly check server availability and stay connected with the community.
+This website is built to help players quickly check server availability and stay connected with the MBG Playground community.
 
 The goal is to make server information easy to access without needing to join the game first.
 
