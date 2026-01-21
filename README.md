@@ -7,6 +7,3 @@ The goal is to make server information easy to access without needing to join th
 - See available game servers at a glance.
 - Check server uptime.
 - View current players online.
-
-## Website
-- https://mbgplayground.xyz/
