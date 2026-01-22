@@ -84,6 +84,11 @@
 				<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/10/header.jpg" alt="Counter-Strike">
 				<div class="card-title">Counter-Strike</div>
 			</a>
+			<!-- Hytale -->
+			<a class="card" href="hytale">
+				<img src="data_hytale/hytalebanner.jpg" alt="Hytale">
+				<div class="card-title">Hytale</div>
+			</a>
 			<!-- Project Zomboid -->
 			<a class="card" href="projectzomboid">
 				<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/108600/header.jpg" alt="Project Zomboid">
