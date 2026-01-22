@@ -24,6 +24,7 @@
 				<h3>Server Information</h3>
 				<ul>
 					<li>This is a simple Counter-Strike server with PodBot addon.</li>
+					<li>Online Players: <span class="highlight">N/A</span></li>
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">
@@ -35,8 +36,8 @@
 						<img src="https://uptime.mbgplayground.xyz/api/badge/71/uptime?style=for-the-badge" />
 					</div>
 					<div class="info-box">
-						<strong>Online Players</strong><br>
-						<span class="highlight">N/A</span>
+						<strong>Latency</strong><br>
+						<img src="https://uptime.mbgplayground.xyz/api/badge/71/response?style=for-the-badge" />
 					</div>
 				</div>
 			</div>
