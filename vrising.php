@@ -24,7 +24,6 @@
 				<h3>Server Information</h3>
 				<ul>
 					<li>This is a PvE server running on Brutal difficulty with some quality-of-life adjustments.</li>
-					<li>Online Players: <span class="highlight"><?php include 'data_vrising/online_players.php'?> / 100</span></li>
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">
@@ -36,8 +35,8 @@
 						<img src="https://uptime.mbgplayground.xyz/api/badge/58/uptime?style=for-the-badge" />
 					</div>
 					<div class="info-box">
-						<strong>Latency</strong><br>
-						<img src="https://uptime.mbgplayground.xyz/api/badge/58/response?style=for-the-badge" />
+						<strong>Online Players</strong><br>
+						<span class="highlight"><?php include 'data_vrising/online_players.php'?> / 100</span>
 					</div>
 				</div>
 			</div>
