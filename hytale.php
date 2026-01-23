@@ -25,6 +25,7 @@
 				<ul>
 					<li>This is a simple Hytale server to test and explore the early access build.</li>
 				</ul>
+				<i>Server is online. Status monitoring is still under construction.</i>
 				<div class="info-grid">
 					<div class="info-box">
 						<strong>Status</strong><br>
