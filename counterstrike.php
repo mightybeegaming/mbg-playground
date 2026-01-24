@@ -36,7 +36,7 @@
 					</div>
 					<div class="info-box">
 						<strong>Online Players</strong><br>
-						<span class="highlight">N/A</span>
+						<span class="highlight"><?php include 'data_counterstrike/online_players.php'?> / 100</span>
 					</div>
 				</div>
 			</div>
