@@ -5,10 +5,10 @@ call "C:\Other Programs\_tools\rcon\_config-projectzomboid.bat"
 rem rcon -a %IPAddress%:%RCONPort% -p %RCONPassword% "players"
 rcon -a %IPAddress%:%RCONPort% -p %RCONPassword% "players" > online_players.txt
 
-echo Checking PvP players...
-call "C:\Other Programs\_tools\rcon\_config-projectzomboid-pvp.bat"
+echo Checking B42 players...
+call "C:\Other Programs\_tools\rcon\_config-projectzomboidb42.bat"
 rem rcon -a %IPAddress%:%RCONPort% -p %RCONPassword% "players"
-rcon -a %IPAddress%:%RCONPort% -p %RCONPassword% "players" > online_players_pvp.txt
+rcon -a %IPAddress%:%RCONPort% -p %RCONPassword% "players" > online_players_b42.txt
 
 rem pause
 exit
