@@ -27,15 +27,15 @@
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">
-						<strong>Status</strong><br>
+						<strong>Status</strong><br />
 						<img src="https://uptime.mbgplayground.xyz/api/badge/58/status?style=for-the-badge" />
 					</div>
 					<div class="info-box">
-						<strong>Uptime</strong><br>
+						<strong>Uptime</strong><br />
 						<img src="https://uptime.mbgplayground.xyz/api/badge/58/uptime?style=for-the-badge" />
 					</div>
 					<div class="info-box">
-						<strong>Online Players</strong><br>
+						<strong>Online Players</strong><br />
 						<span class="highlight"><?php include 'data_vrising/online_players.php'?> / 60</span>
 					</div>
 				</div>

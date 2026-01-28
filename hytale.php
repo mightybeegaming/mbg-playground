@@ -27,15 +27,15 @@
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">
-						<strong>Status</strong><br>
+						<strong>Status</strong><br />
 						<img src="https://uptime.mbgplayground.xyz/api/badge/73/status?style=for-the-badge" />
 					</div>
 					<div class="info-box">
-						<strong>Uptime</strong><br>
+						<strong>Uptime</strong><br />
 						<img src="https://uptime.mbgplayground.xyz/api/badge/73/uptime?style=for-the-badge" />
 					</div>
 					<div class="info-box">
-						<strong>Online Players</strong><br>
+						<strong>Online Players</strong><br />
 						<span class="highlight"><?php include 'data_hytale/online_players.php'?> / 100</span>
 					</div>
 				</div>
