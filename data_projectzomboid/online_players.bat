@@ -1,9 +1,9 @@
 @echo off
 
-echo Checking players...
-call "C:\Other Programs\_tools\rcon\_config-projectzomboid.bat"
+rem echo Checking players...
+rem call "C:\Other Programs\_tools\rcon\_config-projectzomboid.bat"
 rem rcon -a %IPAddress%:%RCONPort% -p %RCONPassword% "players"
-rcon -a %IPAddress%:%RCONPort% -p %RCONPassword% "players" > online_players.txt
+rem rcon -a %IPAddress%:%RCONPort% -p %RCONPassword% "players" > online_players.txt
 
 echo Checking B42 players...
 call "C:\Other Programs\_tools\rcon\_config-projectzomboidb42.bat"
