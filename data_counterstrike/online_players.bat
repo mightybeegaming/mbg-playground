@@ -1,7 +1,7 @@
 @echo off
 
 echo Checking players...
-rem python rcon.py amx_who 
-python rcon.py amx_who > online_players.txt
+rem python rcon_cs.py amx_who 
+python rcon_cs.py amx_who > online_players.txt
 
 exit
