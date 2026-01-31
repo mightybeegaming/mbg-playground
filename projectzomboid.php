@@ -36,7 +36,7 @@
 					</div>
 					<div class="info-box">
 						<strong>Online Players</strong><br />
-						<span class="highlight"><?php include 'data_projectzomboid/online_players_b42.php'?> / 100</span>
+						<span class="highlight"><?php include 'data_projectzomboid/online_players.php'?> / 100</span>
 					</div>
 				</div>
 			</div>
