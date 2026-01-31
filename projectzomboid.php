@@ -21,28 +21,9 @@
 				<?php include 'join.php'?>
 			</div>
 			<div class="section">
-				<h3>B41 Server Information</h3>
+				<h3>Server Information</h3>
 				<ul>
-					<li>This is a beginner-friendly server that uses only lightweight quality-of-life and immersion mods.</li>
-				</ul>
-				<div class="info-grid">
-					<div class="info-box">
-						<strong>Status</strong><br />
-						<img src="https://uptime.mbgplayground.xyz/api/badge/61/status?style=for-the-badge" />
-					</div>
-					<div class="info-box">
-						<strong>Uptime</strong><br />
-						<img src="https://uptime.mbgplayground.xyz/api/badge/61/uptime?style=for-the-badge" />
-					</div>
-					<div class="info-box">
-						<strong>Online Players</strong><br />
-						<span class="highlight"><?php include 'data_projectzomboid/online_players.php'?> / 100</span>
-					</div>
-				</div>
-				<br />
-				<h3>B42 Server Information</h3>
-				<ul>
-					<li>This is an early take for the unstable build.</li>
+					<li>This is an early take for the B42 Unstable version with quality-of-life and immersion mods.</li>
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">
