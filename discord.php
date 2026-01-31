@@ -44,7 +44,7 @@
 				  <span class="name">MBG</span>
                 </h2>
               </div>
-              <a href="https://discord.gg/BnDPqup7Pn">
+              <a href="https://discord.gg/FkhPhkJ7JB">
 				<button class="acceptBtn">Accept Invite</button>
 			  </a>
             </div>
