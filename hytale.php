@@ -23,7 +23,7 @@
 			<div class="section">
 				<h3>Server Information</h3>
 				<ul>
-					<li>This is a simple Hytale server to test and explore the early access build.</li>
+					<li>This is a simple server to test and explore the early access build.</li>
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">
