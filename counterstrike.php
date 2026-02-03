@@ -23,7 +23,7 @@
 			<div class="section">
 				<h3>Server Information</h3>
 				<ul>
-					<li>This is a simple Counter-Strike server with PodBot addon.</li>
+					<li>This is a simple server with PodBot addon.</li>
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">
