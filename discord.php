@@ -8,7 +8,7 @@
         <meta property="og:title" content="MBG Discord" />
 		<meta property="og:description" content="MBG Playground official Discord invitation." />
 		<meta property="og:url" content="https://mbgplayground.xyz/discord" />
-		<meta property="og:image" content="data_discord/discordbanner.jpg />
+		<meta property="og:image" content="data_discord/discordbanner.jpg" />
 		<meta property="og:type" content="website" />
 		<link rel="canonical" href="https://mbgplayground.xyz/discord" />
         <link rel="icon" type="image/x-icon" href="_icon.png">
