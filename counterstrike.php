@@ -1,4 +1,4 @@
-<?php include 'domainredirect.php'?>
+<?php include '_domainredirect.php'?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -12,14 +12,14 @@
 		<meta property="og:image" content="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/10/header.jpg" />
 		<meta property="og:type" content="website" />
 		<link rel="canonical" href="https://mbgplayground.xyz/counterstrike" />
-		<link rel="icon" href="icon.png" type="image/png">
-		<link rel="stylesheet" href="common.css">
+		<link rel="icon" href="_icon.png" type="image/png">
+		<link rel="stylesheet" href="_common.css">
 	</head>
 	<body>
 		<div class="container">
 			<div class="section">
 				<h3>MBG Counter-Strike</h3>
-				<?php include 'join.php'?>
+				<?php include '_join.php'?>
 			</div>
 			<div class="section">
 				<h3>Server Information</h3>
@@ -43,6 +43,6 @@
 			</div>
 		</div>
 	</body>
-	<?php include 'footer.php'?>
-	<?php include 'gtag.php'?>
+	<?php include '_footer.php'?>
+	<?php include '_gtag.php'?>
 </html>

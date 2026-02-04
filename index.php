@@ -1,4 +1,4 @@
-<?php include 'domainredirect.php'?>
+<?php include '_domainredirect.php'?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -12,7 +12,7 @@
 		<meta property="og:image" content="https://i.postimg.cc/dtt48zrp/game-controller-orange.png" />
 		<meta property="og:type" content="website" />
 		<link rel="canonical" href="https://mbgplayground.xyz" />
-		<link rel="icon" href="icon.png" type="image/png">
+		<link rel="icon" href="_icon.png" type="image/png">
 		<style>
 			body {
 				margin: 0;
@@ -110,6 +110,6 @@
 			</a>
 		</div>
 	</body>
-	<?php include 'footer.php'?>
-	<?php include 'gtag.php'?>
+	<?php include '_footer.php'?>
+	<?php include '_gtag.php'?>
 </html>

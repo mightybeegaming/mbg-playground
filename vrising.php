@@ -1,4 +1,4 @@
-<?php include 'domainredirect.php'?>
+<?php include '_domainredirect.php'?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -19,7 +19,7 @@
 		<div class="container">
 			<div class="section">
 				<h3>MBG V Rising</h3>
-				<?php include 'join.php'?>
+				<?php include '_join.php'?>
 			</div>
 			<div class="section">
 				<h3>Server Information</h3>
@@ -43,6 +43,6 @@
 			</div>
 		</div>
 	</body>
-	<?php include 'footer.php'?>
-	<?php include 'gtag.php'?>
+	<?php include '_footer.php'?>
+	<?php include '_gtag.php'?>
 </html>

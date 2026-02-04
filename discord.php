@@ -1,4 +1,4 @@
-<?php include 'domainredirect.php'?>
+<?php include '_domainredirect.php'?>
 <!DOCTYPE html>
 <html lang="en">
   <title>MBG Discord</title>
@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="data_discord/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="data_discord/script.js"></script>
-	<link rel="icon" type="image/x-icon" href="icon.png">
+	<link rel="icon" type="image/x-icon" href="_icon.png">
   </head>
 
   <body>
@@ -54,5 +54,5 @@
       </div>
     </main>
   </body>
-  <?php include 'gtag.php'?>
+  <?php include '_gtag.php'?>
 </html>
