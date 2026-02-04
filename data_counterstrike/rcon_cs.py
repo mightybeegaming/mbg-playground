@@ -2,10 +2,14 @@ import socket
 import sys
 import time
 import re
+import configparser
 
-SERVER_IP = "127.0.0.1"
-SERVER_PORT = 3382
-RCON_PASSWORD = "kR6xqYFF3WlK"
+CS_CONFIG = configparser.ConfigParser()
+CS_CONFIG.read(r"C:\Other Programs\_tools\rcon\_config-counterstrike.ini")
+
+SERVER_IP = CS_CONFIG.get("RCON", "IPAddress")
+SERVER_PORT = CS_CONFIG.getint("RCON", "Port")
+RCON_PASSWORD = CS_CONFIG.get("RCON", "Password")
 
 def get_challenge(sock):
     packet = b"\xFF\xFF\xFF\xFFchallenge rcon\n"
@@ -29,7 +33,7 @@ def send_rcon(command):
 
     challenge = get_challenge(sock)
     if not challenge:
-        print("❌ Failed to get RCON challenge")
+        print("Failed to get RCON challenge")
         return
 
     packet = (
