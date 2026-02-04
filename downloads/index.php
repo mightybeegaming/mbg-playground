@@ -57,7 +57,7 @@ function formatSize($bytes) {
 					<thead>
 						<tr>
 							<th class="align-left"><span class="sort-label" onclick="sortTable(0)">Name</span> <span id="sort-indicator-0"></span></th>
-							<th class="align-right"><span class="sort-label" onclick="sortTable(1)">Size</span> <span id="sort-indicator-1"></span></th>
+							<th class="align-right"><span id="sort-indicator-1"></span> <span class="sort-label" onclick="sortTable(1)">Size</span></th>
 							<th class="align-right"></th>
 						</tr>
 					</thead>
