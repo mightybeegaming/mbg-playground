@@ -12,8 +12,8 @@
 		<meta property="og:image" content="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1604030/header.jpg" />
 		<meta property="og:type" content="website" />
 		<link rel="canonical" href="https://mbgplayground.xyz/vrising" />
-		<link rel="icon" href="icon.png" type="image/png">
-		<link rel="stylesheet" href="common.css">
+		<link rel="icon" href="_icon.png" type="image/png">
+		<link rel="stylesheet" href="_common.css">
 	</head>
 	<body>
 		<div class="container">
