@@ -43,17 +43,9 @@ function formatSize($bytes) {
 			.align-left {
 				text-align: left;
 			}
-
-			.file-table th {
-				color: #ff9a67;
-				border-bottom: 1px solid #333;
-				padding: 0px;
+			.sort-label {
 				cursor: pointer;
 				user-select: none;
-			}
-
-			.file-table th:hover {
-				color: #ffa87f;
 			}
 		</style>
 	</head>
@@ -64,8 +56,8 @@ function formatSize($bytes) {
 				<table class="file-table" id="fileTable">
 					<thead>
 						<tr>
-							<th class="align-left" onclick="sortTable(0)">Name <span id="sort-indicator-0"></span></th>
-							<th class="align-right" onclick="sortTable(1)">Size <span id="sort-indicator-1"></span></th>
+							<th class="align-left"><span class="sort-label" onclick="sortTable(0)">Name</span> <span id="sort-indicator-0"></span></th>
+							<th class="align-right"><span class="sort-label" onclick="sortTable(1)">Size</span> <span id="sort-indicator-1"></span></th>
 							<th class="align-right"></th>
 						</tr>
 					</thead>
