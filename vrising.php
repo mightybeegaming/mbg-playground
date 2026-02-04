@@ -42,7 +42,7 @@
 				</div>
 			</div>
 		</div>
+		<?php include '_footer.php'?>
+		<?php include '_gtag.php'?>
 	</body>
-	<?php include '_footer.php'?>
-	<?php include '_gtag.php'?>
 </html>
