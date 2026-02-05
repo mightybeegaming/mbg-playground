@@ -1,5 +1,5 @@
 <?php
-include '../domainredirect.php';
+include '../_domainredirect.php';
 
 $files = scandir(__DIR__);
 
@@ -16,8 +16,8 @@ function formatSize($bytes) {
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>MBG Downloads</title>
-		<link rel="icon" href="../icon.png" type="image/png">
-		<link rel="stylesheet" href="../common.css">
+		<link rel="icon" href="../_icon.png" type="image/png">
+		<link rel="stylesheet" href="../_common.css">
 		<style>
 			.file-table {
 				width: 100%;
@@ -81,8 +81,8 @@ function formatSize($bytes) {
 			</div>
 		</div>
 	</body>
-	<?php include '../footer.php'?>
-	<?php include '../gtag.php'?>
+	<?php include '../_footer.php'?>
+	<?php include '../_gtag.php'?>
 	<script>
 		let sortDir = {};
 
