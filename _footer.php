@@ -1,1 +1,1 @@
-<footer>© 2026 MBG Playground. All rights reserved.</footer>
+<footer>© <?=date('Y')?> MBG Playground. All rights reserved.</footer>
