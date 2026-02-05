@@ -1,6 +1,5 @@
 <?php
-
-$file = 'data_counterstrike/online_players.txt';
+$file = '_counterstrike/online_players.txt';
 
 $bots = 0;
 $steamUsers = 0;

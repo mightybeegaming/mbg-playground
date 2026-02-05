@@ -10,8 +10,8 @@
 		<meta property="og:image" content="data_discord/discordbanner.jpg" />
 		<meta property="og:type" content="website" />
 		<link rel="canonical" href="https://mbgplayground.xyz/discord" />
-        <link rel="icon" type="image/x-icon" href="_icon.png">
-        <link rel="stylesheet" type="text/css" href="data_discord/style.css" />
+        <link rel="icon" type="image/x-icon" href="_common/icon.png">
+        <link rel="stylesheet" type="text/css" href="_discord/style.css" />
     </head>
     <body>
         <main class="main">
@@ -33,7 +33,7 @@
             <div class="overlay">
                 <div id="inviteContainer">
                     <div class="logoContainer">
-                        <img class="logo" src="data_discord/logo.png" />
+                        <img class="logo" src="_discord/logo.png" />
                         <h1 class="text">MBG<br />Playground</h1>
                     </div>
                     <div class="acceptContainer">
@@ -52,8 +52,8 @@
                 </div>
             </div>
         </main>
-        <?php include '_gtag.php'?>
+        <?php include '_common/gtag.php'?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="data_discord/script.js"></script>
+        <script src="_discord/script.js"></script>
     </body>
 </html>

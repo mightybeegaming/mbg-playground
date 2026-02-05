@@ -1,7 +1,6 @@
 <?php
-
 $file = 'online_players.txt';
-$content = file_get_contents('data_hytale/online_players.txt');
+$content = file_get_contents('_hytale/online_players.txt');
 
 preg_match('/default\s*\((\d+)\)/', $content, $matches);
 

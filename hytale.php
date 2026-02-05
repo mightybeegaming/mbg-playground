@@ -11,14 +11,14 @@
 		<meta property="og:image" content="data_hytale/hytalebanner.jpg" />
 		<meta property="og:type" content="website" />
 		<link rel="canonical" href="https://mbgplayground.xyz/hytale" />
-		<link rel="icon" href="_icon.png" type="image/png">
-		<link rel="stylesheet" href="_common.css">
+		<link rel="icon" href="_common/icon.png" type="image/png">
+		<link rel="stylesheet" href="_common/style.css">
 	</head>
 	<body>
 		<div class="container">
 			<div class="section">
 				<h3>MBG Hytale</h3>
-				<?php include '_join.php'?>
+				<?php include '_common/join.php'?>
 			</div>
 			<div class="section">
 				<h3>Server Information</h3>
@@ -36,12 +36,12 @@
 					</div>
 					<div class="info-box">
 						<strong>Online Players</strong><br />
-						<span class="highlight"><?php include 'data_hytale/online_players.php'?> / 100</span>
+						<span class="highlight"><?php include '_hytale/online_players.php'?> / 100</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<?php include '_footer.php'?>
-		<?php include '_gtag.php'?>
+		<?php include '_common/footer.php'?>
+		<?php include '_common/gtag.php'?>
 	</body>
 </html>

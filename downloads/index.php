@@ -1,12 +1,12 @@
 <?php
-$files = scandir(__DIR__);
-
-function formatSize($bytes) {
-    if ($bytes >= 1073741824) return number_format($bytes / 1073741824, 2) . ' GB';
-    if ($bytes >= 1048576)  return number_format($bytes / 1048576, 2) . ' MB';
-    if ($bytes >= 1024)     return number_format($bytes / 1024, 2) . ' KB';
+function formatSize($bytes){
+    if($bytes >= 1073741824) return number_format($bytes / 1073741824, 2) . ' GB';
+    if($bytes >= 1048576) return number_format($bytes / 1048576, 2) . ' MB';
+    if($bytes >= 1024) return number_format($bytes / 1024, 2) . ' KB';
     return $bytes . ' B';
 }
+
+$files = scandir(__DIR__);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +14,8 @@ function formatSize($bytes) {
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>MBG Downloads</title>
-		<link rel="icon" href="../_icon.png" type="image/png">
-		<link rel="stylesheet" href="../_common.css">
+		<link rel="icon" href="../_common/icon.png" type="image/png">
+		<link rel="stylesheet" href="../_common/style.css">
 		<style>
 			.file-table {
 				width: 100%;
@@ -79,12 +79,12 @@ function formatSize($bytes) {
 			</div>
 		</div>
 	</body>
-	<?php include '../_footer.php'?>
-	<?php include '../_gtag.php'?>
+	<?php include '../_common/footer.php'?>
+	<?php include '../_common/gtag.php'?>
 	<script>
 		let sortDir = {};
 
-		function parseSize(size) {
+		function parseSize(size){
 			const unit = size.slice(-2).toUpperCase();
 			const value = parseFloat(size);
 			if (unit === 'KB') return value * 1024;
@@ -93,7 +93,7 @@ function formatSize($bytes) {
 			return value;
 		}
 
-		function sortTable(col) {
+		function sortTable(col){
 			const table = document.getElementById("fileTable");
 			const tbody = table.tBodies[0];
 			const rows = Array.from(tbody.rows);
@@ -104,7 +104,7 @@ function formatSize($bytes) {
 				let x = a.cells[col].innerText.trim();
 				let y = b.cells[col].innerText.trim();
 
-				if (col === 1) {
+				if(col === 1){
 					x = parseSize(x);
 					y = parseSize(y);
 					return sortDir[col] ? x - y : y - x;
@@ -117,10 +117,10 @@ function formatSize($bytes) {
 
 			tbody.append(...rows);
 
-			for (let i = 0; i < 2; i++) {
+			for(let i = 0; i < 2; i++) {
 				const ind = document.getElementById(`sort-indicator-${i}`);
-				if (!ind) continue;
-				if (i === col) ind.innerText = sortDir[col] ? '▲' : '▼';
+				if(!ind) continue;
+				if(i === col) ind.innerText = sortDir[col] ? '▲' : '▼';
 				else ind.innerText = '';
 			}
 		}

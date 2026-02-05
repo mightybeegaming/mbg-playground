@@ -11,7 +11,7 @@
 		<meta property="og:image" content="https://i.postimg.cc/dtt48zrp/game-controller-orange.png" />
 		<meta property="og:type" content="website" />
 		<link rel="canonical" href="https://mbgplayground.xyz" />
-		<link rel="icon" href="_icon.png" type="image/png">
+		<link rel="icon" href="_common/icon.png" type="image/png">
 		<style>
 			body {
 				margin: 0;
@@ -86,7 +86,7 @@
 			</a>
 			<!-- Hytale -->
 			<a class="card" href="hytale">
-				<img src="data_hytale/hytalebanner.jpg" alt="Hytale">
+				<img src="_hytale/hytalebanner.jpg" alt="Hytale">
 				<div class="card-title">Hytale</div>
 			</a>
 			<!-- Project Zomboid -->
@@ -104,11 +104,11 @@
 		<div class="container">
 			<!-- Discord -->
 			<a class="card" href="discord">
-				<img src="data_discord/discordbanner.jpg" alt="Discord">
+				<img src="_discord/discordbanner.jpg" alt="Discord">
 				<div class="card-title">Discord</div>
 			</a>
 		</div>
-		<?php include '_footer.php'?>
-		<?php include '_gtag.php'?>
+		<?php include '_common/footer.php'?>
+		<?php include '_common/gtag.php'?>
 	</body>
 </html>
