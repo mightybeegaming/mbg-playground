@@ -1,4 +1,3 @@
-<?php include '_domainredirect.php'?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>

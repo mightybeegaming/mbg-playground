@@ -1,6 +1,4 @@
 <?php
-include '../_domainredirect.php';
-
 $files = scandir(__DIR__);
 
 function formatSize($bytes) {
