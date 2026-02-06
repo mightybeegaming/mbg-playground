@@ -5,8 +5,6 @@ function formatSize($bytes){
     if($bytes >= 1024) return number_format($bytes / 1024, 2) . ' KB';
     return $bytes . ' B';
 }
-
-$files = scandir(__DIR__);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,9 +67,9 @@ $files = scandir(__DIR__);
 						</tr>
 					</thead>
 					<tbody>
-					<?php foreach ($files as $file): ?>
+					<?php foreach(scandir(__DIR__) as $file):?>
 						<?php
-						if ($file === 'index.php' || !is_file($file)) continue;
+						if($file === 'index.php' || !is_file($file)) continue;
 						?>
 						<tr>
 							<td><?= htmlspecialchars($file) ?></td>
@@ -80,7 +78,7 @@ $files = scandir(__DIR__);
 								<span class="highlight"><a href="<?= urlencode($file) ?>" download>Download</a></span>
 							</td>
 						</tr>
-					<?php endforeach; ?>
+					<?php endforeach;?>
 					</tbody>
 				</table>
 			</div>
@@ -94,9 +92,9 @@ $files = scandir(__DIR__);
 		function parseSize(size){
 			const unit = size.slice(-2).toUpperCase();
 			const value = parseFloat(size);
-			if (unit === 'KB') return value * 1024;
-			if (unit === 'MB') return value * 1024 * 1024;
-			if (unit === 'GB') return value * 1024 * 1024 * 1024;
+			if(unit === 'KB') return value * 1024;
+			if(unit === 'MB') return value * 1024 * 1024;
+			if(unit === 'GB') return value * 1024 * 1024 * 1024;
 			return value;
 		}
 
@@ -118,8 +116,8 @@ $files = scandir(__DIR__);
 				}
 
 				return sortDir[col]
-					? x.localeCompare(y, undefined, { numeric: true, sensitivity: 'base' })
-					: y.localeCompare(x, undefined, { numeric: true, sensitivity: 'base' });
+					? x.localeCompare(y, undefined, {numeric: true, sensitivity: 'base'})
+					: y.localeCompare(x, undefined, {numeric: true, sensitivity: 'base'});
 			});
 
 			tbody.append(...rows);
