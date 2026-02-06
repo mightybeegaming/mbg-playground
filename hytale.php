@@ -8,7 +8,7 @@
 		<meta property="og:title" content="MBG Hytale">
 		<meta property="og:description" content="This is a simple Hytale server to test and explore the early access build.">
 		<meta property="og:url" content="https://mbgplayground.xyz/hytale">
-		<meta property="og:image" content="data_hytale/hytalebanner.jpg">
+		<meta property="og:image" content="/_hytale/hytalebanner.jpg">
 		<meta property="og:type" content="website">
 		<link rel="canonical" href="https://mbgplayground.xyz/hytale">
 		<link rel="icon" href="_common/icon.png" type="image/png">
