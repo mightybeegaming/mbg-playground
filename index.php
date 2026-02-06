@@ -72,6 +72,12 @@
 			.section h3, h2, h1 {
 				color: #ff9a67;
 			}
+			a:link, a:visited, a:active {
+				text-decoration: none;
+			}
+			footer a:hover {
+				text-decoration: underline;
+			}
 		</style>
 	</head>
 	<body>

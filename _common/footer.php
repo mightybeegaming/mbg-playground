@@ -1,1 +1,1 @@
-<footer>© <?=date('Y')?> MBG Playground. All rights reserved.</footer>
+<footer>© <?=date('Y')?> <a style="color:#ff9a67" href="/">MBG Playground</a>. All rights reserved.</footer>
