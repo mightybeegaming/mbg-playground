@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="This is a simple Hytale server to test and explore the early access build." />
-		<meta property="og:title" content="MBG Hytale Server" />
+		<meta property="og:title" content="MBG Hytale" />
 		<meta property="og:description" content="This is a simple Hytale server to test and explore the early access build." />
 		<meta property="og:url" content="https://mbgplayground.xyz/hytale" />
 		<meta property="og:image" content="data_hytale/hytalebanner.jpg" />
@@ -23,7 +23,7 @@
 			<div class="section">
 				<h3>Server Information</h3>
 				<ul>
-					<li>This is a simple server to test and explore the early access build.</li>
+					<li>This is a simple Hytale server to test and explore the early access build.</li>
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">

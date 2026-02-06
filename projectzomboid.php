@@ -4,9 +4,9 @@
 		<title>MBG Project Zomboid</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="This is a beginner-friendly server that uses only lightweight quality-of-life and immersion mods." />
-		<meta property="og:title" content="MBG Project Zomboid Server" />
-		<meta property="og:description" content="This is a beginner-friendly server that uses only lightweight quality-of-life and immersion mods." />
+		<meta name="description" content="This is a beginner-friendly Project Zomboid server with quality-of-life and immersion mods." />
+		<meta property="og:title" content="MBG Project Zomboid" />
+		<meta property="og:description" content="This is a beginner-friendly Project Zomboid server with quality-of-life and immersion mods." />
 		<meta property="og:url" content="https://mbgplayground.xyz/projectzomboid" />
 		<meta property="og:image" content="data_discord/discordbanner.jpg" />
 		<meta property="og:type" content="website" />
@@ -23,7 +23,7 @@
 			<div class="section">
 				<h3>Server Information</h3>
 				<ul>
-					<li>This is an early take for the B42 Unstable version with quality-of-life and immersion mods.</li>
+					<li>This is a beginner-friendly Project Zomboid server with quality-of-life and immersion mods.</li>
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">

@@ -11,9 +11,16 @@ $files = scandir(__DIR__);
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<title>MBG Downloads</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>MBG Downloads</title>
+		<meta name="description" content="This is the official consolidated downloads page for MBG Playground." />
+		<meta property="og:title" content="MBG Downloads" />
+		<meta property="og:description" content="This is the official consolidated downloads page for MBG Playground." />
+		<meta property="og:url" content="https://mbgplayground.xyz/downloads" />
+		<meta property="og:image" content="https://i.postimg.cc/dtt48zrp/game-controller-orange.png" />
+		<meta property="og:type" content="website" />
+		<link rel="canonical" href="https://mbgplayground.xyz/downloads" />
 		<link rel="icon" href="../_common/icon.png" type="image/png">
 		<link rel="stylesheet" href="../_common/style.css">
 		<style>

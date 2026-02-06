@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="This is a simple Counter-Strike server with PodBot addon." />
-		<meta property="og:title" content="MBG Counter-Strike Server" />
+		<meta property="og:title" content="MBG Counter-Strike" />
 		<meta property="og:description" content="This is a simple Counter-Strike server with PodBot addon." />
 		<meta property="og:url" content="https://mbgplayground.xyz/counterstrike" />
 		<meta property="og:image" content="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/10/header.jpg" />
@@ -23,7 +23,7 @@
 			<div class="section">
 				<h3>Server Information</h3>
 				<ul>
-					<li>This is a simple server with PodBot addon.</li>
+					<li>This is a simple Counter-Strike server with PodBot addon.</li>
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">
