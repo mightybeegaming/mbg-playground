@@ -12,6 +12,26 @@
 		<link rel="canonical" href="https://mbgplayground.xyz/discord">
         <link rel="icon" type="image/x-icon" href="_common/icon.png">
         <link rel="stylesheet" type="text/css" href="_discord/style.css">
+        <style>
+            footer {
+				margin-top: 20px;
+				text-align: center;
+				padding: 15px;
+				font-size: 0.9em;
+				color: #888;
+			}
+            a:link, a:visited, a:active {
+				text-decoration: none;
+			}
+			footer a:hover {
+				text-decoration: underline;
+			}
+            div.footer {
+                background-color: #202225;
+                border-radius: 20px;
+                box-shadow: inset 0 0 0 3000px rgba(40, 43, 48, 1);
+            }
+        </style>
     </head>
     <body>
         <main class="main">
@@ -50,6 +70,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="footer"><?php include '_common/footer.php'?></div>
             </div>
         </main>
         <?php include '_common/gtag.php'?>

@@ -13,9 +13,10 @@
 		<link rel="canonical" href="https://mbgplayground.xyz">
 		<link rel="icon" href="_common/icon.png" type="image/png">
 		<style>
+			@import url("https://fonts.googleapis.com/css?family=Montserrat:600,400");
 			body {
 				margin: 0;
-				font-family: Arial, sans-serif;
+				font-family: "Montserrat" !important;
 				background: #2a2a2a;
 				color: white;
 				text-align: center;
