@@ -4,13 +4,13 @@
 		<title>MBG Playground</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="MBG Playground is a collection of media and game servers to enjoy with friends." />
-		<meta property="og:title" content="MBG Playground" />
-		<meta property="og:description" content="MBG Playground is a collection of media and game servers to enjoy with friends." />
-		<meta property="og:url" content="https://mbgplayground.xyz/" />
-		<meta property="og:image" content="https://i.postimg.cc/dtt48zrp/game-controller-orange.png" />
-		<meta property="og:type" content="website" />
-		<link rel="canonical" href="https://mbgplayground.xyz" />
+		<meta name="description" content="MBG Playground is a collection of media and game servers to enjoy with friends.">
+		<meta property="og:title" content="MBG Playground">
+		<meta property="og:description" content="MBG Playground is a collection of media and game servers to enjoy with friends.">
+		<meta property="og:url" content="https://mbgplayground.xyz/">
+		<meta property="og:image" content="https://i.postimg.cc/dtt48zrp/game-controller-orange.png">
+		<meta property="og:type" content="website">
+		<link rel="canonical" href="https://mbgplayground.xyz">
 		<link rel="icon" href="_common/icon.png" type="image/png">
 		<style>
 			body {
@@ -106,7 +106,7 @@
 				<div class="card-title">V Rising</div>
 			</a>
 		</div>
-		<br /><br />
+		<br><br>
 		<div class="container">
 			<!-- Discord -->
 			<a class="card" href="discord">

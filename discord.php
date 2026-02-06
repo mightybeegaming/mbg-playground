@@ -2,16 +2,16 @@
 <html lang="en">
     <head>
         <title>MBG Discord</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="MBG Playground official Discord invitation." />
-        <meta property="og:title" content="MBG Discord" />
-		<meta property="og:description" content="MBG Playground official Discord invitation." />
-		<meta property="og:url" content="https://mbgplayground.xyz/discord" />
-		<meta property="og:image" content="data_discord/discordbanner.jpg" />
-		<meta property="og:type" content="website" />
-		<link rel="canonical" href="https://mbgplayground.xyz/discord" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="MBG Playground official Discord invitation.">
+        <meta property="og:title" content="MBG Discord">
+		<meta property="og:description" content="MBG Playground official Discord invitation.">
+		<meta property="og:url" content="https://mbgplayground.xyz/discord">
+		<meta property="og:image" content="data_discord/discordbanner.jpg">
+		<meta property="og:type" content="website">
+		<link rel="canonical" href="https://mbgplayground.xyz/discord">
         <link rel="icon" type="image/x-icon" href="_common/icon.png">
-        <link rel="stylesheet" type="text/css" href="_discord/style.css" />
+        <link rel="stylesheet" type="text/css" href="_discord/style.css">
     </head>
     <body>
         <main class="main">
@@ -33,15 +33,15 @@
             <div class="overlay">
                 <div id="inviteContainer">
                     <div class="logoContainer">
-                        <img class="logo" src="_discord/logo.png" />
-                        <h1 class="text">MBG<br />Playground</h1>
+                        <img class="logo" src="_discord/logo.png">
+                        <h1 class="text">MBG<br>Playground</h1>
                     </div>
                     <div class="acceptContainer">
                         <div class="divForm">
                             <h1>YOU'VE BEEN INVITED TO JOIN</h1>
                             <div class="serverInfo">
                                 <h2>
-                                <span class="server">MBG Playground</span><br />
+                                <span class="server">MBG Playground</span><br>
                                 <span class="by">by </span>
                                 <span class="name">MBG</span>
                                 </h2>
