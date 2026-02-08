@@ -71,6 +71,7 @@
 				width: 368px;
 			}
 			.section h3, h2, h1 {
+				font-size: 1.5em;
 				color: #ff9a67;
 			}
 			a:link, a:visited, a:active {
@@ -83,7 +84,7 @@
 	</head>
 	<body>
 		<div class="section">
-			<h2>MBG Playground</h2>
+			<h1>MBG Playground</h1>
 		</div>
 		<div class="container">
 			<!-- Counter-Strike -->

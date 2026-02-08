@@ -17,22 +17,22 @@
 	<body>
 		<div class="container">
 			<div class="section">
-				<h3>MBG Hytale</h3>
+				<h1>MBG Hytale</h1>
 				<?php include '_common/join.php'?>
 			</div>
 			<div class="section">
-				<h3>Server Information</h3>
+				<h1>Server Information</h1>
 				<ul>
 					<li>This is a simple Hytale server to test and explore the early access build.</li>
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">
 						<strong>Status</strong><br>
-						<img src="https://uptime.mbgplayground.xyz/api/badge/73/status?style=for-the-badge">
+						<img src="https://uptime.mbgplayground.xyz/api/badge/73/status?style=for-the-badge" alt="Status">
 					</div>
 					<div class="info-box">
 						<strong>Uptime</strong><br>
-						<img src="https://uptime.mbgplayground.xyz/api/badge/73/uptime?style=for-the-badge">
+						<img src="https://uptime.mbgplayground.xyz/api/badge/73/uptime?style=for-the-badge" alt="Uptime">
 					</div>
 					<div class="info-box">
 						<strong>Online Players</strong><br>

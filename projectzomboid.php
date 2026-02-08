@@ -17,22 +17,22 @@
 	<body>
 		<div class="container">
 			<div class="section">
-				<h3>MBG Project Zomboid</h3>
+				<h1>MBG Project Zomboid</h1>
 				<?php include '_common/join.php'?>
 			</div>
 			<div class="section">
-				<h3>Server Information</h3>
+				<h1>Server Information</h1>
 				<ul>
 					<li>This is a beginner-friendly Project Zomboid server with quality-of-life and immersion mods.</li>
 				</ul>
 				<div class="info-grid">
 					<div class="info-box">
 						<strong>Status</strong><br>
-						<img src="https://uptime.mbgplayground.xyz/api/badge/75/status?style=for-the-badge">
+						<img src="https://uptime.mbgplayground.xyz/api/badge/75/status?style=for-the-badge" alt="Status">
 					</div>
 					<div class="info-box">
 						<strong>Uptime</strong><br>
-						<img src="https://uptime.mbgplayground.xyz/api/badge/75/uptime?style=for-the-badge">
+						<img src="https://uptime.mbgplayground.xyz/api/badge/75/uptime?style=for-the-badge" alt="Uptime">
 					</div>
 					<div class="info-box">
 						<strong>Online Players</strong><br>

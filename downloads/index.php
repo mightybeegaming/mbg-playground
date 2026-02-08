@@ -57,7 +57,7 @@ function formatSize($bytes){
 	<body>
 		<div class="container">
 			<div class="section">
-				<h3>MBG Downloads</h3>
+				<h1>MBG Downloads</h1>
 				<table class="file-table" id="fileTable">
 					<thead>
 						<tr>

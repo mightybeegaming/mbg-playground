@@ -53,7 +53,7 @@
             <div class="overlay">
                 <div id="inviteContainer">
                     <div class="logoContainer">
-                        <img class="logo" src="_discord/logo.png">
+                        <img class="logo" src="_discord/logo.png" alt="Discord logo">
                         <h1 class="text">MBG<br>Playground</h1>
                     </div>
                     <div class="acceptContainer">
