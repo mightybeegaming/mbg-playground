@@ -1,3 +1,4 @@
+<?php define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT'])?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -14,7 +15,7 @@
 				<p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
 			</div>
 		</div>
-		<?php include '_common/footer.php'?>
-		<?php include '_common/gtag.php'?>
+		<?php include ROOT_DIR. '/_common/footer.php'?>
+		<?php include ROOT_DIR. '/_common/gtag.php'?>
 	</body>
 </html>

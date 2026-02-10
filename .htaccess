@@ -10,6 +10,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
 # Custom error pages
-ErrorDocument 404 /404
-ErrorDocument 403 /403
-ErrorDocument 500 /500
+ErrorDocument 404 /_common/404
+ErrorDocument 403 /_common/403
+ErrorDocument 500 /_common/500
