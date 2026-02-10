@@ -1,3 +1,4 @@
+<?php define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT'])?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -11,14 +12,14 @@
 		<meta property="og:image" content="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1604030/header.jpg">
 		<meta property="og:type" content="website">
 		<link rel="canonical" href="https://mbgplayground.xyz/vrising">
-		<link rel="icon" href="_common/icon.png" type="image/png">
-		<link rel="stylesheet" href="_common/style.css">
+		<link rel="icon" href="/_common/icon.png" type="image/png">
+		<link rel="stylesheet" href="/_common/style.css">
 	</head>
 	<body>
 		<div class="container">
 			<div class="section">
 				<h1>MBG V Rising</h1>
-				<?php include '_common/join.php'?>
+				<?php include ROOT_DIR . '/_common/join.php'?>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
@@ -36,12 +37,12 @@
 					</div>
 					<div class="info-box">
 						<strong>Online Players</strong><br>
-						<span class="highlight"><?php include '_vrising/online_players.php'?> / 60</span>
+						<span class="highlight"><?php include ROOT_DIR . '/_vrising/online_players.php'?> / 60</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<?php include '_common/footer.php'?>
-		<?php include '_common/gtag.php'?>
+		<?php include ROOT_DIR . '/_common/footer.php'?>
+		<?php include ROOT_DIR . '/_common/gtag.php'?>
 	</body>
 </html>

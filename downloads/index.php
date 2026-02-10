@@ -1,4 +1,6 @@
 <?php
+define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT']);
+
 function formatSize($bytes){
     if($bytes >= 1073741824) return number_format($bytes / 1073741824, 2) . ' GB';
     if($bytes >= 1048576) return number_format($bytes / 1048576, 2) . ' MB';
@@ -16,11 +18,11 @@ function formatSize($bytes){
 		<meta property="og:title" content="MBG Downloads">
 		<meta property="og:description" content="This is the official consolidated downloads page for MBG Playground.">
 		<meta property="og:url" content="https://mbgplayground.xyz/downloads">
-		<meta property="og:image" content="../_common/icon.png">
+		<meta property="og:image" content="/_common/icon.png">
 		<meta property="og:type" content="website">
 		<link rel="canonical" href="https://mbgplayground.xyz/downloads">
-		<link rel="icon" href="../_common/icon.png" type="image/png">
-		<link rel="stylesheet" href="../_common/style.css">
+		<link rel="icon" href="/_common/icon.png" type="image/png">
+		<link rel="stylesheet" href="/_common/style.css">
 		<style>
 			.file-table {
 				width: 100%;
@@ -82,8 +84,8 @@ function formatSize($bytes){
 			</div>
 		</div>
 	</body>
-	<?php include '../_common/footer.php'?>
-	<?php include '../_common/gtag.php'?>
+	<?php include ROOT_DIR . '/_common/footer.php'?>
+	<?php include ROOT_DIR . '/_common/gtag.php'?>
 	<script>
 		let sortDir = {};
 

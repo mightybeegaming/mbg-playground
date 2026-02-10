@@ -1,3 +1,4 @@
+<?php define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT'])?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,8 +11,8 @@
 		<meta property="og:image" content="/_discord/discordbanner.jpg">
 		<meta property="og:type" content="website">
 		<link rel="canonical" href="https://mbgplayground.xyz/discord">
-        <link rel="icon" type="image/x-icon" href="_common/icon.png">
-        <link rel="stylesheet" type="text/css" href="_discord/style.css">
+        <link rel="icon" type="image/x-icon" href="/_common/icon.png">
+        <link rel="stylesheet" type="text/css" href="/_discord/style.css">
         <style>
             footer {
 				margin-top: 20px;
@@ -53,7 +54,7 @@
             <div class="overlay">
                 <div id="inviteContainer">
                     <div class="logoContainer">
-                        <img class="logo" src="_discord/logo.png" alt="Discord logo">
+                        <img class="logo" src="/_discord/logo.png" alt="Discord logo">
                         <h1 class="text">MBG<br>Playground</h1>
                     </div>
                     <div class="acceptContainer">
@@ -70,10 +71,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer"><?php include '_common/footer.php'?></div>
+                <div class="footer"><?php include ROOT_DIR . '/_common/footer.php'?></div>
             </div>
         </main>
-        <?php include '_common/gtag.php'?>
+        <?php include ROOT_DIR . '/_common/gtag.php'?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="_discord/script.js"></script>
     </body>
