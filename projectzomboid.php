@@ -9,7 +9,7 @@
 		<meta property="og:title" content="MBG Project Zomboid">
 		<meta property="og:description" content="This is a beginner-friendly Project Zomboid server with quality-of-life and immersion mods.">
 		<meta property="og:url" content="https://mbgplayground.xyz/projectzomboid">
-		<meta property="og:image" content="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/108600/header.jpg">
+		<meta property="og:image" content="/_projectzomboid/projectzomboidbanner.jpg">
 		<meta property="og:type" content="website">
 		<link rel="canonical" href="https://mbgplayground.xyz/projectzomboid">
 		<link rel="icon" href="/_common/icon.png" type="image/png">

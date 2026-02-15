@@ -1,3 +1,4 @@
+<?php define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT'])?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -89,22 +90,22 @@
 		<div class="container">
 			<!-- Counter-Strike -->
 			<a class="card" href="counterstrike">
-				<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/10/header.jpg" alt="Counter-Strike">
+				<img src="/_counterstrike/counterstrikebanner.jpg" alt="Counter-Strike">
 				<div class="card-title">Counter-Strike</div>
 			</a>
 			<!-- Hytale -->
 			<a class="card" href="hytale">
-				<img src="_hytale/hytalebanner.jpg" alt="Hytale">
+				<img src="/_hytale/hytalebanner.jpg" alt="Hytale">
 				<div class="card-title">Hytale</div>
 			</a>
 			<!-- Project Zomboid -->
 			<a class="card" href="projectzomboid">
-				<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/108600/header.jpg" alt="Project Zomboid">
+				<img src="/_projectzomboid/projectzomboidbanner.jpg" alt="Project Zomboid">
 				<div class="card-title">Project Zomboid</div>
 			</a>
 			<!-- V Rising -->
 			<a class="card" href="vrising">
-				<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1604030/header.jpg" alt="V Rising">
+				<img src="/_vrising/vrisingbanner.jpg" alt="V Rising">
 				<div class="card-title">V Rising</div>
 			</a>
 		</div>
@@ -112,11 +113,11 @@
 		<div class="container">
 			<!-- Discord -->
 			<a class="card" href="discord">
-				<img src="_discord/discordbanner.jpg" alt="Discord">
+				<img src="/_discord/discordbanner.jpg" alt="Discord">
 				<div class="card-title">Discord</div>
 			</a>
 		</div>
-		<?php include '_common/footer.php'?>
-		<?php include '_common/gtag.php'?>
+		<?php include ROOT_DIR . '/_common/footer.php'?>
+		<?php include ROOT_DIR . '/_common/gtag.php'?>
 	</body>
 </html>

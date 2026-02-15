@@ -9,7 +9,7 @@
 		<meta property="og:title" content="MBG V Rising">
 		<meta property="og:description" content="This is a V Rising server (PvE) running on Brutal difficulty with some quality-of-life adjustments.">
 		<meta property="og:url" content="https://mbgplayground.xyz/vrising">
-		<meta property="og:image" content="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1604030/header.jpg">
+		<meta property="og:image" content="/_vrising/vrisingbanner.jpg">
 		<meta property="og:type" content="website">
 		<link rel="canonical" href="https://mbgplayground.xyz/vrising">
 		<link rel="icon" href="/_common/icon.png" type="image/png">

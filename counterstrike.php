@@ -9,7 +9,7 @@
 		<meta property="og:title" content="MBG Counter-Strike">
 		<meta property="og:description" content="This is a simple Counter-Strike server with PodBot addon.">
 		<meta property="og:url" content="https://mbgplayground.xyz/counterstrike">
-		<meta property="og:image" content="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/10/header.jpg">
+		<meta property="og:image" content="/_counterstrike/counterstrikebanner.jpg">
 		<meta property="og:type" content="website">
 		<link rel="canonical" href="https://mbgplayground.xyz/counterstrike">
 		<link rel="icon" href="/_common/icon.png" type="image/png">
