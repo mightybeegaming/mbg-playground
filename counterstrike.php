@@ -1,18 +1,12 @@
 <?php
-$file = PATH_ONLINECOUNTERSTRIKE;
-
-$bots = 0;
 $online_players = 0;
-// $steamIds = [];
 
-$lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$file = file(PATH_ONLINECOUNTERSTRIKE, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-foreach ($lines as $line) {
-    // Normalize spacing
+foreach($file as $line) {
     $line = trim($line);
 
-    // Skip headers and irrelevant lines
-    if (
+    if(
         $line === '' ||
         str_starts_with($line, 'Clients') ||
         str_starts_with($line, '#') ||
@@ -22,11 +16,7 @@ foreach ($lines as $line) {
         continue;
     }
 
-    // Steam ID detection
-    if (preg_match('/(STEAM_\d:\d:\d+)/', $line, $matches)) {
-        $online_players++;
-        // $steamIds[] = $matches[1];
-    }
+    if(preg_match('/(STEAM_\d:\d:\d+)/', $line, $matches)) $online_players++;
 }
 ?>
 <!DOCTYPE html>

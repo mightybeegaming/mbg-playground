@@ -1,5 +1,5 @@
 <?php
-$file = count(file(PATH_ROOT . '/_onlineplayers/vrising.txt'));
+$file = count(file(PATH_ONLINEVRISING));
 $online_players = max(0, $file - 1);
 ?>
 <!DOCTYPE html>

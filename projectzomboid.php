@@ -1,5 +1,5 @@
 <?php
-$file = count(file(PATH_ROOT . '/_onlineplayers/projectzomboid.txt'));
+$file = count(file(PATH_ONLINEPROJECTZOMBOID));
 $online_players = max(0, $file - 1);
 ?>
 <!DOCTYPE html>

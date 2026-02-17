@@ -1,6 +1,5 @@
 <?php
-$file = 'online_players.txt';
-$content = file_get_contents(PATH_ROOT . '/_onlineplayers/hytale.txt');
+$content = file_get_contents(PATH_ONLINEHYTALE);
 
 preg_match('/^[^(]*\((\d+)\)/', $content, $matches);
 
