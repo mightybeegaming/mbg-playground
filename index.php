@@ -74,6 +74,9 @@
 				font-size: 1.5em;
 				color: #ff9a67;
 			}
+			a {
+				color: #00aeae;
+			}
 			a:link, a:visited, a:active {
 				text-decoration: none;
 			}
@@ -88,22 +91,22 @@
 		</div>
 		<div class="container">
 			<!-- Counter-Strike -->
-			<a class="card" href="counterstrike">
+			<a class="card" href="/counterstrike">
 				<img src="<?=URL_COUNTERSTRIKEBANNER?>" alt="Counter-Strike">
 				<div class="card-title">Counter-Strike</div>
 			</a>
 			<!-- Hytale -->
-			<a class="card" href="hytale">
+			<a class="card" href="/hytale">
 				<img src="<?=URL_HYTALEBANNER?>" alt="Hytale">
 				<div class="card-title">Hytale</div>
 			</a>
 			<!-- Project Zomboid -->
-			<a class="card" href="projectzomboid">
+			<a class="card" href="/projectzomboid">
 				<img src="<?=URL_PROJECTZOMBOIDBANNER?>" alt="Project Zomboid">
 				<div class="card-title">Project Zomboid</div>
 			</a>
 			<!-- V Rising -->
-			<a class="card" href="vrising">
+			<a class="card" href="/vrising">
 				<img src="<?=URL_VRISINGBANNER?>" alt="V Rising">
 				<div class="card-title">V Rising</div>
 			</a>
@@ -111,12 +114,14 @@
 		<br><br>
 		<div class="container">
 			<!-- Discord -->
-			<a class="card" href="discord">
+			<a class="card" href="/discord">
 				<img src="<?=URL_DISCORDBANNER?>" alt="Discord">
 				<div class="card-title">Discord</div>
 			</a>
 		</div>
-		<?php include PATH_FOOTER?>
+		<footer>
+			<?php include PATH_LICENSING?>
+		</footer>
 		<?php include PATH_GOOGLETAG?>
 	</body>
 </html>

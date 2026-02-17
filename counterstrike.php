@@ -39,13 +39,11 @@ foreach($file as $line) {
 		<div class="container">
 			<div class="section">
 				<h1>MBG Counter-Strike</h1>
-				<?php include PATH_JOIN?>
+				<p>This is a simple Counter-Strike server with PodBot addon.</p>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
-				<ul>
-					<li>This is a simple Counter-Strike server with PodBot addon.</li>
-				</ul>
+				<?php include PATH_JOIN?>
 				<div class="info-grid">
 					<div class="info-box">
 						<strong>Status</strong><br>
@@ -62,7 +60,10 @@ foreach($file as $line) {
 				</div>
 			</div>
 		</div>
-		<?php include PATH_FOOTER?>
+		<footer>
+			<?php include PATH_PAGELINKS?>
+			<?php include PATH_LICENSING?>
+		</footer>
 		<?php include PATH_GOOGLETAG?>
 	</body>
 </html>

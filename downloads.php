@@ -83,7 +83,9 @@ function formatSize($bytes){
 			</div>
 		</div>
 	</body>
-	<?php include PATH_FOOTER?>
+	<footer>
+		<?php include PATH_LICENSING?>
+	</footer>
 	<?php include PATH_GOOGLETAG?>
 	<script>
 		let sortDir = {};

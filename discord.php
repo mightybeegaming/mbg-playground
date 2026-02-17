@@ -20,6 +20,9 @@
 				font-size: 0.9em;
 				color: #888;
 			}
+            a {
+				color: #00aeae;
+			}
             a:link, a:visited, a:active {
 				text-decoration: none;
 			}
@@ -70,7 +73,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer"><?php include PATH_FOOTER?></div>
+                <div class="footer">
+                    <footer>
+                        <?php include PATH_LICENSING?>
+                    </footer>
+                </div>
             </div>
         </main>
 		<?php include PATH_GOOGLETAG?>

@@ -22,13 +22,11 @@ $online_players = max(0, $file - 1);
 		<div class="container">
 			<div class="section">
 				<h1>MBG V Rising</h1>
-				<?php include PATH_JOIN?>
+				<p>This is a V Rising server (PvE) running on Brutal difficulty with some quality-of-life adjustments.</p>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
-				<ul>
-					<li>This is a V Rising server (PvE) running on Brutal difficulty with some quality-of-life adjustments.</li>
-				</ul>
+				<?php include PATH_JOIN?>
 				<div class="info-grid">
 					<div class="info-box">
 						<strong>Status</strong><br>
@@ -45,7 +43,10 @@ $online_players = max(0, $file - 1);
 				</div>
 			</div>
 		</div>
-		<?php include PATH_FOOTER?>
+		<footer>
+			<?php include PATH_PAGELINKS?>
+			<?php include PATH_LICENSING?>
+		</footer>
 		<?php include PATH_GOOGLETAG?>
 	</body>
 </html>

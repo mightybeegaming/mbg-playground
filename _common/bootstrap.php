@@ -2,7 +2,8 @@
 define('PATH_ROOT', $_SERVER['DOCUMENT_ROOT']);
 define('PATH_DOWNLOADS', PATH_ROOT . '/_downloads');
 define('PATH_JOIN', PATH_ROOT . '/_common/join.php');
-define('PATH_FOOTER', PATH_ROOT . '/_common/footer.php');
+define('PATH_PAGELINKS', PATH_ROOT . '/_common/pagelinks.php');
+define('PATH_LICENSING', PATH_ROOT . '/_common/licensing.php');
 define('PATH_GOOGLETAG', PATH_ROOT . '/_common/gtag.php');
 define('URL_CSS', '/_common/style.css');
 define('URL_CSSDISCORD', '/_common/discord.css');

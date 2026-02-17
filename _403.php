@@ -14,7 +14,10 @@
                 <p>You don’t have permission to access this page.</p>
             </div>
         </div>
-        <?php include PATH_FOOTER?>
+        <footer>
+            <?php include PATH_PAGELINKS?>
+			<?php include PATH_LICENSING?>
+		</footer>
 		<?php include PATH_GOOGLETAG?>
     </body>
 </html>
