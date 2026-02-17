@@ -1,4 +1,3 @@
-<?php define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT'])?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,11 +7,11 @@
 		<meta name="description" content="MBG Playground is a collection of media and game servers to enjoy with friends.">
 		<meta property="og:title" content="MBG Playground">
 		<meta property="og:description" content="MBG Playground is a collection of media and game servers to enjoy with friends.">
-		<meta property="og:url" content="https://mbgplayground.xyz/">
-		<meta property="og:image" content="/_common/icon.png">
+		<meta property="og:url" content="<?=URL_MBGPLAYGROUND?>">
+		<meta property="og:image" content="<?=URL_MBGPLAYGROUNDLOGO?>">
 		<meta property="og:type" content="website">
-		<link rel="canonical" href="https://mbgplayground.xyz">
-		<link rel="icon" href="_common/icon.png" type="image/png">
+		<link rel="canonical" href="<?=URL_MBGPLAYGROUND?>">
+		<link rel="icon" href="<?=URL_MBGPLAYGROUNDLOGO?>" type="image/png">
 		<style>
 			@import url("https://fonts.googleapis.com/css?family=Montserrat:600,400");
 			body {
@@ -90,22 +89,22 @@
 		<div class="container">
 			<!-- Counter-Strike -->
 			<a class="card" href="counterstrike">
-				<img src="/_counterstrike/counterstrikebanner.jpg" alt="Counter-Strike">
+				<img src="<?=URL_COUNTERSTRIKEBANNER?>" alt="Counter-Strike">
 				<div class="card-title">Counter-Strike</div>
 			</a>
 			<!-- Hytale -->
 			<a class="card" href="hytale">
-				<img src="/_hytale/hytalebanner.jpg" alt="Hytale">
+				<img src="<?=URL_HYTALEBANNER?>" alt="Hytale">
 				<div class="card-title">Hytale</div>
 			</a>
 			<!-- Project Zomboid -->
 			<a class="card" href="projectzomboid">
-				<img src="/_projectzomboid/projectzomboidbanner.jpg" alt="Project Zomboid">
+				<img src="<?=URL_PROJECTZOMBOIDBANNER?>" alt="Project Zomboid">
 				<div class="card-title">Project Zomboid</div>
 			</a>
 			<!-- V Rising -->
 			<a class="card" href="vrising">
-				<img src="/_vrising/vrisingbanner.jpg" alt="V Rising">
+				<img src="<?=URL_VRISINGBANNER?>" alt="V Rising">
 				<div class="card-title">V Rising</div>
 			</a>
 		</div>
@@ -113,11 +112,11 @@
 		<div class="container">
 			<!-- Discord -->
 			<a class="card" href="discord">
-				<img src="/_discord/discordbanner.jpg" alt="Discord">
+				<img src="<?=URL_DISCORDBANNER?>" alt="Discord">
 				<div class="card-title">Discord</div>
 			</a>
 		</div>
-		<?php include ROOT_DIR . '/_common/footer.php'?>
-		<?php include ROOT_DIR . '/_common/gtag.php'?>
+		<?php include PATH_FOOTER?>
+		<?php include PATH_GOOGLETAG?>
 	</body>
 </html>

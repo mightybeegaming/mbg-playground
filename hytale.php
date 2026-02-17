@@ -1,4 +1,11 @@
-<?php define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT'])?>
+<?php
+$file = 'online_players.txt';
+$content = file_get_contents(PATH_ROOT . '/_onlineplayers/hytale.txt');
+
+preg_match('/^[^(]*\((\d+)\)/', $content, $matches);
+
+$online_players = $matches[1] ?? 0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,18 +15,18 @@
 		<meta name="description" content="This is a simple Hytale server to test and explore the early access build.">
 		<meta property="og:title" content="MBG Hytale">
 		<meta property="og:description" content="This is a simple Hytale server to test and explore the early access build.">
-		<meta property="og:url" content="https://mbgplayground.xyz/hytale">
-		<meta property="og:image" content="/_hytale/hytalebanner.jpg">
+		<meta property="og:url" content="<?=URL_HYTALE?>">
+		<meta property="og:image" content="<?=URL_HYTALEBANNER?>">
 		<meta property="og:type" content="website">
-		<link rel="canonical" href="https://mbgplayground.xyz/hytale">
-		<link rel="icon" href="/_common/icon.png" type="image/png">
-		<link rel="stylesheet" href="/_common/style.css">
+		<link rel="canonical" href="<?=URL_HYTALE?>">
+		<link rel="icon" href="<?=URL_MBGPLAYGROUNDLOGO?>" type="image/png">
+		<link rel="stylesheet" href="<?=URL_CSS?>">
 	</head>
 	<body>
 		<div class="container">
 			<div class="section">
 				<h1>MBG Hytale</h1>
-				<?php include ROOT_DIR . '/_common/join.php'?>
+				<?php include PATH_JOIN?>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
@@ -37,12 +44,12 @@
 					</div>
 					<div class="info-box">
 						<strong>Online Players</strong><br>
-						<span class="highlight"><?php include ROOT_DIR . '/_hytale/online_players.php'?> / 100</span>
+						<span class="highlight"><?=$online_players?> / 100</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<?php include ROOT_DIR . '/_common/footer.php'?>
-		<?php include ROOT_DIR . '/_common/gtag.php'?>
+		<?php include PATH_FOOTER?>
+		<?php include PATH_GOOGLETAG?>
 	</body>
 </html>

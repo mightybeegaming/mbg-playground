@@ -1,4 +1,3 @@
-<?php define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT'])?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,12 +6,12 @@
         <meta name="description" content="MBG Playground official Discord invitation.">
         <meta property="og:title" content="MBG Discord">
 		<meta property="og:description" content="MBG Playground official Discord invitation.">
-		<meta property="og:url" content="https://mbgplayground.xyz/discord">
-		<meta property="og:image" content="/_discord/discordbanner.jpg">
+		<meta property="og:url" content="<?=URL_DISCORD?>">
+		<meta property="og:image" content="<?=URL_DISCORDBANNER?>">
 		<meta property="og:type" content="website">
-		<link rel="canonical" href="https://mbgplayground.xyz/discord">
-        <link rel="icon" type="image/x-icon" href="/_common/icon.png">
-        <link rel="stylesheet" type="text/css" href="/_discord/style.css">
+		<link rel="canonical" href="<?=URL_DISCORD?>">
+        <link rel="icon" href="<?=URL_MBGPLAYGROUNDLOGO?>" type="image/png">
+        <link rel="stylesheet" href="<?=URL_CSSDISCORD?>">
         <style>
             footer {
 				margin-top: 20px;
@@ -54,7 +53,7 @@
             <div class="overlay">
                 <div id="inviteContainer">
                     <div class="logoContainer">
-                        <img class="logo" src="/_discord/logo.png" alt="Discord logo">
+                        <img class="logo" src="/_media/mbgplaygroundlogo.png" alt="Discord logo">
                         <h1 class="text">MBG<br>Playground</h1>
                     </div>
                     <div class="acceptContainer">
@@ -71,11 +70,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer"><?php include ROOT_DIR . '/_common/footer.php'?></div>
+                <div class="footer"><?php include PATH_FOOTER?></div>
             </div>
         </main>
-        <?php include ROOT_DIR . '/_common/gtag.php'?>
+		<?php include PATH_GOOGLETAG?>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="_discord/script.js"></script>
+        <script src="<?=URL_JSDISCORD?>"></script>
     </body>
 </html>

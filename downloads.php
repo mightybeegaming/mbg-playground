@@ -1,6 +1,4 @@
 <?php
-define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT']);
-
 function formatSize($bytes){
     if($bytes >= 1073741824) return number_format($bytes / 1073741824, 2) . ' GB';
     if($bytes >= 1048576) return number_format($bytes / 1048576, 2) . ' MB';
@@ -17,12 +15,12 @@ function formatSize($bytes){
 		<meta name="description" content="This is the official consolidated downloads page for MBG Playground.">
 		<meta property="og:title" content="MBG Downloads">
 		<meta property="og:description" content="This is the official consolidated downloads page for MBG Playground.">
-		<meta property="og:url" content="https://mbgplayground.xyz/downloads">
-		<meta property="og:image" content="/_common/icon.png">
+		<meta property="og:url" content="<?=URL_DOWNLOADS?>">
+		<meta property="og:image" content="<?=URL_MBGPLAYGROUNDLOGO?>">
 		<meta property="og:type" content="website">
-		<link rel="canonical" href="https://mbgplayground.xyz/downloads">
-		<link rel="icon" href="/_common/icon.png" type="image/png">
-		<link rel="stylesheet" href="/_common/style.css">
+		<link rel="canonical" href="<?=URL_DOWNLOADS?>">
+		<link rel="icon" href="<?=URL_MBGPLAYGROUNDLOGO?>" type="image/png">
+		<link rel="stylesheet" href="<?=URL_CSS?>">
 		<style>
 			.file-table {
 				width: 100%;
@@ -69,13 +67,15 @@ function formatSize($bytes){
 						</tr>
 					</thead>
 					<tbody>
-					<?php foreach(scandir(__DIR__) as $file):?>
-						<?php if($file === 'index.php' || !is_file($file)) continue;?>
+					<?php
+					foreach(scandir(PATH_DOWNLOADS) as $file):
+					?>
+						<?php if(!is_file($file)) continue;?>
 						<tr>
 							<td><?= htmlspecialchars($file) ?></td>
 							<td class="file-size align-right"><?=formatSize(filesize($file));?></td>
 							<td class="align-right">
-								<span class="highlight"><a href="<?=urlencode($file);?>" download>Download</a></span>
+								<span class="highlight"><a href="<?=URL_DOWNLOADS?>/<?=urlencode($file);?>" download>Download</a></span>
 							</td>
 						</tr>
 					<?php endforeach;?>
@@ -84,8 +84,8 @@ function formatSize($bytes){
 			</div>
 		</div>
 	</body>
-	<?php include ROOT_DIR . '/_common/footer.php'?>
-	<?php include ROOT_DIR . '/_common/gtag.php'?>
+	<?php include PATH_FOOTER?>
+	<?php include PATH_GOOGLETAG?>
 	<script>
 		let sortDir = {};
 

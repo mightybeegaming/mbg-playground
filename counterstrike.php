@@ -1,4 +1,34 @@
-<?php define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT'])?>
+<?php
+$file = PATH_ONLINECOUNTERSTRIKE;
+
+$bots = 0;
+$online_players = 0;
+// $steamIds = [];
+
+$lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+foreach ($lines as $line) {
+    // Normalize spacing
+    $line = trim($line);
+
+    // Skip headers and irrelevant lines
+    if (
+        $line === '' ||
+        str_starts_with($line, 'Clients') ||
+        str_starts_with($line, '#') ||
+        str_starts_with($line, 'Total') ||
+        str_starts_with($line, 'L ')
+    ) {
+        continue;
+    }
+
+    // Steam ID detection
+    if (preg_match('/(STEAM_\d:\d:\d+)/', $line, $matches)) {
+        $online_players++;
+        // $steamIds[] = $matches[1];
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,18 +38,18 @@
 		<meta name="description" content="This is a simple Counter-Strike server with PodBot addon.">
 		<meta property="og:title" content="MBG Counter-Strike">
 		<meta property="og:description" content="This is a simple Counter-Strike server with PodBot addon.">
-		<meta property="og:url" content="https://mbgplayground.xyz/counterstrike">
-		<meta property="og:image" content="/_counterstrike/counterstrikebanner.jpg">
+		<meta property="og:url" content="<?=URL_COUNTERSTRIKE?>">
+		<meta property="og:image" content="<?=URL_COUNTERSTRIKEBANNER?>">
 		<meta property="og:type" content="website">
-		<link rel="canonical" href="https://mbgplayground.xyz/counterstrike">
-		<link rel="icon" href="/_common/icon.png" type="image/png">
-		<link rel="stylesheet" href="/_common/style.css">
+		<link rel="canonical" href="<?=URL_COUNTERSTRIKE?>">
+		<link rel="icon" href="<?=URL_MBGPLAYGROUNDLOGO?>" type="image/png">
+		<link rel="stylesheet" href="<?=URL_CSS?>">
 	</head>
 	<body>
 		<div class="container">
 			<div class="section">
 				<h1>MBG Counter-Strike</h1>
-				<?php include ROOT_DIR . '/_common/join.php'?>
+				<?php include PATH_JOIN?>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
@@ -37,12 +67,12 @@
 					</div>
 					<div class="info-box">
 						<strong>Online Players</strong><br>
-						<span class="highlight"><?php include ROOT_DIR . '/_counterstrike/online_players.php'?> / 32</span>
+						<span class="highlight"><?=$online_players?> / 32</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<?php include ROOT_DIR . '/_common/footer.php'?>
-		<?php include ROOT_DIR . '/_common/gtag.php'?>
+		<?php include PATH_FOOTER?>
+		<?php include PATH_GOOGLETAG?>
 	</body>
 </html>

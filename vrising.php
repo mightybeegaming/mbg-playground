@@ -1,4 +1,7 @@
-<?php define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT'])?>
+<?php
+$file = count(file(PATH_ROOT . '/_onlineplayers/vrising.txt'));
+$online_players = max(0, $file - 1);
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,18 +11,18 @@
 		<meta name="description" content="This is a V Rising server (PvE) running on Brutal difficulty with some quality-of-life adjustments.">
 		<meta property="og:title" content="MBG V Rising">
 		<meta property="og:description" content="This is a V Rising server (PvE) running on Brutal difficulty with some quality-of-life adjustments.">
-		<meta property="og:url" content="https://mbgplayground.xyz/vrising">
-		<meta property="og:image" content="/_vrising/vrisingbanner.jpg">
+		<meta property="og:url" content="<?=URL_VRISING?>">
+		<meta property="og:image" content="<?=URL_VRISINGBANNER?>">
 		<meta property="og:type" content="website">
-		<link rel="canonical" href="https://mbgplayground.xyz/vrising">
-		<link rel="icon" href="/_common/icon.png" type="image/png">
-		<link rel="stylesheet" href="/_common/style.css">
+		<link rel="canonical" href="<?=URL_VRISING?>">
+		<link rel="icon" href="<?=URL_MBGPLAYGROUNDLOGO?>" type="image/png">
+		<link rel="stylesheet" href="<?=URL_CSS?>">
 	</head>
 	<body>
 		<div class="container">
 			<div class="section">
 				<h1>MBG V Rising</h1>
-				<?php include ROOT_DIR . '/_common/join.php'?>
+				<?php include PATH_JOIN?>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
@@ -37,12 +40,12 @@
 					</div>
 					<div class="info-box">
 						<strong>Online Players</strong><br>
-						<span class="highlight"><?php include ROOT_DIR . '/_vrising/online_players.php'?> / 60</span>
+						<span class="highlight"><?=$online_players?> / 60</span>
 					</div>
 				</div>
 			</div>
 		</div>
-		<?php include ROOT_DIR . '/_common/footer.php'?>
-		<?php include ROOT_DIR . '/_common/gtag.php'?>
+		<?php include PATH_FOOTER?>
+		<?php include PATH_GOOGLETAG?>
 	</body>
 </html>
