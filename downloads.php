@@ -67,18 +67,17 @@ function formatSize($bytes){
 						</tr>
 					</thead>
 					<tbody>
-					<?php
-					foreach(scandir(PATH_DOWNLOADS) as $file):
-					?>
-						<?php if(!is_file($file)) continue;?>
+					<?php foreach(scandir(PATH_DOWNLOADS) as $file):?>
+						<?php $file_full_path = PATH_DOWNLOADS . '/' . $file?>
+						<?php if(!is_file($file_full_path)) continue?>
 						<tr>
-							<td><?= htmlspecialchars($file) ?></td>
-							<td class="file-size align-right"><?=formatSize(filesize(PATH_DOWNLOADS . '/' . $file));?></td>
+							<td><?=htmlspecialchars($file)?></td>
+							<td class="file-size align-right"><?=formatSize(filesize($file_full_path))?></td>
 							<td class="align-right">
-								<span class="highlight"><a href="<?=URL_DOWNLOADS?>/<?=urlencode($file);?>" download>Download</a></span>
+								<span class="highlight"><a href="<?=URL_DOWNLOADS?>/<?=urlencode($file)?>" download>Download</a></span>
 							</td>
 						</tr>
-					<?php endforeach;?>
+					<?php endforeach?>
 					</tbody>
 				</table>
 			</div>
