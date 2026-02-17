@@ -73,7 +73,7 @@ function formatSize($bytes){
 						<?php if(!is_file($file)) continue;?>
 						<tr>
 							<td><?= htmlspecialchars($file) ?></td>
-							<td class="file-size align-right"><?=formatSize(filesize($file));?></td>
+							<td class="file-size align-right"><?=formatSize(filesize(PATH_DOWNLOADS . '/' . $file));?></td>
 							<td class="align-right">
 								<span class="highlight"><a href="<?=URL_DOWNLOADS?>/<?=urlencode($file);?>" download>Download</a></span>
 							</td>
