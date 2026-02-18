@@ -10,7 +10,7 @@
     <body>
         <div class="container">
             <div class="section" style="text-align:center">
-                <h1>403 - Forbidden</h1>
+                <h1 class="error">403 - Forbidden</h1>
                 <p>You don’t have permission to access this page.</p>
             </div>
         </div>

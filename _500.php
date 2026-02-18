@@ -10,7 +10,7 @@
     <body>
         <div class="container">
             <div class="section" style="text-align:center">
-                <h1>500 - Server Error</h1>
+                <h1 class="error">500 - Server Error</h1>
                 <p>The server encountered an unexpected condition.</p>
             </div>
         </div>
