@@ -2,7 +2,7 @@
 define('PATH_ROOT', $_SERVER['DOCUMENT_ROOT']);
 define('PATH_DOWNLOADS', PATH_ROOT . '/_downloads');
 define('PATH_JOIN', PATH_ROOT . '/_common/join.php');
-define('PATH_PAGELINKS', PATH_ROOT . '/_common/pagelinks.php');
+define('PATH_NAVBAR', PATH_ROOT . '/_common/navbar.php');
 define('PATH_LICENSING', PATH_ROOT . '/_common/licensing.php');
 define('PATH_GOOGLETAG', PATH_ROOT . '/_common/gtag.php');
 define('URL_CSS', '/_common/style.css');

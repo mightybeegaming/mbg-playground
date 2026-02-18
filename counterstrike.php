@@ -61,7 +61,7 @@ foreach($file as $line) {
 			</div>
 		</div>
 		<footer>
-			<?php include PATH_PAGELINKS?>
+			<?php include PATH_NAVBAR?>
 			<?php include PATH_LICENSING?>
 		</footer>
 		<?php include PATH_GOOGLETAG?>
