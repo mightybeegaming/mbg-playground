@@ -1,23 +1,9 @@
 <?php
-$online_players = 0;
+$file = file_get_contents(PATH_ONLINECOUNTERSTRIKE);
 
-$file = file(PATH_ONLINECOUNTERSTRIKE, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $file, $matches);
 
-foreach($file as $line) {
-    $line = trim($line);
-
-    if(
-        $line === '' ||
-        str_starts_with($line, 'Clients') ||
-        str_starts_with($line, '#') ||
-        str_starts_with($line, 'Total') ||
-        str_starts_with($line, 'L ')
-    ) {
-        continue;
-    }
-
-    if(preg_match('/(STEAM_\d:\d:\d+)/', $line, $matches)) $online_players++;
-}
+$online_players = count($matches[1]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
