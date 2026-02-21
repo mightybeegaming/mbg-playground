@@ -34,15 +34,15 @@ $online_players = count($players[1]);
 				<?php include PATH_JOIN?>
 				<div class="info-grid">
 					<div class="info-box">
-						<strong>Status</strong><br>
+						<b>Status</b><br>
 						<img src="https://uptime.mbgplayground.xyz/api/badge/71/status?style=for-the-badge" alt="Status">
 					</div>
 					<div class="info-box">
-						<strong>Uptime</strong><br>
+						<b>Uptime</b><br>
 						<img src="https://uptime.mbgplayground.xyz/api/badge/71/uptime?style=for-the-badge" alt="Uptime">
 					</div>
 					<div class="info-box">
-						<strong>Online Players</strong><br>
+						<b>Online Players</b><br>
 						<span class="highlight"><?=$online_players?> / 32</span> |
 						<span class="highlight"><?=$current_map?></span>
 					</div>
