@@ -7,11 +7,12 @@ $online_players = count($players[1]);
 preg_match('/map\s*:\s*([^\s]+)/i', $file, $map);
 $current_map = $map[1] ?? 'unknown';
 
-preg_match('/l"amx_nextmap"\s+is\s+"([^"]+)"/i', $file, $map);
+preg_match('/"amx_nextmap"\s+is\s+"([^"]+)"/i', $file, $map);
 $next_map = $map[1];
 
-preg_match('/l"amx_timeleft"\s+is\s+"([^"]+)"/i', $file, $time);
-$time_left = $time[1];
+preg_match('/SCORE:T=(\d+);CT=(\d+)/', $file, $scores);
+$score_t = (int)$scores[1];
+$score_ct = (int)$scores[2];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,8 +61,9 @@ $time_left = $time[1];
 						<span class="highlight"><?=$next_map?></span>
 					</div>
 					<div class="info-box">
-						<b>Time Left</b><br>
-						<span class="highlight" id="timeLeft"><?=$time_left?></span>
+						<b>Match Score</b><br>
+						<span class="highlight">T: <?=$score_t?></span> |
+						<span class="highlight">CT: <?=$score_ct?></span>
 					</div>
 				</div>
 			</div>
@@ -71,28 +73,5 @@ $time_left = $time[1];
 			<?php include PATH_LICENSING?>
 		</footer>
 		<?php include PATH_GOOGLETAG?>
-		<script>
-			const timeLeftElement = document.getElementById('timeLeft');
-			const time = timeLeftElement.textContent.trim();
-			const parts = time.split(':');
-			let totalSeconds = parseInt(parts[0]) * 60 + parseInt(parts[1]);
-
-			const countdown = setInterval(() => {
-				if (totalSeconds <= 0) {
-					clearInterval(countdown);
-					timeLeftElement.textContent = '00:00';
-					
-					return;
-				}
-
-				totalSeconds--;
-
-				const minutes = Math.floor(totalSeconds / 60);
-				const seconds = totalSeconds % 60;
-				const padded = String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
-
-				timeLeftElement.textContent = padded;
-			}, 1000);
-		</script>
 	</body>
 </html>
