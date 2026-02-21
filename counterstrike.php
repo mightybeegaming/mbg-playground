@@ -53,17 +53,17 @@ $score_ct = (int)$scores[2];
 						<span class="highlight"><?=$online_players?> / 32</span>
 					</div>
 					<div class="info-box">
+						<b>Match Score</b><br>
+						<span class="highlight">T: <?=$score_t?></span> |
+						<span class="highlight">CT: <?=$score_ct?></span>
+					</div>
+					<div class="info-box">
 						<b>Current Map</b><br>
 						<span class="highlight"><?=$current_map?></span>
 					</div>
 					<div class="info-box">
 						<b>Next Map</b><br>
 						<span class="highlight"><?=$next_map?></span>
-					</div>
-					<div class="info-box">
-						<b>Match Score</b><br>
-						<span class="highlight">T: <?=$score_t?></span> |
-						<span class="highlight">CT: <?=$score_ct?></span>
 					</div>
 				</div>
 			</div>
