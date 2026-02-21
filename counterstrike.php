@@ -34,7 +34,7 @@ $score_ct = (int)$scores[2];
 		<div class="container">
 			<div class="section">
 				<h1>MBG Counter-Strike</h1>
-				<p>This is a simple Counter-Strike server with PodBot addon.</p>
+				<p>This is a simple Counter-Strike server with PODBot addon.</p>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
