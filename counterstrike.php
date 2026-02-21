@@ -1,9 +1,11 @@
 <?php
 $file = file_get_contents(PATH_ONLINECOUNTERSTRIKE);
 
-preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $file, $matches);
+preg_match('/map\s*:\s*([^\s]+)/i', $file, $map);
+$current_map = $map[1] ?? 'unknown';
 
-$online_players = count($matches[1]);
+preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $file, $players);
+$online_players = count($players[1]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +43,8 @@ $online_players = count($matches[1]);
 					</div>
 					<div class="info-box">
 						<strong>Online Players</strong><br>
-						<span class="highlight"><?=$online_players?> / 32</span>
+						<span class="highlight"><?=$online_players?> / 32</span> |
+						<span class="highlight"><?=$current_map?></span>
 					</div>
 				</div>
 			</div>
