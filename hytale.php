@@ -26,10 +26,10 @@ $online_players = $matches[1] ?? 0;
 			<div class="section">
 				<h1>MBG Hytale</h1>
 				<p>This is a simple Hytale server to test and explore the early access build.</p>
-				<p><span class="highlight">Features</span></p>
-				<ul>
-					<li><span class="highlight"><a href="http://hytalemap.mbgplayground.playit.plus/" title="Realtime World Map Link">Realtime World Map</a></span></li>
-				</ul>
+				<p>
+					<span class="highlight">Features</span> -
+					<span class="highlight"><a href="http://hytalemap.mbgplayground.playit.plus/" title="Realtime World Map Link">Realtime World Map</a></span>
+				</p>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
@@ -48,6 +48,10 @@ $online_players = $matches[1] ?? 0;
 						<span class="highlight"><?=$online_players?> / 100</span>
 					</div>
 				</div>
+				<p>
+					<span class="highlight">Mods</span> -
+					<a href="https://www.curseforge.com/members/mightybee/favorites" title="Mod Collection Link">Collection</a>
+				</p>
 			</div>
 		</div>
 		<footer>

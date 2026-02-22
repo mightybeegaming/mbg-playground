@@ -8,9 +8,9 @@ $online_players = max(0, $file - 1);
 		<title>MBG Project Zomboid</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="This is a beginner-friendly Project Zomboid server with quality-of-life and immersion mods.">
+		<meta name="description" content="This is a Project Zomboid (B42) server with quality-of-life and immersion mods.">
 		<meta property="og:title" content="MBG Project Zomboid">
-		<meta property="og:description" content="This is a beginner-friendly Project Zomboid server with quality-of-life and immersion mods.">
+		<meta property="og:description" content="This is a Project Zomboid (B42) server with quality-of-life and immersion mods.">
 		<meta property="og:url" content="<?=URL_PROJECTZOMBOID?>">
 		<meta property="og:image" content="<?=URL_PROJECTZOMBOIDBANNER?>">
 		<meta property="og:type" content="website">
@@ -22,7 +22,7 @@ $online_players = max(0, $file - 1);
 		<div class="container">
 			<div class="section">
 				<h1>MBG Project Zomboid</h1>
-				<p>This is a beginner-friendly Project Zomboid server with quality-of-life and immersion mods.</p>
+				<p>This is a Project Zomboid (B42) server with quality-of-life and immersion mods.</p>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
@@ -41,6 +41,10 @@ $online_players = max(0, $file - 1);
 						<span class="highlight"><?=$online_players?> / 100</span>
 					</div>
 				</div>
+				<p>
+					<span class="highlight">Mods</span> -
+					<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3655691326" title="Mod Collection Link">Collection</a>
+				</p>
 			</div>
 		</div>
 		<footer>

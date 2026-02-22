@@ -20,9 +20,9 @@ $score_ct = (int)$scores[2];
 		<title>MBG Counter-Strike</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="This is a simple Counter-Strike server with PODBot addon.">
+		<meta name="description" content="This is a Counter-Strike server with performance and stability enhancements.">
 		<meta property="og:title" content="MBG Counter-Strike">
-		<meta property="og:description" content="This is a simple Counter-Strike server with PODBot addon.">
+		<meta property="og:description" content="This is a Counter-Strike server with performance and stability enhancements.">
 		<meta property="og:url" content="<?=URL_COUNTERSTRIKE?>">
 		<meta property="og:image" content="<?=URL_COUNTERSTRIKEBANNER?>">
 		<meta property="og:type" content="website">
@@ -34,7 +34,7 @@ $score_ct = (int)$scores[2];
 		<div class="container">
 			<div class="section">
 				<h1>MBG Counter-Strike</h1>
-				<p>This is a simple Counter-Strike server with PODBot addon.</p>
+				<p>This is a Counter-Strike server with performance and stability enhancements.</p>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
@@ -66,6 +66,10 @@ $score_ct = (int)$scores[2];
 						<span class="highlight"><?=$next_map?></span>
 					</div>
 				</div>
+				<p>
+					<span class="highlight">Mods</span> -
+					<a href="https://github.com/APGRoboCop/podbot_mm" title="PODBot Mod Link">PODBot</a>
+				</p>
 			</div>
 		</div>
 		<footer>

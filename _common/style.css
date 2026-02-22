@@ -69,3 +69,6 @@ a:hover {
 h1.error {
 	font-size: 2.5em;
 }
+.list-decimal {
+	list-style-type: decimal;
+}
