@@ -54,8 +54,8 @@ $score_ct = (int)$scores[2];
 					</div>
 					<div class="info-box">
 						<b>Match Score</b><br>
-						<span class="highlight">T: <?=$score_t?></span> |
-						<span class="highlight">CT: <?=$score_ct?></span>
+						<span class="highlight">Ts = <?=$score_t?></span> <b>|</b>
+						<span class="highlight">CTs = <?=$score_ct?></span>
 					</div>
 					<div class="info-box">
 						<b>Current Map</b><br>
