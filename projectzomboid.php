@@ -43,7 +43,7 @@ $online_players = max(0, $file - 1);
 				</div>
 				<p>
 					<span class="highlight">Mods</span> -
-					<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3655691326" title="Mod Collection Link">Collection</a>
+					<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3655691326" title="Mod Collection Link" target="_blank">Collection</a>
 				</p>
 			</div>
 		</div>

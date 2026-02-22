@@ -68,11 +68,11 @@ $score_ct = (int)$scores[2];
 				</div>
 				<p>
 					<span class="highlight">Mods</span> -
-					<a href="https://www.amxmodx.org" title="AMX Mod X Mod Link">AMX Mod X</a>,
-					<a href="https://github.com/rehlds/Metamod-R" title="Metamod-R Mod Link">Metamod-R</a>,
-					<a href="https://github.com/APGRoboCop/podbot_mm" title="PODBot Mod Link">PODBot</a>,
-					<a href="https://github.com/rehlds/ReGameDLL_CS" title="ReGameDLL_CS Mod Link">ReGameDLL_CS</a>,
-					<a href="https://github.com/rehlds/ReHLDS" title="ReHLDS Mod Link">ReHLDS</a>
+					<a href="https://www.amxmodx.org" title="AMX Mod X Mod Link" target="_blank">AMX Mod X</a>,
+					<a href="https://github.com/rehlds/Metamod-R" title="Metamod-R Mod Link" target="_blank">Metamod-R</a>,
+					<a href="https://github.com/APGRoboCop/podbot_mm" title="PODBot Mod Link" target="_blank">PODBot</a>,
+					<a href="https://github.com/rehlds/ReGameDLL_CS" title="ReGameDLL_CS Mod Link" target="_blank">ReGameDLL_CS</a>,
+					<a href="https://github.com/rehlds/ReHLDS" title="ReHLDS Mod Link" target="_blank">ReHLDS</a>
 				</p>
 			</div>
 		</div>

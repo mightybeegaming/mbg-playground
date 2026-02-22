@@ -44,12 +44,12 @@ $online_players = max(0, $file - 1);
 				</div>
 				<p>
 					<span class="highlight">Mods</span> -
-					<a href="https://thunderstore.io/c/v-rising/p/zfolmt/AutoBrazier" title="AutoBrazier Mod Link">AutoBrazier</a>,
-					<a href="https://thunderstore.io/c/v-rising/p/zfolmt/AutoCloseDoors" title="AutoCloseDoors Mod Link">AutoCloseDoors</a>,
-					<a href="https://thunderstore.io/c/v-rising/p/zfolmt/Bloodcraft" title="Bloodcraft Mod Link">Bloodcraft</a>,
-					<a href="https://thunderstore.io/c/v-rising/p/zfolmt/Eclipse" title="Eclipse Mod Link">Eclipse</a>,
-					<a href="https://thunderstore.io/c/v-rising/p/zfolmt/KindredLogistics" title="KindredLogistics Mod Link">KindredLogistics</a>,
-					<a href="https://thunderstore.io/c/v-rising/p/zfolmt/ScarletMarket" title="ScarletMarket Mod Link">ScarletMarket</a>
+					<a href="https://thunderstore.io/c/v-rising/p/skytech6/AutoBrazier" title="AutoBrazier Mod Link" target="_blank">AutoBrazier</a>,
+					<a href="https://thunderstore.io/c/v-rising/p/Midon/AutoCloseDoors" title="AutoCloseDoors Mod Link" target="_blank">AutoCloseDoors</a>,
+					<a href="https://thunderstore.io/c/v-rising/p/zfolmt/Bloodcraft" title="Bloodcraft Mod Link" target="_blank">Bloodcraft</a>,
+					<a href="https://thunderstore.io/c/v-rising/p/zfolmt/Eclipse" title="Eclipse Mod Link" target="_blank">Eclipse</a>,
+					<a href="https://thunderstore.io/c/v-rising/p/Kindred/KindredLogistics" title="KindredLogistics Mod Link" target="_blank">KindredLogistics</a>,
+					<a href="https://thunderstore.io/c/v-rising/p/ScarletMods/ScarletMarket" title="ScarletMarket Mod Link" target="_blank">ScarletMarket</a>
 				</p>
 			</div>
 		</div>
