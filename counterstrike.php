@@ -5,14 +5,14 @@ preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $file, $p
 $online_players = count($players[1]);
 
 preg_match('/map\s*:\s*([^\s]+)/i', $file, $map);
-$current_map = $map[1] ?? 'unknown';
+$current_map = $map[1] ?? '';
 
 preg_match('/"amx_nextmap"\s+is\s+"([^"]+)"/i', $file, $map);
-$next_map = $map[1];
+$next_map = $map[1] ?? '';
 
 preg_match('/SCORE:T=(\d+);CT=(\d+)/', $file, $scores);
-$score_t = (int)$scores[1];
-$score_ct = (int)$scores[2];
+$score_t = $scores[1] ?? 0;
+$score_ct = $scores[2] ?? 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
