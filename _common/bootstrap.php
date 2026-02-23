@@ -29,5 +29,5 @@ define('URL_HYTALEBANNER', '/_media/hytalebanner.jpg');
 define('URL_PROJECTZOMBOIDBANNER', '/_media/projectzomboidbanner.jpg');
 define('URL_VRISINGBANNER', '/_media/vrisingbanner.jpg');
 
-define('URL_MODSCOUNTERSTRIKE','/.counterstrike/mods.txt');
-define('URL_MODSVRISING', '/.vrising/mods.txt');
+define('URL_MODSCOUNTERSTRIKE','/.counterstrike/mods.md');
+define('URL_MODSVRISING', '/.vrising/mods.md');
