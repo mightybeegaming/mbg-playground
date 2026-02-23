@@ -15,7 +15,7 @@ define('PATH_ONLINEPROJECTZOMBOID', PATH_ROOT . '/.onlineplayers/projectzomboid.
 define('PATH_ONLINEVRISING', PATH_ROOT . '/.onlineplayers/vrising.txt');
 
 define('URL_MBGPLAYGROUND', 'https://mbgplayground.xyz');
-define('URL_DOWNLOADS', URL_MBGPLAYGROUND. '/downloads');
+define('URL_DOWNLOADS', URL_MBGPLAYGROUND. '/.downloads');
 define('URL_COUNTERSTRIKE', URL_MBGPLAYGROUND. '/counterstrike');
 define('URL_DISCORD', URL_MBGPLAYGROUND. '/discord');
 define('URL_HYTALE', URL_MBGPLAYGROUND. '/hytale');
