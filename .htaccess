@@ -8,7 +8,7 @@ RewriteEngine On
 <If "%{REQUEST_URI} =~ m#mods\.php$#">
     php_value auto_prepend_file none
 </If>
-php_value auto_prepend_file "_common/bootstrap.php"
+php_value auto_prepend_file ".common/bootstrap.php"
 
 # Remove .php extension
 RewriteCond %{REQUEST_FILENAME}.php -f

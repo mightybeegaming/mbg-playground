@@ -5,8 +5,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Mod collection for the MBG Counter-Strike dedicated server.">
-		<link rel="icon" href="/_media/mbgplaygroundlogo.png" type="image/png">
-		<link rel="stylesheet" href="/_common/style.css">
+		<link rel="icon" href="/.media/mbgplaygroundlogo.png" type="image/png">
+		<link rel="stylesheet" href="/.common/style.css">
 	</head>
 	<body>
 		<div class="container">
@@ -28,8 +28,8 @@
 			</div>
 		</div>
 		<footer>
-			<?php include '../_common/licensing.php'?>
+			<?php include '../.common/licensing.php'?>
 		</footer>
-		<?php include '../_common/gtag.php'?>
+		<?php include '../.common/gtag.php'?>
 	</body>
 </html>
