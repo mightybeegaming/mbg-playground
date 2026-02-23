@@ -13,12 +13,6 @@ function formatSize($bytes){
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="This is the official consolidated downloads page for MBG Playground.">
-		<meta property="og:title" content="MBG Downloads">
-		<meta property="og:description" content="This is the official consolidated downloads page for MBG Playground.">
-		<meta property="og:url" content="<?=URL_DOWNLOADS?>">
-		<meta property="og:image" content="<?=URL_MBGPLAYGROUNDLOGO?>">
-		<meta property="og:type" content="website">
-		<link rel="canonical" href="<?=URL_DOWNLOADS?>">
 		<link rel="icon" href="<?=URL_MBGPLAYGROUNDLOGO?>" type="image/png">
 		<link rel="stylesheet" href="<?=URL_CSS?>">
 		<style>

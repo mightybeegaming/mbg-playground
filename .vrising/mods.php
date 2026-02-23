@@ -4,6 +4,7 @@
 		<title>MBG V Rising Mods</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Mod collection for the MBG V Rising dedicated server.">
 		<link rel="icon" href="/_media/mbgplaygroundlogo.png" type="image/png">
 		<link rel="stylesheet" href="/_common/style.css">
 	</head>
