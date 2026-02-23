@@ -23,7 +23,10 @@ $online_players = max(0, $file - 1);
 			<div class="section">
 				<h1>MBG V Rising</h1>
 				<p>This is a V Rising server with quality-of-life adjustments and game mechanic overhaul mods.</p>
-				
+				<span class="highlight">Features</span>
+				<ul>
+					<li><a href="<?=URL_MODSVRISING?>" title="Mod Collection Link" target="_blank">Mod Collection</a></li>
+				</ul>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
@@ -42,15 +45,6 @@ $online_players = max(0, $file - 1);
 						<span class="highlight"><?=$online_players?> / 60</span>
 					</div>
 				</div>
-				<p>
-					<span class="highlight">Mods</span> -
-					<a href="https://thunderstore.io/c/v-rising/p/skytech6/AutoBrazier" title="AutoBrazier Mod Link" target="_blank">AutoBrazier</a>,
-					<a href="https://thunderstore.io/c/v-rising/p/Midon/AutoCloseDoors" title="AutoCloseDoors Mod Link" target="_blank">AutoCloseDoors</a>,
-					<a href="https://thunderstore.io/c/v-rising/p/zfolmt/Bloodcraft" title="Bloodcraft Mod Link" target="_blank">Bloodcraft</a>,
-					<a href="https://thunderstore.io/c/v-rising/p/zfolmt/Eclipse" title="Eclipse Mod Link" target="_blank">Eclipse</a>,
-					<a href="https://thunderstore.io/c/v-rising/p/Kindred/KindredLogistics" title="KindredLogistics Mod Link" target="_blank">KindredLogistics</a>,
-					<a href="https://thunderstore.io/c/v-rising/p/ScarletMods/ScarletMarket" title="ScarletMarket Mod Link" target="_blank">ScarletMarket</a>
-				</p>
 			</div>
 		</div>
 		<footer>

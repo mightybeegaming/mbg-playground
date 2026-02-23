@@ -35,6 +35,10 @@ $score_ct = $scores[2] ?? 0;
 			<div class="section">
 				<h1>MBG Counter-Strike</h1>
 				<p>This is a Counter-Strike server with performance and stability enhancements.</p>
+				<span class="highlight">Features</span>
+				<ul>
+					<li><a href="<?=URL_MODSCOUNTERSTRIKE?>" title="Mod Collection Link" target="_blank">Mod Collection</a></li>
+				</ul>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
@@ -66,14 +70,6 @@ $score_ct = $scores[2] ?? 0;
 						<span class="highlight"><?=$next_map?></span>
 					</div>
 				</div>
-				<p>
-					<span class="highlight">Mods</span> -
-					<a href="https://www.amxmodx.org" title="AMX Mod X Mod Link" target="_blank">AMX Mod X</a>,
-					<a href="https://github.com/rehlds/Metamod-R" title="Metamod-R Mod Link" target="_blank">Metamod-R</a>,
-					<a href="https://github.com/APGRoboCop/podbot_mm" title="PODBot Mod Link" target="_blank">PODBot</a>,
-					<a href="https://github.com/rehlds/ReGameDLL_CS" title="ReGameDLL_CS Mod Link" target="_blank">ReGameDLL_CS</a>,
-					<a href="https://github.com/rehlds/ReHLDS" title="ReHLDS Mod Link" target="_blank">ReHLDS</a>
-				</p>
 			</div>
 		</div>
 		<footer>

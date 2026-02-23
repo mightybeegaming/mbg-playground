@@ -23,6 +23,10 @@ $online_players = max(0, $file - 1);
 			<div class="section">
 				<h1>MBG Project Zomboid</h1>
 				<p>This is a Project Zomboid (B42) server with quality-of-life and immersion mods.</p>
+				<span class="highlight">Features</span>
+				<ul>
+					<li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3655691326" title="Mod Collection Link" target="_blank">Mod Collection</a></li>
+				</ul>
 			</div>
 			<div class="section">
 				<h1>Server Information</h1>
@@ -41,10 +45,6 @@ $online_players = max(0, $file - 1);
 						<span class="highlight"><?=$online_players?> / 100</span>
 					</div>
 				</div>
-				<p>
-					<span class="highlight">Mods</span> -
-					<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3655691326" title="Mod Collection Link" target="_blank">Collection</a>
-				</p>
 			</div>
 		</div>
 		<footer>
