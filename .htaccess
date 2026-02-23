@@ -15,6 +15,6 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+?)/?$ $1.php [L]
 
 # Custom error pages
-ErrorDocument 404 /_404
-ErrorDocument 403 /_403
-ErrorDocument 500 /_500
+ErrorDocument 404 /404
+ErrorDocument 403 /403
+ErrorDocument 500 /500
