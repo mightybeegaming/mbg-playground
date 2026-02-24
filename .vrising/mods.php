@@ -21,6 +21,7 @@
 					<li><a href="https://thunderstore.io/c/v-rising/p/Midon/AutoCloseDoors" target="_blank">AutoCloseDoors</a></li>
 					<li><a href="https://thunderstore.io/c/v-rising/p/zfolmt/Bloodcraft" target="_blank">Bloodcraft</a></li>
 					<li><a href="https://thunderstore.io/c/v-rising/p/zfolmt/Eclipse" target="_blank">Eclipse</a></li>
+					<li><a href="https://thunderstore.io/c/v-rising/p/odjit/KindredCommands" target="_blank">KindredCommands</a></li>
 					<li><a href="https://thunderstore.io/c/v-rising/p/Kindred/KindredLogistics" target="_blank">KindredLogistics</a></li>
 					<li><a href="https://thunderstore.io/c/v-rising/p/ScarletMods/ScarletMarket" target="_blank">ScarletMarket</a></li>
 				</ul>
