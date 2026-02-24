@@ -7,3 +7,6 @@ The goal is to make server information easy to access without needing to join th
 - See available game servers at a glance.
 - Check server uptime.
 - View current players online.
+
+## Related Links
+- Discord Invite Template - https://github.com/Ed0ardo/DiscordInvite
