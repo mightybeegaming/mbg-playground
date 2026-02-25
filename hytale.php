@@ -33,7 +33,7 @@ $online_players = $matches[1] ?? 0;
 				</ul>
 			</div>
 			<div class="section">
-				<h1>Server Information</h1>
+				<?php include PATH_SERVERINFOHEADER?>
 				<?php include PATH_JOIN?>
 				<div class="info-grid">
 					<div class="info-box">

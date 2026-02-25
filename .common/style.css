@@ -72,3 +72,18 @@ h1.error {
 .list-decimal {
 	list-style-type: decimal;
 }
+.server-time {
+	font-size: 0.9em;
+	color: #888;
+	text-align: right;
+}
+.server-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	border-bottom: 1px solid #333;
+}
+.server-info-header h1{
+	margin: 0;
+	border-bottom: none;
+}
