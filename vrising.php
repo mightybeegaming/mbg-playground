@@ -42,7 +42,7 @@ $online_players = max(0, $file - 1);
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
-						<span class="highlight"><?=$online_players?> / 60</span>
+						<span class="highlight"><span id="online_players"></span> / 60</span>
 					</div>
 				</div>
 			</div>
