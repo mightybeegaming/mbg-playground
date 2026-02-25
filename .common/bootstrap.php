@@ -30,5 +30,10 @@ define('URL_HYTALEBANNER', '/.media/hytalebanner.jpg');
 define('URL_PROJECTZOMBOIDBANNER', '/.media/projectzomboidbanner.jpg');
 define('URL_VRISINGBANNER', '/.media/vrisingbanner.jpg');
 
+define('URL_INITIALIZECOUNTERSTRIKE', '/.counterstrike/initialize.php');
+define('URL_INITIALIZEHYTALE', '/.hytale/initialize.php');
+define('URL_INITIALIZEPROJECTZOMBOID', '/.projectzomboid/initialize.php');
+define('URL_INITIALIZEVRISING', '/.vrising/initialize.php');
+
 define('URL_MODSCOUNTERSTRIKE','/.counterstrike/mods');
 define('URL_MODSVRISING', '/.vrising/mods');

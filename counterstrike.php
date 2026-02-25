@@ -1,19 +1,3 @@
-<?php
-$file = file_get_contents(PATH_ONLINECOUNTERSTRIKE);
-
-preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $file, $players);
-$online_players = count($players[1]);
-
-preg_match('/map\s*:\s*([^\s]+)/i', $file, $map);
-$current_map = $map[1] ?? '';
-
-preg_match('/"amx_nextmap"\s+is\s+"([^"]+)"/i', $file, $map);
-$next_map = $map[1] ?? '';
-
-preg_match('/SCORE:T=(\d+);CT=(\d+)/', $file, $scores);
-$score_t = $scores[1] ?? 0;
-$score_ct = $scores[2] ?? 0;
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -54,20 +38,20 @@ $score_ct = $scores[2] ?? 0;
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
-						<span class="highlight"><?=$online_players?> / 32</span>
+						<span class="highlight"><span id="online_players"></span> / 32</span>
 					</div>
 					<div class="info-box">
 						<b>Match Score</b><br>
-						<span class="highlight">Ts = <?=$score_t?></span> <b>|</b>
-						<span class="highlight">CTs = <?=$score_ct?></span>
+						<span class="highlight">Ts = <span id="score_t"></span></span> <b>|</b>
+						<span class="highlight">CTs = <span id="score_ct"span></span></span>
 					</div>
 					<div class="info-box">
 						<b>Current Map</b><br>
-						<span class="highlight"><?=$current_map?></span>
+						<span class="highlight"><span id="current_map"></span></span>
 					</div>
 					<div class="info-box">
 						<b>Next Map</b><br>
-						<span class="highlight"><?=$next_map?></span>
+						<span class="highlight"><span id="next_map"></span></span>
 					</div>
 				</div>
 			</div>
@@ -77,5 +61,24 @@ $score_ct = $scores[2] ?? 0;
 			<?php include PATH_LICENSING?>
 		</footer>
 		<?php include PATH_GOOGLETAG?>
+		<script>
+			async function loadServerInfo() {
+				try {
+					const response = await fetch('<?=URL_INITIALIZECOUNTERSTRIKE?>', {cache: 'no-store'});
+					const data = await response.json();
+
+					document.getElementById('online_players').textContent = data.online_players;
+					document.getElementById('current_map').textContent = data.current_map;
+					document.getElementById('next_map').textContent = data.next_map;
+					document.getElementById('score_t').textContent = data.score_t;
+					document.getElementById('score_ct').textContent = data.score_ct;
+				} catch (error) {
+					console.error('Error loading server info:', error);
+				}
+			}
+
+			loadServerInfo();
+			setInterval(loadServerInfo, 1000);
+		</script>
 	</body>
 </html>
