@@ -45,6 +45,7 @@
 				background: #1a1a1a;
 				border-radius: 14px;
 				overflow: hidden;
+				transition: box-shadow 0.3s ease;
 			}
 			.card img {
 				width: 100%;
