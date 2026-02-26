@@ -1,6 +1,7 @@
 <?php
-$file = count(file(PATH_ONLINEVRISING));
-$online_players = max(0, $file - 1);
+include PATH_SERVERMETRICS;
+
+$metrics = get_metrics_vrising();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +39,7 @@ $online_players = max(0, $file - 1);
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
-						<span class="highlight"><?=$online_players?> / 60</span>
+						<span class="highlight"><?=$metrics['online_players']?> / 60</span>
 					</div>
 				</div>
 			</div>

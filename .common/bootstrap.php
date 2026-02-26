@@ -3,7 +3,7 @@ define('PATH_ROOT', $_SERVER['DOCUMENT_ROOT']);
 define('PATH_DOWNLOADS', PATH_ROOT . '/.downloads');
 define('PATH_JOIN', PATH_ROOT . '/.common/join.php');
 define('PATH_SERVERINFOHEADER', PATH_ROOT . '/.common/serverinfoheader.php');
-define('PATH_SERVERSTATUS', PATH_ROOT . '/.common/serverstatus.php');
+define('PATH_SERVERMETRICS', PATH_ROOT . '/.common/servermetrics.php');
 define('PATH_NAVBAR', PATH_ROOT . '/.common/navbar.php');
 define('PATH_LICENSING', PATH_ROOT . '/.common/licensing.php');
 define('PATH_GOOGLETAG', PATH_ROOT . '/.common/gtag.php');
@@ -33,13 +33,13 @@ define('URL_HYTALEBANNER', '/.media/hytalebanner.jpg');
 define('URL_PROJECTZOMBOIDBANNER', '/.media/projectzomboidbanner.jpg');
 define('URL_VRISINGBANNER', '/.media/vrisingbanner.jpg');
 
-define('URL_INITIALIZECOUNTERSTRIKE', '/.counterstrike/initialize');
-define('URL_INITIALIZEHYTALE', '/.hytale/initialize');
-define('URL_INITIALIZEPROJECTZOMBOID', '/.projectzomboid/initialize');
-define('URL_INITIALIZEVRISING', '/.vrising/initialize');
-
 define('URL_MODSCOUNTERSTRIKE','/.counterstrike/mods');
 define('URL_MODSVRISING', '/.vrising/mods');
 
 define('URL_UPTIMESTATUS', 'https://uptime.mbgplayground.xyz/api/status-page/heartbeat/default');
 define('URL_SERVERSTATUS', '/.common/serverstatus');
+
+define('MONITOR_ID_COUNTERSTRIKE', '71');
+define('MONITOR_ID_HYTALE', '73');
+define('MONITOR_ID_PROJECTZOMBOID', '75');
+define('MONITOR_ID_VRISING', '58');

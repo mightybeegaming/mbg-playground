@@ -1,7 +1,7 @@
 <?php
-$content = file_get_contents(PATH_ONLINEHYTALE);
-preg_match('/^[^(]*\((\d+)\)/', $content, $matches);
-$online_players = $matches[1] ?? 0;
+include PATH_SERVERMETRICS;
+
+$metrics = get_metrics_hytale();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +39,7 @@ $online_players = $matches[1] ?? 0;
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
-						<span class="highlight"><?=$online_players?> / 100</span>
+						<span class="highlight"><?=$metrics['online_players']?> / 100</span>
 					</div>
 				</div>
 			</div>

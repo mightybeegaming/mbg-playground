@@ -1,19 +1,8 @@
 
 <?php
-$file = file_get_contents(PATH_ONLINECOUNTERSTRIKE);
+include PATH_SERVERMETRICS;
 
-preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $file, $players);
-$online_players = count($players[1]);
-
-preg_match('/map\s*:\s*([^\s]+)/i', $file, $map);
-$current_map = $map[1] ?? '';
-
-preg_match('/"amx_nextmap"\s+is\s+"([^"]+)"/i', $file, $map);
-$next_map = $map[1] ?? '';
-
-preg_match('/SCORE:T=(\d+);CT=(\d+)/', $file, $scores);
-$score_t = $scores[1] ?? 0;
-$score_ct = $scores[2] ?? 0;
+$metrics = get_metrics_counterstrike();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,20 +40,20 @@ $score_ct = $scores[2] ?? 0;
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
-						<span class="highlight"><?=$online_players?> / 32</span>
+						<span class="highlight"><?=$metrics['online_players']?> / 32</span>
 					</div>
 					<div class="info-box">
 						<b>Match Score</b><br>
-						<span class="highlight">Ts = <?=$score_t?></span> <b>|</b>
-						<span class="highlight">CTs = <?=$score_ct?></span>
+						<span class="highlight">Ts = <?=$metrics['score_t']?></span> <b>|</b>
+						<span class="highlight">CTs = <?=$metrics['score_ct']?></span>
 					</div>
 					<div class="info-box">
 						<b>Current Map</b><br>
-						<span class="highlight"><?=$current_map?></span>
+						<span class="highlight"><?=$metrics['current_map']?></span>
 					</div>
 					<div class="info-box">
 						<b>Next Map</b><br>
-						<span class="highlight"><?=$next_map?></span>
+						<span class="highlight"><?=$metrics['next_map']?></span>
 					</div>
 				</div>
 			</div>

@@ -1,4 +1,11 @@
-<?php include PATH_SERVERSTATUS?>
+<?php
+include PATH_SERVERMETRICS;
+
+$metrics_counterstrike = get_metrics_counterstrike();
+$metrics_hytale = get_metrics_hytale();
+$metrics_projectzomboid = get_metrics_projectzomboid();
+$metrics_vrising = get_metrics_vrising();
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -177,7 +184,7 @@
 			<!-- Counter-Strike -->
 			<a class="card" href="/counterstrike">
 				<div class="game-card">
-					<?=$server_status['counterstrike']?>
+					<?=$metrics_counterstrike['status_indicator']?>
 					<img src="<?=URL_COUNTERSTRIKEBANNER?>" alt="Counter-Strike">
 				</div>
 				<div class="card-title">Counter-Strike</div>
@@ -185,7 +192,7 @@
 			<!-- Hytale -->
 			<a class="card" href="/hytale">
 				<div class="game-card">
-					<?=$server_status['hytale']?>
+					<?=$metrics_hytale['status_indicator']?>
 					<img src="<?=URL_HYTALEBANNER?>" alt="Hytale">
 				</div>
 				<div class="card-title">Hytale</div>
@@ -193,7 +200,7 @@
 			<!-- Project Zomboid -->
 			<a class="card" href="/projectzomboid">
 				<div class="game-card">
-					<?=$server_status['projectzomboid']?>
+					<?=$metrics_projectzomboid['status_indicator']?>
 					<img src="<?=URL_PROJECTZOMBOIDBANNER?>" alt="Project Zomboid">
 				</div>
 				<div class="card-title">Project Zomboid</div>
@@ -201,7 +208,7 @@
 			<!-- V Rising -->
 			<a class="card" href="/vrising">
 				<div class="game-card">
-					<?=$server_status['vrising']?>
+					<?=$metrics_vrising['status_indicator']?>
 					<img src="<?=URL_VRISINGBANNER?>" alt="V Rising">
 				</div>
 				<div class="card-title">V Rising</div>
@@ -215,64 +222,5 @@
 			<?php include PATH_LICENSING?>
 		</footer>
 		<?php include PATH_GOOGLETAG?>
-		<script>
-			function getOnlinePlayers(id) {
-				let requestUrl = '';
-				switch(id){
-					case '71':
-						requestUrl = '<?=URL_INITIALIZECOUNTERSTRIKE?>';
-						break;
-					case '73':
-						requestUrl = '<?=URL_INITIALIZEHYTALE?>';
-						break;
-					case '75':
-						requestUrl = '<?=URL_INITIALIZEPROJECTZOMBOID?>';
-						break;
-					case '58':
-						requestUrl = '<?=URL_INITIALIZEVRISING?>';
-						break;
-				}
-
-				if(!requestUrl) return;
-				
-				var request = new XMLHttpRequest();
-				request.open('GET', requestUrl, false);
-				request.send(null);
-
-				if(request.status === 200) {
-					const data = JSON.parse(request.responseText);
-
-					return parseInt(data.online_players);
-				} else {
-					console.error('Error loading server info:', request.statusText);
-				}
-			}
-
-			function updateStatus() {
-				fetch('<?=URL_SERVERSTATUS?>', {cache: 'no-store'})
-					.then(response => response.json())
-					.then(data => {
-						const heartbeatList = data.heartbeatList;
-
-						Object.keys(heartbeatList).forEach(id => {
-							const heartbeats = heartbeatList[id];
-							const latest = heartbeats[heartbeats.length - 1];
-							const isOnline = latest.status;
-
-							const statusElement = document.querySelector(`[status-monitor-id="${id}"]`);
-							if(!statusElement) return;
-
-							const players = getOnlinePlayers(id);
-							const isOnlineString = players ? `${players} ONLINE` : 'ONLINE';
-
-							statusElement.textContent = isOnline ? isOnlineString : 'OFFLINE';
-							statusElement.classList.remove('status-online', 'status-offline');
-							statusElement.classList.add(isOnline ? 'status-online' : 'status-offline');
-						});
-					})
-					.catch(error => console.error('Error loading server info:', error));
-			}
-			document.addEventListener('DOMContentLoaded', updateStatus);
-		</script>
 	</body>
 </html>
