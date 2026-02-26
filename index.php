@@ -17,9 +17,15 @@
 			body {
 				margin: 0;
 				font-family: "Montserrat" !important;
-				background: #2a2a2a;
 				color: white;
 				text-align: center;
+
+				background-color: #2a2a2a;
+				background-image: radial-gradient(
+					rgba(255,255,255,0.08) 1px,
+					transparent 1px
+				);
+				background-size: 30px 30px;
 			}
 			h1 {
 				color: #ff9a67;
@@ -86,6 +92,12 @@
 				position: relative;
 				overflow: hidden;
 			}
+			.game-card img {
+				filter: grayscale(0.25);
+			}
+			.game-card:hover img {
+				filter: grayscale(0);
+			}
 			.status, .ping, .player{
 				position: absolute;
 				padding: 4px 8px;
@@ -120,7 +132,7 @@
 		</div>
 		<div class="container">
 			<!-- Counter-Strike -->
-			<a class="card game-card" href="/counterstrike">
+			<a class="card" href="/counterstrike">
 				<div class="game-card">
 					<div class="ping" ping-monitor-id="71"></div>
 					<div class="status" status-monitor-id="71"></div>
@@ -130,7 +142,7 @@
 				<div class="card-title">Counter-Strike</div>
 			</a>
 			<!-- Hytale -->
-			<a class="card game-card" href="/hytale">
+			<a class="card" href="/hytale">
 				<div class="game-card">
 					<div class="players" game="hytale"></div>
 					<div class="ping" ping-monitor-id="73"></div>
@@ -140,7 +152,7 @@
 				<div class="card-title">Hytale</div>
 			</a>
 			<!-- Project Zomboid -->
-			<a class="card game-card" href="/projectzomboid">
+			<a class="card" href="/projectzomboid">
 				<div class="game-card">
 					<div class="players" game="projectzomboid"></div>
 					<div class="ping" ping-monitor-id="75"></div>
@@ -150,7 +162,7 @@
 				<div class="card-title">Project Zomboid</div>
 			</a>
 			<!-- V Rising -->
-			<a class="card game-card" href="/vrising">
+			<a class="card" href="/vrising">
 				<div class="game-card">
 					<div class="players" game="vrising"></div>
 					<div class="ping" ping-monitor-id="58"></div>
@@ -163,10 +175,8 @@
 		<br><br>
 		<div class="container">
 			<!-- Discord -->
-			<a class="card game-card" href="/counterstrike">
-				<div class="game-card">
-					<img src="<?=URL_DISCORDBANNER?>" alt="Discord">
-				</div>
+			<a class="card" href="/counterstrike">
+				<img src="<?=URL_DISCORDBANNER?>" alt="Discord">
 				<div class="card-title">Discord</div>
 			</a>
 		</div>
@@ -209,7 +219,7 @@
 
 			async function updateStatus() {
 				try {
-					const serverStatus = await fetch('<?=URL_SERVERSTATUS?>');
+					const serverStatus = await fetch('<?=URL_SERVERSTATUS?>', {cache: 'no-store'});
 					const data = await serverStatus.json();
 					const heartbeatList = data.heartbeatList;
 

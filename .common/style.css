@@ -2,9 +2,15 @@
 body {
 	margin: 0;
 	font-family: "Montserrat" !important;
-	background-color: #2a2a2a;
 	color: #e0e0e0;
 	line-height: 1.6;
+
+	background-color: #2a2a2a;
+	background-image: radial-gradient(
+		rgba(255,255,255,0.08) 1px,
+		transparent 1px
+	);
+	background-size: 30px 30px;
 }
 header {
 	background: linear-gradient(135deg, #2b2b2b, #111);
