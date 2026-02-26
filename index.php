@@ -1,3 +1,4 @@
+<?php include PATH_SERVERSTATUS?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -45,7 +46,31 @@
 				background: #1a1a1a;
 				border-radius: 14px;
 				overflow: hidden;
-				transition: box-shadow 0.3s ease;
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				position: relative;
+			}
+			.card .game-card::after {
+				content: 'PLAY';
+				position: absolute;
+				inset: 0; /* top:0; right:0; bottom:0; left:0 */
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 5em;
+				font-weight: bold;
+				letter-spacing: 5px;
+				background: rgba(0,0,0,0.75);
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				text-shadow:
+					0 0 5px #00aeae,
+					0 0 10px #00aeae,
+					0 0 20px #00aeae,
+					0 0 40px #00aeae,
+					0 0 80px #00aeae;
+			}
+			.card:hover .game-card::after {
+				opacity: 1;
 			}
 			.card img {
 				width: 100%;
@@ -60,6 +85,7 @@
 			}
 			.card:hover {
 				box-shadow: 0 0 30px #ff9a67;
+				transform: scale(1.05);
 			}
 			footer {
 				margin-top: 20px;
@@ -88,15 +114,12 @@
 			footer a:hover {
 				text-decoration: underline;
 			}
+			.game-card:hover img {
+				filter: grayscale(1);
+			}
 			.game-card {
 				position: relative;
 				overflow: hidden;
-			}
-			.game-card img {
-				filter: grayscale(0.25);
-			}
-			.game-card:hover img {
-				filter: grayscale(0);
 			}
 			.status {
 				position: absolute;
@@ -116,6 +139,36 @@
 			.status-offline {
 				background: #ae0000;
 			}
+			.discord-button {
+				display: inline-flex;
+				align-items: center;
+				background: linear-gradient(135deg, #5865f2, #7289da);
+				color: white;
+				font-weight: bold;
+				padding: 12px 24px;
+				border-radius: 8px;
+				text-decoration: none;
+				transition: all 0.3s ease;
+				box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+				font-size: 1em;
+				margin-top: 40px;
+			}
+			.discord-button .discord-icon {
+				transition: transform 0.3s ease;
+			}
+			.discord-icon {
+				margin-right: 10px;
+				width: 30px;
+				height: 30px;
+			}
+			.discord-button:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+				background: linear-gradient(135deg, #7289da, #5865f2);
+			}
+			.discord-button:hover .discord-icon {
+				transform: rotate(-15deg);
+			}
 		</style>
 	</head>
 	<body>
@@ -126,7 +179,7 @@
 			<!-- Counter-Strike -->
 			<a class="card" href="/counterstrike">
 				<div class="game-card">
-					<div class="status" status-monitor-id="71"></div>
+					<?=$server_status['counterstrike']?>
 					<img src="<?=URL_COUNTERSTRIKEBANNER?>" alt="Counter-Strike">
 				</div>
 				<div class="card-title">Counter-Strike</div>
@@ -134,7 +187,7 @@
 			<!-- Hytale -->
 			<a class="card" href="/hytale">
 				<div class="game-card">
-					<div class="status" status-monitor-id="73"></div>
+					<?=$server_status['hytale']?>
 					<img src="<?=URL_HYTALEBANNER?>" alt="Hytale">
 				</div>
 				<div class="card-title">Hytale</div>
@@ -142,7 +195,7 @@
 			<!-- Project Zomboid -->
 			<a class="card" href="/projectzomboid">
 				<div class="game-card">
-					<div class="status" status-monitor-id="75"></div>
+					<?=$server_status['projectzomboid']?>
 					<img src="<?=URL_PROJECTZOMBOIDBANNER?>" alt="Project Zomboid">
 				</div>
 				<div class="card-title">Project Zomboid</div>
@@ -150,20 +203,16 @@
 			<!-- V Rising -->
 			<a class="card" href="/vrising">
 				<div class="game-card">
-					<div class="status" status-monitor-id="58"></div>
+					<?=$server_status['vrising']?>
 					<img src="<?=URL_VRISINGBANNER?>" alt="V Rising">
 				</div>
 				<div class="card-title">V Rising</div>
 			</a>
 		</div>
-		<br><br>
-		<div class="container">
-			<!-- Discord -->
-			<a class="card" href="/discord">
-				<img src="<?=URL_DISCORDBANNER?>" alt="Discord">
-				<div class="card-title">Discord</div>
-			</a>
-		</div>
+		<a href="<?=URL_DISCORD?>" class="discord-button">
+			<img src="<?=URL_DISCORDLOGO?>" alt="Discord Logo" class="discord-icon">
+			Join Discord
+		</a>
 		<footer>
 			<?php include PATH_LICENSING?>
 		</footer>

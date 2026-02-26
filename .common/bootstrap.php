@@ -3,6 +3,7 @@ define('PATH_ROOT', $_SERVER['DOCUMENT_ROOT']);
 define('PATH_DOWNLOADS', PATH_ROOT . '/.downloads');
 define('PATH_JOIN', PATH_ROOT . '/.common/join.php');
 define('PATH_SERVERINFOHEADER', PATH_ROOT . '/.common/serverinfoheader.php');
+define('PATH_SERVERSTATUS', PATH_ROOT . '/.common/serverstatus.php');
 define('PATH_NAVBAR', PATH_ROOT . '/.common/navbar.php');
 define('PATH_LICENSING', PATH_ROOT . '/.common/licensing.php');
 define('PATH_GOOGLETAG', PATH_ROOT . '/.common/gtag.php');
@@ -14,6 +15,7 @@ define('PATH_ONLINECOUNTERSTRIKE', PATH_ROOT . '/.onlineplayers/counterstrike.tx
 define('PATH_ONLINEHYTALE', PATH_ROOT . '/.onlineplayers/hytale.txt');
 define('PATH_ONLINEPROJECTZOMBOID', PATH_ROOT . '/.onlineplayers/projectzomboid.txt');
 define('PATH_ONLINEVRISING', PATH_ROOT . '/.onlineplayers/vrising.txt');
+define('PATH_ONLINESTATUS', PATH_ROOT . '/.onlineplayers/serverstatus.txt');
 
 define('URL_MBGPLAYGROUND', 'https://mbgplayground.xyz');
 define('URL_DOWNLOADS', '/.downloads');
@@ -26,6 +28,7 @@ define('URL_VRISING', '/vrising');
 define('URL_MBGPLAYGROUNDLOGO', '/.media/mbgplaygroundlogo.png');
 define('URL_COUNTERSTRIKEBANNER', '/.media/counterstrikebanner.jpg');
 define('URL_DISCORDBANNER', '/.media/discordbanner.jpg');
+define('URL_DISCORDLOGO', '/.media/discordlogo.png');
 define('URL_HYTALEBANNER', '/.media/hytalebanner.jpg');
 define('URL_PROJECTZOMBOIDBANNER', '/.media/projectzomboidbanner.jpg');
 define('URL_VRISINGBANNER', '/.media/vrisingbanner.jpg');
