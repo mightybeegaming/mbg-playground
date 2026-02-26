@@ -11,6 +11,9 @@ RewriteEngine On
 <If "%{REQUEST_URI} =~ m#initialize\.php$#">
     php_value auto_prepend_file none
 </If>
+<If "%{REQUEST_URI} =~ m#serverstatus\.php$#">
+    php_value auto_prepend_file none
+</If>
 php_value auto_prepend_file ".common/bootstrap.php"
 
 # Remove .php extension

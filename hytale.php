@@ -60,7 +60,6 @@
 					console.error('Error loading server info:', error);
 				}
 			}
-
 			loadServerInfo();
 			setInterval(loadServerInfo, 1000);
 		</script>

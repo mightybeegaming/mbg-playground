@@ -53,8 +53,7 @@
 				font-weight: bold;
 			}
 			.card:hover {
-				transform: scale(1.06);
-				box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+				box-shadow: 0 0 30px #ff9a67;
 			}
 			footer {
 				margin-top: 20px;
@@ -83,6 +82,36 @@
 			footer a:hover {
 				text-decoration: underline;
 			}
+			.game-card {
+				position: relative;
+				overflow: hidden;
+			}
+			.status, .ping, .player{
+				position: absolute;
+				padding: 4px 8px;
+				font-size: 0.8em;
+				font-weight: bold;
+				border-radius: 6px;
+				z-index: 2;
+			}
+			.status {
+				bottom: 10px;
+				right: 8px;
+			}
+			.ping {
+				top: 10px;
+				left: 8px;
+			}
+			.player {
+				bottom: 10px;
+				left: 8px;
+			}
+			.status-online, .ping-online, .player-online {
+				background: #00aeae;
+			}
+			.status-offline, .ping-offline, .player-offline {
+				background: #ae0000;
+			}
 		</style>
 	</head>
 	<body>
@@ -91,31 +120,53 @@
 		</div>
 		<div class="container">
 			<!-- Counter-Strike -->
-			<a class="card" href="/counterstrike">
-				<img src="<?=URL_COUNTERSTRIKEBANNER?>" alt="Counter-Strike">
+			<a class="card game-card" href="/counterstrike">
+				<div class="game-card">
+					<div class="ping" ping-monitor-id="71"></div>
+					<div class="status" status-monitor-id="71"></div>
+					<div class="player" player-monitor-id="71"></div>
+					<img src="<?=URL_COUNTERSTRIKEBANNER?>" alt="Counter-Strike">
+				</div>
 				<div class="card-title">Counter-Strike</div>
 			</a>
 			<!-- Hytale -->
-			<a class="card" href="/hytale">
-				<img src="<?=URL_HYTALEBANNER?>" alt="Hytale">
+			<a class="card game-card" href="/hytale">
+				<div class="game-card">
+					<div class="players" game="hytale"></div>
+					<div class="ping" ping-monitor-id="73"></div>
+					<div class="status" status-monitor-id="73"></div>
+					<img src="<?=URL_HYTALEBANNER?>" alt="Hytale">
+				</div>
 				<div class="card-title">Hytale</div>
 			</a>
 			<!-- Project Zomboid -->
-			<a class="card" href="/projectzomboid">
-				<img src="<?=URL_PROJECTZOMBOIDBANNER?>" alt="Project Zomboid">
+			<a class="card game-card" href="/projectzomboid">
+				<div class="game-card">
+					<div class="players" game="projectzomboid"></div>
+					<div class="ping" ping-monitor-id="75"></div>
+					<div class="status" status-monitor-id="75"></div>
+					<img src="<?=URL_PROJECTZOMBOIDBANNER?>" alt="Project Zomboid">
+				</div>
 				<div class="card-title">Project Zomboid</div>
 			</a>
 			<!-- V Rising -->
-			<a class="card" href="/vrising">
-				<img src="<?=URL_VRISINGBANNER?>" alt="V Rising">
+			<a class="card game-card" href="/vrising">
+				<div class="game-card">
+					<div class="players" game="vrising"></div>
+					<div class="ping" ping-monitor-id="58"></div>
+					<div class="status" status-monitor-id="58"></div>
+					<img src="<?=URL_VRISINGBANNER?>" alt="V Rising">
+				</div>
 				<div class="card-title">V Rising</div>
 			</a>
 		</div>
 		<br><br>
 		<div class="container">
 			<!-- Discord -->
-			<a class="card" href="/discord">
-				<img src="<?=URL_DISCORDBANNER?>" alt="Discord">
+			<a class="card game-card" href="/counterstrike">
+				<div class="game-card">
+					<img src="<?=URL_DISCORDBANNER?>" alt="Discord">
+				</div>
 				<div class="card-title">Discord</div>
 			</a>
 		</div>
@@ -123,5 +174,71 @@
 			<?php include PATH_LICENSING?>
 		</footer>
 		<?php include PATH_GOOGLETAG?>
+		<script>
+			function getOnlinePlayers(id) {
+				let requestUrl = '';
+				switch(id){
+					case '71':
+						requestUrl = '<?=URL_INITIALIZECOUNTERSTRIKE?>';
+						break;
+					case '73':
+						requestUrl = '<?=URL_INITIALIZEHYTALE?>';
+						break;
+					case '75':
+						requestUrl = '<?=URL_INITIALIZEPROJECTZOMBOID?>';
+						break;
+					case '58':
+						requestUrl = '<?=URL_INITIALIZEVRISING?>';
+						break;
+				}
+
+				if(!requestUrl) return;
+				
+				var request = new XMLHttpRequest();
+				request.open('GET', requestUrl, false);
+				request.send(null);
+
+				if(request.status === 200) {
+					const data = JSON.parse(request.responseText);
+
+					return data.online_players;
+				} else {
+					console.error('Error loading server info:', request.statusText);
+				}
+			}
+
+			async function updateStatus() {
+				try {
+					const serverStatus = await fetch('<?=URL_SERVERSTATUS?>');
+					const data = await serverStatus.json();
+					const heartbeatList = data.heartbeatList;
+
+					Object.keys(heartbeatList).forEach(id => {
+						const heartbeatLength = heartbeatList[id].length - 1;
+						const isOnline = heartbeatList[id][heartbeatLength].status;
+						const ping = heartbeatList[id][heartbeatLength].ping;
+
+						const statusElement = document.querySelector(`[status-monitor-id="${id}"]`);
+						const pingElement = document.querySelector(`[ping-monitor-id="${id}"]`);
+						if(!statusElement && !pingElement) return;
+
+						const players = getOnlinePlayers(id);
+						const isOnlineString = players ? `${players} ONLINE` : 'ONLINE';
+						
+						statusElement.textContent = isOnline ? isOnlineString : 'OFFLINE';
+						statusElement.classList.remove('status-online', 'status-offline');
+						statusElement.classList.add(isOnline ? 'status-online' : 'status-offline');
+
+						pingElement.textContent = isOnline ? `${ping}ms` : '0ms';
+						pingElement.classList.remove('ping-online', 'ping-offline');
+						pingElement.classList.add(isOnline ? 'ping-online' : 'ping-offline');
+					});
+				} catch(error) {
+					console.error('Error loading server info:', error);
+				}
+			}
+			updateStatus();
+			setInterval(updateStatus, 1000);
+		</script>
 	</body>
 </html>

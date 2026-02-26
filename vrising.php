@@ -63,7 +63,6 @@ $online_players = max(0, $file - 1);
 					console.error('Error loading server info:', error);
 				}
 			}
-
 			loadServerInfo();
 			setInterval(loadServerInfo, 1000);
 		</script>

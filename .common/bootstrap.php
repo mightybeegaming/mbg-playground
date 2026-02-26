@@ -30,10 +30,13 @@ define('URL_HYTALEBANNER', '/.media/hytalebanner.jpg');
 define('URL_PROJECTZOMBOIDBANNER', '/.media/projectzomboidbanner.jpg');
 define('URL_VRISINGBANNER', '/.media/vrisingbanner.jpg');
 
-define('URL_INITIALIZECOUNTERSTRIKE', '/.counterstrike/initialize.php');
-define('URL_INITIALIZEHYTALE', '/.hytale/initialize.php');
-define('URL_INITIALIZEPROJECTZOMBOID', '/.projectzomboid/initialize.php');
-define('URL_INITIALIZEVRISING', '/.vrising/initialize.php');
+define('URL_INITIALIZECOUNTERSTRIKE', '/.counterstrike/initialize');
+define('URL_INITIALIZEHYTALE', '/.hytale/initialize');
+define('URL_INITIALIZEPROJECTZOMBOID', '/.projectzomboid/initialize');
+define('URL_INITIALIZEVRISING', '/.vrising/initialize');
 
 define('URL_MODSCOUNTERSTRIKE','/.counterstrike/mods');
 define('URL_MODSVRISING', '/.vrising/mods');
+
+define('URL_UPTIMESTATUS', 'https://uptime.mbgplayground.xyz/api/status-page/heartbeat/default');
+define('URL_SERVERSTATUS', '/.common/serverstatus');
