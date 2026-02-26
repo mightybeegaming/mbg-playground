@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="/.common/style.css">
 	</head>
 	<body>
+		<canvas id="dust"></canvas>
 		<div class="container">
 			<div class="section">
 				<h1>MBG V Rising Mods</h1>
@@ -31,5 +32,6 @@
 			<?php include '../.common/licensing.php'?>
 		</footer>
 		<?php include '../.common/gtag.php'?>
+		<script async src="../.common/dust.js"></script>
 	</body>
 </html>

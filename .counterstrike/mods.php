@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="/.common/style.css">
 	</head>
 	<body>
+		<canvas id="dust"></canvas>
 		<div class="container">
 			<div class="section">
 				<h1>MBG Counter-Strike Mods</h1>
@@ -23,7 +24,7 @@
 					<li><a href="https://github.com/APGRoboCop/podbot_mm" target="_blank">PODBot</a></li>
 					<li><a href="https://github.com/rehlds/ReGameDLL_CS" target="_blank">ReGameDLL_CS </a></li>
 					<li><a href="https://github.com/rehlds/ReHLDS" target="_blank">ReHLDS</a></li>
-					<li><a href="https://forums.alliedmods.net/showthread.php?t=66006</a>" target="_blank">Ultimate Sounds</li>
+					<li><a href="https://forums.alliedmods.net/showthread.php?t=66006" target="_blank">Ultimate Sounds</a></li>
 				</ul>
 			</div>
 		</div>
@@ -31,5 +32,6 @@
 			<?php include '../.common/licensing.php'?>
 		</footer>
 		<?php include '../.common/gtag.php'?>
+		<script async src="../.common/dust.js"></script>
 	</body>
 </html>

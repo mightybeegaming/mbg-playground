@@ -19,13 +19,16 @@
 				font-family: "Montserrat" !important;
 				color: white;
 				text-align: center;
-
-				background-color: #2a2a2a;
-				background-image: radial-gradient(
-					rgba(255,255,255,0.08) 1px,
-					transparent 1px
-				);
-				background-size: 30px 30px;
+				background: #2a2a2a;
+			}
+			#dust {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				pointer-events: none;
 			}
 			h1 {
 				color: #ff9a67;
@@ -169,6 +172,7 @@
 		</style>
 	</head>
 	<body>
+		<canvas id="dust"></canvas>
 		<div class="section">
 			<h1>MBG Playground</h1>
 		</div>
@@ -239,5 +243,6 @@
 			setInterval(loadServerMetrics, 1000);
 			loadServerMetrics();
 		</script>
+		<script async src="<?=URL_JSDUST?>"></script>
 	</body>
 </html>

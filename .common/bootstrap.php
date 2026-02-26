@@ -8,6 +8,7 @@ define('PATH_NAVBAR', PATH_ROOT . '/.common/navbar.php');
 define('PATH_LICENSING', PATH_ROOT . '/.common/licensing.php');
 define('PATH_GOOGLETAG', PATH_ROOT . '/.common/gtag.php');
 define('URL_CSS', '/.common/style.css');
+define('URL_JSDUST', '/.common/dust.js');
 define('URL_CSSDISCORD', '/.common/discord.css');
 define('URL_JSDISCORD', '/.common/discord.js');
 define('URL_SERVERMETRICS', '/.common/servermetrics');

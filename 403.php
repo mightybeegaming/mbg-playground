@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<?=URL_CSS?>">
     </head>
     <body>
+        <canvas id="dust"></canvas>
         <div class="container">
             <div class="section" style="text-align:center">
                 <h1 class="error">403 - Forbidden</h1>
@@ -19,5 +20,6 @@
 			<?php include PATH_LICENSING?>
 		</footer>
 		<?php include PATH_GOOGLETAG?>
+        <script async src="<?=URL_JSDUST?>"></script>
     </body>
 </html>

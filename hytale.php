@@ -15,6 +15,7 @@
 		<link rel="stylesheet" href="<?=URL_CSS?>">
 	</head>
 	<body>
+		<canvas id="dust"></canvas>
 		<div class="container">
 			<div class="section">
 				<h1>MBG Hytale</h1>
@@ -55,5 +56,6 @@
 			setInterval(loadServerMetrics, 1000);
 			loadServerMetrics();
 		</script>
+		<script async src="<?=URL_JSDUST?>"></script>
 	</body>
 </html>

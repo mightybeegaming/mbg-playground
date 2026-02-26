@@ -49,6 +49,7 @@ function formatSize($bytes){
 		</style>
 	</head>
 	<body>
+		<canvas id="dust"></canvas>
 		<div class="container">
 			<div class="section">
 				<h1>MBG Downloads</h1>
@@ -125,4 +126,5 @@ function formatSize($bytes){
 			}
 		}
 	</script>
+	<script async src="<?=URL_JSDUST?>"></script>
 </html>
