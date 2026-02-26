@@ -19,10 +19,6 @@
 			<div class="section">
 				<h1>MBG Project Zomboid</h1>
 				<p>This is a Project Zomboid (B42) server with quality-of-life and immersion mods.</p>
-				<span class="highlight">Features</span>
-				<ul>
-					<li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3655691326" title="Mod Collection Link" target="_blank">Mod Collection</a></li>
-				</ul>
 			</div>
 			<div class="section">
 				<?php include PATH_SERVERINFOHEADER?>

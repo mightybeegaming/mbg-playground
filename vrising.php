@@ -23,10 +23,6 @@ $online_players = max(0, $file - 1);
 			<div class="section">
 				<h1>MBG V Rising</h1>
 				<p>This is a V Rising server with quality-of-life adjustments and game mechanic overhaul mods.</p>
-				<span class="highlight">Features</span>
-				<ul>
-					<li><a href="<?=URL_MODSVRISING?>" title="Mod Collection Link" target="_blank">Mod Collection</a></li>
-				</ul>
 			</div>
 			<div class="section">
 				<?php include PATH_SERVERINFOHEADER?>

@@ -19,10 +19,6 @@
 			<div class="section">
 				<h1>MBG Counter-Strike</h1>
 				<p>This is a Counter-Strike server with performance and stability enhancements.</p>
-				<span class="highlight">Features</span>
-				<ul>
-					<li><a href="<?=URL_MODSCOUNTERSTRIKE?>" title="Mod Collection Link" target="_blank">Mod Collection</a></li>
-				</ul>
 			</div>
 			<div class="section">
 				<?php include PATH_SERVERINFOHEADER?>
