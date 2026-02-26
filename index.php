@@ -201,32 +201,31 @@
 				}
 			}
 
-			async function updateStatus() {
-				try {
-					const serverStatus = await fetch('<?=URL_SERVERSTATUS?>', {cache: 'no-store'});
-					const data = await serverStatus.json();
-					const heartbeatList = data.heartbeatList;
+			function updateStatus() {
+				fetch('<?=URL_SERVERSTATUS?>', {cache: 'no-store'})
+					.then(response => response.json())
+					.then(data => {
+						const heartbeatList = data.heartbeatList;
 
-					Object.keys(heartbeatList).forEach(id => {
-						const heartbeatLength = heartbeatList[id].length - 1;
-						const isOnline = heartbeatList[id][heartbeatLength].status;
+						Object.keys(heartbeatList).forEach(id => {
+							const heartbeats = heartbeatList[id];
+							const latest = heartbeats[heartbeats.length - 1];
+							const isOnline = latest.status;
 
-						const statusElement = document.querySelector(`[status-monitor-id="${id}"]`);
-						if(!statusElement) return;
+							const statusElement = document.querySelector(`[status-monitor-id="${id}"]`);
+							if(!statusElement) return;
 
-						const players = getOnlinePlayers(id);
-						const isOnlineString = players ? `${players} ONLINE` : 'ONLINE';
-						
-						statusElement.textContent = isOnline ? isOnlineString : 'OFFLINE';
-						statusElement.classList.remove('status-online', 'status-offline');
-						statusElement.classList.add(isOnline ? 'status-online' : 'status-offline');
-					});
-				} catch(error) {
-					console.error('Error loading server info:', error);
-				}
+							const players = getOnlinePlayers(id);
+							const isOnlineString = players ? `${players} ONLINE` : 'ONLINE';
+
+							statusElement.textContent = isOnline ? isOnlineString : 'OFFLINE';
+							statusElement.classList.remove('status-online', 'status-offline');
+							statusElement.classList.add(isOnline ? 'status-online' : 'status-offline');
+						});
+					})
+					.catch(error => console.error('Error loading server info:', error));
 			}
-			// updateStatus();
-			// setInterval(updateStatus, 1000);
+			document.addEventListener('DOMContentLoaded', updateStatus);
 		</script>
 	</body>
 </html>

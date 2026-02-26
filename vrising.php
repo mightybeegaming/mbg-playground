@@ -38,7 +38,7 @@ $online_players = max(0, $file - 1);
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
-						<span class="highlight"><span id="online_players"></span> / 60</span>
+						<span class="highlight"><?=$online_players?> / 60</span>
 					</div>
 				</div>
 			</div>
@@ -48,19 +48,5 @@ $online_players = max(0, $file - 1);
 			<?php include PATH_LICENSING?>
 		</footer>
 		<?php include PATH_GOOGLETAG?>
-		<script>
-			async function loadServerInfo() {
-				try {
-					const response = await fetch('<?=URL_INITIALIZEVRISING?>', {cache: 'no-store'});
-					const data = await response.json();
-
-					document.getElementById('online_players').textContent = data.online_players;
-				} catch (error) {
-					console.error('Error loading server info:', error);
-				}
-			}
-			loadServerInfo();
-			setInterval(loadServerInfo, 1000);
-		</script>
 	</body>
 </html>
