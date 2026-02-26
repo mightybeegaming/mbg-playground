@@ -15,7 +15,7 @@ define('PATH_ONLINECOUNTERSTRIKE', PATH_ROOT . '/.onlineplayers/counterstrike.tx
 define('PATH_ONLINEHYTALE', PATH_ROOT . '/.onlineplayers/hytale.txt');
 define('PATH_ONLINEPROJECTZOMBOID', PATH_ROOT . '/.onlineplayers/projectzomboid.txt');
 define('PATH_ONLINEVRISING', PATH_ROOT . '/.onlineplayers/vrising.txt');
-define('PATH_ONLINESTATUS', PATH_ROOT . '/.onlineplayers/serverstatus.txt');
+define('PATH_ONLINESTATUS', PATH_ROOT . '/.onlineplayers/servermetrics.txt');
 
 define('URL_MBGPLAYGROUND', 'https://mbgplayground.xyz');
 define('URL_DOWNLOADS', '/.downloads');
@@ -37,7 +37,7 @@ define('URL_MODSCOUNTERSTRIKE','/.counterstrike/mods');
 define('URL_MODSVRISING', '/.vrising/mods');
 
 define('URL_UPTIMESTATUS', 'https://uptime.mbgplayground.xyz/api/status-page/heartbeat/default');
-define('URL_SERVERSTATUS', '/.common/serverstatus');
+define('URL_SERVERMETRICS', '/.common/servermetrics');
 
 define('MONITOR_ID_COUNTERSTRIKE', '71');
 define('MONITOR_ID_HYTALE', '73');
