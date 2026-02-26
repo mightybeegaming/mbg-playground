@@ -225,8 +225,8 @@
 					console.error('Error loading server info:', error);
 				}
 			}
-			updateStatus();
-			setInterval(updateStatus, 1000);
+			// updateStatus();
+			// setInterval(updateStatus, 1000);
 		</script>
 	</body>
 </html>
