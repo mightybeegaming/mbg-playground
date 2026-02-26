@@ -72,6 +72,9 @@
 			.card:hover .game-card::after {
 				opacity: 1;
 			}
+			.card:hover .game-card img {
+				filter: grayscale(1);
+			}
 			.card img {
 				width: 100%;
 				height: 172px;
@@ -84,7 +87,7 @@
 				font-weight: bold;
 			}
 			.card:hover {
-				box-shadow: 0 0 30px #ff9a67;
+				box-shadow: 0 0 15px #00aeae;
 				transform: scale(1.05);
 			}
 			footer {
@@ -114,9 +117,6 @@
 			footer a:hover {
 				text-decoration: underline;
 			}
-			.game-card:hover img {
-				filter: grayscale(1);
-			}
 			.game-card {
 				position: relative;
 				overflow: hidden;
@@ -128,8 +128,6 @@
 				font-weight: bold;
 				border-radius: 6px;
 				z-index: 2;
-			}
-			.status {
 				bottom: 10px;
 				right: 8px;
 			}
