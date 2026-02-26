@@ -159,7 +159,7 @@
 		<br><br>
 		<div class="container">
 			<!-- Discord -->
-			<a class="card" href="/counterstrike">
+			<a class="card" href="/discord">
 				<img src="<?=URL_DISCORDBANNER?>" alt="Discord">
 				<div class="card-title">Discord</div>
 			</a>
