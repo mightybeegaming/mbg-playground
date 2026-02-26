@@ -46,7 +46,7 @@
 		<?php include PATH_GOOGLETAG?>
 		<script>
 			async function loadServerMetrics() {
-				const request = await fetch('/.common/servermetrics.php?server=vrising', {cache: 'no-store'});
+				const request = await fetch('<?=URL_SERVERMETRICS?>?server=vrising', {cache: 'no-store'});
 				const data = await request.json();
 				// console.log(data);
 

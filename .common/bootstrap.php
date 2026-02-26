@@ -10,6 +10,7 @@ define('PATH_GOOGLETAG', PATH_ROOT . '/.common/gtag.php');
 define('URL_CSS', '/.common/style.css');
 define('URL_CSSDISCORD', '/.common/discord.css');
 define('URL_JSDISCORD', '/.common/discord.js');
+define('URL_SERVERMETRICS', '/.common/servermetrics');
 
 define('PATH_ONLINECOUNTERSTRIKE', PATH_ROOT . '/.onlineplayers/counterstrike.txt');
 define('PATH_ONLINEHYTALE', PATH_ROOT . '/.onlineplayers/hytale.txt');
@@ -35,9 +36,6 @@ define('URL_VRISINGBANNER', '/.media/vrisingbanner.jpg');
 
 define('URL_MODSCOUNTERSTRIKE','/.counterstrike/mods');
 define('URL_MODSVRISING', '/.vrising/mods');
-
-define('URL_UPTIMESTATUS', 'https://uptime.mbgplayground.xyz/api/status-page/heartbeat/default');
-define('URL_SERVERMETRICS', '/.common/servermetrics');
 
 define('MONITOR_ID_COUNTERSTRIKE', '71');
 define('MONITOR_ID_HYTALE', '73');

@@ -216,7 +216,7 @@
 		<?php include PATH_GOOGLETAG?>
 		<script>
 			async function loadServerMetrics() {
-				const requestCounterStrike = await fetch('/.common/servermetrics.php?server=counterstrike', {cache: 'no-store'});
+				const requestCounterStrike = await fetch('<?=URL_SERVERMETRICS?>?server=counterstrike', {cache: 'no-store'});
 				const dataCounterStrike = await requestCounterStrike.json();
 				document.getElementById('status-counterstrike').innerHTML = dataCounterStrike.status_indicator;
 				// console.log(dataCounterStrike);
