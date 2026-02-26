@@ -201,7 +201,7 @@
 				if(request.status === 200) {
 					const data = JSON.parse(request.responseText);
 
-					return data.online_players;
+					return parseInt(data.online_players);
 				} else {
 					console.error('Error loading server info:', request.statusText);
 				}
