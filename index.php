@@ -1,11 +1,3 @@
-<?php
-include PATH_SERVERMETRICS;
-
-$metrics_counterstrike = get_metrics_counterstrike();
-$metrics_hytale = get_metrics_hytale();
-$metrics_projectzomboid = get_metrics_projectzomboid();
-$metrics_vrising = get_metrics_vrising();
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -184,7 +176,7 @@ $metrics_vrising = get_metrics_vrising();
 			<!-- Counter-Strike -->
 			<a class="card" href="/counterstrike">
 				<div class="game-card">
-					<?=$metrics_counterstrike['status_indicator']?>
+					<div id="status-counterstrike"></div>
 					<img src="<?=URL_COUNTERSTRIKEBANNER?>" alt="Counter-Strike">
 				</div>
 				<div class="card-title">Counter-Strike</div>
@@ -192,7 +184,7 @@ $metrics_vrising = get_metrics_vrising();
 			<!-- Hytale -->
 			<a class="card" href="/hytale">
 				<div class="game-card">
-					<?=$metrics_hytale['status_indicator']?>
+					<div id="status-hytale"></div>
 					<img src="<?=URL_HYTALEBANNER?>" alt="Hytale">
 				</div>
 				<div class="card-title">Hytale</div>
@@ -200,7 +192,7 @@ $metrics_vrising = get_metrics_vrising();
 			<!-- Project Zomboid -->
 			<a class="card" href="/projectzomboid">
 				<div class="game-card">
-					<?=$metrics_projectzomboid['status_indicator']?>
+					<div id="status-projectzomboid"></div>
 					<img src="<?=URL_PROJECTZOMBOIDBANNER?>" alt="Project Zomboid">
 				</div>
 				<div class="card-title">Project Zomboid</div>
@@ -208,7 +200,7 @@ $metrics_vrising = get_metrics_vrising();
 			<!-- V Rising -->
 			<a class="card" href="/vrising">
 				<div class="game-card">
-					<?=$metrics_vrising['status_indicator']?>
+					<div id="status-vrising"></div>
 					<img src="<?=URL_VRISINGBANNER?>" alt="V Rising">
 				</div>
 				<div class="card-title">V Rising</div>
@@ -222,5 +214,30 @@ $metrics_vrising = get_metrics_vrising();
 			<?php include PATH_LICENSING?>
 		</footer>
 		<?php include PATH_GOOGLETAG?>
+		<script>
+			async function loadServerMetrics() {
+				const requestCounterStrike = await fetch('/.common/servermetrics.php?server=counterstrike', {cache: 'no-store'});
+				const dataCounterStrike = await requestCounterStrike.json();
+				document.getElementById('status-counterstrike').innerHTML = dataCounterStrike.status_indicator;
+				// console.log(dataCounterStrike);
+
+				const requestHytale = await fetch('/.common/servermetrics.php?server=hytale', {cache: 'no-store'});
+				const dataHytale = await requestHytale.json();
+				document.getElementById('status-hytale').innerHTML = dataHytale.status_indicator;
+				// console.log(dataHytale);
+
+				const requestProjectZomboid = await fetch('/.common/servermetrics.php?server=projectzomboid', {cache: 'no-store'});
+				const dataProjectZomboid = await requestProjectZomboid.json();
+				document.getElementById('status-projectzomboid').innerHTML = dataProjectZomboid.status_indicator;
+				// console.log(dataProjectZomboid);
+
+				const requestVRising = await fetch('/.common/servermetrics.php?server=vrising', {cache: 'no-store'});
+				const dataVRising = await requestVRising.json();
+				document.getElementById('status-vrising').innerHTML = dataVRising.status_indicator;
+				// console.log(dataVRising);
+			}
+			setInterval(loadServerMetrics, 1000);
+			loadServerMetrics();
+		</script>
 	</body>
 </html>

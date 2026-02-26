@@ -1,9 +1,4 @@
 
-<?php
-include PATH_SERVERMETRICS;
-
-$metrics = get_metrics_counterstrike();
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -40,20 +35,20 @@ $metrics = get_metrics_counterstrike();
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
-						<span class="highlight"><?=$metrics['online_players']?> / 32</span>
+						<span class="highlight" id="online_players"> / 32</span>
 					</div>
 					<div class="info-box">
 						<b>Match Score</b><br>
-						<span class="highlight">Ts = <?=$metrics['score_t']?></span> <b>|</b>
-						<span class="highlight">CTs = <?=$metrics['score_ct']?></span>
+						<span class="highlight" id="score_t"></span> <b>|</b>
+						<span class="highlight" id="score_ct"></span>
 					</div>
 					<div class="info-box">
 						<b>Current Map</b><br>
-						<span class="highlight"><?=$metrics['current_map']?></span>
+						<span class="highlight" id="current_map"></span>
 					</div>
 					<div class="info-box">
 						<b>Next Map</b><br>
-						<span class="highlight"><?=$metrics['next_map']?></span>
+						<span class="highlight" id="next_map"></span>
 					</div>
 				</div>
 			</div>
@@ -63,5 +58,20 @@ $metrics = get_metrics_counterstrike();
 			<?php include PATH_LICENSING?>
 		</footer>
 		<?php include PATH_GOOGLETAG?>
+		<script>
+			async function loadServerMetrics() {
+				const request = await fetch('/.common/servermetrics.php?server=counterstrike', {cache: 'no-store'});
+				const data = await request.json();
+				// console.log(data);
+
+				document.getElementById('online_players').textContent = `${data.online_players} / 32`;
+				document.getElementById('score_t').textContent = `Ts : ${data.score_t}`;
+				document.getElementById('score_ct').textContent = `CTs : ${data.score_ct}`;
+				document.getElementById('current_map').textContent = data.current_map;
+				document.getElementById('next_map').textContent = data.next_map;
+			}
+			setInterval(loadServerMetrics, 1000);
+			loadServerMetrics();
+		</script>
 	</body>
 </html>

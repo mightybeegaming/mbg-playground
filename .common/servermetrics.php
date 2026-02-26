@@ -1,5 +1,29 @@
 <?php
-// include '../.common/bootstrap.php';
+include 'bootstrap.php';
+
+if(isset($_GET['server'])) {
+    $metrics = '';
+
+    switch($_GET['server']) {
+        case 'counterstrike':
+            $metrics = get_metrics_counterstrike();
+            break;
+
+        case 'hytale':
+            $metrics = get_metrics_hytale();
+            break;
+        
+        case 'projectzomboid':
+            $metrics = get_metrics_projectzomboid();
+            break;
+
+        case 'vrising':
+            $metrics = get_metrics_vrising();
+            break;
+    }
+
+    echo json_encode($metrics);
+}
 
 function get_metrics_counterstrike() {
     $metrics = [
@@ -98,8 +122,8 @@ function status_indicator_builder($metrics) {
     $online_players = (int)$metrics['online_players'];
     $online_players = ($online_players > 0) ? $online_players . ' ' : '';
 
-    $online_indicator = "<div class=\"status status-online\">{$online_players}ONLINE</div>";
-    $offline_indicator = '<div class="status status-offline">OFFLINE</div>';
+    $online_indicator = "<span class=\"status status-online\">{$online_players}ONLINE</span>";
+    $offline_indicator = '<span class="status status-offline">OFFLINE</span>';
 
     return $metrics['status'] ? $online_indicator : $offline_indicator;
 }

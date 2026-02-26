@@ -1,8 +1,3 @@
-<?php
-include PATH_SERVERMETRICS;
-
-$metrics = get_metrics_vrising();
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -39,7 +34,7 @@ $metrics = get_metrics_vrising();
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
-						<span class="highlight"><?=$metrics['online_players']?> / 60</span>
+						<span class="highlight" id="online_players"></span>
 					</div>
 				</div>
 			</div>
@@ -49,5 +44,16 @@ $metrics = get_metrics_vrising();
 			<?php include PATH_LICENSING?>
 		</footer>
 		<?php include PATH_GOOGLETAG?>
+		<script>
+			async function loadServerMetrics() {
+				const request = await fetch('/.common/servermetrics.php?server=vrising', {cache: 'no-store'});
+				const data = await request.json();
+				// console.log(data);
+
+				document.getElementById('online_players').textContent = `${data.online_players} / 60`;
+			}
+			setInterval(loadServerMetrics, 1000);
+			loadServerMetrics();
+		</script>
 	</body>
 </html>
