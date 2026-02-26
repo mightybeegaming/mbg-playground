@@ -98,7 +98,7 @@
 			.game-card:hover img {
 				filter: grayscale(0);
 			}
-			.status, .ping, .player{
+			.status {
 				position: absolute;
 				padding: 4px 8px;
 				font-size: 0.8em;
@@ -110,18 +110,10 @@
 				bottom: 10px;
 				right: 8px;
 			}
-			.ping {
-				top: 10px;
-				left: 8px;
-			}
-			.player {
-				bottom: 10px;
-				left: 8px;
-			}
-			.status-online, .ping-online, .player-online {
+			.status-online {
 				background: #00aeae;
 			}
-			.status-offline, .ping-offline, .player-offline {
+			.status-offline {
 				background: #ae0000;
 			}
 		</style>
@@ -134,9 +126,7 @@
 			<!-- Counter-Strike -->
 			<a class="card" href="/counterstrike">
 				<div class="game-card">
-					<div class="ping" ping-monitor-id="71"></div>
 					<div class="status" status-monitor-id="71"></div>
-					<div class="player" player-monitor-id="71"></div>
 					<img src="<?=URL_COUNTERSTRIKEBANNER?>" alt="Counter-Strike">
 				</div>
 				<div class="card-title">Counter-Strike</div>
@@ -144,8 +134,6 @@
 			<!-- Hytale -->
 			<a class="card" href="/hytale">
 				<div class="game-card">
-					<div class="players" game="hytale"></div>
-					<div class="ping" ping-monitor-id="73"></div>
 					<div class="status" status-monitor-id="73"></div>
 					<img src="<?=URL_HYTALEBANNER?>" alt="Hytale">
 				</div>
@@ -154,8 +142,6 @@
 			<!-- Project Zomboid -->
 			<a class="card" href="/projectzomboid">
 				<div class="game-card">
-					<div class="players" game="projectzomboid"></div>
-					<div class="ping" ping-monitor-id="75"></div>
 					<div class="status" status-monitor-id="75"></div>
 					<img src="<?=URL_PROJECTZOMBOIDBANNER?>" alt="Project Zomboid">
 				</div>
@@ -164,8 +150,6 @@
 			<!-- V Rising -->
 			<a class="card" href="/vrising">
 				<div class="game-card">
-					<div class="players" game="vrising"></div>
-					<div class="ping" ping-monitor-id="58"></div>
 					<div class="status" status-monitor-id="58"></div>
 					<img src="<?=URL_VRISINGBANNER?>" alt="V Rising">
 				</div>
@@ -226,11 +210,9 @@
 					Object.keys(heartbeatList).forEach(id => {
 						const heartbeatLength = heartbeatList[id].length - 1;
 						const isOnline = heartbeatList[id][heartbeatLength].status;
-						const ping = heartbeatList[id][heartbeatLength].ping;
 
 						const statusElement = document.querySelector(`[status-monitor-id="${id}"]`);
-						const pingElement = document.querySelector(`[ping-monitor-id="${id}"]`);
-						if(!statusElement && !pingElement) return;
+						if(!statusElement) return;
 
 						const players = getOnlinePlayers(id);
 						const isOnlineString = players ? `${players} ONLINE` : 'ONLINE';
@@ -238,10 +220,6 @@
 						statusElement.textContent = isOnline ? isOnlineString : 'OFFLINE';
 						statusElement.classList.remove('status-online', 'status-offline');
 						statusElement.classList.add(isOnline ? 'status-online' : 'status-offline');
-
-						pingElement.textContent = isOnline ? `${ping}ms` : '0ms';
-						pingElement.classList.remove('ping-online', 'ping-offline');
-						pingElement.classList.add(isOnline ? 'ping-online' : 'ping-offline');
 					});
 				} catch(error) {
 					console.error('Error loading server info:', error);
