@@ -13,19 +13,11 @@
 		<div class="container">
 			<div class="section">
 				<h1>MBG V Rising Mods</h1>
-				<p>Mod collection for the V Rising dedicated server.</p>
+				<p>Mod collection for MBG V Rising dedicated server.</p>
 			</div>
 			<div class="section">
 				<h1>Mod Collection</h1>
-				<ul>
-					<li><a href="https://thunderstore.io/c/v-rising/p/skytech6/AutoBrazier" target="_blank">AutoBrazier</a></li>
-					<li><a href="https://thunderstore.io/c/v-rising/p/Midon/AutoCloseDoors" target="_blank">AutoCloseDoors</a></li>
-					<li><a href="https://thunderstore.io/c/v-rising/p/zfolmt/Bloodcraft" target="_blank">Bloodcraft</a></li>
-					<li><a href="https://thunderstore.io/c/v-rising/p/zfolmt/Eclipse" target="_blank">Eclipse</a></li>
-					<li><a href="https://thunderstore.io/c/v-rising/p/odjit/KindredCommands" target="_blank">KindredCommands</a></li>
-					<li><a href="https://thunderstore.io/c/v-rising/p/Kindred/KindredLogistics" target="_blank">KindredLogistics</a></li>
-					<li><a href="https://thunderstore.io/c/v-rising/p/ScarletMods/ScarletMarket" target="_blank">ScarletMarket</a></li>
-				</ul>
+				<?php include 'modlist.htm'?>
 			</div>
 		</div>
 		<footer>
