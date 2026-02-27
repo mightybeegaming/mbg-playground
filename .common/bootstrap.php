@@ -8,10 +8,16 @@ define('PATH_NAVBAR', PATH_ROOT . '/.common/navbar.php');
 define('PATH_LICENSING', PATH_ROOT . '/.common/licensing.php');
 define('PATH_GOOGLETAG', PATH_ROOT . '/.common/gtag.php');
 define('URL_CSS', '/.common/style.css');
+define('URL_CSSHOME', '/.common/stylehome.css');
 define('URL_JSDUST', '/.common/dust.js');
 define('URL_CSSDISCORD', '/.common/discord.css');
 define('URL_JSDISCORD', '/.common/discord.js');
 define('URL_SERVERMETRICS', '/.common/servermetrics');
+
+define('PATH_ONLOADCOUNTERSTRIKE', PATH_ROOT . '/.counterstrike/onloadjs.php');
+define('PATH_ONLOADHYTALE', PATH_ROOT . '/.hytale/onloadjs.php');
+define('PATH_ONLOADHPROJECTZOMBOID', PATH_ROOT . '/.projectzomboid/onloadjs.php');
+define('PATH_ONLOADHVRISING', PATH_ROOT . '/.vrising/onloadjs.php');
 
 define('PATH_ONLINECOUNTERSTRIKE', PATH_ROOT . '/.onlineplayers/counterstrike.txt');
 define('PATH_ONLINEHYTALE', PATH_ROOT . '/.onlineplayers/hytale.txt');

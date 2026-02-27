@@ -45,17 +45,7 @@
 			<?php include PATH_LICENSING?>
 		</footer>
 		<?php include PATH_GOOGLETAG?>
-		<script>
-			async function loadServerMetrics() {
-				const request = await fetch('<?=URL_SERVERMETRICS?>?server=projectzomboid', {cache: 'no-store'});
-				const data = await request.json();
-				// console.log(data);
-
-				document.getElementById('online_players').textContent = `${data.online_players} / 100`;
-			}
-			setInterval(loadServerMetrics, 1000);
-			loadServerMetrics();
-		</script>
+		<?php include PATH_ONLOADHPROJECTZOMBOID?>
 		<script async src="<?=URL_JSDUST?>"></script>
 	</body>
 </html>
