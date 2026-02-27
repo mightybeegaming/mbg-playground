@@ -141,8 +141,10 @@ function get_metrics_vrising() {
 
 function get_metrics_server($monitor_id) {
     $metrics = [
+        'data' => '',
         'status' => 0,
-        'latency' => 0
+        'latency' => 0,
+        'uptime' => 0,
     ];
 
     $file_content = file_get_contents(PATH_ONLINESTATUS);
@@ -151,9 +153,15 @@ function get_metrics_server($monitor_id) {
     $json_data = json_decode($file_content, true);
     $heartbeats = $json_data['heartbeatList'][$monitor_id];
 
+    $uptime_24 = $json_data['uptimeList'][$monitor_id . '_24'];
+    $uptime_24 = ($uptime_24 * 100);
+    $uptime_24 = round($uptime_24, 2);
+
     $heartbeat = end($heartbeats);
+    $metrics['data'] = $heartbeats;
     $metrics['status'] = $heartbeat['status'];
     $metrics['latency'] = $heartbeat['ping'];
+    $metrics['uptime_24'] = $uptime_24 . '%';
     
     return $metrics;
 }
