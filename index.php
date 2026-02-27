@@ -16,9 +16,7 @@
 	</head>
 	<body>
 		<canvas id="dust"></canvas>
-		<div class="section">
-			<h1>MBG Playground</h1>
-		</div>
+		<h1>MBG Playground</h1>
 		<div class="container">
 			<a class="card" href="/counterstrike">
 				<div class="game-card">
