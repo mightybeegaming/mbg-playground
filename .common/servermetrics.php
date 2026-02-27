@@ -27,9 +27,11 @@ if(isset($_GET['server'])) {
 
 function get_metrics_counterstrike() {
     $metrics = [
-        'server_metrics' => get_metrics_server(MONITOR_ID_COUNTERSTRIKE),
+        'server' => get_metrics_server(MONITOR_ID_COUNTERSTRIKE),
         'status_indicator' => '',
+        'status_text' => '',
         'latency_indicator' => '',
+        'latency_text' => '',
         'online_players' => '',
         'score_t' => '',
         'score_ct' => '',
@@ -52,17 +54,24 @@ function get_metrics_counterstrike() {
     preg_match('/"amx_nextmap"\s+is\s+"([^"]+)"/i', $file_content, $map);
     $metrics['next_map'] = $map[1] ?? '';
 
-    $metrics['status_indicator'] = status_indicator_builder($metrics);
-    $metrics['latency_indicator'] = latency_indicator_builder($metrics);
+    $status = status_builder($metrics);
+    $latency = latency_builder($metrics);
+
+    $metrics['status_indicator'] = $status['indicator'];
+    $metrics['status_text'] = $status['text'];
+    $metrics['latency_indicator'] = $latency['indicator'];
+    $metrics['latency_text'] = $latency['text'];
 
     return $metrics;
 }
 
 function get_metrics_hytale() {
     $metrics = [
-        'server_metrics' => get_metrics_server(MONITOR_ID_HYTALE),
+        'server' => get_metrics_server(MONITOR_ID_HYTALE),
         'status_indicator' => '',
+        'status_text' => '',
         'latency_indicator' => '',
+        'latency_text' => '',
         'online_players' => ''
     ];
 
@@ -71,42 +80,61 @@ function get_metrics_hytale() {
     preg_match('/^[^(]*\((\d+)\)/', $file_content, $matches);
     $metrics['online_players'] = $matches[1] ?? 0;
 
-    $metrics['status_indicator'] = status_indicator_builder($metrics);
-    $metrics['latency_indicator'] = latency_indicator_builder($metrics);
+    $status = status_builder($metrics);
+    $latency = latency_builder($metrics);
+
+    $metrics['status_indicator'] = $status['indicator'];
+    $metrics['status_text'] = $status['text'];
+    $metrics['latency_indicator'] = $latency['indicator'];
+    $metrics['latency_text'] = $latency['text'];
 
     return $metrics;
 }
 
 function get_metrics_projectzomboid() {
     $metrics = [
-        'server_metrics' => get_metrics_server(MONITOR_ID_PROJECTZOMBOID),
+        'server' => get_metrics_server(MONITOR_ID_PROJECTZOMBOID),
         'status_indicator' => '',
+        'status_text' => '',
         'latency_indicator' => '',
+        'latency_text' => '',
         'online_players' => ''
     ];
 
     $file = count(file(PATH_ONLINEPROJECTZOMBOID));
     $metrics['online_players'] = max(0, $file - 1);
 
-    $metrics['status_indicator'] = status_indicator_builder($metrics);
-    $metrics['latency_indicator'] = latency_indicator_builder($metrics);
+    $status = status_builder($metrics);
+    $latency = latency_builder($metrics);
+
+    $metrics['status_indicator'] = $status['indicator'];
+    $metrics['status_text'] = $status['text'];
+    $metrics['latency_indicator'] = $latency['indicator'];
+    $metrics['latency_text'] = $latency['text'];
 
     return $metrics;
 }
 
 function get_metrics_vrising() {
     $metrics = [
-        'server_metrics' => get_metrics_server(MONITOR_ID_VRISING),
+        'server' => get_metrics_server(MONITOR_ID_VRISING),
         'status_indicator' => '',
+        'status_text' => '',
         'latency_indicator' => '',
+        'latency_text' => '',
         'online_players' => ''
     ];
 
     $file = count(file(PATH_ONLINEVRISING));
     $metrics['online_players'] = max(0, $file - 1);
 
-    $metrics['status_indicator'] = status_indicator_builder($metrics);
-    $metrics['latency_indicator'] = latency_indicator_builder($metrics);
+    $status = status_builder($metrics);
+    $latency = latency_builder($metrics);
+
+    $metrics['status_indicator'] = $status['indicator'];
+    $metrics['status_text'] = $status['text'];
+    $metrics['latency_indicator'] = $latency['indicator'];
+    $metrics['latency_text'] = $latency['text'];
 
     return $metrics;
 }
@@ -130,20 +158,48 @@ function get_metrics_server($monitor_id) {
     return $metrics;
 }
 
-function status_indicator_builder($metrics) {
+function status_builder($metrics) {
+    $builder = [
+        'indicator' => '',
+        'text' => ''
+    ];
+    
     $online_players = (int)$metrics['online_players'];
     $online_players = ($online_players > 0) ? $online_players . ' ' : '';
 
     $online_indicator = "<span class=\"status status-online\">{$online_players}ONLINE</span>";
     $offline_indicator = '<span class="status status-offline">OFFLINE</span>';
 
-    return $metrics['server_metrics']['status'] ? $online_indicator : $offline_indicator;
+    $online_text = 'ONLINE';
+    $offline_text = 'OFFLINE';
+
+    if($metrics['server']['status']) {
+        $builder['indicator'] = $online_indicator;
+        $builder['text'] = $online_text;
+    } else {
+        $builder['indicator'] = $offline_indicator;
+        $builder['text'] = $offline_text;
+    }
+
+    return $builder;
 }
 
-function latency_indicator_builder($metrics) {
-    $latency = (int)$metrics['server_metrics']['latency'];
-    $latency = ($latency > 0) ? $latency : '?';
-    $latency_indicator = $metrics['server_metrics']['status'] ? "<span class=\"latency latency-online\">{$latency} ms</span>" : '';
+function latency_builder($metrics) {
+    $builder = [
+        'indicator' => '',
+        'text' => ''
+    ];
 
-    return $latency_indicator;
+    $latency = (int)$metrics['server']['latency'];
+    $latency = ($latency > 0) ? $latency : '?';
+
+    if($metrics['server']['status']) {
+        $builder['indicator'] = "<span class=\"latency latency-online\">{$latency} ms</span>";
+        $builder['text'] = "{$latency} ms";
+    } else {
+        $builder['indicator'] = '';
+        $builder['text'] = '? ms';
+    }
+
+    return $builder;
 }

@@ -28,15 +28,15 @@
 				<div class="info-grid">
 					<div class="info-box">
 						<b>Status</b><br>
-						<img src="https://uptime.mbgplayground.xyz/api/badge/71/status?style=for-the-badge" alt="Status">
+						<span class="highlight" id="status_text"></span>
 					</div>
 					<div class="info-box">
-						<b>Uptime</b><br>
-						<img src="https://uptime.mbgplayground.xyz/api/badge/71/uptime?style=for-the-badge" alt="Uptime">
+						<b>Latency</b><br>
+						<span class="highlight" id="latency_text"></span>
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
-						<span class="highlight" id="online_players"> / 32</span>
+						<span class="highlight" id="online_players"></span>
 					</div>
 					<div class="info-box">
 						<b>Match Score</b><br>
