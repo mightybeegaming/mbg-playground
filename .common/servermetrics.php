@@ -142,7 +142,8 @@ function status_indicator_builder($metrics) {
 
 function latency_indicator_builder($metrics) {
     $latency = (int)$metrics['server_metrics']['latency'];
-    $latency_indicator = ($latency > 0) ? "<span class=\"latency latency-online\">{$latency} ms</span>" : '';
+    $latency = ($latency > 0) ? $latency : '?';
+    $latency_indicator = $metrics['server_metrics']['status'] ? "<span class=\"latency latency-online\">{$latency} ms</span>" : '';
 
     return $latency_indicator;
 }
