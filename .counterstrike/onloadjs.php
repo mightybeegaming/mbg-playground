@@ -10,6 +10,6 @@
         document.getElementById('current_map').textContent = data.current_map;
         document.getElementById('next_map').textContent = data.next_map;
     }
-    setInterval(loadServerMetrics, 1000);
+    setInterval(loadServerMetrics, 5000);
     loadServerMetrics();
 </script>

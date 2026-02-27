@@ -6,6 +6,6 @@
 
         document.getElementById('online_players').textContent = `${data.online_players} / 60`;
     }
-    setInterval(loadServerMetrics, 1000);
+    setInterval(loadServerMetrics, 5000);
     loadServerMetrics();
 </script>
