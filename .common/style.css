@@ -4,7 +4,7 @@ body {
 	font-family: "Montserrat" !important;
 	color: #e0e0e0;
 	line-height: 1.6;
-	background: #2a2a2a;
+	background: #121212;
 }
 #dust {
 	position: fixed;
@@ -15,23 +15,13 @@ body {
 	z-index: -1;
 	pointer-events: none;
 }
-header {
-	background: linear-gradient(135deg, #2b2b2b, #111);
-	padding: 40px 20px;
-	text-align: center;
-}
-header p {
-	margin-top: 10px;
-	font-size: 1.1em;
-	color: #ccc;
-}
 .container {
 	max-width: 1000px;
 	margin: auto;
 	padding: 20px;
 }
 .section {
-	background-color: #1a1a1a;
+	background-color: rgba(60, 60, 60, 0.75);
 	border-radius: 8px;
 	padding: 20px;
 	margin-bottom: 20px;
@@ -39,7 +29,7 @@ header p {
 .section h3, h2, h1 {
 	margin-top: 0;
 	color: #ff9a67;
-	border-bottom: 1px solid #333;
+	border-bottom: 1px solid #444;
 	padding-bottom: 5px;
 	font-size: 1.25em;
 }
@@ -90,7 +80,7 @@ h1.error {
     display: flex;
     justify-content: space-between;
     align-items: center;
-	border-bottom: 1px solid #333;
+	border-bottom: 1px solid #444;
 }
 .server-info-header h1{
 	margin: 0;

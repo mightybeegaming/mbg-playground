@@ -4,7 +4,7 @@ body {
 	font-family: "Montserrat" !important;
 	color: white;
 	text-align: center;
-	background: #2a2a2a;
+	background: #121212;
 }
 #dust {
 	position: fixed;
@@ -30,10 +30,12 @@ h1 {
 	width: 368px;
 	text-decoration: none;
 	color: white;
-	background: #1a1a1a;
+	/* background: #1a1a1a; */
+	background-color: rgba(60, 60, 60, 0.75);
 	border-radius: 14px;
 	overflow: hidden;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: 0 0 15px #444;
 	position: relative;
 }
 .card .game-card::after {
@@ -85,14 +87,14 @@ footer {
 	color: #888;
 }
 .section {
-	background-color: #1a1a1a;
+	background-color: rgba(60, 60, 60, 0.75);
 	border-radius: 8px;
 	padding: 1px 0px;
 	margin: 20px auto 20px auto;
 	width: 368px;
 }
 .section h3, h2, h1 {
-	font-size: 1.5em;
+	font-size: 2em;
 	color: #ff9a67;
 }
 a {
