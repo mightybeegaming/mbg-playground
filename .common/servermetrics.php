@@ -121,15 +121,10 @@ function get_metrics_server($metrics_game) {
     $json_data = json_decode($file_content, true);
     $heartbeats = $json_data['heartbeatList'][$metrics_game['monitor_id']];
 
-    $uptime_24 = $json_data['uptimeList'][$metrics_game['monitor_id'] . '_24'];
-    $uptime_24 = ($uptime_24 * 100);
-    $uptime_24 = round($uptime_24, 2);
-
     $heartbeat = end($heartbeats);
     $metrics_server['data'] = $heartbeats;
     $metrics_server['status'] = $heartbeat['status'];
     $metrics_server['latency'] = $heartbeat['ping'];
-    $metrics_server['uptime_24'] = $uptime_24 . '%';
 
     $metrics_game['server'] = $metrics_server;
     $status = status_builder($metrics_game);
@@ -139,6 +134,11 @@ function get_metrics_server($metrics_game) {
     $latency = latency_builder($metrics_game);
     $metrics_server['latency_indicator'] = $latency['indicator'];
     $metrics_server['latency_text'] = $latency['text'];
+
+    $uptime_24 = $json_data['uptimeList'][$metrics_game['monitor_id'] . '_24'];
+    $uptime_24 = ($uptime_24 * 100);
+    $uptime_24 = round($uptime_24, 2);
+    $metrics_server['uptime_24'] = $uptime_24 . '%';
     
     return $metrics_server;
 }
