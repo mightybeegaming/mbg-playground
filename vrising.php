@@ -4,9 +4,9 @@
 		<title>MBG V Rising</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="This is a V Rising server with quality-of-life adjustments and game mechanic overhaul mods.">
+		<meta name="description" content="This is a V Rising server with quality of life adjustments and game mechanic overhaul mods.">
 		<meta property="og:title" content="MBG V Rising">
-		<meta property="og:description" content="This is a V Rising server with quality-of-life adjustments and game mechanic overhaul mods.">
+		<meta property="og:description" content="This is a V Rising server with quality of life adjustments and game mechanic overhaul mods.">
 		<meta property="og:url" content="<?=URL_VRISING?>">
 		<meta property="og:image" content="<?=URL_VRISINGBANNER?>">
 		<meta property="og:type" content="website">
@@ -19,7 +19,7 @@
 		<div class="container">
 			<div class="section">
 				<h1>MBG V Rising</h1>
-				<p>This is a V Rising server with quality-of-life adjustments and game mechanic overhaul mods.</p>
+				<p>This is a <span class="highlight">V Rising</span> server with quality of life adjustments and game mechanic overhaul mods.</p>
 			</div>
 			<div class="section">
 				<?php include PATH_SERVERINFOHEADER?>
@@ -37,6 +37,12 @@
 						<b>Online Players</b><br>
 						<span class="highlight" id="online_players"></span>
 					</div>
+				</div>
+				<div class="discord-container">
+					<a href="<?=URL_DISCORD?>" class="discord-button">
+						<img src="<?=URL_DISCORDLOGO?>" alt="Discord Logo" class="discord-icon">
+						Join Discord
+					</a>
 				</div>
 			</div>
 		</div>

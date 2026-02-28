@@ -4,9 +4,9 @@
 		<title>MBG Hytale</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="This is a simple Hytale server to test and explore the early access build.">
+		<meta name="description" content="This is a modded Hytale server to test and explore the early access build.">
 		<meta property="og:title" content="MBG Hytale">
-		<meta property="og:description" content="This is a simple Hytale server to test and explore the early access build.">
+		<meta property="og:description" content="This is a modded Hytale server to test and explore the early access build.">
 		<meta property="og:url" content="<?=URL_HYTALE?>">
 		<meta property="og:image" content="<?=URL_HYTALEBANNER?>">
 		<meta property="og:type" content="website">
@@ -19,7 +19,7 @@
 		<div class="container">
 			<div class="section">
 				<h1>MBG Hytale</h1>
-				<p>This is a simple Hytale server to test and explore the early access build.</p>
+				<p>This is a modded <span class="highlight">Hytale</span> server to test and explore the early access build.</p>
 			</div>
 			<div class="section">
 				<?php include PATH_SERVERINFOHEADER?>
@@ -37,6 +37,12 @@
 						<b>Online Players</b><br>
 						<span class="highlight" id="online_players"></span>
 					</div>
+				</div>
+				<div class="discord-container">
+					<a href="<?=URL_DISCORD?>" class="discord-button">
+						<img src="<?=URL_DISCORDLOGO?>" alt="Discord Logo" class="discord-icon">
+						Join Discord
+					</a>
 				</div>
 			</div>
 		</div>

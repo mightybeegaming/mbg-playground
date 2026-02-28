@@ -166,6 +166,7 @@ footer a:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 	background: linear-gradient(135deg, #7289da, #5865f2);
+	text-decoration: none;
 }
 .discord-button:hover .discord-icon {
 	transform: rotate(-15deg);

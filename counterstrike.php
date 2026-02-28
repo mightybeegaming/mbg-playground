@@ -20,7 +20,7 @@
 		<div class="container">
 			<div class="section">
 				<h1>MBG Counter-Strike</h1>
-				<p>This is a Counter-Strike server with performance and stability enhancements.</p>
+				<p>This is a <span class="highlight">Counter-Strike</span> server with performance and stability enhancements.</p>
 			</div>
 			<div class="section">
 				<?php include PATH_SERVERINFOHEADER?>
@@ -51,6 +51,12 @@
 						<b>Next Map</b><br>
 						<span class="highlight" id="next_map"></span>
 					</div>
+				</div>
+				<div class="discord-container">
+					<a href="<?=URL_DISCORD?>" class="discord-button">
+						<img src="<?=URL_DISCORDLOGO?>" alt="Discord Logo" class="discord-icon">
+						Join Discord
+					</a>
 				</div>
 			</div>
 		</div>

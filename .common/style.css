@@ -92,3 +92,37 @@ h1.error {
 	margin: 0;
 	border-bottom: none;
 }
+.discord-button {
+	display: inline-flex;
+	align-items: center;
+	background: linear-gradient(135deg, #5865f2, #7289da);
+	color: white;
+	font-weight: bold;
+	padding: 12px 24px;
+	border-radius: 8px;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+	font-size: 1em;
+	margin-top: 20px;
+}
+.discord-button .discord-icon {
+	transition: transform 0.3s ease;
+}
+.discord-icon {
+	margin-right: 10px;
+	width: 30px;
+	height: 30px;
+}
+.discord-button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+	background: linear-gradient(135deg, #7289da, #5865f2);
+	text-decoration: none;
+}
+.discord-button:hover .discord-icon {
+	transform: rotate(-15deg);
+}
+.discord-container {
+	text-align: center;
+}
