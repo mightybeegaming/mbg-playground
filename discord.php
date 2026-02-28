@@ -22,6 +22,7 @@
 			}
             a {
 				color: #00aeae;
+                font-weight: bold;
 			}
             a:link, a:visited, a:active {
 				text-decoration: none;

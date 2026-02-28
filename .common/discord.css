@@ -148,7 +148,7 @@ body {
 .acceptBtn {
   width: 100%;
   box-sizing: border-box;
-  background: #7289da;
+  background: #00aeae;
   border: none;
   color: #fff;
   padding: 15px 0;
@@ -159,6 +159,7 @@ body {
   cursor: pointer;
   transition: 0.2s ease;
   font-weight: 600;
+  font-size: 1em;
 }
 
 .acceptBtn:hover {
