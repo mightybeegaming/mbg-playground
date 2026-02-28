@@ -63,26 +63,26 @@
 			async function loadServerMetrics() {
 				const requestCounterStrike = await fetch('<?=URL_SERVERMETRICS?>?server=counterstrike', {cache: 'no-store'});
 				const dataCounterStrike = await requestCounterStrike.json();
-				document.getElementById('status-counterstrike').innerHTML = dataCounterStrike.status_indicator;
-				document.getElementById('latency-counterstrike').innerHTML = dataCounterStrike.latency_indicator;
+				document.getElementById('status-counterstrike').innerHTML = dataCounterStrike.server.status_indicator;
+				document.getElementById('latency-counterstrike').innerHTML = dataCounterStrike.server.latency_indicator;
 				// console.log(dataCounterStrike);
 
 				const requestHytale = await fetch('/.common/servermetrics.php?server=hytale', {cache: 'no-store'});
 				const dataHytale = await requestHytale.json();
-				document.getElementById('status-hytale').innerHTML = dataHytale.status_indicator;
-				document.getElementById('latency-hytale').innerHTML = dataHytale.latency_indicator;
+				document.getElementById('status-hytale').innerHTML = dataHytale.server.status_indicator;
+				document.getElementById('latency-hytale').innerHTML = dataHytale.server.latency_indicator;
 				// console.log(dataHytale);
 
 				const requestProjectZomboid = await fetch('/.common/servermetrics.php?server=projectzomboid', {cache: 'no-store'});
 				const dataProjectZomboid = await requestProjectZomboid.json();
-				document.getElementById('status-projectzomboid').innerHTML = dataProjectZomboid.status_indicator;
-				document.getElementById('latency-projectzomboid').innerHTML = dataProjectZomboid.latency_indicator;
+				document.getElementById('status-projectzomboid').innerHTML = dataProjectZomboid.server.status_indicator;
+				document.getElementById('latency-projectzomboid').innerHTML = dataProjectZomboid.server.latency_indicator;
 				// console.log(dataProjectZomboid);
 
 				const requestVRising = await fetch('/.common/servermetrics.php?server=vrising', {cache: 'no-store'});
 				const dataVRising = await requestVRising.json();
-				document.getElementById('status-vrising').innerHTML = dataVRising.status_indicator;
-				document.getElementById('latency-vrising').innerHTML = dataVRising.latency_indicator;
+				document.getElementById('status-vrising').innerHTML = dataVRising.server.status_indicator;
+				document.getElementById('latency-vrising').innerHTML = dataVRising.server.latency_indicator;
 				// console.log(dataVRising);
 			}
 			setInterval(loadServerMetrics, 5000);
