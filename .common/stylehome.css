@@ -170,3 +170,6 @@ footer a:hover {
 .discord-button:hover .discord-icon {
 	transform: rotate(-15deg);
 }
+.widget {
+	border: 2px solid rgba(0, 0, 0, 0.5);
+}

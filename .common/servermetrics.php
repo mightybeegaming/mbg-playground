@@ -152,8 +152,8 @@ function status_builder($metrics) {
     $online_players = (int)$metrics['online_players'];
     $online_players = ($online_players > 0) ? $online_players . ' ' : '';
 
-    $online_indicator = "<span class=\"status status-online\">{$online_players}ONLINE</span>";
-    $offline_indicator = '<span class="status status-offline">OFFLINE</span>';
+    $online_indicator = "<span class=\"widget status status-online\">{$online_players}ONLINE</span>";
+    $offline_indicator = '<span class="widget status status-offline">OFFLINE</span>';
 
     $online_text = 'ONLINE';
     $offline_text = 'OFFLINE';
@@ -179,7 +179,7 @@ function latency_builder($metrics) {
     $latency = ($latency > 0) ? $latency : '?';
 
     if($metrics['server']['status']) {
-        $builder['indicator'] = "<span class=\"latency latency-online\">{$latency} ms</span>";
+        $builder['indicator'] = "<span class=\"widget latency latency-online\">{$latency} ms</span>";
         $builder['text'] = "{$latency} ms";
     } else {
         $builder['indicator'] = '';
