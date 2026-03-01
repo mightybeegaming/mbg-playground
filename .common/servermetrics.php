@@ -165,7 +165,9 @@ function latency_builder($metrics) {
     return $builder;
 }
 
-/**************************************/
+/**
+ * Entry Handler
+ */
 
 if(!isset($_GET['server'])) die();
 
