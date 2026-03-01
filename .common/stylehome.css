@@ -127,13 +127,13 @@ footer a:hover {
 	z-index: 2;
 }
 .status {
-	bottom: 10px;
-	right: 8px;
-}
-.latency {
-	top: 10px;
+	top: 8px;
 	left: 8px;
 }
+/* .latency {
+	top: 8px;
+	left: 8px;
+} */
 .status-online, .latency-online {
 	background: #00aeae;
 }
