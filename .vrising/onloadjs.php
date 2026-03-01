@@ -1,6 +1,6 @@
 <script>
     async function loadServerMetrics() {
-        const request = await fetch('<?=URL_SERVERMETRICS?>?server=vrising', {cache: 'no-store'});
+        const request = await fetch('<?=URL_SERVERMETRICS?>?server=get_metrics_vrising', {cache: 'no-store'});
         const data = await request.json();
         // console.log(data);
 

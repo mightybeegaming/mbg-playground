@@ -1,30 +1,6 @@
 <?php
 include 'bootstrap.php';
 
-if(isset($_GET['server'])) {
-    $metrics = '';
-
-    switch($_GET['server']) {
-        case 'counterstrike':
-            $metrics = get_metrics_counterstrike();
-            break;
-
-        case 'hytale':
-            $metrics = get_metrics_hytale();
-            break;
-        
-        case 'projectzomboid':
-            $metrics = get_metrics_projectzomboid();
-            break;
-
-        case 'vrising':
-            $metrics = get_metrics_vrising();
-            break;
-    }
-
-    echo json_encode($metrics);
-}
-
 function get_metrics_counterstrike() {
     $metrics_counterstrike = [
         'monitor_id' => MONITOR_ID_COUNTERSTRIKE,
@@ -188,3 +164,10 @@ function latency_builder($metrics) {
 
     return $builder;
 }
+
+/**************************************/
+
+if(!isset($_GET['server'])) die();
+
+$metrics = $_GET['server']();
+echo json_encode($metrics);
