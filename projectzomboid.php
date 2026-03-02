@@ -39,6 +39,18 @@
 						<b>Online Players</b><br>
 						<span class="highlight" id="online_players"></span>
 					</div>
+					<div class="info-box">
+						<b>World Age</b><br>
+						<span class="highlight" id="world_age"></span>
+					</div>
+					<div class="info-box">
+						<b>In-Game Date</b><br>
+						<span class="highlight" id="world_date"></span>
+					</div>
+					<div class="info-box">
+						<b>In-Game Time</b><br>
+						<span class="highlight" id="world_time"></span>
+					</div>
 				</div>
 				<div class="discord-container">
 					<a href="<?=URL_DISCORD?>" class="discord-button">

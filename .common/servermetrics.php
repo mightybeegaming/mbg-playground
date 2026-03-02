@@ -53,13 +53,30 @@ function get_metrics_projectzomboid() {
     $metrics_projectzomboid = [
         'monitor_id' => MONITOR_ID_PROJECTZOMBOID,
         'server' => '',
-        'online_players' => 0
+        'online_players' => 0,
+        'world_age' => '',
+        'world_date' => '',
+        'world_time' => ''
     ];
 
     $file = count(file(PATH_ONLINEPROJECTZOMBOID));
     $metrics_projectzomboid['online_players'] = max(0, $file - 1);
 
     $metrics_projectzomboid['server'] = get_metrics_server($metrics_projectzomboid);
+
+    // Read the file contents
+    $file = file_get_contents('../.projectzomboid/worldinfo.txt');
+
+    // Regex pattern
+    $pattern = '/World Age:\s*(\d+)\s*Date Time:\s*([\d-]+)\s*([\d:]+)/';
+
+    if(preg_match($pattern, $file, $matches)) {
+        $metrics_projectzomboid['world_age'] = (int)$matches[1] . 'days';
+        $metrics_projectzomboid['world_time'] = $matches[3];
+
+        $date = new DateTime($matches[2]);
+        $metrics_projectzomboid['world_date'] = $date->format('F j, Y');
+    }
 
     return $metrics_projectzomboid;
 }
