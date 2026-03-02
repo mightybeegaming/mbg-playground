@@ -49,7 +49,7 @@
 						<span class="highlight" id="world_time"></span>
 					</div>
 					<div class="info-box">
-						<b>Weather</b><br>
+						<b>Weather (In-Game)</b><br>
 						<span class="highlight" id="weather"></span> <b>|</b>
 						<span class="highlight" id="temperature"></span>
 					</div>
