@@ -71,7 +71,7 @@ function get_metrics_projectzomboid() {
     $pattern = '/World Age:\s*(\d+)\s*Date Time:\s*([\d-]+)\s*([\d:]+)/';
 
     if(preg_match($pattern, $file, $matches)) {
-        $metrics_projectzomboid['world_age'] = (int)$matches[1] . 'days';
+        $metrics_projectzomboid['world_age'] = (int)$matches[1] . ' days';
         $metrics_projectzomboid['world_time'] = $matches[3];
 
         $date = new DateTime($matches[2]);
