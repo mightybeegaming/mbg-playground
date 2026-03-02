@@ -50,13 +50,16 @@ function get_metrics_hytale() {
 }
 
 function get_metrics_projectzomboid() {
+
     $metrics_projectzomboid = [
         'monitor_id' => MONITOR_ID_PROJECTZOMBOID,
         'server' => '',
         'online_players' => 0,
         'world_age' => '',
         'world_date' => '',
-        'world_time' => ''
+        'world_time' => '',
+        'weather' => '',
+        'temperature' => 0,
     ];
 
     $file = count(file(PATH_ONLINEPROJECTZOMBOID));
@@ -64,18 +67,26 @@ function get_metrics_projectzomboid() {
 
     $metrics_projectzomboid['server'] = get_metrics_server($metrics_projectzomboid);
 
-    // Read the file contents
-    $file = file_get_contents('../.projectzomboid/worldinfo.txt');
+    $file = file_get_contents(PATH_WORLDINFOPROJECTZOMBOID);
 
-    // Regex pattern
-    $pattern = '/World Age:\s*(\d+)\s*Date Time:\s*([\d-]+)\s*([\d:]+)/';
+    $pattern = '/World Age:\s*(\d+)\s*Date Time:\s*([\d-]+)\s*([\d:]+)\s*Weather:\s*([^\r\n]+)/s';
 
     if(preg_match($pattern, $file, $matches)) {
-        $metrics_projectzomboid['world_age'] = (int)$matches[1] . ' days';
-        $metrics_projectzomboid['world_time'] = $matches[3];
+        $world_age = (int)$matches[1];
+        $world_age .= ' days';
+        $metrics_projectzomboid['world_age'] = $world_age;
+
+        $time = $matches[3];
+        $time = date("g:i A", strtotime($time));
+        $metrics_projectzomboid['world_time'] = $time;
 
         $date = new DateTime($matches[2]);
-        $metrics_projectzomboid['world_date'] = $date->format('F j, Y');
+        $date = $date->format('n/j/Y');
+        $metrics_projectzomboid['world_date'] = $date;
+
+        $weatherParts = explode('|', $matches[4]);
+        $metrics_projectzomboid['weather'] = trim($weatherParts[0]);
+        $metrics_projectzomboid['temperature'] = isset($weatherParts[1]) ? trim($weatherParts[1]) : '';
     }
 
     return $metrics_projectzomboid;

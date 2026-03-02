@@ -25,6 +25,8 @@ define('PATH_ONLINEPROJECTZOMBOID', PATH_ROOT . '/.onlineplayers/projectzomboid.
 define('PATH_ONLINEVRISING', PATH_ROOT . '/.onlineplayers/vrising.txt');
 define('PATH_ONLINESTATUS', PATH_ROOT . '/.onlineplayers/servermetrics.txt');
 
+define('PATH_WORLDINFOPROJECTZOMBOID', PATH_ROOT . '/.projectzomboid/worldinfo.txt');
+
 define('URL_MBGPLAYGROUND', 'https://mbgplayground.xyz');
 define('URL_DOWNLOADS', '/.downloads');
 define('URL_COUNTERSTRIKE', '/counterstrike');

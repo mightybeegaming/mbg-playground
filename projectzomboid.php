@@ -44,12 +44,14 @@
 						<span class="highlight" id="world_age"></span>
 					</div>
 					<div class="info-box">
-						<b>In-Game Date</b><br>
-						<span class="highlight" id="world_date"></span>
+						<b>Date Time (In-Game)</b><br>
+						<span class="highlight" id="world_date"></span> <b>|</b>
+						<span class="highlight" id="world_time"></span>
 					</div>
 					<div class="info-box">
-						<b>In-Game Time</b><br>
-						<span class="highlight" id="world_time"></span>
+						<b>Weather</b><br>
+						<span class="highlight" id="weather"></span> <b>|</b>
+						<span class="highlight" id="temperature"></span>
 					</div>
 				</div>
 				<div class="discord-container">

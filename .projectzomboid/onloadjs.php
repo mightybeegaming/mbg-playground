@@ -11,6 +11,8 @@
         document.getElementById('world_age').textContent = data.world_age;
         document.getElementById('world_date').textContent = data.world_date;
         document.getElementById('world_time').textContent = data.world_time;
+        document.getElementById('weather').textContent = data.weather;
+        document.getElementById('temperature').textContent = data.temperature + ' °C';
     }
     setInterval(loadServerMetrics, 5000);
     loadServerMetrics();
