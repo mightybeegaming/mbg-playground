@@ -50,7 +50,6 @@ function get_metrics_hytale() {
 }
 
 function get_metrics_projectzomboid() {
-
     $metrics_projectzomboid = [
         'monitor_id' => MONITOR_ID_PROJECTZOMBOID,
         'server' => '',
@@ -85,8 +84,8 @@ function get_metrics_projectzomboid() {
         $metrics_projectzomboid['world_date'] = $date;
 
         $weatherParts = explode('|', $matches[4]);
-        $metrics_projectzomboid['weather'] = trim($weatherParts[0]);
-        $metrics_projectzomboid['temperature'] = isset($weatherParts[1]) ? trim($weatherParts[1]) : '';
+        $metrics_projectzomboid['weather'] = $weatherParts[0] ?? '';
+        $metrics_projectzomboid['temperature'] = $weatherParts[1] ?? '';
     }
 
     return $metrics_projectzomboid;
