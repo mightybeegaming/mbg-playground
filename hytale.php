@@ -55,5 +55,6 @@
 		<?php include PATH_GOOGLETAG?>
 		<?php include PATH_ONLOADHYTALE?>
 		<script async src="<?=URL_JSDUST?>"></script>
+		<?php include PATH_1UP?>
 	</body>
 </html>
