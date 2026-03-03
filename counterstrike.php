@@ -28,30 +28,32 @@
 				<div class="info-grid">
 					<div class="info-box">
 						<b>Status</b><br>
-						<span class="highlight" id="status_text"></span>
+						<span class="highlight right-side" id="status_text"></span>
 					</div>
 					<div class="info-box">
 						<!-- <b>Latency</b><br>
 						<span class="highlight" id="latency_text"></span> -->
 						<b>Uptime (24H)</b><br>
-						<span class="highlight" id="uptime_24"></span>
+						<span class="highlight right-side" id="uptime_24"></span>
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
-						<span class="highlight" id="online_players"></span>
+						<span class="highlight right-side" id="online_players"></span>
 					</div>
 					<div class="info-box">
 						<b>Match Score</b><br>
-						<span class="highlight" id="score_t"></span> <b>|</b>
-						<span class="highlight" id="score_ct"></span>
+						<div class="right-side">
+							<span class="highlight" id="score_t"></span> <b>|</b>
+							<span class="highlight" id="score_ct"></span>
+						</div>
 					</div>
 					<div class="info-box">
 						<b>Current Map</b><br>
-						<span class="highlight" id="current_map"></span>
+						<span class="highlight right-side" id="current_map"></span>
 					</div>
 					<div class="info-box">
 						<b>Next Map</b><br>
-						<span class="highlight" id="next_map"></span>
+						<span class="highlight right-side" id="next_map"></span>
 					</div>
 				</div>
 				<div class="discord-container">

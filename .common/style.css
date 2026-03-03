@@ -126,3 +126,6 @@ h1.error {
 .discord-container {
 	text-align: center;
 }
+.right-side {
+	float: right;
+}

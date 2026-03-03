@@ -27,31 +27,35 @@
 				<div class="info-grid">
 					<div class="info-box">
 						<b>Status</b><br>
-						<span class="highlight" id="status_text"></span>
+						<span class="highlight right-side" id="status_text"></span>
 					</div>
 					<div class="info-box">
 						<!-- <b>Latency</b><br>
 						<span class="highlight" id="latency_text"></span> -->
 						<b>Uptime (24H)</b><br>
-						<span class="highlight" id="uptime_24"></span>
+						<span class="highlight right-side" id="uptime_24"></span>
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
-						<span class="highlight" id="online_players"></span>
+						<span class="highlight right-side" id="online_players"></span>
 					</div>
 					<div class="info-box">
 						<b>World Age</b><br>
-						<span class="highlight" id="world_age"></span>
+						<span class="highlight right-side" id="world_age"></span>
 					</div>
 					<div class="info-box">
 						<b>Date Time (In-Game)</b><br>
-						<span class="highlight" id="world_date"></span> <b>|</b>
-						<span class="highlight" id="world_time"></span>
+						<div class="right-side">
+							<span class="highlight" id="world_date"></span> <b>|</b>
+							<span class="highlight" id="world_time"></span>
+						</div>
 					</div>
 					<div class="info-box">
 						<b>Weather (In-Game)</b><br>
-						<span class="highlight" id="weather"></span> <b>|</b>
-						<span class="highlight" id="temperature"></span>
+						<div class="right-side">
+							<span class="highlight" id="weather"></span> <b>|</b>
+							<span class="highlight" id="temperature"></span>
+						</div>
 					</div>
 				</div>
 				<div class="discord-container">
