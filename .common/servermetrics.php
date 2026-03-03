@@ -142,7 +142,7 @@ function get_metrics_server($metrics_game) {
     $uptime_24 = $json_data['uptimeList'][$metrics_game['monitor_id'] . '_24'];
     $uptime_24 = ($uptime_24 * 100);
     $uptime_24 = round($uptime_24, 2);
-    $metrics_server['uptime_24'] = $uptime_24 . '%';
+    $metrics_server['uptime_24'] = $uptime_24 . ' %';
     
     return $metrics_server;
 }
