@@ -7,6 +7,7 @@ define('PATH_SERVERMETRICS', PATH_ROOT . '/.common/servermetrics.php');
 define('PATH_NAVBAR', PATH_ROOT . '/.common/navbar.php');
 define('PATH_LICENSING', PATH_ROOT . '/.common/licensing.php');
 define('PATH_GOOGLETAG', PATH_ROOT . '/.common/gtag.php');
+define('PATH_1UP', PATH_ROOT . '/.common/1up.php');
 define('URL_CSS', '/.common/style.css');
 define('URL_CSSHOME', '/.common/stylehome.css');
 define('URL_JSDUST', '/.common/dust.js');
@@ -42,6 +43,7 @@ define('URL_DISCORDLOGO', '/.media/discordlogo.png');
 define('URL_HYTALEBANNER', '/.media/hytalebanner.jpg');
 define('URL_PROJECTZOMBOIDBANNER', '/.media/projectzomboidbanner.jpg');
 define('URL_VRISINGBANNER', '/.media/vrisingbanner.jpg');
+define('URL_1UP', '/.media/1up.mp3');
 
 define('URL_MODSCOUNTERSTRIKE','/.counterstrike/mods');
 define('URL_MODSVRISING', '/.vrising/mods');
