@@ -45,17 +45,11 @@
 					</div>
 					<div class="info-box">
 						<b>Date / Time</b><br>
-						<div class="right-side">
-							<span class="highlight" id="world_date"></span> <b>|</b>
-							<span class="highlight" id="world_time"></span>
-						</div>
+						<div class="right-side" id="datetime"></div>
 					</div>
 					<div class="info-box">
 						<b>Weather</b><br>
-						<div class="right-side">
-							<span class="highlight" id="weather"></span> <b>|</b>
-							<span class="highlight" id="temperature"></span>
-						</div>
+						<div class="right-side" id="weathertemp"></div>
 					</div>
 				</div>
 				<div class="discord-container">

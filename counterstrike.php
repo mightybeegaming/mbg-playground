@@ -42,10 +42,7 @@
 					</div>
 					<div class="info-box">
 						<b>Match Score</b><br>
-						<div class="right-side">
-							<span class="highlight" id="score_t"></span> <b>|</b>
-							<span class="highlight" id="score_ct"></span>
-						</div>
+						<div class="right-side" id="match_score"></div>
 					</div>
 					<div class="info-box">
 						<b>Current Map</b><br>
