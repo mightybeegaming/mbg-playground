@@ -44,14 +44,14 @@
 						<span class="highlight right-side" id="world_age"></span>
 					</div>
 					<div class="info-box">
-						<b>Date Time (In-Game)</b><br>
+						<b>Date / Time</b><br>
 						<div class="right-side">
 							<span class="highlight" id="world_date"></span> <b>|</b>
 							<span class="highlight" id="world_time"></span>
 						</div>
 					</div>
 					<div class="info-box">
-						<b>Weather (In-Game)</b><br>
+						<b>Weather</b><br>
 						<div class="right-side">
 							<span class="highlight" id="weather"></span> <b>|</b>
 							<span class="highlight" id="temperature"></span>
