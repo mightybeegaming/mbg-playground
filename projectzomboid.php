@@ -26,10 +26,10 @@
 			<div class="section">
 				<h1>MBG Project Zomboid</h1>
 				<p>This is a <span class="highlight">Project Zomboid</span> server with quality of life and immersion mods.</p>
+				<?php include PATH_JOIN?>
 			</div>
 			<div class="section">
-				<?php include PATH_SERVERINFOHEADER?>
-				<?php include PATH_JOIN?>
+				<h1>Server Information</h1>
 				<div class="info-grid">
 					<div class="info-box">
 						<b>Status</b><br>
