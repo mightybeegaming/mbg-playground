@@ -17,6 +17,12 @@
 	<body>
 		<canvas id="dust"></canvas>
 		<div class="container">
+			<div class="discord-container">
+				<a href="<?=URL_DISCORD?>" class="discord-button">
+					<img src="<?=URL_DISCORDLOGO?>" alt="Discord Logo" class="discord-icon">
+					Join Discord
+				</a>
+			</div>
 			<div class="section">
 				<h1>MBG Project Zomboid</h1>
 				<p>This is a <span class="highlight">Project Zomboid</span> server with quality of life and immersion mods.</p>
@@ -51,12 +57,6 @@
 						<b>Weather</b><br>
 						<div class="right-side" id="weathertemp"></div>
 					</div>
-				</div>
-				<div class="discord-container">
-					<a href="<?=URL_DISCORD?>" class="discord-button">
-						<img src="<?=URL_DISCORDLOGO?>" alt="Discord Logo" class="discord-icon">
-						Join Discord
-					</a>
 				</div>
 			</div>
 		</div>

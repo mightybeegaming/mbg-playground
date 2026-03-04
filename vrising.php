@@ -17,6 +17,12 @@
 	<body>
 		<canvas id="dust"></canvas>
 		<div class="container">
+			<div class="discord-container">
+				<a href="<?=URL_DISCORD?>" class="discord-button">
+					<img src="<?=URL_DISCORDLOGO?>" alt="Discord Logo" class="discord-icon">
+					Join Discord
+				</a>
+			</div>
 			<div class="section">
 				<h1>MBG V Rising</h1>
 				<p>This is a <span class="highlight">V Rising</span> server with quality of life adjustments and game mechanic overhaul mods.</p>
@@ -39,12 +45,6 @@
 						<b>Online Players</b><br>
 						<span class="highlight right-side" id="online_players"></span>
 					</div>
-				</div>
-				<div class="discord-container">
-					<a href="<?=URL_DISCORD?>" class="discord-button">
-						<img src="<?=URL_DISCORDLOGO?>" alt="Discord Logo" class="discord-icon">
-						Join Discord
-					</a>
 				</div>
 			</div>
 		</div>
