@@ -82,6 +82,7 @@ h1.error {
 	color: #888;
 	text-align: right;
 	font-weight: bold;
+	font-size: 0.9em;
 }
 .server-info-header {
     display: flex;
