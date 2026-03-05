@@ -59,6 +59,7 @@ body {
 	opacity: 1;
 }
 .card:hover .game-card img {
+	opacity: 0.25;
 	filter: grayscale(1);
 }
 .card img {
