@@ -2,12 +2,14 @@
 include 'bootstrap.php';
 
 class ServerMetrics {
+    public $serverData;
     public $counterStrike;
     public $hytale;
     public $projectZomboid;
     public $vRising;
-
+    
     public function __construct() {
+        $this->serverData = json_decode(file_get_contents(PATH_ONLINESTATUS), true);
         $this->counterStrike = $this->getMetricsCounterStrike();
         $this->hytale = $this->getMetricsHytale();
         $this->projectZomboid = $this->getMetricsProjectZomboid();
@@ -28,7 +30,7 @@ class ServerMetrics {
         $fileContent = file_get_contents(PATH_ONLINECOUNTERSTRIKE);
 
         preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $fileContent, $players);
-        $metricsCounterStrike['onlinePlayers'] = count($players[1]) ?? 0;
+        $metricsCounterStrike['onlinePlayers'] = count($players[1]);
 
         preg_match('/SCORE:T=(\d+);CT=(\d+)/', $fileContent, $scores);
         $metricsCounterStrike['scoreT'] = $scores[1] ?? 0;
@@ -131,12 +133,9 @@ class ServerMetrics {
             'uptime24' => 0
         ];
 
-        $fileContent = file_get_contents(PATH_ONLINESTATUS);
-        if(!$fileContent) return $metricsServer;
-
-        $jsonData = json_decode($fileContent, true);
         $monitorId = $metrics['monitorId'];
-        $heartbeats = $jsonData['heartbeatList'][$monitorId];
+        $serverData = $this->serverData;
+        $heartbeats = $serverData['heartbeatList'][$monitorId];
 
         $heartbeat = end($heartbeats);
         // $metricsServer['data'] = $heartbeats;
@@ -152,10 +151,8 @@ class ServerMetrics {
         $metricsServer['latencyIndicator'] = $latency['indicator'];
         $metricsServer['latencyText'] = $latency['text'];
 
-        $uptime24 = $jsonData['uptimeList'][$monitorId . '_24'];
-        $uptime24 = ($uptime24 * 100);
-        $uptime24 = round($uptime24, 2);
-        $metricsServer['uptime24'] = $uptime24 . ' %';
+        $uptime24 = $serverData['uptimeList'][$monitorId . '_24'];
+        $metricsServer['uptime24'] = round($uptime24 * 100, 2) . ' %';
         
         return $metricsServer;
     }
@@ -210,6 +207,7 @@ class ServerMetrics {
 /*
 * Handle Entry
 */
+header('Content-Type: application/json');
 
 if(!isset($_GET['server'])) die();
 
