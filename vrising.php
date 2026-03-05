@@ -33,17 +33,17 @@
 				<div class="info-grid">
 					<div class="info-box">
 						<b>Status</b><br>
-						<span class="highlight right-side" id="status_text"></span>
+						<span class="highlight right-side" id="statusText"></span>
 					</div>
 					<div class="info-box">
 						<!-- <b>Latency</b><br>
-						<span class="highlight" id="latency_text"></span> -->
+						<span class="highlight" id="latencyText"></span> -->
 						<b>Uptime (24H)</b><br>
-						<span class="highlight right-side" id="uptime_24"></span>
+						<span class="highlight right-side" id="uptime24"></span>
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
-						<span class="highlight right-side" id="online_players"></span>
+						<span class="highlight right-side" id="onlinePlayers"></span>
 					</div>
 				</div>
 			</div>

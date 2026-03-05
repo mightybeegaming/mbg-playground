@@ -1,202 +1,218 @@
 <?php
 include 'bootstrap.php';
 
-function get_metrics_counterstrike() {
-    $metrics_counterstrike = [
-        'monitor_id' => MONITOR_ID_COUNTERSTRIKE,
-        'server' => '',
-        'online_players' => 0,
-        'score_t' => 0,
-        'score_ct' => 0,
-        'current_map' => '',
-        'next_map' => ''
-    ];
+class ServerMetrics {
+    public $counterStrike;
+    public $hytale;
+    public $projectZomboid;
+    public $vRising;
 
-    $file_content = file_get_contents(PATH_ONLINECOUNTERSTRIKE);
-
-    preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $file_content, $players);
-    $metrics_counterstrike['online_players'] = count($players[1]) ?? 0;
-
-    preg_match('/SCORE:T=(\d+);CT=(\d+)/', $file_content, $scores);
-    $metrics_counterstrike['score_t'] = $scores[1] ?? 0;
-    $metrics_counterstrike['score_ct'] = $scores[2] ?? 0;
-
-    preg_match('/map\s*:\s*([^\s]+)/i', $file_content, $map);
-    $metrics_counterstrike['current_map'] = $map[1] ?? '';
-
-    preg_match('/"amx_nextmap"\s+is\s+"([^"]+)"/i', $file_content, $map);
-    $metrics_counterstrike['next_map'] = $map[1] ?? '';
-
-    $metrics_counterstrike['server'] = get_metrics_server($metrics_counterstrike);
-
-    return $metrics_counterstrike;
-}
-
-function get_metrics_hytale() {
-    $metrics_hytale = [
-        'monitor_id' => MONITOR_ID_HYTALE,
-        'server' => '',
-        'online_players' => 0
-    ];
-
-    $file_content = file_get_contents(PATH_ONLINEHYTALE);
-
-    preg_match('/^[^(]*\((\d+)\)/', $file_content, $matches);
-    $metrics_hytale['online_players'] = $matches[1] ?? 0;
-
-    $metrics_hytale['server'] = get_metrics_server($metrics_hytale);
-
-    return $metrics_hytale;
-}
-
-function get_metrics_projectzomboid() {
-    $metrics_projectzomboid = [
-        'monitor_id' => MONITOR_ID_PROJECTZOMBOID,
-        'server' => '',
-        'online_players' => 0,
-        'world_age' => '',
-        'world_date' => '',
-        'world_time' => '',
-        'weather' => '',
-        'temperature' => 0,
-    ];
-
-    $file = count(file(PATH_ONLINEPROJECTZOMBOID));
-    $metrics_projectzomboid['online_players'] = max(0, $file - 1);
-
-    $metrics_projectzomboid['server'] = get_metrics_server($metrics_projectzomboid);
-
-    $file = file_get_contents(PATH_WORLDINFOPROJECTZOMBOID);
-
-    $pattern = '/World Age:\s*(\d+)\s*Date Time:\s*([\d-]+)\s*([\d:]+)\s*Weather:\s*([^\r\n]+)/s';
-
-    if(preg_match($pattern, $file, $matches)) {
-        $world_age = (int)$matches[1];
-        $world_age .= ' days';
-        $metrics_projectzomboid['world_age'] = $world_age;
-
-        $time = $matches[3];
-        $time = date("g:i A", strtotime($time));
-        $metrics_projectzomboid['world_time'] = $time;
-
-        $date = new DateTime($matches[2]);
-        $date = $date->format('n/j/Y');
-        $metrics_projectzomboid['world_date'] = $date;
-
-        $weatherParts = explode('|', $matches[4]);
-        $metrics_projectzomboid['weather'] = $weatherParts[0] ?? '';
-        $metrics_projectzomboid['temperature'] = $weatherParts[1] ?? '';
+    public function __construct() {
+        $this->counterStrike = $this->getMetricsCounterStrike();
+        $this->hytale = $this->getMetricsHytale();
+        $this->projectZomboid = $this->getMetricsProjectZomboid();
+        $this->vRising = $this->getMetricsVRising();
     }
 
-    return $metrics_projectzomboid;
-}
+    private function getMetricsCounterStrike() {
+        $metricsCounterStrike = [
+            'monitorId' => MONITOR_ID_COUNTERSTRIKE,
+            'server' => '',
+            'onlinePlayers' => 0,
+            'scoreT' => 0,
+            'scoreCt' => 0,
+            'currentMap' => '',
+            'nextMap' => ''
+        ];
 
-function get_metrics_vrising() {
-    $metrics_vrising = [
-        'monitor_id' => MONITOR_ID_VRISING,
-        'server' => '',
-        'online_players' => 0
-    ];
+        $fileContent = file_get_contents(PATH_ONLINECOUNTERSTRIKE);
 
-    $file = count(file(PATH_ONLINEVRISING));
-    $metrics_vrising['online_players'] = max(0, $file - 1);
+        preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $fileContent, $players);
+        $metricsCounterStrike['onlinePlayers'] = count($players[1]) ?? 0;
 
-    $metrics_vrising['server'] = get_metrics_server($metrics_vrising);
+        preg_match('/SCORE:T=(\d+);CT=(\d+)/', $fileContent, $scores);
+        $metricsCounterStrike['scoreT'] = $scores[1] ?? 0;
+        $metricsCounterStrike['scoreCt'] = $scores[2] ?? 0;
 
-    return $metrics_vrising;
-}
+        preg_match('/map\s*:\s*([^\s]+)/i', $fileContent, $map);
+        $metricsCounterStrike['currentMap'] = $map[1] ?? '';
 
-function get_metrics_server($metrics_game) {
-    $metrics_server = [
-        'data' => '',
-        'status' => 0,
-        'status_indicator' => '',
-        'status_text' => '',
-        'latency' => 0,
-        'latency_indicator' => '',
-        'latency_text' => '',
-        'uptime_24' => 0
-    ];
+        preg_match('/"amx_nextmap"\s+is\s+"([^"]+)"/i', $fileContent, $map);
+        $metricsCounterStrike['nextMap'] = $map[1] ?? '';
 
-    $file_content = file_get_contents(PATH_ONLINESTATUS);
-    if(!$file_content) return $metrics_server;
+        $metricsCounterStrike['server'] = $this->getMetricsServer($metricsCounterStrike);
 
-    $json_data = json_decode($file_content, true);
-    $heartbeats = $json_data['heartbeatList'][$metrics_game['monitor_id']];
-
-    $heartbeat = end($heartbeats);
-    $metrics_server['data'] = $heartbeats;
-    $metrics_server['status'] = $heartbeat['status'];
-    $metrics_server['latency'] = $heartbeat['ping'];
-
-    $metrics_game['server'] = $metrics_server;
-    $status = status_builder($metrics_game);
-    $metrics_server['status_indicator'] = $status['indicator'];
-    $metrics_server['status_text'] = $status['text'];
-
-    $latency = latency_builder($metrics_game);
-    $metrics_server['latency_indicator'] = $latency['indicator'];
-    $metrics_server['latency_text'] = $latency['text'];
-
-    $uptime_24 = $json_data['uptimeList'][$metrics_game['monitor_id'] . '_24'];
-    $uptime_24 = ($uptime_24 * 100);
-    $uptime_24 = round($uptime_24, 2);
-    $metrics_server['uptime_24'] = $uptime_24 . ' %';
-    
-    return $metrics_server;
-}
-
-function status_builder($metrics) {
-    $status = [
-        'indicator' => '',
-        'text' => ''
-    ];
-    
-    $online_players = (int)$metrics['online_players'];
-    $online_players = ($online_players > 0) ? $online_players . ' ' : '';
-
-    $online_indicator = "<span class=\"widget status status-online\">{$online_players}ONLINE</span>";
-    $offline_indicator = '<span class="widget status status-offline">OFFLINE</span>';
-
-    $online_text = 'ONLINE';
-    $offline_text = 'OFFLINE';
-
-    if($metrics['server']['status']) {
-        $status['indicator'] = $online_indicator;
-        $status['text'] = $online_text;
-    } else {
-        $status['indicator'] = $offline_indicator;
-        $status['text'] = $offline_text;
+        return $metricsCounterStrike;
     }
 
-    return $status;
-}
+    private function getMetricsHytale() {
+        $metricsHytale = [
+            'monitorId' => MONITOR_ID_HYTALE,
+            'server' => '',
+            'onlinePlayers' => 0
+        ];
 
-function latency_builder($metrics) {
-    $builder = [
-        'indicator' => '',
-        'text' => ''
-    ];
+        $fileContent = file_get_contents(PATH_ONLINEHYTALE);
 
-    $latency = (int)$metrics['server']['latency'];
-    $latency = ($latency > 0) ? $latency : '?';
+        preg_match('/^[^(]*\((\d+)\)/', $fileContent, $matches);
+        $metricsHytale['onlinePlayers'] = $matches[1] ?? 0;
 
-    if($metrics['server']['status']) {
-        $builder['indicator'] = "<span class=\"widget latency latency-online\">{$latency} ms</span>";
-        $builder['text'] = "{$latency} ms";
-    } else {
-        $builder['indicator'] = '';
-        $builder['text'] = '? ms';
+        $metricsHytale['server'] = $this->getMetricsServer($metricsHytale);
+
+        return $metricsHytale;
     }
 
-    return $builder;
+    private function getMetricsProjectZomboid() {
+        $metricsProjectZomboid = [
+            'monitorId' => MONITOR_ID_PROJECTZOMBOID,
+            'server' => '',
+            'onlinePlayers' => 0,
+            'worldAge' => '',
+            'worldDate' => '',
+            'worldTime' => '',
+            'weather' => '',
+            'temperature' => 0,
+        ];
+
+        $fileLineCount = count(file(PATH_ONLINEPROJECTZOMBOID));
+        $metricsProjectZomboid['onlinePlayers'] = max(0, $fileLineCount - 1);
+
+        $metricsProjectZomboid['server'] = $this->getMetricsServer($metricsProjectZomboid);
+
+        $fileContent = file_get_contents(PATH_WORLDINFOPROJECTZOMBOID);
+
+        $pattern = '/World Age:\s*(\d+)\s*Date Time:\s*([\d-]+)\s*([\d:]+)\s*Weather:\s*([^\r\n]+)/s';
+
+        if(preg_match($pattern, $fileContent, $matches)) {
+            $worldAge = (int)$matches[1];
+            $worldAge .= ' days';
+            $metricsProjectZomboid['worldAge'] = $worldAge;
+
+            $time = $matches[3];
+            $time = date("g:i A", strtotime($time));
+            $metricsProjectZomboid['worldTime'] = $time;
+
+            $date = new DateTime($matches[2]);
+            $date = $date->format('n/j/Y');
+            $metricsProjectZomboid['worldDate'] = $date;
+
+            $weatherParts = explode('|', $matches[4]);
+            $metricsProjectZomboid['weather'] = $weatherParts[0] ?? '';
+            $metricsProjectZomboid['temperature'] = $weatherParts[1] ?? '';
+        }
+
+        return $metricsProjectZomboid;
+    }
+
+    private function getMetricsVRising() {
+        $metricsVRising = [
+            'monitorId' => MONITOR_ID_VRISING,
+            'server' => '',
+            'onlinePlayers' => 0
+        ];
+
+        $fileLineCount = count(file(PATH_ONLINEVRISING));
+        $metricsVRising['onlinePlayers'] = max(0, $fileLineCount - 1);
+
+        $metricsVRising['server'] = $this->getMetricsServer($metricsVRising);
+
+        return $metricsVRising;
+    }
+
+    private function getMetricsServer($metrics) {
+        $metricsServer = [
+            // 'data' => '',
+            'status' => 0,
+            'statusIndicator' => '',
+            'statusText' => '',
+            'latency' => 0,
+            'latencyIndicator' => '',
+            'latencyText' => '',
+            'uptime24' => 0
+        ];
+
+        $fileContent = file_get_contents(PATH_ONLINESTATUS);
+        if(!$fileContent) return $metricsServer;
+
+        $jsonData = json_decode($fileContent, true);
+        $monitorId = $metrics['monitorId'];
+        $heartbeats = $jsonData['heartbeatList'][$monitorId];
+
+        $heartbeat = end($heartbeats);
+        // $metricsServer['data'] = $heartbeats;
+        $metricsServer['status'] = $heartbeat['status'];
+        $metricsServer['latency'] = $heartbeat['ping'];
+
+        $metrics['server'] = $metricsServer;
+        $status = $this->statusBuilder($metrics);
+        $metricsServer['statusIndicator'] = $status['indicator'];
+        $metricsServer['statusText'] = $status['text'];
+
+        $latency = $this->latencyBuilder($metrics);
+        $metricsServer['latencyIndicator'] = $latency['indicator'];
+        $metricsServer['latencyText'] = $latency['text'];
+
+        $uptime24 = $jsonData['uptimeList'][$monitorId . '_24'];
+        $uptime24 = ($uptime24 * 100);
+        $uptime24 = round($uptime24, 2);
+        $metricsServer['uptime24'] = $uptime24 . ' %';
+        
+        return $metricsServer;
+    }
+
+    private function statusBuilder($metrics) {
+        $status = [
+            'indicator' => '',
+            'text' => ''
+        ];
+        
+        $onlinePlayers = (int)$metrics['onlinePlayers'];
+        $onlinePlayers = ($onlinePlayers > 0) ? $onlinePlayers . ' ' : '';
+
+        $onlineIndicator = "<span class=\"widget status status-online\">{$onlinePlayers}ONLINE</span>";
+        $offlineIndicator = '<span class="widget status status-offline">OFFLINE</span>';
+
+        $onlineText = 'ONLINE';
+        $offlineText = 'OFFLINE';
+
+        if($metrics['server']['status']) {
+            $status['indicator'] = $onlineIndicator;
+            $status['text'] = $onlineText;
+        } else {
+            $status['indicator'] = $offlineIndicator;
+            $status['text'] = $offlineText;
+        }
+
+        return $status;
+    }
+
+    private function latencyBuilder($metrics) {
+        $builder = [
+            'indicator' => '',
+            'text' => ''
+        ];
+
+        $latency = (int)$metrics['server']['latency'];
+        $latency = ($latency > 0) ? $latency : '?';
+
+        if($metrics['server']['status']) {
+            $builder['indicator'] = "<span class=\"widget latency latency-online\">{$latency} ms</span>";
+            $builder['text'] = "{$latency} ms";
+        } else {
+            $builder['indicator'] = '';
+            $builder['text'] = '? ms';
+        }
+
+        return $builder;
+    }
 }
 
-/**
- * Entry Handler
- */
+/*
+* Handle Entry
+*/
 
 if(!isset($_GET['server'])) die();
 
-$metrics = $_GET['server']();
-echo json_encode($metrics);
+$server = $_GET['server'];
+$metrics = new ServerMetrics();
+echo json_encode($metrics->$server);

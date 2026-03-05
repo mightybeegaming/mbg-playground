@@ -1,25 +1,23 @@
 <script>
     async function loadServerMetrics() {
-        const request = await fetch('<?=URL_SERVERMETRICS?>?server=get_metrics_counterstrike', {cache: 'no-store'});
+        const request = await fetch('<?=URL_SERVERMETRICS?>?server=counterStrike', {cache: 'no-store'});
         const data = await request.json();
         // console.log(data);
 
         let matchScore = '';
-        if(data.score_t && data.score_ct) {
-            matchScore = `<span class="highlight">Ts : ${data.score_t}</span>`;
+        if(data.scoreT && data.scoreCt) {
+            matchScore += `<span class="highlight">Ts : ${data.scoreT}</span>`;
             matchScore += '<b> | </b>';
-            matchScore += `<span class="highlight">CTs : ${data.score_ct}</span>`;
+            matchScore += `<span class="highlight">CTs : ${data.scoreCt}</span>`;
         }
 
-        document.getElementById('status_text').textContent = data.server.status_text;
-        // document.getElementById('latency_text').textContent = data.server.latency_text;
-        document.getElementById('uptime_24').textContent = data.server.uptime_24;
-        document.getElementById('online_players').textContent = `${data.online_players} / 32`;
-        document.getElementById('match_score').innerHTML = matchScore;
-        // document.getElementById('score_t').textContent = `Ts : ${data.score_t}`;
-        // document.getElementById('score_ct').textContent = `CTs : ${data.score_ct}`;
-        document.getElementById('current_map').textContent = data.current_map;
-        document.getElementById('next_map').textContent = data.next_map;
+        document.getElementById('statusText').textContent = data.server.statusText;
+        // document.getElementById('latencyText').textContent = data.server.latencyText;
+        document.getElementById('uptime24').textContent = data.server.uptime24;
+        document.getElementById('onlinePlayers').textContent = `${data.onlinePlayers} / 32`;
+        document.getElementById('matchScore').innerHTML = matchScore;
+        document.getElementById('currentMap').textContent = data.currentMap;
+        document.getElementById('nextMap').textContent = data.nextMap;
     }
     setInterval(loadServerMetrics, 5000);
     loadServerMetrics();
