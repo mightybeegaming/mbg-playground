@@ -2,18 +2,18 @@
 include 'bootstrap.php';
 
 class ServerMetrics {
-    public $serverData;
-    public $counterStrike;
-    public $hytale;
-    public $projectZomboid;
-    public $vRising;
+    public $ServerData;
+    public $CounterStrike;
+    public $Hytale;
+    public $ProjectZomboid;
+    public $VRising;
     
     public function __construct() {
-        $this->serverData = json_decode(file_get_contents(PATH_ONLINESTATUS), true);
-        $this->counterStrike = $this->getMetricsCounterStrike();
-        $this->hytale = $this->getMetricsHytale();
-        $this->projectZomboid = $this->getMetricsProjectZomboid();
-        $this->vRising = $this->getMetricsVRising();
+        $this->ServerData = json_decode(file_get_contents(PATH_ONLINESTATUS), true);
+        $this->CounterStrike = $this->getMetricsCounterStrike();
+        $this->Hytale = $this->getMetricsHytale();
+        $this->ProjectZomboid = $this->getMetricsProjectZomboid();
+        $this->VRising = $this->getMetricsVRising();
     }
 
     private function getMetricsCounterStrike() {
@@ -134,7 +134,7 @@ class ServerMetrics {
         ];
 
         $monitorId = $metrics['monitorId'];
-        $serverData = $this->serverData;
+        $serverData = $this->ServerData;
         $heartbeats = $serverData['heartbeatList'][$monitorId];
 
         $heartbeat = end($heartbeats);

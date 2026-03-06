@@ -61,25 +61,25 @@
 		<?php include PATH_GOOGLETAG?>
 		<script>
 			async function loadServerMetrics() {
-				const requestCounterStrike = await fetch('<?=URL_SERVERMETRICS?>?server=counterStrike', {cache: 'no-store'});
+				const requestCounterStrike = await fetch('<?=URL_SERVERMETRICS?>?server=CounterStrike', {cache: 'no-store'});
 				const dataCounterStrike = await requestCounterStrike.json();
 				document.getElementById('status-counterstrike').innerHTML = dataCounterStrike.server.statusIndicator;
 				// document.getElementById('latency-counterstrike').innerHTML = dataCounterStrike.server.latencyIndicator;
 				// console.log(dataCounterStrike);
 
-				const requestHytale = await fetch('<?=URL_SERVERMETRICS?>?server=hytale', {cache: 'no-store'});
+				const requestHytale = await fetch('<?=URL_SERVERMETRICS?>?server=Hytale', {cache: 'no-store'});
 				const dataHytale = await requestHytale.json();
 				document.getElementById('status-hytale').innerHTML = dataHytale.server.statusIndicator;
 				// document.getElementById('latency-hytale').innerHTML = dataHytale.server.latencyIndicator;
 				// console.log(dataHytale);
 
-				const requestProjectZomboid = await fetch('<?=URL_SERVERMETRICS?>?server=projectZomboid', {cache: 'no-store'});
+				const requestProjectZomboid = await fetch('<?=URL_SERVERMETRICS?>?server=ProjectZomboid', {cache: 'no-store'});
 				const dataProjectZomboid = await requestProjectZomboid.json();
 				document.getElementById('status-projectzomboid').innerHTML = dataProjectZomboid.server.statusIndicator;
 				// document.getElementById('latency-projectzomboid').innerHTML = dataProjectZomboid.server.latencyIndicator;
 				// console.log(dataProjectZomboid);
 
-				const requestVRising = await fetch('<?=URL_SERVERMETRICS?>?server=vRising', {cache: 'no-store'});
+				const requestVRising = await fetch('<?=URL_SERVERMETRICS?>?server=VRising', {cache: 'no-store'});
 				const dataVRising = await requestVRising.json();
 				document.getElementById('status-vrising').innerHTML = dataVRising.server.statusIndicator;
 				// document.getElementById('latency-vrising').innerHTML = dataVRising.server.latencyIndicator;

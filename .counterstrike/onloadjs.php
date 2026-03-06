@@ -1,6 +1,6 @@
 <script>
     async function loadServerMetrics() {
-        const request = await fetch('<?=URL_SERVERMETRICS?>?server=counterStrike', {cache: 'no-store'});
+        const request = await fetch('<?=URL_SERVERMETRICS?>?server=CounterStrike', {cache: 'no-store'});
         const data = await request.json();
         // console.log(data);
 
