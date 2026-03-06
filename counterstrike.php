@@ -38,10 +38,10 @@
 						<span class="highlight right-side" id="statusText"></span>
 					</div>
 					<div class="info-box">
-						<b>Latency</b><br>
-						<span class="highlight right-side" id="latencyText"></span>
-						<!-- <b>Uptime (24H)</b><br>
-						<span class="highlight right-side" id="uptime24"></span> -->
+						<!-- <b>Latency</b><br>
+						<span class="highlight right-side" id="latencyText"></span> -->
+						<b>Uptime (24H)</b><br>
+						<span class="highlight right-side" id="uptime24"></span>
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
@@ -67,8 +67,31 @@
 			<?php include PATH_LICENSING?>
 		</footer>
 		<?php include PATH_GOOGLETAG?>
-		<?php include PATH_ONLOADCOUNTERSTRIKE?>
 		<script async src="<?=URL_JSDUST?>"></script>
 		<?php include PATH_1UP?>
+		<script>
+			async function loadServerMetrics() {
+				const request = await fetch('<?=URL_SERVERMETRICS?>?server=CounterStrike', {cache: 'no-store'});
+				const data = await request.json();
+				// console.log(data);
+
+				let matchScore = '';
+				if(data.scoreT && data.scoreCt) {
+					matchScore += `<span class="highlight">Ts : ${data.scoreT}</span>`;
+					matchScore += '<b> | </b>';
+					matchScore += `<span class="highlight">CTs : ${data.scoreCt}</span>`;
+				}
+
+				document.getElementById('statusText').textContent = data.server.statusText;
+				// document.getElementById('latencyText').textContent = data.server.latencyText;
+				document.getElementById('uptime24').textContent = data.server.uptime24;
+				document.getElementById('onlinePlayers').textContent = `${data.onlinePlayers} / 32`;
+				document.getElementById('matchScore').innerHTML = matchScore;
+				document.getElementById('currentMap').textContent = data.currentMap;
+				document.getElementById('nextMap').textContent = data.nextMap;
+			}
+			setInterval(loadServerMetrics, 5000);
+			loadServerMetrics();
+		</script>
 	</body>
 </html>

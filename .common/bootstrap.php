@@ -15,11 +15,6 @@ define('URL_CSSDISCORD', '/.common/discord.css');
 define('URL_JSDISCORD', '/.common/discord.js');
 define('URL_SERVERMETRICS', '/.common/servermetrics');
 
-define('PATH_ONLOADCOUNTERSTRIKE', PATH_ROOT . '/.counterstrike/onloadjs.php');
-define('PATH_ONLOADHYTALE', PATH_ROOT . '/.hytale/onloadjs.php');
-define('PATH_ONLOADHPROJECTZOMBOID', PATH_ROOT . '/.projectzomboid/onloadjs.php');
-define('PATH_ONLOADHVRISING', PATH_ROOT . '/.vrising/onloadjs.php');
-
 define('PATH_ONLINECOUNTERSTRIKE', PATH_ROOT . '/.onlineplayers/counterstrike.txt');
 define('PATH_ONLINEHYTALE', PATH_ROOT . '/.onlineplayers/hytale.txt');
 define('PATH_ONLINEPROJECTZOMBOID', PATH_ROOT . '/.onlineplayers/projectzomboid.txt');
