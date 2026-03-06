@@ -12,8 +12,8 @@
         }
 
         document.getElementById('statusText').textContent = data.server.statusText;
-        // document.getElementById('latencyText').textContent = data.server.latencyText;
-        document.getElementById('uptime24').textContent = data.server.uptime24;
+        document.getElementById('latencyText').textContent = data.server.latencyText;
+        // document.getElementById('uptime24').textContent = data.server.uptime24;
         document.getElementById('onlinePlayers').textContent = `${data.onlinePlayers} / 32`;
         document.getElementById('matchScore').innerHTML = matchScore;
         document.getElementById('currentMap').textContent = data.currentMap;

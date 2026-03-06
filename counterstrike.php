@@ -38,10 +38,10 @@
 						<span class="highlight right-side" id="statusText"></span>
 					</div>
 					<div class="info-box">
-						<!-- <b>Latency</b><br>
-						<span class="highlight" id="latencyText"></span> -->
-						<b>Uptime (24H)</b><br>
-						<span class="highlight right-side" id="uptime24"></span>
+						<b>Latency</b><br>
+						<span class="highlight right-side" id="latencyText"></span>
+						<!-- <b>Uptime (24H)</b><br>
+						<span class="highlight right-side" id="uptime24"></span> -->
 					</div>
 					<div class="info-box">
 						<b>Online Players</b><br>
