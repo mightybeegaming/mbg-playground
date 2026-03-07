@@ -76,34 +76,33 @@ class ServerMetrics {
             'worldTime' => '',
             'weather' => '',
             'temperature' => 0,
+            'season' => 0
         ];
 
         $fileLineCount = count(file(PATH_ONLINEPROJECTZOMBOID));
         $metricsProjectZomboid['onlinePlayers'] = max(0, $fileLineCount - 1);
+        
+        foreach(file(PATH_WORLDINFOPROJECTZOMBOID) as $line) {
+            [$key, $value] = explode(': ', $line, 2);
+            $worldInfo[$key] = $value;
+        }
+
+        $metricsProjectZomboid['worldAge'] = $worldInfo['World Age'];
+        
+        $dateTime = explode('|', $worldInfo['Date Time']);
+        $metricsProjectZomboid['worldDate'] = $dateTime[0] ?? '';
+
+        $time = $dateTime[1] ?? 0;
+        $time = strtotime($time);
+        $time = date("g:i A", $time);
+        $metricsProjectZomboid['worldTime'] = $time;
+
+        $weather = explode('|', $worldInfo['Weather']);
+        $metricsProjectZomboid['weather'] = $weather[0] ?? '';
+        $metricsProjectZomboid['temperature'] = $weather[1] ?? '';
+        $metricsProjectZomboid['season'] = $weather[2] ?? '';
 
         $metricsProjectZomboid['server'] = $this->getMetricsServer($metricsProjectZomboid);
-
-        $fileContent = file_get_contents(PATH_WORLDINFOPROJECTZOMBOID);
-
-        $pattern = '/World Age:\s*(\d+)\s*Date Time:\s*([\d-]+)\s*([\d:]+)\s*Weather:\s*([^\r\n]+)/s';
-
-        if(preg_match($pattern, $fileContent, $matches)) {
-            $worldAge = (int)$matches[1];
-            $worldAge .= ' days';
-            $metricsProjectZomboid['worldAge'] = $worldAge;
-
-            $time = $matches[3];
-            $time = date("g:i A", strtotime($time));
-            $metricsProjectZomboid['worldTime'] = $time;
-
-            $date = new DateTime($matches[2]);
-            $date = $date->format('n/j/Y');
-            $metricsProjectZomboid['worldDate'] = $date;
-
-            $weatherParts = explode('|', $matches[4]);
-            $metricsProjectZomboid['weather'] = $weatherParts[0] ?? '';
-            $metricsProjectZomboid['temperature'] = $weatherParts[1] ?? '';
-        }
 
         return $metricsProjectZomboid;
     }
@@ -154,7 +153,7 @@ class ServerMetrics {
         $metricsServer['latencyText'] = $latency['text'];
 
         $uptime24 = $serverData['uptimeList'][$monitorId . '_24'];
-        $metricsServer['uptime24'] = round($uptime24 * 100, 2) . ' %';
+        $metricsServer['uptime24'] = round($uptime24 * 100, 2);
         
         return $metricsServer;
     }

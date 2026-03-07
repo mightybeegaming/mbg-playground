@@ -47,7 +47,7 @@
 					</div>
 					<div class="info-box">
 						<b>World Age</b><br>
-						<span class="highlight right-side" id="worldAge"></span>
+						<div class="right-side" id="worldAge"></div>
 					</div>
 					<div class="info-box">
 						<b>Date / Time</b><br>
@@ -73,9 +73,16 @@
 				const data = await request.json();
 				// console.log(data);
 
+				let worldAge = '';
+				if(data.worldAge && data.season) {
+					worldAge += `<span class="highlight">${data.season}</span>`;
+					worldAge += '<b> | </b>';
+					worldAge += `<span class="highlight">${data.worldAge} days</span>`;
+				}
+
 				let dateTime = '';
 				if(data.worldDate && data.worldTime) {
-					dateTime = `<span class="highlight">${data.worldDate}</span>`;
+					dateTime += `<span class="highlight">${data.worldDate}</span>`;
 					dateTime += '<b> | </b>';
 					dateTime += `<span class="highlight">${data.worldTime}</span>`;
 				}
@@ -89,9 +96,9 @@
 
 				document.getElementById('statusText').textContent = data.server.statusText;
 				// document.getElementById('latencyText').textContent = data.server.latencyText;
-				document.getElementById('uptime24').textContent = data.server.uptime24;
+				document.getElementById('uptime24').textContent = `${data.server.uptime24} %`;
 				document.getElementById('onlinePlayers').textContent = `${data.onlinePlayers} / 100`;
-				document.getElementById('worldAge').textContent = data.worldAge;
+				document.getElementById('worldAge').innerHTML = worldAge;
 				document.getElementById('dateTime').innerHTML = dateTime;
 				document.getElementById('weatherTemperature').innerHTML = weatherTemperature;
 			}
