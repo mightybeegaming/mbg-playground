@@ -63,7 +63,7 @@
 
 				document.getElementById('statusText').textContent = data.server.statusText;
 				// document.getElementById('latencyText').textContent = data.server.latencyText;
-				document.getElementById('uptime24').textContent = data.server.uptime24;
+				document.getElementById('uptime24').textContent = `${data.server.uptime24} %`;
 				document.getElementById('onlinePlayers').textContent = `${data.onlinePlayers} / 100`;
 			}
 			setInterval(loadServerMetrics, 5000);
