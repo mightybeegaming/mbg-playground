@@ -1,5 +1,5 @@
 <?php
-require_once('../processors/templateparser.php');
+require_once('../php/templateparser.php');
 
 $modList = file_get_contents('modlist.htm');
 

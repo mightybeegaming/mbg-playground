@@ -1,6 +1,6 @@
 <?php
-require_once('processors/templateparser.php');
-require_once('processors/downloadsgenerator.php');
+require_once('php/templateparser.php');
+require_once('php/downloadsgenerator.php');
 
 $downloadsGenerator = new DownloadsGenerator();
 $downloadList = $downloadsGenerator->getDownloadList();

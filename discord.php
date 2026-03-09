@@ -1,5 +1,5 @@
 <?php
-require_once('processors/templateparser.php');
+require_once('php/templateparser.php');
 
 $config['templateFile'] = 'templates/discord.htm';
 $config['data'] = [

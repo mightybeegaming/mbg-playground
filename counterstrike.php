@@ -1,5 +1,5 @@
 <?php
-require_once('processors/templateparser.php');
+require_once('php/templateparser.php');
 
 $infoBox = '';
 $infoBox .= '<div class="info-box"><b>Match Score</b><br><div class="right-side" id="matchScore"></div></div>';
