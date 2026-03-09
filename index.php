@@ -1,14 +1,9 @@
 <?php
+require_once('php/pageconfig.php');
 require_once('php/templateparser.php');
 
-$config['templateFile'] = 'templates/home.htm';
-$config['data'] = [
-    'title' => 'MBG Playground',
-    'description' => 'MBG Playground is a collection of media and game servers to enjoy with friends.',
-    'image' => '/media/logombg.jpg',
-    'url' => '/',
-    'onloadJs' => '/js/onloadhome.js'
-];
+$pageConfig = new PageConfig();
+$pageConfigData = $pageConfig->data;
 
-$templateParser = new TemplateParser($config);
+$templateParser = new TemplateParser($pageConfigData);
 echo $templateParser->parseTemplate();

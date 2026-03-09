@@ -4,7 +4,14 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+?)/?$ $1.php [L]
 
+# File/Directory Exists
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Handle Strays
+RewriteRule ^ index.php [QSA,L]
+
 # Custom error pages
-ErrorDocument 404 /404
-ErrorDocument 403 /403
-ErrorDocument 500 /500
+ErrorDocument 403 /
+ErrorDocument 404 /
+ErrorDocument 500 /
