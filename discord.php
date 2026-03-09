@@ -2,7 +2,6 @@
 require_once('processors/templateparser.php');
 
 $config['templateFile'] = 'templates/discord.htm';
-
 $config['data'] = [
     'title' => 'Discord',
     'description' => 'MBG Playground official Discord invitation.',

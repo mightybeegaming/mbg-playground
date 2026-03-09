@@ -16,6 +16,8 @@ Class TemplateParser {
 
         $parsedTemplate = $templateFile;
         foreach($this->data as $key => $value) {
+            if($key === 'infoBox') $value = $this->buildInfoBox($value);
+            
             $parsedTemplate = str_replace("{{{$key}}}", $value, $parsedTemplate);
         }
 
@@ -26,6 +28,17 @@ Class TemplateParser {
         $parsedTemplate = str_replace('{{license}}', $license, $parsedTemplate);
 
         return $parsedTemplate;
+    }
+
+    public function buildInfoBox($infoBox) {
+        $defaultInfoBox = '';
+        $defaultInfoBox .= '<div class="info-box"><b>Status</b><br><span class="highlight right-side" id="statusText"></span></div>';
+        $defaultInfoBox .= '<div class="info-box"><b>Uptime (24H)</b><br><span class="highlight right-side" id="uptime24"></span></div>';
+        $defaultInfoBox .= '<div class="info-box"><b>Online Players</b><br><span class="highlight right-side" id="onlinePlayers"></span></div>';
+
+        if($infoBox) $defaultInfoBox .= $infoBox;
+
+        return $defaultInfoBox;
     }
 
     private function getTemplateFile() {

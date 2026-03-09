@@ -2,7 +2,6 @@
 require_once('processors/templateparser.php');
 
 $config['templateFile'] = 'templates/error.htm';
-
 $config['data'] = [
     'title' => '500 - Server Error',
     'description' => 'The server encountered an unexpected condition.'
