@@ -2,9 +2,9 @@
 require_once('processors/templateparser.php');
 
 $infoBox = '';
-$infoBox .= '<div class="info-box"><b>Match Score</b><br><div class="right-side" id="worldAge"></div></div>';
-$infoBox .= '<div class="info-box"><b>Current Map</b><br><span class="highlight right-side" id="dateTime"></span></div>';
-$infoBox .= '<div class="info-box"><b>Next Map</b><br><span class="highlight right-side" id="weatherTemperature"></span></div>';
+$infoBox .= '<div class="info-box"><b>World Age</b><br><div class="right-side" id="worldAge"></div></div>';
+$infoBox .= '<div class="info-box"><b>Date Time</b><br><div class="right-side" id="dateTime"></div></div>';
+$infoBox .= '<div class="info-box"><b>Weather</b><br><div class="right-side" id="weatherTemperature"></div></div>';
 
 $config['templateFile'] = 'templates/game.htm';
 $config['data'] = [
