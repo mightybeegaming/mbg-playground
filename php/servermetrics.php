@@ -3,20 +3,20 @@
  * Server Metrics
  */
 class ServerMetrics {
+    public $counterStrike;
+    public $hytale;
+    public $projectZomboid;
+    public $vRising;
+
     private $serverData;
-    
-    public $CounterStrike;
-    public $Hytale;
-    public $ProjectZomboid;
-    public $VRising;
 
     public function __construct() {
         $this->serverData = json_decode(file_get_contents('../metrics/servermetrics.txt'), true);
         
-        $this->CounterStrike = $this->getMetricsCounterStrike();
-        $this->Hytale = $this->getMetricsHytale();
-        $this->ProjectZomboid = $this->getMetricsProjectZomboid();
-        $this->VRising = $this->getMetricsVRising();
+        $this->counterStrike = $this->getMetricsCounterStrike();
+        $this->hytale = $this->getMetricsHytale();
+        $this->projectZomboid = $this->getMetricsProjectZomboid();
+        $this->vRising = $this->getMetricsVRising();
     }
 
     private function getMetricsCounterStrike() {
