@@ -1,6 +1,7 @@
 <?php
-include 'bootstrap.php';
-
+/*
+ * Server Metrics
+ */
 class ServerMetrics {
     private $serverData;
     
@@ -10,7 +11,7 @@ class ServerMetrics {
     public $VRising;
 
     public function __construct() {
-        $this->serverData = json_decode(file_get_contents(PATH_ONLINESTATUS), true);
+        $this->serverData = json_decode(file_get_contents('../metrics/servermetrics.txt'), true);
         
         $this->CounterStrike = $this->getMetricsCounterStrike();
         $this->Hytale = $this->getMetricsHytale();
@@ -20,7 +21,7 @@ class ServerMetrics {
 
     private function getMetricsCounterStrike() {
         $metricsCounterStrike = [
-            'monitorId' => MONITOR_ID_COUNTERSTRIKE,
+            'monitorId' => '71',
             'server' => '',
             'onlinePlayers' => 0,
             'scoreT' => 0,
@@ -29,7 +30,7 @@ class ServerMetrics {
             'nextMap' => ''
         ];
 
-        $fileContent = file_get_contents(PATH_ONLINECOUNTERSTRIKE);
+        $fileContent = file_get_contents('../metrics/onlinecounterstrike.txt');
 
         preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $fileContent, $players);
         $metricsCounterStrike['onlinePlayers'] = count($players[1]);
@@ -51,12 +52,12 @@ class ServerMetrics {
 
     private function getMetricsHytale() {
         $metricsHytale = [
-            'monitorId' => MONITOR_ID_HYTALE,
+            'monitorId' => '73',
             'server' => '',
             'onlinePlayers' => 0
         ];
 
-        $fileContent = file_get_contents(PATH_ONLINEHYTALE);
+        $fileContent = file_get_contents('../metrics/onlinehytale.txt');
 
         preg_match('/^[^(]*\((\d+)\)/', $fileContent, $matches);
         $metricsHytale['onlinePlayers'] = $matches[1] ?? 0;
@@ -68,7 +69,7 @@ class ServerMetrics {
 
     private function getMetricsProjectZomboid() {
         $metricsProjectZomboid = [
-            'monitorId' => MONITOR_ID_PROJECTZOMBOID,
+            'monitorId' => '75',
             'server' => '',
             'onlinePlayers' => 0,
             'worldAge' => '',
@@ -79,10 +80,10 @@ class ServerMetrics {
             'season' => 0
         ];
 
-        $fileLineCount = count(file(PATH_ONLINEPROJECTZOMBOID));
+        $fileLineCount = count(file('../metrics/onlineprojectzomboid.txt'));
         $metricsProjectZomboid['onlinePlayers'] = max(0, $fileLineCount - 1);
         
-        foreach(file(PATH_WORLDINFOPROJECTZOMBOID) as $line) {
+        foreach(file('../metrics/worldinfoprojectzomboid.txt') as $line) {
             [$key, $value] = explode(': ', $line, 2);
             $worldInfo[$key] = $value;
         }
@@ -109,12 +110,12 @@ class ServerMetrics {
 
     private function getMetricsVRising() {
         $metricsVRising = [
-            'monitorId' => MONITOR_ID_VRISING,
+            'monitorId' => '58',
             'server' => '',
             'onlinePlayers' => 0
         ];
 
-        $fileLineCount = count(file(PATH_ONLINEVRISING));
+        $fileLineCount = count(file('../metrics/onlinevrising.txt'));
         $metricsVRising['onlinePlayers'] = max(0, $fileLineCount - 1);
 
         $metricsVRising['server'] = $this->getMetricsServer($metricsVRising);

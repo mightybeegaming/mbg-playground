@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{{title}}</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="{{description}}">
+		<meta property="og:title" content="{{title}}">
+		<meta property="og:description" content="{{description}}">
+		<meta property="og:url" content="{{url}}">
+		<meta property="og:image" content="{{image}}">
+		<meta property="og:type" content="website">
+		<link rel="canonical" href="{{url}}">
+		<link rel="icon" href="/media/logombg.png" type="image/png">
+		<link rel="stylesheet" href="/css/index.css">
+	</head>
+	<body>
+		<canvas id="dust"></canvas>
+		<h1>{{title}}</h1>
+		<div class="container">
+			<a class="card" href="/counterstrike">
+				<div class="game-card">
+					<div id="status-counterstrike"></div>
+					<img src="/media/bannercounterstrike.jpg" alt="Counter-Strike">
+				</div>
+				<div class="card-title">Counter-Strike</div>
+			</a>
+			<a class="card" href="/hytale">
+				<div class="game-card">
+					<div id="status-hytale"></div>
+					<img src="/media/bannerhytale.jpg" alt="Hytale">
+				</div>
+				<div class="card-title">Hytale</div>
+			</a>
+			<a class="card" href="/projectzomboid">
+				<div class="game-card">
+					<div id="status-projectzomboid"></div>
+					<img src="/media/bannerprojectzomboid.jpg" alt="Project Zomboid">
+				</div>
+				<div class="card-title">Project Zomboid</div>
+			</a>
+			<a class="card" href="/vrising">
+				<div class="game-card">
+					<div id="status-vrising"></div>
+					<img src="/media/bannervrising.jpg" alt="V Rising">
+				</div>
+				<div class="card-title">V Rising</div>
+			</a>
+		</div>
+		<a href="/discord" class="discord-button">
+			<img src="/media/logodiscord.png" alt="Discord Logo" class="discord-icon">
+			Join Discord
+		</a>
+		<footer>
+			{{license}}
+		</footer>
+		<script defer src="{{onloadJs}}"></script>
+		<audio id="1up" src="/media/audio1up.mp3" preload="auto"></audio>
+		<script defer src="/js/easteregg.js"></script>
+		<script defer src="/js/dust.js"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGJJZV6FJE"></script>
+		<script async src="/js/googletag.js"></script>
+	</body>
+</html>

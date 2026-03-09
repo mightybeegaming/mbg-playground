@@ -1,0 +1,56 @@
+<?php
+/*
+ * Template Parser
+ */
+Class TemplateParser {
+    private $config;
+    private $data;
+
+    public function __construct($config) {
+        $this->config = $config;
+        $this->data = $this->config['data'];
+    }
+
+    public function parseTemplate() {
+        $templateFile = $this->getTemplateFile();
+
+        $parsedTemplate = $templateFile;
+        foreach($this->data as $key => $value) {
+            $parsedTemplate = str_replace("{{{$key}}}", $value, $parsedTemplate);
+        }
+
+        $navBar = $this->getNavBar();
+        $parsedTemplate = str_replace('{{navBar}}', $navBar, $parsedTemplate);
+
+        $license = $this->getLicense();
+        $parsedTemplate = str_replace('{{license}}', $license, $parsedTemplate);
+
+        return $parsedTemplate;
+    }
+
+    private function getTemplateFile() {
+        $templateFile = $this->config['templateFile'];
+        $templateFile = file_get_contents($templateFile);
+
+        return $templateFile;
+    }
+
+    private function getLicense() {
+        $date = date('Y');
+        $license = "<span>© {$date} <a href=\"/\">MBG Playground</a>. All rights reserved.</span>";
+
+        return $license;
+    }
+
+    private function getNavBar() {
+        $navBar = '';
+        $navBar .= '<p>';
+        $navBar .= '<a href="/counterstrike">Counter-Strike</a> | ';
+        $navBar .= '<a href="/hytale">Hytale</a> | ';
+        $navBar .= '<a href="/projectzomboid">Project Zomboid</a> | ';
+        $navBar .= '<a href="/vrising">V Rising</a>';
+        $navBar .= '</p>';
+
+        return $navBar;
+    }
+}

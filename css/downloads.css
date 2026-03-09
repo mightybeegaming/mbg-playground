@@ -1,0 +1,30 @@
+.file-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.file-table th {
+	color: #ff9a67;
+	border-bottom: 1px solid #333;
+	padding: 0px;
+}
+.file-table td {
+	padding: 10px 0;
+	border-bottom: 1px solid #222;
+}
+.file-table tbody tr:hover {
+	background-color: #121212;
+}
+.file-size {
+	white-space: nowrap;
+	color: #ccc;
+}
+.align-right {
+	text-align: right;
+}
+.align-left {
+	text-align: left;
+}
+.sort-label {
+	cursor: pointer;
+	user-select: none;
+}

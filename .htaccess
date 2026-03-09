@@ -1,18 +1,5 @@
 RewriteEngine On
 
-# Redirect mbgplayground.playit.plus > mbgplayground.xyz
-#RewriteCond %{HTTP_HOST} ^mbgplayground\.playit\.plus$ [NC]
-#RewriteRule ^(.*)$ https://mbgplayground.xyz/$1 [R=301,L]
-
-# Auto Appends
-<If "%{REQUEST_URI} =~ m#mods\.php$#">
-    php_value auto_prepend_file none
-</If>
-<If "%{REQUEST_URI} =~ m#servermetrics\.php$#">
-    php_value auto_prepend_file none
-</If>
-php_value auto_prepend_file ".common/bootstrap.php"
-
 # Remove .php extension
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+?)/?$ $1.php [L]

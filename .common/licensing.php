@@ -1,1 +1,0 @@
-<span>© <?=date('Y')?> <a href="/">MBG Playground</a>. All rights reserved.</span>

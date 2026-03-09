@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>MBG 404</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" href="<?=URL_MBGPLAYGROUNDLOGO?>" type="image/png">
-		<link rel="stylesheet" href="<?=URL_CSS?>">
-	</head>
-	<body>
-		<canvas id="dust"></canvas>
-		<div class="container">
-			<div class="section" style="text-align:center">
-				<h1 class="error">404 - Page Not Found</h1>
-				<p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
-			</div>
-		</div>
-		<footer>
-			<?php include PATH_NAVBAR?>
-			<?php include PATH_LICENSING?>
-		</footer>
-		<?php include PATH_GOOGLETAG?>
-		<script async src="<?=URL_JSDUST?>"></script>
-	</body>
-</html>
+<?php
+require_once('processors/templateparser.php');
+
+$config['templateFile'] = 'templates/error.htm';
+
+$config['data'] = [
+    'title' => '404 - Page Not Found',
+    'description' => 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.'
+];
+
+$templateParser = new TemplateParser($config);
+echo $templateParser->parseTemplate();
