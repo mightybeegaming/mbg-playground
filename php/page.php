@@ -2,11 +2,11 @@
 require_once('download.php');
 
 class Page {
-    private $requestUri;
+    private $redirectUrl;
     private $redirectStatus;
 
     public function __construct() {
-        if(isset($_SERVER['REQUEST_URI'])) $this->requestUri = $_SERVER['REQUEST_URI'];
+        if(isset($_SERVER['REQUEST_URI'])) $this->redirectUrl = $_SERVER['REDIRECT_URL'] ?? '/';
         if(isset($_SERVER['REDIRECT_STATUS'])) $this->redirectStatus = $_SERVER['REDIRECT_STATUS'];
     }
 
@@ -24,7 +24,7 @@ class Page {
 
     private function getConfigFile() {
         $configFileName = '';
-        switch($this->requestUri) {
+        switch($this->redirectUrl) {
             // Home
             case '/':
                 $configFileName = 'home';
@@ -71,7 +71,7 @@ class Page {
         $isModlist = false;
         $addiotional = [];
 
-        switch($this->requestUri) {
+        switch($this->redirectUrl) {
             case '/downloads':
                 $addiotional['data']['downloadList'] = $this->getDownloadList();
                 break;
@@ -97,7 +97,7 @@ class Page {
     }
 
     private function getModList() {
-        switch($this->requestUri) {
+        switch($this->redirectUrl) {
             case '/counterstrike/mods':
                 $modFolder = '_counterstrike';
                 break;
