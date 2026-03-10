@@ -20,7 +20,7 @@ Class Template {
         foreach($this->data as $key => $value) {
             if($key === 'infoBox') $value = $this->buildInfoBox($value);
             
-            $parsedTemplate = str_replace("{{{$key}}}", $value, $parsedTemplate);
+            $parsedTemplate = str_replace('{{' . $key . '}}', $value, $parsedTemplate);
         }
 
         $downloadList = $this->downloadList;
@@ -59,7 +59,7 @@ Class Template {
 
     private function getLicense() {
         $date = date('Y');
-        $license = "<span>© {$date} <a href=\"/\">MBG Playground</a>. All rights reserved.</span>";
+        $license = '<span>© ' . $date . ' <a href="/">MBG Playground</a>. All rights reserved.</span>';
 
         return $license;
     }

@@ -154,7 +154,7 @@ class Server {
         $onlinePlayers = (int)$metrics['onlinePlayers'];
         $onlinePlayers = ($onlinePlayers > 0) ? $onlinePlayers . ' ' : '';
 
-        $onlineIndicator = "<span class=\"widget status status-online\">{$onlinePlayers}ONLINE</span>";
+        $onlineIndicator = '<span class="widget status status-online">' . $onlinePlayers . 'ONLINE</span>';
         $offlineIndicator = '<span class="widget status status-offline">OFFLINE</span>';
 
         $onlineText = 'ONLINE';
