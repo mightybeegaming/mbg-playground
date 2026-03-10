@@ -1,11 +1,8 @@
 <?php
-/*
- * Page Config
- */
-require_once('downloadsgenerator.php');
+require_once('downloads.php');
 
-class PageConfig {
-    public $data;
+class Page {
+    // public $data;
 
     public $requestUri;
     private $redirectStatus;
@@ -14,10 +11,10 @@ class PageConfig {
         if(isset($_SERVER['REQUEST_URI'])) $this->requestUri = $_SERVER['REQUEST_URI'];
         if(isset($_SERVER['REDIRECT_STATUS'])) $this->redirectStatus = $_SERVER['REDIRECT_STATUS'];
 
-        $this->data = $this->getData();
+        // $this->data = $this->getData();
     }
 
-    private function getData(){
+    public function getConfig(){
         $isModlist = false;
         $addiotional = [];
 
@@ -61,24 +58,23 @@ class PageConfig {
                 $isModlist = true;
                 break;
         }
-        if(!$configFileName) $configFileName = '404.xml';;
 
+        if(!$configFileName) $configFileName = '404.xml';;
         if($this->redirectStatus && $this->redirectStatus !== '200') $configFileName = '403.xml';;
 
-        if($isModlist) $addiotional['data']['modList'] = $this->getModList($this->requestUri);
-
-        $data = simplexml_load_file('pages/' . $configFileName);
-        $data = $this->xmlToArray($data);
+        $config = simplexml_load_file('pages/' . $configFileName);
+        $config = $this->xmlToArray($config);
         
-        if($addiotional) $data['data'] = array_merge($data['data'], $addiotional['data']);
+        if($isModlist) $addiotional['data']['modList'] = $this->getModList($this->requestUri);
+        if($addiotional) $config['data'] = array_merge($config['data'], $addiotional['data']);
 
-        return $data;
+        return $config;
     }
 
     private function getDownloadList() {
-        $downloadsGenerator = new DownloadsGenerator();
+        $downloads = new Downloads();
         
-        return $downloadsGenerator->getList();
+        return $downloads->generateList();
     }
 
     private function getModList($requestUri) {
@@ -90,7 +86,6 @@ class PageConfig {
                 $modListPath = '.vrising/modList.htm';
                 break;
         }
-
         $modList = file_get_contents($modListPath);
 
         return $modList;

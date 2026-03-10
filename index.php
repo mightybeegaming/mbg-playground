@@ -1,9 +1,9 @@
 <?php
-require_once('php/pageconfig.php');
-require_once('php/templateparser.php');
+require_once('php/page.php');
+require_once('php/template.php');
 
-$pageConfig = new PageConfig();
-$pageConfigData = $pageConfig->data;
+$page = new Page();
+$pageConfig = $page->getConfig();
 
-$templateParser = new TemplateParser($pageConfigData);
-echo $templateParser->parseTemplate();
+$template = new Template($pageConfig);
+$template->render();

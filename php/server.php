@@ -1,8 +1,5 @@
 <?php
-/*
- * Server Metrics
- */
-class ServerMetrics {
+class Server {
     public $counterStrike;
     public $hytale;
     public $projectZomboid;
@@ -19,7 +16,7 @@ class ServerMetrics {
         $this->vRising = $this->getMetricsVRising();
     }
 
-    private function getMetricsCounterStrike() {
+    public function getMetricsCounterStrike() {
         $metricsCounterStrike = [
             'monitorId' => '71',
             'server' => '',
@@ -50,7 +47,7 @@ class ServerMetrics {
         return $metricsCounterStrike;
     }
 
-    private function getMetricsHytale() {
+    public function getMetricsHytale() {
         $metricsHytale = [
             'monitorId' => '73',
             'server' => '',
@@ -67,7 +64,7 @@ class ServerMetrics {
         return $metricsHytale;
     }
 
-    private function getMetricsProjectZomboid() {
+    public function getMetricsProjectZomboid() {
         $metricsProjectZomboid = [
             'monitorId' => '75',
             'server' => '',
@@ -108,7 +105,7 @@ class ServerMetrics {
         return $metricsProjectZomboid;
     }
 
-    private function getMetricsVRising() {
+    public function getMetricsVRising() {
         $metricsVRising = [
             'monitorId' => '58',
             'server' => '',
@@ -125,13 +122,9 @@ class ServerMetrics {
 
     private function getMetricsServer($metrics) {
         $metricsServer = [
-            // 'data' => '',
             'status' => 0,
             'statusIndicator' => '',
             'statusText' => '',
-            'latency' => 0,
-            'latencyIndicator' => '',
-            'latencyText' => '',
             'uptime24' => 0
         ];
 
@@ -140,18 +133,12 @@ class ServerMetrics {
         $heartbeats = $serverData['heartbeatList'][$monitorId];
 
         $heartbeat = end($heartbeats);
-        // $metricsServer['data'] = $heartbeats;
         $metricsServer['status'] = $heartbeat['status'];
-        $metricsServer['latency'] = $heartbeat['ping'];
 
         $metrics['server'] = $metricsServer;
         $status = $this->statusBuilder($metrics);
         $metricsServer['statusIndicator'] = $status['indicator'];
         $metricsServer['statusText'] = $status['text'];
-
-        $latency = $this->latencyBuilder($metrics);
-        $metricsServer['latencyIndicator'] = $latency['indicator'];
-        $metricsServer['latencyText'] = $latency['text'];
 
         $uptime24 = $serverData['uptimeList'][$monitorId . '_24'];
         $metricsServer['uptime24'] = round($uptime24 * 100, 2);
@@ -184,26 +171,6 @@ class ServerMetrics {
 
         return $status;
     }
-
-    private function latencyBuilder($metrics) {
-        $builder = [
-            'indicator' => '',
-            'text' => ''
-        ];
-
-        $latency = (int)$metrics['server']['latency'];
-        $latency = ($latency > 0) ? $latency : '?';
-
-        if($metrics['server']['status']) {
-            $builder['indicator'] = "<span class=\"widget latency latency-online\">{$latency} ms</span>";
-            $builder['text'] = "{$latency} ms";
-        } else {
-            $builder['indicator'] = '';
-            $builder['text'] = '? ms';
-        }
-
-        return $builder;
-    }
 }
 
 /*
@@ -211,8 +178,8 @@ class ServerMetrics {
 */
 header('Content-Type: application/json');
 
-if(!isset($_GET['server'])) die();
+if(!isset($_GET['metrics'])) die();
 
-$server = $_GET['server'];
-$metrics = new ServerMetrics();
-echo json_encode($metrics->$server);
+$metrics = $_GET['metrics'];
+$server = new Server();
+echo json_encode($server->$metrics);

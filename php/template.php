@@ -1,8 +1,5 @@
 <?php
-/*
- * Template Parser
- */
-Class TemplateParser {
+Class Template {
     private $config;
     private $data;
     private $downloadList;
@@ -12,7 +9,11 @@ Class TemplateParser {
         $this->data = $this->config['data'];
     }
 
-    public function parseTemplate() {
+    public function render() {
+        echo $this->parse();
+    }
+
+    private function parse() {
         $templateFile = $this->getTemplateFile();
 
         $parsedTemplate = $templateFile;
