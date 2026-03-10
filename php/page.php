@@ -2,7 +2,7 @@
 require_once('download.php');
 
 class Page {
-    public $requestUri;
+    private $requestUri;
     private $redirectStatus;
 
     public function __construct() {
@@ -11,60 +11,83 @@ class Page {
     }
 
     public function getConfig(){
-        $isModlist = false;
-        $addiotional = [];
+        $configFile = $this->getConfigFile();
 
+        $config = simplexml_load_file('pages/' . $configFile);
+        $config = $this->xmlToArray($config);
+        
+        $addiotionalData = $this->getAdditionalData();
+        if($addiotionalData) $config['data'] = array_merge($config['data'], $addiotionalData['data']);
+
+        return $config;
+    }
+
+    private function getConfigFile() {
         $configFileName = '';
         switch($this->requestUri) {
             // Home
             case '/':
-                $configFileName = 'home.xml';
+                $configFileName = 'home';
                 break;
             
             // Others
             case '/discord':
-                $configFileName = 'discord.xml';
+                $configFileName = 'discord';
                 break;
             case '/downloads':
-                $configFileName = 'downloads.xml';
-                $addiotional['data']['downloadList'] = $this->getDownloadList();
+                $configFileName = 'downloads';
                 break;
             
             // Games
             case '/counterstrike':
-                $configFileName = 'counterstrike.xml';
+                $configFileName = 'counterstrike';
                 break;
             case '/hytale':
-                $configFileName = 'hytale.xml';
+                $configFileName = 'hytale';
                 break;
             case '/projectzomboid':
-                $configFileName = 'projectzomboid.xml';
+                $configFileName = 'projectzomboid';
                 break;
             case '/vrising':
-                $configFileName = 'vrising.xml';
+                $configFileName = 'vrising';
                 break;
             
             // Mod List
             case '/counterstrike/mods':
-                $configFileName = 'counterstrikemods.xml';
+                $configFileName = 'counterstrikemods';
+                break;
+            case '/vrising/mods':
+                $configFileName = 'vrisingmods';
+                break;
+        }
+
+        if(!$configFileName) $configFileName = '404';;
+        if($this->redirectStatus && $this->redirectStatus !== '200') $configFileName = '403';;
+
+        return $configFileName . '.xml';
+    }
+
+    private function getAdditionalData() {
+        $isModlist = false;
+        $addiotional = [];
+
+        switch($this->requestUri) {
+            case '/downloads':
+                $addiotional['data']['downloadList'] = $this->getDownloadList();
+                break;
+
+            // Mod List
+            case '/counterstrike/mods':
                 $isModlist = true;
                 break;
             case '/vrising/mods':
-                $configFileName = 'vrisingmods.xml';
                 $isModlist = true;
                 break;
         }
 
-        if(!$configFileName) $configFileName = '404.xml';;
-        if($this->redirectStatus && $this->redirectStatus !== '200') $configFileName = '403.xml';;
+        if($isModlist) $addiotional['data']['modList'] = $this->getModList();
 
-        $config = simplexml_load_file('pages/' . $configFileName);
-        $config = $this->xmlToArray($config);
-        
-        if($isModlist) $addiotional['data']['modList'] = $this->getModList($this->requestUri);
-        if($addiotional) $config['data'] = array_merge($config['data'], $addiotional['data']);
-
-        return $config;
+        return $addiotional;
     }
 
     private function getDownloadList() {
@@ -73,16 +96,16 @@ class Page {
         return $download->generateList();
     }
 
-    private function getModList($requestUri) {
-        switch($requestUri) {
+    private function getModList() {
+        switch($this->requestUri) {
             case '/counterstrike/mods':
-                $modListPath = '_counterstrike/modList.htm';
+                $modFolder = '_counterstrike';
                 break;
             case '/vrising/mods':
-                $modListPath = '_vrising/modList.htm';
+                $modFolder = '_vrising';
                 break;
         }
-        $modList = file_get_contents($modListPath);
+        $modList = file_get_contents($modFolder . '/modlist.htm');
 
         return $modList;
     }
