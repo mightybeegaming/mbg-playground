@@ -3,7 +3,7 @@
     <data>
         <title>Downloads</title>
         <description>This is the official consolidated downloads page for MBG Playground.</description>
-        <image>/media/logombg.jpg</image>
+        <image>/media/logombg.png</image>
         <onloadJs>/js/onloaddownloads.js</onloadJs>
     </data>
 </config>
