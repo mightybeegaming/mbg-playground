@@ -6,88 +6,49 @@ class Page {
     private $redirectStatus;
 
     public function __construct() {
-        if(isset($_SERVER['REQUEST_URI'])) $this->redirectUrl = $_SERVER['REDIRECT_URL'] ?? '/';
-        if(isset($_SERVER['REDIRECT_STATUS'])) $this->redirectStatus = $_SERVER['REDIRECT_STATUS'];
+        $this->redirectUrl = $_SERVER['REDIRECT_URL'] ?? '/';
+        $this->redirectStatus = $_SERVER['REDIRECT_STATUS'] ?? '';
     }
 
     public function getConfig(){
         $configFile = $this->getConfigFile();
-
-        $config = simplexml_load_file('pages/' . $configFile);
+        $configPath = 'pages/' . $configFile;
+        
+        $config = simplexml_load_file($configPath);
         $config = $this->xmlToArray($config);
         
-        $addiotionalData = $this->getAdditionalData();
-        if($addiotionalData) $config['data'] = array_merge($config['data'], $addiotionalData['data']);
+        $additionalData = $this->getAdditionalData();
+        if($additionalData) $config['data'] = array_merge($config['data'], $additionalData['data']);
 
         return $config;
     }
 
     private function getConfigFile() {
-        $configFileName = '';
-        switch($this->redirectUrl) {
-            // Home
-            case '/':
-                $configFileName = 'home';
-                break;
-            
-            // Others
-            case '/discord':
-                $configFileName = 'discord';
-                break;
-            case '/downloads':
-                $configFileName = 'downloads';
-                break;
-            
-            // Games
-            case '/counterstrike':
-                $configFileName = 'counterstrike';
-                break;
-            case '/hytale':
-                $configFileName = 'hytale';
-                break;
-            case '/projectzomboid':
-                $configFileName = 'projectzomboid';
-                break;
-            case '/vrising':
-                $configFileName = 'vrising';
-                break;
-            
-            // Mod List
-            case '/counterstrike/mods':
-                $configFileName = 'counterstrikemods';
-                break;
-            case '/vrising/mods':
-                $configFileName = 'vrisingmods';
-                break;
-        }
+        if($this->redirectStatus && $this->redirectStatus !== '200') return '403.xml';
 
-        if(!$configFileName) $configFileName = '404';;
-        if($this->redirectStatus && $this->redirectStatus !== '200') $configFileName = '403';;
+        $path = $this->redirectUrl;
+        if($path === '/') return 'home.xml';
 
-        return $configFileName . '.xml';
+        $file = str_replace('/', '', $path) . '.xml';
+
+        $filePath = 'pages/' . $file;
+        if(!file_exists($filePath)) return '404.xml';
+
+        return $file;
     }
 
     private function getAdditionalData() {
-        $isModlist = false;
-        $addiotional = [];
+        $additional = [];
 
-        switch($this->redirectUrl) {
-            case '/downloads':
-                $addiotional['data']['downloadList'] = $this->getDownloadList();
-                break;
-
-            // Mod List
-            case '/counterstrike/mods':
-                $isModlist = true;
-                break;
-            case '/vrising/mods':
-                $isModlist = true;
-                break;
+        if($this->redirectUrl === '/downloads') {
+            $additional['data']['downloadList'] = $this->getDownloadList();
         }
 
-        if($isModlist) $addiotional['data']['modList'] = $this->getModList();
+        if(str_ends_with($this->redirectUrl, '/mods')) {
+            $additional['data']['modList'] = $this->getModList();
+        }
 
-        return $addiotional;
+        return $additional;
     }
 
     private function getDownloadList() {
@@ -97,16 +58,16 @@ class Page {
     }
 
     private function getModList() {
-        switch($this->redirectUrl) {
-            case '/counterstrike/mods':
-                $modFolder = '_counterstrike';
-                break;
-            case '/vrising/mods':
-                $modFolder = '_vrising';
-                break;
-        }
-        $modList = file_get_contents($modFolder . '/modlist.htm');
+        $redirectUrlParts = explode('/', $this->redirectUrl);
+        $game = $redirectUrlParts[1];
 
+        $modFolder = '_' . $game;
+        $modPath = $modFolder . '/modlist.htm';
+
+        if(!file_exists($modPath)) return;
+
+        $modList = file_get_contents($modPath);
+        
         return $modList;
     }
 
@@ -114,7 +75,7 @@ class Page {
         $array = [];
 
         foreach($xml as $key => $value) {
-            if($value->count() > 0) {
+            if($value->count()) {
                 $array[$key] = $this->xmlToArray($value);
             } else {
                 $array[$key] = (string)$value;
