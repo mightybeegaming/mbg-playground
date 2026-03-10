@@ -1,0 +1,10 @@
+{
+    "templateFile": "templates/downloads.htm",
+    "data": {
+        "title": "Downloads",
+        "description": "This is the official consolidated downloads page for MBG Playground.",
+        "image": "/media/logombg.jpg",
+        "onloadJs": "/js/onloaddownloads.js",
+        "downloadList": ""
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "templateFile": "templates/game.htm",
+    "data": {
+        "title": "V Rising",
+        "description": "This is a V Rising server with quality of life adjustments and game mechanic overhaul mods.",
+        "image": "/media/bannervrising.jpg",
+        "url": "/vrising",
+        "onloadJs": "/js/onloadvrising.js",
+        "infoBox": ""
+    }
+}

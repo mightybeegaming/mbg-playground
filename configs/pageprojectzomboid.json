@@ -1,0 +1,11 @@
+{
+    "templateFile": "templates/game.htm",
+    "data": {
+        "title": "Project Zomboid",
+        "description": "This is a Project Zomboid server with quality of life and immersion mods.",
+        "image": "/media/bannerprojectzomboid.jpg",
+        "url": "/projectzomboid",
+        "onloadJs": "/js/onloadprojectzomboid.js",
+        "infoBox": "<div class=\"info-box\"><b>World Age</b><br><div class=\"right-side\" id=\"worldAge\"></div></div><div class=\"info-box\"><b>Date Time</b><br><div class=\"right-side\" id=\"dateTime\"></div></div><div class=\"info-box\"><b>Weather</b><br><div class=\"right-side\" id=\"weatherTemperature\"></div></div>"
+    }
+}

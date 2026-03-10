@@ -1,0 +1,10 @@
+{
+    "templateFile": "templates/home.htm",
+    "data": {
+        "title": "MBG Playground",
+        "description": "MBG Playground is a collection of media and game servers to enjoy with friends.",
+        "image": "/media/logombg.jpg",
+        "url": "/",
+        "onloadJs": "/js/onloadhome.js"
+    }
+}

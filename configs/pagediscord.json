@@ -1,0 +1,10 @@
+{
+    "templateFile": "templates/discord.htm",
+    "data": {
+        "title": "Discord",
+        "description": "MBG Playground official Discord invitation.",
+        "image": "/media/bannerdiscord.jpg",
+        "url": "/discord",
+        "onloadJs": "/js/onloaddiscord.js"
+    }
+}

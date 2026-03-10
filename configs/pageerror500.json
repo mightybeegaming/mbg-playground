@@ -1,0 +1,7 @@
+{
+    "templateFile": "templates/error.htm",
+    "data": {
+        "title": "500 - Server Error",
+        "description": "The server encountered an unexpected condition."
+    }
+}
