@@ -18,62 +18,59 @@ class PageConfig {
     }
 
     private function getData(){
-        $additionalKey = '';
-        $additionalValue = '';
+        $isModlist = false;
+        $addiotional = [];
 
         $configFileName = '';
         switch($this->requestUri) {
             // Home
             case '/':
-                $configFileName = 'pagehome.xml';
+                $configFileName = 'home.xml';
                 break;
             
             // Others
             case '/discord':
-                $configFileName = 'pagediscord.xml';
+                $configFileName = 'discord.xml';
                 break;
             case '/downloads':
-                $configFileName = 'pagedownloads.xml';
-                $additionalKey = 'downloadList';
-                $additionalValue = $this->getDownloadList();
+                $configFileName = 'downloads.xml';
+                $addiotional['data']['downloadList'] = $this->getDownloadList();
                 break;
             
             // Games
             case '/counterstrike':
-                $configFileName = 'pagecounterstrike.xml';
+                $configFileName = 'counterstrike.xml';
                 break;
             case '/hytale':
-                $configFileName = 'pagehytale.xml';
+                $configFileName = 'hytale.xml';
                 break;
             case '/projectzomboid':
-                $configFileName = 'pageprojectzomboid.xml';
+                $configFileName = 'projectzomboid.xml';
                 break;
             case '/vrising':
-                $configFileName = 'pagevrising.xml';
+                $configFileName = 'vrising.xml';
                 break;
             
             // Mod List
             case '/counterstrike/mods':
-                $configFileName = 'modscounterstrike.xml';
-                $additionalKey = 'modList';
-                $additionalValue = $this->getModList($this->requestUri);
+                $configFileName = 'counterstrikemods.xml';
+                $isModlist = true;
                 break;
             case '/vrising/mods':
-                $configFileName = 'modsvrising.xml';
-                $additionalKey = 'modList';
-                $additionalValue = $this->getModList($this->requestUri);
+                $configFileName = 'vrisingmods.xml';
+                $isModlist = true;
                 break;
         }
-        if(!$configFileName) $configFileName = 'pageerror404.xml';;
+        if(!$configFileName) $configFileName = '404.xml';;
 
-        if($this->redirectStatus && $this->redirectStatus !== '200') $configFileName = 'pageerror403.xml';;
+        if($this->redirectStatus && $this->redirectStatus !== '200') $configFileName = '403.xml';;
 
-        $data = simplexml_load_file('configs/' . $configFileName);
+        if($isModlist) $addiotional['data']['modList'] = $this->getModList($this->requestUri);
+
+        $data = simplexml_load_file('pages/' . $configFileName);
         $data = $this->xmlToArray($data);
-
-        if($additionalKey && $additionalValue) {
-            $data['data'][$additionalKey] = $additionalValue;
-        }
+        
+        if($addiotional) $data['data'] = array_merge($data['data'], $addiotional['data']);
 
         return $data;
     }
