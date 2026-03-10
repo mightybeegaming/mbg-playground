@@ -30,7 +30,6 @@ class Page {
         if($path === '/') return 'home.xml';
 
         $file = str_replace('/', '', $path) . '.xml';
-
         $filePath = 'pages/' . $file;
         if(!file_exists($filePath)) return '404.xml';
 
