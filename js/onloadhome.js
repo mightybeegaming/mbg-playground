@@ -1,23 +1,22 @@
 async function loadServerMetrics() {
-    const requestCounterStrike = await fetch('/php/server.php?metrics=counterStrike', {cache: 'no-store'});
-    const dataCounterStrike = await requestCounterStrike.json();
-    document.getElementById('status-counterstrike').innerHTML = dataCounterStrike.server.statusIndicator;
-    // console.log(dataCounterStrike);
+    const requestMetrics = await fetch('/php/server.php?method=getMetrics', {cache: 'no-store'});
+    const metrics = await requestMetrics.json();
 
-    const requestHytale = await fetch('/php/server.php?metrics=hytale', {cache: 'no-store'});
-    const dataHytale = await requestHytale.json();
-    document.getElementById('status-hytale').innerHTML = dataHytale.server.statusIndicator;
-    // console.log(dataHytale);
+    const counterStrike = metrics['counterStrike'];
+    document.getElementById('status-counterstrike').innerHTML = counterStrike.server.statusIndicator;
+    // console.log(counterStrike);
 
-    const requestProjectZomboid = await fetch('/php/server.php?metrics=projectZomboid', {cache: 'no-store'});
-    const dataProjectZomboid = await requestProjectZomboid.json();
-    document.getElementById('status-projectzomboid').innerHTML = dataProjectZomboid.server.statusIndicator;
-    // console.log(dataProjectZomboid);
+    const hytale = metrics['hytale'];
+    document.getElementById('status-hytale').innerHTML = hytale.server.statusIndicator;
+    // console.log(hytale);
 
-    const requestVRising = await fetch('/php/server.php?metrics=vRising', {cache: 'no-store'});
-    const dataVRising = await requestVRising.json();
-    document.getElementById('status-vrising').innerHTML = dataVRising.server.statusIndicator;
-    // console.log(dataVRising);
+    const projectZomboid = metrics['projectZomboid'];
+    document.getElementById('status-projectzomboid').innerHTML = projectZomboid.server.statusIndicator;
+    // console.log(projectZomboid);
+
+    const vRising = metrics['vRising'];
+    document.getElementById('status-vrising').innerHTML = vRising.server.statusIndicator;
+    // console.log(vRising);
 }
 setInterval(loadServerMetrics, 5000);
 loadServerMetrics();

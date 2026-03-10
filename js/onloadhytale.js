@@ -1,5 +1,5 @@
 async function loadServerMetrics() {
-    const request = await fetch('/php/server.php?metrics=hytale', {cache: 'no-store'});
+    const request = await fetch('/php/server.php?method=getMetricsHytale', {cache: 'no-store'});
     const data = await request.json();
     // console.log(data);
 

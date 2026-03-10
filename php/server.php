@@ -1,19 +1,28 @@
 <?php
 class Server {
-    public $counterStrike;
-    public $hytale;
-    public $projectZomboid;
-    public $vRising;
+    // public $counterStrike;
+    // public $hytale;
+    // public $projectZomboid;
+    // public $vRising;
 
     private $serverData;
 
     public function __construct() {
         $this->serverData = json_decode(file_get_contents('../metrics/servermetrics.txt'), true);
         
-        $this->counterStrike = $this->getMetricsCounterStrike();
-        $this->hytale = $this->getMetricsHytale();
-        $this->projectZomboid = $this->getMetricsProjectZomboid();
-        $this->vRising = $this->getMetricsVRising();
+        // $this->counterStrike = $this->getMetricsCounterStrike();
+        // $this->hytale = $this->getMetricsHytale();
+        // $this->projectZomboid = $this->getMetricsProjectZomboid();
+        // $this->vRising = $this->getMetricsVRising();
+    }
+
+    public function getMetrics() {
+        $metrics['counterStrike'] = $this->getMetricsCounterStrike();
+        $metrics['hytale'] = $this->getMetricsHytale();
+        $metrics['projectZomboid'] = $this->getMetricsProjectZomboid();
+        $metrics['vRising'] = $this->getMetricsVRising();
+        
+        return $metrics;
     }
 
     public function getMetricsCounterStrike() {
@@ -178,8 +187,8 @@ class Server {
 */
 header('Content-Type: application/json');
 
-if(!isset($_GET['metrics'])) die();
+if(!isset($_GET['method'])) die();
 
-$metrics = $_GET['metrics'];
+$method = $_GET['method'];
 $server = new Server();
-echo json_encode($server->$metrics);
+echo json_encode($server->$method());
