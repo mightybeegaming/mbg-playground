@@ -3,15 +3,15 @@ class Downloads {
     public function generateList() {
         $list = '';
 
-        foreach(scandir('.downloads/') as $file):
-            $file_full_path = '.downloads/' . $file;
+        foreach(scandir('_downloads/') as $file):
+            $file_full_path = '_downloads/' . $file;
             
             if(!is_file($file_full_path)) continue;
 
             $list .= '<tr>';
             $list .= '<td>' . htmlspecialchars($file) . '</td>';
             $list .= '<td class="file-size align-right">' . $this->formatSize(filesize($file_full_path)) . '</td>';
-            $list .= '<td class="align-right"><span class="highlight"><a href="/.downloads/' . urlencode($file) . '" download>Download</a></span></td>';
+            $list .= '<td class="align-right"><span class="highlight"><a href="/_downloads/' . urlencode($file) . '" download>Download</a></span></td>';
             $list .= '</tr>';
         endforeach;
 

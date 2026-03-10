@@ -80,10 +80,10 @@ class Page {
     private function getModList($requestUri) {
         switch($requestUri) {
             case '/counterstrike/mods':
-                $modListPath = '.counterstrike/modList.htm';
+                $modListPath = '_counterstrike/modList.htm';
                 break;
             case '/vrising/mods':
-                $modListPath = '.vrising/modList.htm';
+                $modListPath = '_vrising/modList.htm';
                 break;
         }
         $modList = file_get_contents($modListPath);
