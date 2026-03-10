@@ -7,7 +7,7 @@ require_once('downloadsgenerator.php');
 class PageConfig {
     public $data;
 
-    private $requestUri;
+    public $requestUri;
     private $redirectStatus;
 
     public function __construct() {
@@ -18,44 +18,98 @@ class PageConfig {
     }
 
     private function getData(){
+        $additionalKey = '';
+        $additionalValue = '';
+
         $configFileName = '';
         switch($this->requestUri) {
             // Home
             case '/':
-                $configFileName = 'pagehome.json';
+                $configFileName = 'pagehome.xml';
                 break;
             
             // Others
             case '/discord':
-                $configFileName = 'pagediscord.json';
+                $configFileName = 'pagediscord.xml';
                 break;
             case '/downloads':
-                $configFileName = 'pagedownloads.json';
+                $configFileName = 'pagedownloads.xml';
+                $additionalKey = 'downloadList';
+                $additionalValue = $this->getDownloadList();
                 break;
             
             // Games
             case '/counterstrike':
-                $configFileName = 'pagecounterstrike.json';
+                $configFileName = 'pagecounterstrike.xml';
                 break;
             case '/hytale':
-                $configFileName = 'pagehytale.json';
+                $configFileName = 'pagehytale.xml';
                 break;
             case '/projectzomboid':
-                $configFileName = 'pageprojectzomboid.json';
+                $configFileName = 'pageprojectzomboid.xml';
                 break;
             case '/vrising':
-                $configFileName = 'pagevrising.json';
+                $configFileName = 'pagevrising.xml';
                 break;
             
-            
+            // Mod List
+            case '/counterstrike/mods':
+                $configFileName = 'modscounterstrike.xml';
+                $additionalKey = 'modList';
+                $additionalValue = $this->getModList($this->requestUri);
+                break;
+            case '/vrising/mods':
+                $configFileName = 'modsvrising.xml';
+                $additionalKey = 'modList';
+                $additionalValue = $this->getModList($this->requestUri);
+                break;
         }
-        if(!$configFileName) $configFileName = 'pageerror404.json';;
+        if(!$configFileName) $configFileName = 'pageerror404.xml';;
 
-        if($this->redirectStatus && $this->redirectStatus !== '200') $configFileName = 'pageerror403.json';;
+        if($this->redirectStatus && $this->redirectStatus !== '200') $configFileName = 'pageerror403.xml';;
 
-        $configJson = file_get_contents('configs/' . $configFileName);
-        $data = json_decode($configJson, true);
+        $data = simplexml_load_file('configs/' . $configFileName);
+        $data = $this->xmlToArray($data);
+
+        if($additionalKey && $additionalValue) {
+            $data['data'][$additionalKey] = $additionalValue;
+        }
 
         return $data;
+    }
+
+    private function getDownloadList() {
+        $downloadsGenerator = new DownloadsGenerator();
+        
+        return $downloadsGenerator->getList();
+    }
+
+    private function getModList($requestUri) {
+        switch($requestUri) {
+            case '/counterstrike/mods':
+                $modListPath = '.counterstrike/modList.htm';
+                break;
+            case '/vrising/mods':
+                $modListPath = '.vrising/modList.htm';
+                break;
+        }
+
+        $modList = file_get_contents($modListPath);
+
+        return $modList;
+    }
+
+    private function xmlToArray($xml) {
+        $array = [];
+
+        foreach($xml as $key => $value) {
+            if($value->count() > 0) {
+                $array[$key] = $this->xmlToArray($value);
+            } else {
+                $array[$key] = (string)$value;
+            }
+        }
+
+        return $array;
     }
 }

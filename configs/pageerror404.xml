@@ -1,0 +1,7 @@
+<config>
+    <templateFile>templates/error.htm</templateFile>
+    <data>
+        <title>404 - Page Not Found</title>
+        <description>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</description>
+    </data>
+</config>

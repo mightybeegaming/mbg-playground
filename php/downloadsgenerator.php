@@ -3,7 +3,7 @@
  * Downloads Generator
  */
 class DownloadsGenerator {
-    public function getDownloadList() {
+    public function getList() {
         $downloadList = '';
 
         foreach(scandir('.downloads') as $file):

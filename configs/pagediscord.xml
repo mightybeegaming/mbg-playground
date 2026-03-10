@@ -1,0 +1,10 @@
+<config>
+    <templateFile>templates/discord.htm</templateFile>
+    <data>
+        <title>Discord</title>
+        <description>MBG Playground official Discord invitation.</description>
+        <image>/media/bannerdiscord.jpg</image>
+        <url>/discord</url>
+        <onloadJs>/js/onloaddiscord.js</onloadJs>
+    </data>
+</config>

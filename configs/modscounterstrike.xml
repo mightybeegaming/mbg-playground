@@ -1,0 +1,7 @@
+<config>
+    <templateFile>templates/mods.htm</templateFile>
+    <data>
+        <title>Counter-Strike Mods</title>
+        <description>Mod collection for the MBG Counter-Strike dedicated server.</description>
+    </data>
+</config>

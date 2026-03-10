@@ -1,0 +1,17 @@
+<config>
+    <templateFile>templates/game.htm</templateFile>
+    <data>
+        <title>Counter-Strike</title>
+        <description>This is a Counter-Strike server with performance and stability enhancements.</description>
+        <image>/media/bannercounterstrike.jpg</image>
+        <url>/counterstrike</url>
+        <onloadJs>/js/onloadcounterstrike.js</onloadJs>
+        <infoBox>
+            <![CDATA[
+                <div class="info-box"><b>Match Score</b><br><div class="right-side" id="matchScore"></div></div>
+                <div class="info-box"><b>Current Map</b><br><span class="highlight right-side" id="currentMap"></span></div>
+                <div class="info-box"><b>Next Map</b><br><span class="highlight right-side" id="nextMap"></span></div>
+            ]]>
+        </infoBox>
+    </data>
+</config>

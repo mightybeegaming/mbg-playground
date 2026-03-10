@@ -1,0 +1,11 @@
+<config>
+    <templateFile>templates/game.htm</templateFile>
+    <data>
+        <title>Hytale</title>
+        <description>This is a modded Hytale server to test and explore the early access build.</description>
+        <image>/media/bannerhytale.jpg</image>
+        <url>/hytale</url>
+        <onloadJs>/js/onloadhytale.js</onloadJs>
+        <infoBox></infoBox>
+    </data>
+</config>

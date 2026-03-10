@@ -1,0 +1,17 @@
+<config>
+    <templateFile>templates/game.htm</templateFile>
+    <data>
+        <title>Project Zomboid</title>
+        <description>This is a Project Zomboid server with quality of life and immersion mods.</description>
+        <image>/media/bannerprojectzomboid.jpg</image>
+        <url>/projectzomboid</url>
+        <onloadJs>/js/onloadprojectzomboid.js</onloadJs>
+        <infoBox>
+            <![CDATA[
+                <div class="info-box"><b>World Age</b><br><div class="right-side" id="worldAge"></div></div>
+                <div class="info-box"><b>Date Time</b><br><div class="right-side" id="dateTime"></div></div>
+                <div class="info-box"><b>Weather</b><br><div class="right-side" id="weatherTemperature"></div></div>
+            ]]>
+        </infoBox>
+    </data>
+</config>

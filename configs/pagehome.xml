@@ -1,0 +1,10 @@
+<config>
+    <templateFile>templates/home.htm</templateFile>
+    <data>
+        <title>MBG Playground</title>
+        <description>MBG Playground is a collection of media and game servers to enjoy with friends.</description>
+        <image>/media/logombg.jpg</image>
+        <url>/</url>
+        <onloadJs>/js/onloadhome.js</onloadJs>
+    </data>
+</config>
