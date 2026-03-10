@@ -1,19 +1,9 @@
 <?php
 class Server {
-    // public $counterStrike;
-    // public $hytale;
-    // public $projectZomboid;
-    // public $vRising;
-
     private $serverData;
 
     public function __construct() {
         $this->serverData = json_decode(file_get_contents('../metrics/servermetrics.txt'), true);
-        
-        // $this->counterStrike = $this->getMetricsCounterStrike();
-        // $this->hytale = $this->getMetricsHytale();
-        // $this->projectZomboid = $this->getMetricsProjectZomboid();
-        // $this->vRising = $this->getMetricsVRising();
     }
 
     public function getMetrics() {

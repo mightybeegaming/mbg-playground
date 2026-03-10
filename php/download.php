@@ -1,5 +1,5 @@
 <?php
-class Downloads {
+class Download {
     public function generateList() {
         $list = '';
 

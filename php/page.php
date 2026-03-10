@@ -1,17 +1,13 @@
 <?php
-require_once('downloads.php');
+require_once('download.php');
 
 class Page {
-    // public $data;
-
     public $requestUri;
     private $redirectStatus;
 
     public function __construct() {
         if(isset($_SERVER['REQUEST_URI'])) $this->requestUri = $_SERVER['REQUEST_URI'];
         if(isset($_SERVER['REDIRECT_STATUS'])) $this->redirectStatus = $_SERVER['REDIRECT_STATUS'];
-
-        // $this->data = $this->getData();
     }
 
     public function getConfig(){
@@ -72,9 +68,9 @@ class Page {
     }
 
     private function getDownloadList() {
-        $downloads = new Downloads();
+        $download = new Download();
         
-        return $downloads->generateList();
+        return $download->generateList();
     }
 
     private function getModList($requestUri) {
