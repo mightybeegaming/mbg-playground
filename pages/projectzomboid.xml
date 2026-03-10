@@ -4,7 +4,7 @@
         <title>Project Zomboid</title>
         <description>This is a Project Zomboid server with quality of life and immersion mods.</description>
         <image>/media/bannerprojectzomboid.jpg</image>
-        <url>/projectzomboid</url>
+        <url>https://mbgplayground.xyz/projectzomboid</url>
         <onloadJs>/js/onloadprojectzomboid.js</onloadJs>
         <infoBox>
             <![CDATA[

@@ -4,7 +4,7 @@
         <title>V Rising</title>
         <description>This is a V Rising server with quality of life adjustments and game mechanic overhaul mods.</description>
         <image>/media/bannervrising.jpg</image>
-        <url>/vrising</url>
+        <url>https://mbgplayground.xyz/vrising</url>
         <onloadJs>/js/onloadvrising.js</onloadJs>
         <infoBox></infoBox>
     </data>
