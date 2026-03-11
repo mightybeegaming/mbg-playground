@@ -17,7 +17,6 @@ Class Template {
         $placeHolders = [];
         
         foreach($this->data as $key => $value) {
-            if($key === 'infoBox') $value = $this->buildInfoBox($value);
             $placeHolders['{{' . $key . '}}'] = $value;
         }
 
@@ -33,17 +32,6 @@ Class Template {
 
     public function setDownloadList($list) {
         $this->downloadList = $list;
-    }
-
-    private function buildInfoBox($infoBox) {
-        $defaultInfoBox = '';
-        $defaultInfoBox .= '<div class="info-box"><b>Status</b><br><span class="highlight right-side" id="statusText"></span></div>';
-        $defaultInfoBox .= '<div class="info-box"><b>Uptime (24H)</b><br><span class="highlight right-side" id="uptime24"></span></div>';
-        $defaultInfoBox .= '<div class="info-box"><b>Online Players</b><br><span class="highlight right-side" id="onlinePlayers"></span></div>';
-
-        if($infoBox) $defaultInfoBox .= $infoBox;
-
-        return $defaultInfoBox;
     }
 
     private function getTemplateFile() {
