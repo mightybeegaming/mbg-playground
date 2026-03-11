@@ -17,6 +17,9 @@ class Page {
         $config = simplexml_load_file($configPath);
         $config = $this->xmlToArray($config);
         
+        $config['data']['navBar'] = $this->getNavBar();
+        $config['data']['license'] = $this->getLicense();
+
         $additionalData = $this->getAdditionalData();
         if($additionalData) $config['data'] = array_merge($config['data'], $additionalData['data']);
 
@@ -82,5 +85,23 @@ class Page {
         }
 
         return $array;
+    }
+
+    private function getLicense() {
+        $license = '<span>© ' . date('Y') . ' <a href="/">MBG Playground</a>. All rights reserved.</span>';
+
+        return $license;
+    }
+
+    private function getNavBar() {
+        $navBar = '';
+        $navBar .= '<p>';
+        $navBar .= '<a href="/counterstrike">Counter-Strike</a> | ';
+        $navBar .= '<a href="/hytale">Hytale</a> | ';
+        $navBar .= '<a href="/projectzomboid">Project Zomboid</a> | ';
+        $navBar .= '<a href="/vrising">V Rising</a>';
+        $navBar .= '</p>';
+
+        return $navBar;
     }
 }

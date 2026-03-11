@@ -2,7 +2,6 @@
 Class Template {
     private $config;
     private $data;
-    private $downloadList;
 
     public function __construct($config) {
         $this->config = $config;
@@ -20,18 +19,10 @@ Class Template {
             $placeHolders['{{' . $key . '}}'] = $value;
         }
 
-        $placeHolders['{{downloadList}}'] = $this->downloadList ?? '';
-        $placeHolders['{{navBar}}'] = $this->getNavBar();
-        $placeHolders['{{license}}'] = $this->getLicense();
-
         $template = $this->getTemplateFile();
         $template = strtr($template, $placeHolders);
 
         return $template;
-    }
-
-    public function setDownloadList($list) {
-        $this->downloadList = $list;
     }
 
     private function getTemplateFile() {
@@ -39,23 +30,5 @@ Class Template {
         $templateFile = file_get_contents($templateFile);
 
         return $templateFile;
-    }
-
-    private function getLicense() {
-        $license = '<span>© ' . date('Y') . ' <a href="/">MBG Playground</a>. All rights reserved.</span>';
-
-        return $license;
-    }
-
-    private function getNavBar() {
-        $navBar = '';
-        $navBar .= '<p>';
-        $navBar .= '<a href="/counterstrike">Counter-Strike</a> | ';
-        $navBar .= '<a href="/hytale">Hytale</a> | ';
-        $navBar .= '<a href="/projectzomboid">Project Zomboid</a> | ';
-        $navBar .= '<a href="/vrising">V Rising</a>';
-        $navBar .= '</p>';
-
-        return $navBar;
     }
 }
