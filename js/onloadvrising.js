@@ -7,7 +7,7 @@ async function loadServerMetrics() {
     document.getElementById('uptime24').textContent = data.server.uptime24 + ' %';
     document.getElementById('onlinePlayers').textContent = data.onlinePlayers + ' / 60';
     document.getElementById('phase').textContent = data.phase;
-    document.getElementById('timeLeft').textContent = data.timeLeft + ' minutes';
+    document.getElementById('timeLeft').textContent = data.timeLeft;
 }
 setInterval(loadServerMetrics, 5000);
 loadServerMetrics();

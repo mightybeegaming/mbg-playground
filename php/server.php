@@ -223,10 +223,8 @@ class Server {
             $timeLeft = $nextCycleStart - $now;
         }
 
-        $timeLeft = floor($timeLeft / 60);
-
         $incursion['phase'] = $phase;
-        $incursion['timeLeft'] = $timeLeft;
+        $incursion['timeLeft'] = gmdate('H:i:s', $timeLeft);
 
         return $incursion;
     }
