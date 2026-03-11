@@ -8,7 +8,8 @@
         <onloadJs>/js/onloadvrising.js</onloadJs>
         <infoBox>
             <![CDATA[
-                <div class="info-box"><b>Incursion Phase</b><br><div class="right-side" id="incursionPhase"></div></div>
+                <div class="info-box"><b>Incursion Phase</b><br><span class="highlight right-side" id="phase"></span></div>
+                <div class="info-box"><b>Time Left (Phase)</b><br><span class="highlight right-side" id="timeLeft"></span></div>
             ]]>
         </infoBox>
     </data>

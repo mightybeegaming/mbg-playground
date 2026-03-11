@@ -3,17 +3,11 @@ async function loadServerMetrics() {
     const data = await request.json();
     // console.log(data);
 
-    let incursionPhase = '';
-    if(data.phase && data.timeLeft) {
-        incursionPhase += `<span class="highlight">${data.phase}</span>`;
-        incursionPhase += '<b> | </b>';
-        incursionPhase += `<span class="highlight">${data.timeLeft} minutes</span>`;
-    }
-
     document.getElementById('statusText').textContent = data.server.statusText;
-    document.getElementById('uptime24').textContent = `${data.server.uptime24} %`;
-    document.getElementById('onlinePlayers').textContent = `${data.onlinePlayers} / 60`;
-    document.getElementById('incursionPhase').innerHTML = incursionPhase;
+    document.getElementById('uptime24').textContent = data.server.uptime24 + ' %';
+    document.getElementById('onlinePlayers').textContent = data.onlinePlayers + ' / 60';
+    document.getElementById('phase').textContent = data.phase;
+    document.getElementById('timeLeft').textContent = data.timeLeft + ' minutes';
 }
 setInterval(loadServerMetrics, 5000);
 loadServerMetrics();
