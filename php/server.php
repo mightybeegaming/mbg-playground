@@ -160,10 +160,7 @@ class Server {
     }
 
     private function statusBuilder($metrics) {
-        $status = [
-            'indicator' => '',
-            'text' => ''
-        ];
+        $status = [];
         
         $onlinePlayers = (int)$metrics['onlinePlayers'];
         $onlinePlayers = ($onlinePlayers > 0) ? $onlinePlayers . ' ' : '';
@@ -171,16 +168,9 @@ class Server {
         $onlineIndicator = '<span class="widget status status-online">' . $onlinePlayers . 'ONLINE</span>';
         $offlineIndicator = '<span class="widget status status-offline">OFFLINE</span>';
 
-        $onlineText = 'ONLINE';
-        $offlineText = 'OFFLINE';
-
-        if($metrics['server']['status']) {
-            $status['indicator'] = $onlineIndicator;
-            $status['text'] = $onlineText;
-        } else {
-            $status['indicator'] = $offlineIndicator;
-            $status['text'] = $offlineText;
-        }
+        $serverStatus = $metrics['server']['status'];
+        $status['indicator'] = $serverStatus ? $onlineIndicator : $offlineIndicator;
+        $status['text'] = $serverStatus ? 'ONLINE' : 'OFFLINE';
 
         return $status;
     }
