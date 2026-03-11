@@ -2,7 +2,7 @@
     <templateFile>templates/game.htm</templateFile>
     <data>
         <title>Hytale</title>
-        <description>This is a modded Hytale server to test and explore the early access build.</description>
+        <description>This is a Hytale server with quality of life and immersion mods.</description>
         <image>/media/bannerhytale.jpg</image>
         <url>https://mbgplayground.xyz/hytale</url>
         <onloadJs>/js/onloadhytale.js</onloadJs>
