@@ -1,7 +1,7 @@
 <config>
     <templateFile>templates/error.htm</templateFile>
     <data>
-        <title>Something went wrong</title>
-        <description>Oops! Something didn't work as expected. Please try again later, or return to the homepage.</description>
+        <title>Error</title>
+        <description>Something didn't work as expected. Please try again later, or return to the homepage.</description>
     </data>
 </config>
