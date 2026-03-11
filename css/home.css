@@ -79,6 +79,7 @@ body {
 .card:hover {
 	box-shadow: 0 0 15px #00aeae;
 	transform: scale(1.05);
+	z-index: 10;
 }
 footer {
 	margin-top: 20px;
@@ -130,10 +131,6 @@ footer a:hover {
 	top: 8px;
 	left: 8px;
 }
-/* .latency {
-	top: 8px;
-	left: 8px;
-} */
 .status-online, .latency-online {
 	background: #00aeae;
 }
