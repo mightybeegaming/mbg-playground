@@ -91,7 +91,7 @@ class Server {
 
         $time = $dateTime[1] ?? 0;
         $time = strtotime($time);
-        $time = date("g:i A", $time);
+        $time = date('g:i A', $time);
         $metricsProjectZomboid['worldTime'] = $time;
 
         $weather = explode('|', $worldInfo['Weather']);
@@ -108,11 +108,25 @@ class Server {
         $metricsVRising = [
             'monitorId' => '58',
             'server' => '',
-            'onlinePlayers' => 0
+            'onlinePlayers' => 0,
+            'phase' => '',
+            'timeLeft' => ''
         ];
 
         $fileLineCount = count(file('../metrics/onlinevrising.txt'));
         $metricsVRising['onlinePlayers'] = max(0, $fileLineCount - 1);
+
+        foreach(file('../metrics/worldinfovrising.txt') as $line) {
+            [$key, $value] = explode(': ', $line, 2);
+            $worldInfo[$key] = $value;
+        }
+
+        $bootTime = $worldInfo['Server Boot Time'];
+        $bootTime = $this->convertToLocalTime($bootTime);
+
+        $incursion = $this->calculateIncursion($bootTime);
+        $metricsVRising['phase'] = $incursion['phase'];
+        $metricsVRising['timeLeft'] = $incursion['timeLeft'];
 
         $metricsVRising['server'] = $this->getMetricsServer($metricsVRising);
 
@@ -169,6 +183,52 @@ class Server {
         }
 
         return $status;
+    }
+
+    private function convertToLocalTime($dateTime) {
+        $utcDateTime = new DateTime($dateTime, new DateTimeZone('UTC'));
+        $utcDateTime->setTimezone(new DateTimeZone('Asia/Singapore'));
+        $localDateTime = $utcDateTime->format('Y-m-d H:i:s');
+
+        return $localDateTime;
+    }
+
+    private function calculateIncursion($bootTime) {
+        $bootTime = strtotime($bootTime);
+
+        $incursionDuration = 20 * 60;
+        $incursionInterval = 30 * 60;
+        $preparingDuration = $incursionDuration;
+
+        $now = time();
+        $elapsed = $now - $bootTime;
+        
+        $cycleLength = $preparingDuration + $incursionDuration + $incursionInterval;
+        $cycleNumber = floor($elapsed / $cycleLength);
+        $cycleStart = $bootTime + $cycleNumber * $cycleLength;
+        $activeStart = $cycleStart + $preparingDuration;
+
+        if($now < $activeStart) {
+            $phase = 'Preparing';
+
+            $timeLeft = $activeStart - $now;
+        } elseif($now < $activeStart + $incursionDuration) {
+            $phase = 'Active';
+
+            $timeLeft = $activeStart + $incursionDuration - $now;
+        } else {
+            $phase = 'Waiting';
+
+            $nextCycleStart = $cycleStart + $cycleLength;
+            $timeLeft = $nextCycleStart - $now;
+        }
+
+        $timeLeft = floor($timeLeft / 60);
+
+        $incursion['phase'] = $phase;
+        $incursion['timeLeft'] = $timeLeft;
+
+        return $incursion;
     }
 }
 
