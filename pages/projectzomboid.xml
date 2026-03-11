@@ -8,9 +8,11 @@
         <onloadJs>/js/onloadprojectzomboid.js</onloadJs>
         <infoBox>
             <![CDATA[
-                <div class="info-box"><b>World Age</b><br><div class="right-side" id="worldAge"></div></div>
+                <div class="info-box"><b>World Age</b><br><span class="highlight right-side" id="worldAge"></span></div>
+                <div class="info-box"><b>Season</b><br><span class="highlight right-side" id="season"></span></div>
                 <div class="info-box"><b>Date Time</b><br><div class="right-side" id="dateTime"></div></div>
-                <div class="info-box"><b>Weather</b><br><div class="right-side" id="weatherTemperature"></div></div>
+                <div class="info-box"><b>Weather</b><br><span class="highlight right-side" id="weather"></span></div>
+                <div class="info-box"><b>Temperature</b><br><span class="highlight right-side" id="temperature"></span></div>
             ]]>
         </infoBox>
     </data>
