@@ -14,25 +14,21 @@ Class Template {
     }
 
     private function parse() {
-        $templateFile = $this->getTemplateFile();
-
-        $parsedTemplate = $templateFile;
+        $placeHolders = [];
+        
         foreach($this->data as $key => $value) {
             if($key === 'infoBox') $value = $this->buildInfoBox($value);
-            
-            $parsedTemplate = str_replace('{{' . $key . '}}', $value, $parsedTemplate);
+            $placeHolders['{{' . $key . '}}'] = $value;
         }
 
-        $downloadList = $this->downloadList;
-        $parsedTemplate = str_replace('{{downloadList}}', $downloadList, $parsedTemplate);
+        $placeHolders['{{downloadList}}'] = $this->downloadList ?? '';
+        $placeHolders['{{navBar}}'] = $this->getNavBar();
+        $placeHolders['{{license}}'] = $this->getLicense();
 
-        $navBar = $this->getNavBar();
-        $parsedTemplate = str_replace('{{navBar}}', $navBar, $parsedTemplate);
+        $template = $this->getTemplateFile();
+        $template = strtr($template, $placeHolders);
 
-        $license = $this->getLicense();
-        $parsedTemplate = str_replace('{{license}}', $license, $parsedTemplate);
-
-        return $parsedTemplate;
+        return $template;
     }
 
     public function setDownloadList($list) {
@@ -58,8 +54,7 @@ Class Template {
     }
 
     private function getLicense() {
-        $date = date('Y');
-        $license = '<span>© ' . $date . ' <a href="/">MBG Playground</a>. All rights reserved.</span>';
+        $license = '<span>© ' . date('Y') . ' <a href="/">MBG Playground</a>. All rights reserved.</span>';
 
         return $license;
     }
