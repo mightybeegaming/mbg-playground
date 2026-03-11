@@ -24,15 +24,15 @@ class Page {
         return $config;
     }
 
-    private function getConfigFile() {
-        if($this->redirectStatus && $this->redirectStatus !== '200') return '403.xml';
+    private function getConfigFile() {  
+        if($this->redirectStatus && $this->redirectStatus !== '200') return 'error.xml';
 
         $path = $this->redirectUrl;
         if($path === '/') return 'home.xml';
 
         $file = str_replace('/', '', $path) . '.xml';
         $filePath = 'pages/' . $file;
-        if(!file_exists($filePath)) return '404.xml';
+        if(!file_exists($filePath)) return 'error.xml';
 
         return $file;
     }

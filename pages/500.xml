@@ -1,7 +1,0 @@
-<config>
-    <templateFile>templates/error.htm</templateFile>
-    <data>
-        <title>500 - Server Error</title>
-        <description>The server encountered an unexpected condition.</description>
-    </data>
-</config>
