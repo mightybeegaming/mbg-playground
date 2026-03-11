@@ -1,6 +1,4 @@
 <?php
-require_once('download.php');
-
 class Page {
     private $redirectUrl;
     private $redirectStatus;
@@ -53,12 +51,6 @@ class Page {
         return $additional;
     }
 
-    private function getDownloadList() {
-        $download = new Download();
-        
-        return $download->generateList();
-    }
-
     private function getModList() {
         $redirectUrlParts = explode('/', $this->redirectUrl);
         $game = $redirectUrlParts[1];
@@ -103,5 +95,30 @@ class Page {
         $navBar .= '</p>';
 
         return $navBar;
+    }
+
+    private function getDownloadList() {
+        $list = '';
+
+        foreach(scandir('_downloads/') as $file):
+            $file_full_path = '_downloads/' . $file;
+            
+            if(!is_file($file_full_path)) continue;
+
+            $list .= '<tr>';
+            $list .= '<td>' . htmlspecialchars($file) . '</td>';
+            $list .= '<td class="file-size align-right">' . $this->formatSize(filesize($file_full_path)) . '</td>';
+            $list .= '<td class="align-right"><span class="highlight"><a href="/_downloads/' . urlencode($file) . '" download>Download</a></span></td>';
+            $list .= '</tr>';
+        endforeach;
+
+        return $list;
+    }
+
+    private function formatSize($bytes) {
+        if($bytes >= 1073741824) return number_format($bytes / 1073741824, 2) . ' GB';
+        if($bytes >= 1048576) return number_format($bytes / 1048576, 2) . ' MB';
+        if($bytes >= 1024) return number_format($bytes / 1024, 2) . ' KB';
+        return $bytes . ' B';
     }
 }
