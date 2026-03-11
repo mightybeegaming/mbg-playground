@@ -13,11 +13,13 @@ Class Template {
     }
 
     private function parse() {
-        $placeHolders = [];
-        
-        foreach($this->data as $key => $value) {
-            $placeHolders['{{' . $key . '}}'] = $value;
-        }
+        $placeHolders = array_combine(
+            array_map(
+                fn($key) => '{{' . $key . '}}',
+                array_keys($this->data)
+            ),
+            $this->data
+        );
 
         $template = $this->getTemplateFile();
         $template = strtr($template, $placeHolders);
