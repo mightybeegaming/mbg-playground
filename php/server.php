@@ -114,7 +114,7 @@ class Server {
 
     public function getMetricsVRising() {
         $metricsVRising = [
-            'tags' => 'PvE|Modded',
+            'tags' => 'Bloodcraft|PvE|Modded',
             'monitorId' => MONITOR_ID_VRISING,
             'server' => '',
             'onlinePlayers' => 0,
