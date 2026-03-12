@@ -55,13 +55,21 @@ class Server {
 
         $metricsHytale = [
             'server' => '',
-            'onlinePlayers' => 0
+            'onlinePlayers' => 0,
+            'worldAge' => 0,
+            'moonPhase' => ''
         ];
 
         $fileContent = file_get_contents('../metrics/online' . $game . '.txt');
 
         preg_match('/^[^(]*\((\d+)\)/', $fileContent, $matches);
         $metricsHytale['onlinePlayers'] = $matches[1] ?? 0;
+
+        preg_match('/on (\d+)(?:st|nd|rd|th) day of year/', $fileContent, $matches);
+        $metricsHytale['worldAge'] = $matches[1];
+
+        preg_match('/with (\d+(?:st|nd|rd|th)) moon phase/', $fileContent, $matches);
+        $metricsHytale['moonPhase'] = $matches[1];
 
         $config = $this->getConfig($game . '.json');
         if($config) $metricsHytale = array_merge($metricsHytale, $config);
