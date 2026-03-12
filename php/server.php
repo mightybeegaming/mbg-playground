@@ -17,7 +17,7 @@ class Server {
 
     public function getMetricsCounterStrike() {
         $metricsCounterStrike = [
-            'tags' => 'Modded',
+            'tags' => 'PvP|Modded',
             'monitorId' => '71',
             'server' => '',
             'onlinePlayers' => 0,
