@@ -141,8 +141,7 @@ class Server {
         $bootTime = $this->convertToLocalTime($bootTime);
 
         $incursion = $this->calculateIncursion($bootTime);
-        $metricsVRising['phase'] = $incursion['phase'];
-        $metricsVRising['timeLeft'] = $incursion['timeLeft'];
+        if($incursion) $metricsVRising = array_merge($metricsVRising, $incursion);
 
         $config = $this->getConfig($game . '.json');
         $metricsVRising['monitorId'] = $config['monitorId'];
@@ -242,6 +241,22 @@ class Server {
 
         $incursion['phase'] = $phase;
         $incursion['timeLeft'] = gmdate('H:i:s', $timeLeft);
+
+        $dayStart = 10;
+        $dayDuration = 1200;
+        $gameElapsed = $elapsed % $dayDuration;
+        $inGameHour = ($gameElapsed / $dayDuration) * 24 + $dayStart;
+
+        $hours = floor($inGameHour);
+        $minutes = floor(($inGameHour - $hours) * 60);
+
+        $ampm = ($hours >= 12) ? 'PM' : 'AM';
+        $hours = $hours % 12;
+        if($hours == 0) $hours = 12;
+
+        $inGameTime = sprintf('%2d:%02d %s', $hours, $minutes, $ampm);
+
+        $incursion['inGameTime'] = $inGameTime;
 
         return $incursion;
     }

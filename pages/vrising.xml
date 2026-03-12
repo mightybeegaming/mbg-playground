@@ -10,6 +10,7 @@
             <![CDATA[
                 <div class="info-box"><b>Incursion Phase</b><br><span class="highlight right-side" id="phase"></span></div>
                 <div class="info-box"><b>Time Left (Phase)</b><br><span class="highlight right-side" id="timeLeft"></span></div>
+                <div class="info-box"><b>In-Game Time</b><br><span class="highlight right-side" id="inGameTime"></span></div>
             ]]>
         </infoBox>
     </data>

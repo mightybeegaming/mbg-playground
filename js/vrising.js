@@ -8,6 +8,7 @@ async function loadServerMetrics() {
     document.getElementById('onlinePlayers').textContent = data.onlinePlayers + ' / 60';
     document.getElementById('phase').textContent = data.phase;
     document.getElementById('timeLeft').textContent = data.timeLeft;
+    document.getElementById('inGameTime').textContent = data.inGameTime;
 
     const statusTextElement = document.getElementById('statusText');
     statusTextElement.textContent = data.server.statusText;
