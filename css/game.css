@@ -26,6 +26,7 @@ body {
 	border-radius: 8px;
 	padding: 20px;
 	margin-bottom: 20px;
+	border: 1px solid #ccc;
 }
 .section h3, h2, h1 {
 	margin-top: 0;
@@ -52,7 +53,7 @@ ul {
 	background-color: #121212;
 	padding: 15px;
 	border-radius: 6px;
-	border: 1px solid #2a2a2a;
+	border: 1px solid #ccc;
 }
 footer {
 	text-align: center;
@@ -151,4 +152,5 @@ h1.error {
 	background: #121212;
 	padding: 6px 12px;
 	border-radius: 8px;
+	border: 1px solid #ccc;
 }

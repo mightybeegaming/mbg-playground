@@ -3,7 +3,7 @@
 body {
 	margin: 0;
 	font-family: "Montserrat" !important;
-	color: white;
+	color: #e0e0e0;
 	text-align: center;
 	background: #121212;
 }
@@ -33,6 +33,7 @@ body {
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	box-shadow: 0 0 15px #444;
 	position: relative;
+	border: 1px solid #ccc;
 }
 .card .game-card::after {
 	font-family: "Bungee" !important;
@@ -134,7 +135,8 @@ footer a:hover {
 	right: 4px;
 }
 .tag {
-	background: #ff9a67;
+	background: #121212;
+	border: 1px solid #fff;
 }
 .status-online {
 	background: #00aeae;
@@ -177,7 +179,7 @@ footer a:hover {
 	margin-right: 2px;
 	padding: 4px 8px;
 	border-radius: 8px;
-	border: 2px solid rgba(0, 0, 0, 0.5);
+	border: 1px solid #ccc;
 }
 .tagline {
 	margin: -10px 0 30px 0;
