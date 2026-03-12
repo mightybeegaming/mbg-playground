@@ -246,10 +246,10 @@ class Server {
         $incursion['phase'] = $phase;
         $incursion['timeLeft'] = gmdate('H:i:s', $timeLeft);
 
-        $dayStart = 10;
+        $offset = 9.25;
         $dayDuration = 1200;
         $gameElapsed = $elapsed % $dayDuration;
-        $inGameHour = ($gameElapsed / $dayDuration) * 24 + $dayStart;
+        $inGameHour = ($gameElapsed / $dayDuration) * 24 + $offset;
 
         $hours = floor($inGameHour);
         $minutes = floor(($inGameHour - $hours) * 60);
