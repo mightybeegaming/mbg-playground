@@ -143,14 +143,14 @@ h1.error {
 }
 .tags {
 	text-align: right;
-	margin-top: 12px;
+	margin-top: 16px;
 	font-weight: bold;
 	font-size: 0.8em;
 }
 .tag {
-	margin-left: 4px;
+	margin-left: 3px;
 	background: #121212;
-	padding: 6px 12px;
+	padding: 4px 10px;
 	border-radius: 8px;
 	border: 1px solid #ccc;
 }

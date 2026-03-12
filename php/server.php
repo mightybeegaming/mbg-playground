@@ -1,4 +1,9 @@
 <?php
+define('MONITOR_ID_COUNTERSTRIKE', '71');
+define('MONITOR_ID_HYTALE', '73');
+define('MONITOR_ID_PROJECTZOMBOID', '75');
+define('MONITOR_ID_VRISING', '58');
+
 class Server {
     private $serverData;
 
@@ -18,7 +23,7 @@ class Server {
     public function getMetricsCounterStrike() {
         $metricsCounterStrike = [
             'tags' => 'PvP|Modded',
-            'monitorId' => '71',
+            'monitorId' => MONITOR_ID_COUNTERSTRIKE,
             'server' => '',
             'onlinePlayers' => 0,
             'scoreT' => 0,
@@ -50,7 +55,7 @@ class Server {
     public function getMetricsHytale() {
         $metricsHytale = [
             'tags' => 'PvE|Modded',
-            'monitorId' => '73',
+            'monitorId' => MONITOR_ID_HYTALE,
             'server' => '',
             'onlinePlayers' => 0
         ];
@@ -67,8 +72,8 @@ class Server {
 
     public function getMetricsProjectZomboid() {
         $metricsProjectZomboid = [
-            'tags' => 'PvE|Modded',
-            'monitorId' => '75',
+            'tags' => 'B42|PvE|Modded',
+            'monitorId' => MONITOR_ID_PROJECTZOMBOID,
             'server' => '',
             'onlinePlayers' => 0,
             'worldAge' => '',
@@ -110,7 +115,7 @@ class Server {
     public function getMetricsVRising() {
         $metricsVRising = [
             'tags' => 'PvE|Modded',
-            'monitorId' => '58',
+            'monitorId' => MONITOR_ID_VRISING,
             'server' => '',
             'onlinePlayers' => 0,
             'phase' => '',
