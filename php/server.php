@@ -1,9 +1,4 @@
 <?php
-define('MONITOR_ID_COUNTERSTRIKE', '71');
-define('MONITOR_ID_HYTALE', '73');
-define('MONITOR_ID_PROJECTZOMBOID', '75');
-define('MONITOR_ID_VRISING', '58');
-
 class Server {
     private $serverData;
 
@@ -21,9 +16,9 @@ class Server {
     }
 
     public function getMetricsCounterStrike() {
+        $game = 'counterstrike';
+
         $metricsCounterStrike = [
-            'tags' => 'PvP|Modded',
-            'monitorId' => MONITOR_ID_COUNTERSTRIKE,
             'server' => '',
             'onlinePlayers' => 0,
             'scoreT' => 0,
@@ -32,7 +27,7 @@ class Server {
             'nextMap' => ''
         ];
 
-        $fileContent = file_get_contents('../metrics/onlinecounterstrike.txt');
+        $fileContent = file_get_contents('../metrics/online' . $game . '.txt');
 
         preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $fileContent, $players);
         $metricsCounterStrike['onlinePlayers'] = count($players[1]);
@@ -47,23 +42,31 @@ class Server {
         preg_match('/"amx_nextmap"\s+is\s+"([^"]+)"/i', $fileContent, $map);
         $metricsCounterStrike['nextMap'] = $map[1] ?? '';
 
+        $config = $this->getConfig($game . '.json');
+        $metricsCounterStrike['monitorId'] = $config['monitorId'];
+        $metricsCounterStrike['tags'] = $config['tags'];
+
         $metricsCounterStrike['server'] = $this->getMetricsServer($metricsCounterStrike);
 
         return $metricsCounterStrike;
     }
 
     public function getMetricsHytale() {
+        $game = 'hytale';
+
         $metricsHytale = [
-            'tags' => 'PvE|Modded',
-            'monitorId' => MONITOR_ID_HYTALE,
             'server' => '',
             'onlinePlayers' => 0
         ];
 
-        $fileContent = file_get_contents('../metrics/onlinehytale.txt');
+        $fileContent = file_get_contents('../metrics/online' . $game . '.txt');
 
         preg_match('/^[^(]*\((\d+)\)/', $fileContent, $matches);
         $metricsHytale['onlinePlayers'] = $matches[1] ?? 0;
+
+        $config = $this->getConfig($game . '.json');
+        $metricsHytale['monitorId'] = $config['monitorId'];
+        $metricsHytale['tags'] = $config['tags'];
 
         $metricsHytale['server'] = $this->getMetricsServer($metricsHytale);
 
@@ -71,9 +74,9 @@ class Server {
     }
 
     public function getMetricsProjectZomboid() {
+        $game = 'projectzomboid';
+
         $metricsProjectZomboid = [
-            'tags' => 'B42|PvE|Modded',
-            'monitorId' => MONITOR_ID_PROJECTZOMBOID,
             'server' => '',
             'onlinePlayers' => 0,
             'worldAge' => '',
@@ -84,7 +87,7 @@ class Server {
             'season' => 0
         ];
 
-        $fileLineCount = count(file('../metrics/onlineprojectzomboid.txt'));
+        $fileLineCount = count(file('../metrics/online' . $game . '.txt'));
         $metricsProjectZomboid['onlinePlayers'] = max(0, $fileLineCount - 1);
         
         foreach(file('../metrics/worldinfoprojectzomboid.txt') as $line) {
@@ -107,22 +110,26 @@ class Server {
         $metricsProjectZomboid['temperature'] = $weather[1] ?? '';
         $metricsProjectZomboid['season'] = $weather[2] ?? '';
 
+        $config = $this->getConfig($game . '.json');
+        $metricsProjectZomboid['monitorId'] = $config['monitorId'];
+        $metricsProjectZomboid['tags'] = $config['tags'];
+
         $metricsProjectZomboid['server'] = $this->getMetricsServer($metricsProjectZomboid);
 
         return $metricsProjectZomboid;
     }
 
     public function getMetricsVRising() {
+        $game = 'vrising';
+
         $metricsVRising = [
-            'tags' => 'Bloodcraft|PvE|Modded',
-            'monitorId' => MONITOR_ID_VRISING,
             'server' => '',
             'onlinePlayers' => 0,
             'phase' => '',
             'timeLeft' => ''
         ];
 
-        $fileLineCount = count(file('../metrics/onlinevrising.txt'));
+        $fileLineCount = count(file('../metrics/online' . $game . '.txt'));
         $metricsVRising['onlinePlayers'] = max(0, $fileLineCount - 1);
 
         foreach(file('../metrics/worldinfovrising.txt') as $line) {
@@ -136,6 +143,10 @@ class Server {
         $incursion = $this->calculateIncursion($bootTime);
         $metricsVRising['phase'] = $incursion['phase'];
         $metricsVRising['timeLeft'] = $incursion['timeLeft'];
+
+        $config = $this->getConfig($game . '.json');
+        $metricsVRising['monitorId'] = $config['monitorId'];
+        $metricsVRising['tags'] = $config['tags'];
 
         $metricsVRising['server'] = $this->getMetricsServer($metricsVRising);
 
@@ -166,6 +177,13 @@ class Server {
         $metricsServer['uptime24'] = round($uptime24 * 100, 2);
         
         return $metricsServer;
+    }
+
+    private function getConfig($file) {
+        $config = file_get_contents('../config/' . $file);
+        $config = json_decode($config, true);
+
+        return $config;
     }
 
     private function statusBuilder($metrics) {
