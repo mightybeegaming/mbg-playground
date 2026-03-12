@@ -10,6 +10,7 @@ async function loadServerMetrics() {
         dateTime += '<span class="highlight">' + data.worldTime + '</span>';
     }
 
+    document.getElementById('tags').innerHTML = tagBuilder(data.tags);
     document.getElementById('uptime24').textContent = data.server.uptime24 + ' %';
     document.getElementById('onlinePlayers').textContent = data.onlinePlayers + ' / 100';
     document.getElementById('worldAge').textContent = data.worldAge + ' days';

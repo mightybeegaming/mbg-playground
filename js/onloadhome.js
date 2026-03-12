@@ -1,14 +1,3 @@
-function tagBuilder(tags) {
-    tags = tags.split('|');
-
-    let stringTags = '';
-    for(let i = 0; i < tags.length; i++) {
-        stringTags += '<span class="widget tag">' + tags[i] + '</span>';
-    }
-
-    return stringTags;
-}
-
 async function loadServerMetrics() {
     const requestMetrics = await fetch('/php/server.php?method=getMetrics', {cache: 'no-store'});
     const metrics = await requestMetrics.json();

@@ -1,7 +1,7 @@
 async function loadServerMetrics() {
     const request = await fetch('/php/server.php?method=getMetricsCounterStrike', {cache: 'no-store'});
     const data = await request.json();
-    // console.log(data);
+    console.log(data);
 
     let matchScore = '';
     if(data.scoreT && data.scoreCt) {
@@ -10,6 +10,7 @@ async function loadServerMetrics() {
         matchScore += '<span class="highlight">CTs : ' + data.scoreCt + '</span>';
     }
 
+    document.getElementById('tags').innerHTML = tagBuilder(data.tags);
     document.getElementById('uptime24').textContent = data.server.uptime24 + ' %';
     document.getElementById('onlinePlayers').textContent = data.onlinePlayers + ' / 32';
     document.getElementById('matchScore').innerHTML = matchScore;

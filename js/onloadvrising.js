@@ -3,6 +3,7 @@ async function loadServerMetrics() {
     const data = await request.json();
     // console.log(data);
 
+    document.getElementById('tags').innerHTML = tagBuilder(data.tags);
     document.getElementById('uptime24').textContent = data.server.uptime24 + ' %';
     document.getElementById('onlinePlayers').textContent = data.onlinePlayers + ' / 60';
     document.getElementById('phase').textContent = data.phase;
