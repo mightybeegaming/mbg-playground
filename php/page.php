@@ -16,7 +16,7 @@ class Page {
         $config = $this->xmlToArray($config);
         
         $config['data']['navBar'] = $this->getNavBar();
-        $config['data']['license'] = $this->getLicense();
+        $config['data']['footer'] = $this->getFooter();
 
         $additionalData = $this->getAdditionalData();
         if($additionalData) $config['data'] = array_merge($config['data'], $additionalData['data']);
@@ -79,10 +79,12 @@ class Page {
         return $array;
     }
 
-    private function getLicense() {
-        $license = '<span>© ' . date('Y') . ' <a href="/">MBG Playground</a>. All rights reserved.</span>';
+    private function getFooter() {
+        $footer = '';
+        $footer .= '<p><span>© ' . date('Y') . ' <a href="/">MBG Playground</a>. All rights reserved.</span></p>';
+        $footer .= '<p>Powered by <a href="https://github.com/mightybeegaming" target="_blank">MightyBee</a></p>';
 
-        return $license;
+        return $footer;
     }
 
     private function getNavBar() {
