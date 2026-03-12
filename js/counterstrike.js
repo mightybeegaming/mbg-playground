@@ -1,7 +1,7 @@
 async function loadServerMetrics() {
     const request = await fetch('/php/server.php?method=getMetricsCounterStrike', {cache: 'no-store'});
     const data = await request.json();
-    console.log(data);
+    // console.log(data);
 
     let matchScore = '';
     if(data.scoreT && data.scoreCt) {
