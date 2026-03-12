@@ -250,9 +250,9 @@ class Server {
         $hours = $hours % 12;
         if($hours == 0) $hours = 12;
 
-        $inGameTime = sprintf('%2d:%02d %s', $hours, $minutes, $ampm);
+        $time = sprintf('%2d:%02d %s', $hours, $minutes, $ampm);
 
-        $incursion['inGameTime'] = $inGameTime;
+        $incursion['time'] = $time;
 
         return $incursion;
     }
