@@ -49,11 +49,11 @@ body {
 	opacity: 0;
 	transition: opacity 0.3s ease;
 	text-shadow:
-		0 0 5px #00aeae,
-		0 0 10px #00aeae,
-		0 0 20px #00aeae,
-		0 0 40px #00aeae,
-		0 0 80px #00aeae;
+		0 0 5px #ff9a67,
+		0 0 10px #ff9a67,
+		0 0 20px #ff9a67,
+		0 0 40px #ff9a67,
+		0 0 80px #ff9a67;
 }
 .card:hover .game-card::after {
 	opacity: 1;
@@ -72,12 +72,12 @@ body {
 	font-size: 1em;
 	font-weight: bold;
 	text-shadow:
-		0 0 5px #00aeae,
-		0 0 10px #00aeae,
-		0 0 20px #00aeae;
+		0 0 5px #ff9a67,
+		0 0 10px #ff9a67,
+		0 0 20px #ff9a67;
 }
 .card:hover {
-	box-shadow: 0 0 15px #00aeae;
+	box-shadow: 0 0 15px #ff9a67;
 	transform: scale(1.05);
 	z-index: 10;
 }
@@ -106,7 +106,7 @@ h1 {
 		0 0 40px #ff9a67;
 }
 a {
-	color: #00aeae;
+	color: #ff9a67;
 	font-weight: bold;
 }
 a:link, a:visited, a:active {
@@ -119,7 +119,7 @@ footer a:hover {
 	position: relative;
 	overflow: hidden;
 }
-.status, .latency {
+.status {
 	position: absolute;
 	padding: 4px 8px;
 	font-size: 0.8em;
@@ -131,10 +131,10 @@ footer a:hover {
 	top: 8px;
 	left: 8px;
 }
-.status-online, .latency-online {
+.status-online {
 	background: #00aeae;
 }
-.status-offline, .latency-offline {
+.status-offline {
 	background: #ae0000;
 }
 .discord-button {

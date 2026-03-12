@@ -10,12 +10,15 @@ async function loadServerMetrics() {
         matchScore += '<span class="highlight">CTs : ' + data.scoreCt + '</span>';
     }
 
-    document.getElementById('statusText').textContent = data.server.statusText;
     document.getElementById('uptime24').textContent = data.server.uptime24 + ' %';
     document.getElementById('onlinePlayers').textContent = data.onlinePlayers + ' / 32';
     document.getElementById('matchScore').innerHTML = matchScore;
     document.getElementById('currentMap').textContent = data.currentMap;
     document.getElementById('nextMap').textContent = data.nextMap;
+
+    const statusTextElement = document.getElementById('statusText');
+    statusTextElement.textContent = data.server.statusText;
+    statusTextElement.classList.add(data.server.statusText);
 }
 setInterval(loadServerMetrics, 5000);
 loadServerMetrics();
