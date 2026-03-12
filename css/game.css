@@ -147,8 +147,8 @@ h1.error {
 	font-size: 0.8em;
 }
 .tag {
-	margin-left: 2px;
+	margin-left: 4px;
 	background: #121212;
-	padding: 4px 8px;
+	padding: 6px 12px;
 	border-radius: 8px;
 }
