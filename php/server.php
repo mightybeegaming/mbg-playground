@@ -43,8 +43,7 @@ class Server {
         $metricsCounterStrike['nextMap'] = $map[1] ?? '';
 
         $config = $this->getConfig($game . '.json');
-        $metricsCounterStrike['monitorId'] = $config['monitorId'];
-        $metricsCounterStrike['tags'] = $config['tags'];
+        if($config) $metricsCounterStrike = array_merge($metricsCounterStrike, $config);
 
         $metricsCounterStrike['server'] = $this->getMetricsServer($metricsCounterStrike);
 
@@ -65,8 +64,7 @@ class Server {
         $metricsHytale['onlinePlayers'] = $matches[1] ?? 0;
 
         $config = $this->getConfig($game . '.json');
-        $metricsHytale['monitorId'] = $config['monitorId'];
-        $metricsHytale['tags'] = $config['tags'];
+        if($config) $metricsHytale = array_merge($metricsHytale, $config);
 
         $metricsHytale['server'] = $this->getMetricsServer($metricsHytale);
 
@@ -111,8 +109,7 @@ class Server {
         $metricsProjectZomboid['season'] = $weather[2] ?? '';
 
         $config = $this->getConfig($game . '.json');
-        $metricsProjectZomboid['monitorId'] = $config['monitorId'];
-        $metricsProjectZomboid['tags'] = $config['tags'];
+        if($config) $metricsProjectZomboid = array_merge($metricsProjectZomboid, $config);
 
         $metricsProjectZomboid['server'] = $this->getMetricsServer($metricsProjectZomboid);
 
@@ -144,8 +141,7 @@ class Server {
         if($incursion) $metricsVRising = array_merge($metricsVRising, $incursion);
 
         $config = $this->getConfig($game . '.json');
-        $metricsVRising['monitorId'] = $config['monitorId'];
-        $metricsVRising['tags'] = $config['tags'];
+        if($config) $metricsVRising = array_merge($metricsVRising, $config);
 
         $metricsVRising['server'] = $this->getMetricsServer($metricsVRising);
 

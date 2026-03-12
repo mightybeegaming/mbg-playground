@@ -12,7 +12,7 @@ async function loadServerMetrics() {
 
     document.getElementById('tags').innerHTML = tagBuilder(data.tags);
     document.getElementById('uptime24').textContent = data.server.uptime24 + ' %';
-    document.getElementById('onlinePlayers').textContent = data.onlinePlayers + ' / 32';
+    document.getElementById('onlinePlayers').textContent = data.onlinePlayers + ' / ' + data.maxPlayers;
     document.getElementById('matchScore').innerHTML = matchScore;
     document.getElementById('currentMap').textContent = data.currentMap;
     document.getElementById('nextMap').textContent = data.nextMap;
