@@ -5,7 +5,7 @@
         <description>This is a V Rising server with quality of life adjustments and game mechanic overhaul mods.</description>
         <image>/media/bannervrising.jpg</image>
         <url>https://mbgplayground.xyz/vrising</url>
-        <onloadJs>/js/onloadvrising.js</onloadJs>
+        <onloadJs>/js/vrising.js</onloadJs>
         <infoBox>
             <![CDATA[
                 <div class="info-box"><b>Incursion Phase</b><br><span class="highlight right-side" id="phase"></span></div>
