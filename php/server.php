@@ -17,6 +17,7 @@ class Server {
 
     public function getMetricsCounterStrike() {
         $metricsCounterStrike = [
+            'tags' => 'Modded',
             'monitorId' => '71',
             'server' => '',
             'onlinePlayers' => 0,
@@ -48,6 +49,7 @@ class Server {
 
     public function getMetricsHytale() {
         $metricsHytale = [
+            'tags' => 'PvE|Modded',
             'monitorId' => '73',
             'server' => '',
             'onlinePlayers' => 0
@@ -65,6 +67,7 @@ class Server {
 
     public function getMetricsProjectZomboid() {
         $metricsProjectZomboid = [
+            'tags' => 'PvE|Modded',
             'monitorId' => '75',
             'server' => '',
             'onlinePlayers' => 0,
@@ -106,6 +109,7 @@ class Server {
 
     public function getMetricsVRising() {
         $metricsVRising = [
+            'tags' => 'PvE|Modded',
             'monitorId' => '58',
             'server' => '',
             'onlinePlayers' => 0,
@@ -165,8 +169,8 @@ class Server {
         $onlinePlayers = (int)$metrics['onlinePlayers'];
         $onlinePlayers = ($onlinePlayers > 0) ? $onlinePlayers . ' ' : '';
 
-        $onlineIndicator = '<span class="widget status status-online">' . $onlinePlayers . 'ONLINE</span>';
-        $offlineIndicator = '<span class="widget status status-offline">OFFLINE</span>';
+        $onlineIndicator = '<span class="widget status-online">' . $onlinePlayers . 'ONLINE</span>';
+        $offlineIndicator = '<span class="widget status-offline">OFFLINE</span>';
 
         $serverStatus = $metrics['server']['status'];
         $status['indicator'] = $serverStatus ? $onlineIndicator : $offlineIndicator;
