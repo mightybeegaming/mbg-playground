@@ -175,20 +175,26 @@ class Server {
     public function getMetricsValheim() {
         $game = 'valheim';
 
-        $metricsVRising = [
+        $metricsValheim = [
             'server' => '',
-            'onlinePlayers' => 0
+            'onlinePlayers' => 0,
+            'worldAge' => 0
         ];
 
-        $fileLineCount = count(file('../metrics/online' . $game . '.txt'));
-        $metricsVRising['onlinePlayers'] = max(0, $fileLineCount - 1);
+        $fileContent = file_get_contents('../metrics/online' . $game . '.txt');
+
+        preg_match('/Online\s+(\d+)/', $fileContent, $match);
+        $metricsValheim['onlinePlayers'] = $match[1];
+        
+        preg_match('/Day\s+(\d+)/', $fileContent, $match);
+        $metricsValheim['worldAge'] = $match[1];
 
         $config = $this->getConfig($game . '.json');
-        if($config) $metricsVRising = array_merge($metricsVRising, $config);
+        if($config) $metricsValheim = array_merge($metricsValheim, $config);
 
-        $metricsVRising['server'] = $this->getMetricsServer($metricsVRising);
+        $metricsValheim['server'] = $this->getMetricsServer($metricsValheim);
 
-        return $metricsVRising;
+        return $metricsValheim;
     }
 
     private function getMetricsServer($metrics) {

@@ -6,6 +6,10 @@
         <image>https://mbgplayground.xyz/media/bannervalheim.jpg</image>
         <url>https://mbgplayground.xyz/valheim</url>
         <onloadJs>/js/valheim.js</onloadJs>
-        <infoBox></infoBox>
+        <infoBox>
+            <![CDATA[
+                <div class="info-box"><b>World Age</b><br><span class="highlight right-side" id="worldAge"></span></div>
+            ]]>
+        </infoBox>
     </data>
 </config>
