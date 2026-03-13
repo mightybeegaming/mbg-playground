@@ -11,10 +11,14 @@ class Server {
         $metrics['hytale'] = $this->getMetricsHytale();
         $metrics['projectZomboid'] = $this->getMetricsProjectZomboid();
         $metrics['vRising'] = $this->getMetricsVRising();
+        $metrics['valheim'] = $this->getMetricsValheim();
         
         return $metrics;
     }
 
+    /*
+     * Counter-Strike
+     */
     public function getMetricsCounterStrike() {
         $game = 'counterstrike';
 
@@ -50,6 +54,9 @@ class Server {
         return $metricsCounterStrike;
     }
 
+    /*
+     * Hytale
+     */
     public function getMetricsHytale() {
         $game = 'hytale';
 
@@ -79,6 +86,9 @@ class Server {
         return $metricsHytale;
     }
 
+    /*
+     * Project Zomboid
+     */
     public function getMetricsProjectZomboid() {
         $game = 'projectzomboid';
 
@@ -124,6 +134,9 @@ class Server {
         return $metricsProjectZomboid;
     }
 
+    /*
+     * V Rising
+     */
     public function getMetricsVRising() {
         $game = 'vrising';
 
@@ -147,6 +160,28 @@ class Server {
 
         $incursion = $this->calculateIncursion($bootTime);
         if($incursion) $metricsVRising = array_merge($metricsVRising, $incursion);
+
+        $config = $this->getConfig($game . '.json');
+        if($config) $metricsVRising = array_merge($metricsVRising, $config);
+
+        $metricsVRising['server'] = $this->getMetricsServer($metricsVRising);
+
+        return $metricsVRising;
+    }
+
+    /*
+     * Valheim
+     */
+    public function getMetricsValheim() {
+        $game = 'valheim';
+
+        $metricsVRising = [
+            'server' => '',
+            'onlinePlayers' => 0
+        ];
+
+        $fileLineCount = count(file('../metrics/online' . $game . '.txt'));
+        $metricsVRising['onlinePlayers'] = max(0, $fileLineCount - 1);
 
         $config = $this->getConfig($game . '.json');
         if($config) $metricsVRising = array_merge($metricsVRising, $config);

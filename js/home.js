@@ -22,6 +22,11 @@ async function loadServerMetrics() {
     document.getElementById('status-vrising').innerHTML = vRising.server.statusIndicator;
     document.getElementById('tags-vrising').innerHTML = tagBuilder(vRising.tags);
     // console.log(vRising);
+
+    const valheim = metrics['valheim'];
+    document.getElementById('status-valheim').innerHTML = valheim.server.statusIndicator;
+    document.getElementById('tags-valheim').innerHTML = tagBuilder(valheim.tags);
+    // console.log(valheim);
 }
 setInterval(loadServerMetrics, 5000);
 loadServerMetrics();
