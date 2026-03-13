@@ -4,7 +4,7 @@
         <title>Counter-Strike</title>
         <description>This is a Counter-Strike server with performance and stability enhancements.</description>
         <image>/media/bannercounterstrike.jpg</image>
-        <url>https://mbgplayground.xyz/counterstrike</url>
+        <url>/counterstrike</url>
         <onloadJs>/js/counterstrike.js</onloadJs>
         <infoBox>
             <![CDATA[

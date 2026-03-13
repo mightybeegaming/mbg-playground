@@ -4,7 +4,7 @@
         <title>MBG Playground</title>
         <description>MBG Playground is a collection of media and game servers to enjoy with friends.</description>
         <image>/media/logombg.png</image>
-        <url>https://mbgplayground.xyz</url>
+        <url>/</url>
         <onloadJs>/js/home.js</onloadJs>
     </data>
 </config>

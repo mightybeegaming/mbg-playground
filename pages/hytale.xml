@@ -4,7 +4,7 @@
         <title>Hytale</title>
         <description>This is a Hytale server with quality of life and immersion mods.</description>
         <image>/media/bannerhytale.jpg</image>
-        <url>https://mbgplayground.xyz/hytale</url>
+        <url>/hytale</url>
         <onloadJs>/js/hytale.js</onloadJs>
         <infoBox>
             <![CDATA[
