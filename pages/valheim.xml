@@ -9,7 +9,6 @@
         <infoBox>
             <![CDATA[
                 <div class="info-box"><b>World Age</b><br><span class="highlight right-side" id="worldAge"></span></div>
-                <div class="info-box"><b>Time</b><br><span class="highlight right-side" id="time"></span></div>
             ]]>
         </infoBox>
     </data>
