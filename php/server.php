@@ -178,7 +178,8 @@ class Server {
         $metricsValheim = [
             'server' => '',
             'onlinePlayers' => 0,
-            'worldAge' => 0
+            'worldAge' => 0,
+            'time' => 0
         ];
 
         $fileContent = file_get_contents('../metrics/online' . $game . '.txt');
@@ -188,6 +189,11 @@ class Server {
         
         preg_match('/Day\s+(\d+)/', $fileContent, $match);
         $metricsValheim['worldAge'] = $match[1];
+
+        preg_match('/Current server time:\s*([\d\.]+)/', $fileContent, $match);
+        $seconds = (float)$match[1];
+        $time = date("g:i A", $seconds);
+        $metricsValheim['time'] = $time;
 
         $config = $this->getConfig($game . '.json');
         if($config) $metricsValheim = array_merge($metricsValheim, $config);
