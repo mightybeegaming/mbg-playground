@@ -1,12 +1,46 @@
 <?php
-class Server {
+/*
+ * API Metrics
+ */
+class Metrics {
+    public $all;
+    public $counterStrike;
+    public $hytale;
+    public $projectZomboid;
+    public $vRising;
+    public $valheim;
+    
     private $serverData;
 
     public function __construct() {
         $this->serverData = json_decode(file_get_contents('../metrics/servermetrics.txt'), true);
+        
+        switch($_GET['server']) {
+            case 'all':
+                $this->all = $this->getMetricsAll();
+                break;
+            case 'counterStrike':
+                $this->counterStrike = $this->getMetricsCounterStrike();
+                break;
+            case 'hytale':
+                $this->hytale = $this->getMetricsHytale();
+                break;
+            case 'projectZomboid':
+                $this->projectZomboid = $this->getMetricsProjectZomboid();
+                break;
+            case 'vRising':
+                $this->vRising = $this->getMetricsVRising();
+                break;
+            case 'valheim':
+                $this->valheim = $this->getMetricsValheim();
+                break;
+        }
     }
 
-    public function getMetrics() {
+    /*
+     * All Servers
+     */
+    public function getMetricsAll() {
         $metrics['counterStrike'] = $this->getMetricsCounterStrike();
         $metrics['hytale'] = $this->getMetricsHytale();
         $metrics['projectZomboid'] = $this->getMetricsProjectZomboid();
@@ -312,8 +346,8 @@ class Server {
 */
 header('Content-Type: application/json');
 
-if(!isset($_GET['method'])) die();
+if(!isset($_GET['server'])) die();
 
-$method = $_GET['method'];
-$server = new Server();
-echo json_encode($server->$method());
+$server = $_GET['server'];
+$metrics = new Metrics();
+echo json_encode($metrics->$server);

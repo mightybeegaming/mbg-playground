@@ -1,5 +1,5 @@
 async function loadServerMetrics() {
-    const request = await fetch('/php/server.php?method=getMetricsCounterStrike', {cache: 'no-store'});
+    const request = await fetch('/php/metrics.php?server=counterStrike', {cache: 'no-store'});
     const data = await request.json();
     // console.log(data);
 
