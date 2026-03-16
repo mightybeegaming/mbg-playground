@@ -71,8 +71,8 @@ class Metrics {
         $metricsCounterStrike['onlinePlayers'] = count($players[1]);
 
         preg_match('/SCORE:T=(\d+);CT=(\d+)/', $fileContent, $scores);
-        $metricsCounterStrike['scoreT'] = $scores[1] ?? 0;
-        $metricsCounterStrike['scoreCt'] = $scores[2] ?? 0;
+        $metricsCounterStrike['scoreT'] = (int)$scores[1] ?? 0;
+        $metricsCounterStrike['scoreCt'] = (int)$scores[2] ?? 0;
 
         preg_match('/map\s*:\s*([^\s]+)/i', $fileContent, $map);
         $metricsCounterStrike['currentMap'] = $map[1] ?? '';
@@ -104,10 +104,10 @@ class Metrics {
         $fileContent = file_get_contents('../metrics/online' . $game . '.txt');
 
         preg_match('/^[^(]*\((\d+)\)/', $fileContent, $matches);
-        $metricsHytale['onlinePlayers'] = $matches[1] ?? 0;
+        $metricsHytale['onlinePlayers'] = (int)$matches[1] ?? 0;
 
         preg_match('/on (\d+)(?:st|nd|rd|th) day of year/', $fileContent, $matches);
-        $metricsHytale['worldAge'] = $matches[1];
+        $metricsHytale['worldAge'] = (int)$matches[1];
 
         preg_match('/with (\d+(?:st|nd|rd|th)) moon phase/', $fileContent, $matches);
         $metricsHytale['moonPhase'] = $matches[1];
@@ -142,10 +142,10 @@ class Metrics {
         
         foreach(file('../metrics/worldinfoprojectzomboid.txt') as $line) {
             [$key, $value] = explode(': ', $line, 2);
-            $worldInfo[$key] = $value;
+            $worldInfo[$key] = trim($value, "\r\n");
         }
 
-        $metricsProjectZomboid['worldAge'] = $worldInfo['World Age'];
+        $metricsProjectZomboid['worldAge'] = (int)$worldInfo['World Age'];
         
         $dateTime = explode('|', $worldInfo['Date Time']);
         $metricsProjectZomboid['worldDate'] = $dateTime[0] ?? '';
@@ -157,7 +157,7 @@ class Metrics {
 
         $weather = explode('|', $worldInfo['Weather']);
         $metricsProjectZomboid['weather'] = $weather[0] ?? '';
-        $metricsProjectZomboid['temperature'] = $weather[1] ?? '';
+        $metricsProjectZomboid['temperature'] = (float)$weather[1] ?? '';
         $metricsProjectZomboid['season'] = $weather[2] ?? '';
 
         $config = $this->getConfig($game . '.json');
@@ -218,10 +218,10 @@ class Metrics {
         $fileContent = file_get_contents('../metrics/online' . $game . '.txt');
 
         preg_match('/Online\s+(\d+)/', $fileContent, $match);
-        $metricsValheim['onlinePlayers'] = $match[1];
+        $metricsValheim['onlinePlayers'] = (int)$match[1];
         
         preg_match('/Day\s+(\d+)/', $fileContent, $match);
-        $metricsValheim['worldAge'] = $match[1];
+        $metricsValheim['worldAge'] = (int)$match[1];
 
         $config = $this->getConfig($game . '.json');
         if($config) $metricsValheim = array_merge($metricsValheim, $config);
