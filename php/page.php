@@ -124,9 +124,14 @@ class Page {
     }
 
     private function formatSize($bytes) {
-        if($bytes >= 1073741824) return number_format($bytes / 1073741824, 2) . ' GB';
-        if($bytes >= 1048576) return number_format($bytes / 1048576, 2) . ' MB';
-        if($bytes >= 1024) return number_format($bytes / 1024, 2) . ' KB';
+        $gb = 1073741824;
+        $mb = 1048576;
+        $kb = 1024;
+
+        if($bytes >= $gb) return number_format($bytes / $gb, 2) . ' GB';
+        if($bytes >= $mb) return number_format($bytes / $mb, 2) . ' MB';
+        if($bytes >= $kb) return number_format($bytes / $kb, 2) . ' KB';
+        
         return $bytes . ' B';
     }
 }
