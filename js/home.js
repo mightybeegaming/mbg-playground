@@ -1,5 +1,5 @@
 async function loadServerMetrics() {
-    const requestMetrics = await fetch('/php/metrics?server=all', {cache: 'no-store'});
+    const requestMetrics = await fetch('/php/metrics.php?server=all', {cache: 'no-store'});
     const metrics = await requestMetrics.json();
     // console.log(metrics);
 
