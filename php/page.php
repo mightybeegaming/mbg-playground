@@ -55,8 +55,8 @@ class Page {
         $redirectUrlParts = explode('/', $this->redirectUrl);
         $game = $redirectUrlParts[1];
 
-        $modFolder = '_' . $game;
-        $modPath = $modFolder . '/modlist.htm';
+        // $modFolder = '_' . $game;
+        $modPath = 'mods/' . $game . '.htm';
 
         if(!file_exists($modPath)) return;
 
