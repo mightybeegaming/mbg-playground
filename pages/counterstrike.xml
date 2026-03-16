@@ -2,7 +2,7 @@
     <templateFile>templates/game.htm</templateFile>
     <data>
         <title>Counter-Strike</title>
-        <description>This is a Counter-Strike server with performance and stability enhancements.</description>
+        <description>Play Counter-Strike on MBG Playground. Join our community server for classic tactical FPS gameplay, stable performance, and friendly multiplayer matches.</description>
         <image>https://mbgplayground.xyz/media/bannercounterstrike.jpg</image>
         <url>https://mbgplayground.xyz/counterstrike</url>
         <onloadJs>/js/counterstrike.js</onloadJs>

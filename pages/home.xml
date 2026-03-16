@@ -2,7 +2,7 @@
     <templateFile>templates/home.htm</templateFile>
     <data>
         <title>MBG Playground</title>
-        <description>MBG Playground is a collection of media and game servers to enjoy with friends.</description>
+        <description>MBG Playground is your go-to destination for multiplayer fun! We run several self-hosted game servers where everyone is welcome to play together.</description>
         <image>https://mbgplayground.xyz/media/logombg.png</image>
         <url>https://mbgplayground.xyz</url>
         <onloadJs>/js/home.js</onloadJs>

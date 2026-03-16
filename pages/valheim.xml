@@ -2,7 +2,7 @@
     <templateFile>templates/game.htm</templateFile>
     <data>
         <title>Valheim</title>
-        <description>This is a Valheim server with quality of life and immersion mods.</description>
+        <description>Join the Valheim server on MBG Playground. Explore the Viking afterlife, build settlements, and battle mythical creatures with friends.</description>
         <image>https://mbgplayground.xyz/media/bannervalheim.jpg</image>
         <url>https://mbgplayground.xyz/valheim</url>
         <onloadJs>/js/valheim.js</onloadJs>

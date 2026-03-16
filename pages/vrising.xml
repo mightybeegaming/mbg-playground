@@ -2,7 +2,7 @@
     <templateFile>templates/game.htm</templateFile>
     <data>
         <title>V Rising</title>
-        <description>This is a V Rising server with quality of life adjustments and game mechanic overhaul mods.</description>
+        <description>Rise as a vampire on the V Rising server at MBG Playground. Build your castle, hunt for blood, and conquer the night with other players.</description>
         <image>https://mbgplayground.xyz/media/bannervrising.jpg</image>
         <url>https://mbgplayground.xyz/vrising</url>
         <onloadJs>/js/vrising.js</onloadJs>
