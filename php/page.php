@@ -15,8 +15,9 @@ class Page {
         $config = simplexml_load_file($configPath);
         $config = $this->xmlToArray($config);
         
-        $config['data']['navBar'] = $this->getNavBar();
-        $config['data']['footer'] = $this->getFooter();
+        // $config['data']['navBar'] = $this->getNavBar();
+        $config['data']['license'] = $this->getLicense();
+        $config['data']['poweredBy'] = $this->getPoweredBy();
 
         $additionalData = $this->getAdditionalData();
         if($additionalData) $config['data'] = array_merge($config['data'], $additionalData['data']);
@@ -78,15 +79,14 @@ class Page {
         return $array;
     }
 
-    private function getFooter() {
-        $footer = '';
-        $footer .= '<p><span>© ' . date('Y') . ' <a href="/">MBG Playground</a>. All rights reserved.</span></p>';
-        $footer .= '<p>Powered by <a href="https://github.com/mightybeegaming" target="_blank">MightyBee</a></p>';
+    private function getLicense() {
+        $license = '';
+        $license .= '<p><span>© ' . date('Y') . ' <a href="/">MBG Playground</a>. All rights reserved.</span></p>';
 
-        return $footer;
+        return $license;
     }
 
-    private function getNavBar() {
+    /*private function getNavBar() {
         $navBar = '';
         $navBar .= '<p>';
         $navBar .= '<a href="/counterstrike">Counter-Strike</a> | ';
@@ -96,6 +96,13 @@ class Page {
         $navBar .= '</p>';
 
         return $navBar;
+    }*/
+
+    private function getPoweredBy() {
+        $poweredBy = '';
+        $poweredBy .= '<p>Powered by <a href="https://github.com/mightybeegaming" target="_blank">MightyBee</a></p>';
+
+        return $poweredBy;
     }
 
     private function getDownloadList() {
