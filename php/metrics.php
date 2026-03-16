@@ -1,4 +1,5 @@
 <?php
+require_once('_allowonlymethods.php');
 /*
  * Metrics API
  */
