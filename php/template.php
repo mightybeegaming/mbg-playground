@@ -1,4 +1,7 @@
 <?php
+/*
+ * Template Processor
+ */
 Class Template {
     private $config;
     private $data;

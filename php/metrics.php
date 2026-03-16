@@ -1,6 +1,6 @@
 <?php
 /*
- * API Metrics
+ * Metrics API
  */
 class Metrics {
     public $all;

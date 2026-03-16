@@ -1,4 +1,7 @@
 <?php
+/*
+ * Page Processor
+ */
 class Page {
     private $redirectUrl;
     private $redirectStatus;
