@@ -4,11 +4,9 @@ async function loadServerMetrics() {
     // console.log(data);
 
     let matchScore = '';
-    if(data.scoreT && data.scoreCt) {
-        matchScore += '<span class="highlight">Ts : ' + data.scoreT + '</span>';
-        matchScore += '<b> | </b>';
-        matchScore += '<span class="highlight">CTs : ' + data.scoreCt + '</span>';
-    }
+    matchScore += '<span class="highlight">Ts : ' + data.scoreT + '</span>';
+    matchScore += '<b> | </b>';
+    matchScore += '<span class="highlight">CTs : ' + data.scoreCt + '</span>';
 
     document.getElementById('tags').innerHTML = tagBuilder(data.tags);
     document.getElementById('uptime24').textContent = data.server.uptime24 + ' %';
