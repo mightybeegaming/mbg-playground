@@ -18,7 +18,7 @@ function statusBuilder(metrics) {
     const onlineIndicator = '<span class="widget status-online">' + onlinePlayers + 'ONLINE</span>';
     const offlineIndicator = '<span class="widget status-offline">OFFLINE</span>';
 
-    const serverStatus = metrics['server']['status'];
+    const serverStatus = metrics.server.status;
     status.indicator = serverStatus ? onlineIndicator : offlineIndicator;
     status.text = serverStatus ? 'ONLINE' : 'OFFLINE';
 
