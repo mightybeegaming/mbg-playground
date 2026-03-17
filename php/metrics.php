@@ -14,7 +14,7 @@ class Metrics {
     private $serverData;
 
     public function __construct() {
-        $this->serverData = json_decode(file_get_contents('../metrics/servermetrics.txt'), true);
+        $this->serverData = json_decode(file_get_contents('../metrics/_server.txt'), true);
         
         switch($_GET['server']) {
             case 'all':
@@ -66,7 +66,7 @@ class Metrics {
             'nextMap' => ''
         ];
 
-        $fileContent = file_get_contents('../metrics/online' . $game . '.txt');
+        $fileContent = file_get_contents('../metrics/' . $game . '.txt');
 
         preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $fileContent, $players);
         $metricsCounterStrike['onlinePlayers'] = count($players[1]);
@@ -102,7 +102,7 @@ class Metrics {
             'moonPhase' => ''
         ];
 
-        $fileContent = file_get_contents('../metrics/online' . $game . '.txt');
+        $fileContent = file_get_contents('../metrics/' . $game . '.txt');
 
         preg_match('/^[^(]*\((\d+)\)/', $fileContent, $matches);
         $metricsHytale['onlinePlayers'] = (int)$matches[1] ?? 0;
@@ -138,10 +138,10 @@ class Metrics {
             'season' => 0
         ];
 
-        $fileLineCount = count(file('../metrics/online' . $game . '.txt'));
+        $fileLineCount = count(file('../metrics/' . $game . '.txt'));
         $metricsProjectZomboid['onlinePlayers'] = max(0, $fileLineCount - 1);
         
-        foreach(file('../metrics/worldinfoprojectzomboid.txt') as $line) {
+        foreach(file('../metrics/projectzomboidworldinfo.txt') as $line) {
             [$key, $value] = explode(': ', $line, 2);
             $worldInfo[$key] = trim($value, "\r\n");
         }
@@ -182,10 +182,10 @@ class Metrics {
             'timeLeft' => ''
         ];
 
-        $fileLineCount = count(file('../metrics/online' . $game . '.txt'));
+        $fileLineCount = count(file('../metrics/' . $game . '.txt'));
         $metricsVRising['onlinePlayers'] = max(0, $fileLineCount - 1);
 
-        foreach(file('../metrics/worldinfovrising.txt') as $line) {
+        foreach(file('../metrics/vrisingworldinfo.txt') as $line) {
             [$key, $value] = explode(': ', $line, 2);
             $worldInfo[$key] = $value;
         }
@@ -216,7 +216,7 @@ class Metrics {
             'worldAge' => 0
         ];
 
-        $fileContent = file_get_contents('../metrics/online' . $game . '.txt');
+        $fileContent = file_get_contents('../metrics/' . $game . '.txt');
 
         preg_match('/Online\s+(\d+)/', $fileContent, $match);
         $metricsValheim['onlinePlayers'] = (int)$match[1];
@@ -347,7 +347,7 @@ class Metrics {
 */
 header('Content-Type: application/json');
 
-if(!isset($_GET['server'])) die();
+if(!isset($_GET['server'])) exit;
 
 $server = $_GET['server'];
 $metrics = new Metrics();
