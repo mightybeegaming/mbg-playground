@@ -19,7 +19,7 @@ class Page {
         $config = simplexml_load_file($configPath);
         $config = $this->xmlToArray($config);
         
-        // $config['data']['navBar'] = $this->getNavBar();
+        $config['data']['navBar'] = $this->getNavBar();
         $config['data']['license'] = $this->getLicense();
         $config['data']['poweredBy'] = $this->getPoweredBy();
 
@@ -90,17 +90,18 @@ class Page {
         return $license;
     }
 
-    /*private function getNavBar() {
+    private function getNavBar() {
         $navBar = '';
         $navBar .= '<p>';
-        $navBar .= '<a href="/counterstrike">Counter-Strike</a> | ';
-        $navBar .= '<a href="/hytale">Hytale</a> | ';
-        $navBar .= '<a href="/projectzomboid">Project Zomboid</a> | ';
-        $navBar .= '<a href="/vrising">V Rising</a>';
+        $navBar .= '<a href="/counterstrike">Counter-Strike</a>&ensp;&ensp;';
+        $navBar .= '<a href="/hytale">Hytale</a>&ensp;&ensp;';
+        $navBar .= '<a href="/projectzomboid">Project Zomboid</a>&ensp;&ensp;';
+        $navBar .= '<a href="/vrising">V Rising</a>&ensp;&ensp;';
+        $navBar .= '<a href="/valheim">Valheim</a>';
         $navBar .= '</p>';
 
         return $navBar;
-    }*/
+    }
 
     private function getPoweredBy() {
         $poweredBy = '';
