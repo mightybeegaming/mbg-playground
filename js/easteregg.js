@@ -14,7 +14,7 @@ document.addEventListener('keydown', function(e) {
     if(userInput.length > konamiCode.length) userInput.shift();
 
     if(JSON.stringify(userInput) === JSON.stringify(konamiCode)) {
-        document.getElementById('1up').play();
+        document.getElementById('easteregg').play();
         console.log('Konami Code Activated!');
     }
 });
