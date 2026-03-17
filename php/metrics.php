@@ -202,11 +202,6 @@ class Metrics {
         $heartbeat = end($heartbeats);
         $metricsServer['status'] = $heartbeat['status'];
 
-        $metrics['server'] = $metricsServer;
-        $status = $this->statusBuilder($metrics);
-        $metricsServer['statusIndicator'] = $status['indicator'];
-        $metricsServer['statusText'] = $status['text'];
-
         $uptime24 = $serverData['uptimeList'][$monitorId . '_24'];
         $metricsServer['uptime24'] = round($uptime24 * 100, 2);
         
@@ -218,22 +213,6 @@ class Metrics {
         $config = json_decode($config, true);
 
         return $config;
-    }
-
-    private function statusBuilder($metrics) {
-        $status = [];
-        
-        $onlinePlayers = (int)$metrics['onlinePlayers'];
-        $onlinePlayers = ($onlinePlayers > 0) ? $onlinePlayers . ' ' : '';
-
-        $onlineIndicator = '<span class="widget status-online">' . $onlinePlayers . 'ONLINE</span>';
-        $offlineIndicator = '<span class="widget status-offline">OFFLINE</span>';
-
-        $serverStatus = $metrics['server']['status'];
-        $status['indicator'] = $serverStatus ? $onlineIndicator : $offlineIndicator;
-        $status['text'] = $serverStatus ? 'ONLINE' : 'OFFLINE';
-
-        return $status;
     }
 
     private function convertToLocalTime($dateTime) {

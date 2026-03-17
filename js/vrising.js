@@ -10,9 +10,10 @@ async function loadServerMetrics() {
     document.getElementById('timeLeft').textContent = data.timeLeft;
     document.getElementById('time').textContent = data.time;
 
+    const status = statusBuilder(data);
     const statusTextElement = document.getElementById('statusText');
-    statusTextElement.textContent = data.server.statusText;
-    statusTextElement.classList.add(data.server.statusText);
+    statusTextElement.textContent = status.text;
+    statusTextElement.classList.add(status.text);
 }
 setInterval(loadServerMetrics, 5000);
 loadServerMetrics();

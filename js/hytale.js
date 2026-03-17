@@ -9,9 +9,10 @@ async function loadServerMetrics() {
     document.getElementById('worldAge').textContent = data.worldAge + ' days';
     document.getElementById('moonPhase').textContent = data.moonPhase + ' phase';
 
+    const status = statusBuilder(data);
     const statusTextElement = document.getElementById('statusText');
-    statusTextElement.textContent = data.server.statusText;
-    statusTextElement.classList.add(data.server.statusText);
+    statusTextElement.textContent = status.text;
+    statusTextElement.classList.add(status.text);
 }
 setInterval(loadServerMetrics, 5000);
 loadServerMetrics();
