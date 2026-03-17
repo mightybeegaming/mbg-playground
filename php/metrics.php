@@ -57,23 +57,14 @@ class Metrics {
     public function getMetricsCounterStrike() {
         $game = 'counterstrike';
 
-        $metricsCounterStrike = [
-            'server' => '',
-            'onlinePlayers' => 0,
-            'scoreT' => 0,
-            'scoreCt' => 0,
-            'currentMap' => '',
-            'nextMap' => ''
-        ];
-
         $fileContent = file_get_contents('../metrics/' . $game . '.txt');
 
         preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $fileContent, $players);
         $metricsCounterStrike['onlinePlayers'] = count($players[1]);
 
         preg_match('/SCORE:T=(\d+);CT=(\d+)/', $fileContent, $scores);
-        $metricsCounterStrike['scoreT'] = (int)$scores[1] ?? 0;
-        $metricsCounterStrike['scoreCt'] = (int)$scores[2] ?? 0;
+        $metricsCounterStrike['scoreT'] = isset($scores[1]) ? (int)$scores[1] : 0;
+        $metricsCounterStrike['scoreCt'] = isset($scores[2]) ? (int)$scores[2] : 0;
 
         preg_match('/map\s*:\s*([^\s]+)/i', $fileContent, $map);
         $metricsCounterStrike['currentMap'] = $map[1] ?? '';
@@ -95,23 +86,16 @@ class Metrics {
     public function getMetricsHytale() {
         $game = 'hytale';
 
-        $metricsHytale = [
-            'server' => '',
-            'onlinePlayers' => 0,
-            'worldAge' => 0,
-            'moonPhase' => ''
-        ];
-
         $fileContent = file_get_contents('../metrics/' . $game . '.txt');
 
         preg_match('/^[^(]*\((\d+)\)/', $fileContent, $matches);
-        $metricsHytale['onlinePlayers'] = (int)$matches[1] ?? 0;
+        $metricsHytale['onlinePlayers'] = isset($matches[1]) ? (int)$matches[1] : 0;
 
         preg_match('/on (\d+)(?:st|nd|rd|th) day of year/', $fileContent, $matches);
-        $metricsHytale['worldAge'] = (int)$matches[1];
+        $metricsHytale['worldAge'] = isset($matches[1]) ? (int)$matches[1] : 0;
 
         preg_match('/with (\d+(?:st|nd|rd|th)) moon phase/', $fileContent, $matches);
-        $metricsHytale['moonPhase'] = $matches[1];
+        $metricsHytale['moonPhase'] = $matches[1] ?? '';
 
         $config = $this->getConfig($game . '.json');
         if($config) $metricsHytale = array_merge($metricsHytale, $config);
@@ -127,17 +111,6 @@ class Metrics {
     public function getMetricsProjectZomboid() {
         $game = 'projectzomboid';
 
-        $metricsProjectZomboid = [
-            'server' => '',
-            'onlinePlayers' => 0,
-            'worldAge' => '',
-            'worldDate' => '',
-            'worldTime' => '',
-            'weather' => '',
-            'temperature' => 0,
-            'season' => 0
-        ];
-
         $fileLineCount = count(file('../metrics/' . $game . '.txt'));
         $metricsProjectZomboid['onlinePlayers'] = max(0, $fileLineCount - 1);
         
@@ -146,9 +119,10 @@ class Metrics {
             $worldInfo[$key] = trim($value, "\r\n");
         }
 
-        $metricsProjectZomboid['worldAge'] = (int)$worldInfo['World Age'];
+        $metricsProjectZomboid['worldAge'] = isset($worldInfo['World Age']) ? (int)$worldInfo['World Age'] : 0;
         
-        $dateTime = explode('|', $worldInfo['Date Time']);
+        $dateTime = (isset($worldInfo['Date Time'])) ? $worldInfo['Date Time'] : '';
+        $dateTime = explode('|', $dateTime);
         $metricsProjectZomboid['worldDate'] = $dateTime[0] ?? '';
 
         $time = $dateTime[1] ?? 0;
@@ -156,10 +130,11 @@ class Metrics {
         $time = date('g:i A', $time);
         $metricsProjectZomboid['worldTime'] = $time;
 
-        $weather = explode('|', $worldInfo['Weather']);
-        $metricsProjectZomboid['weather'] = $weather[0] ?? '';
-        $metricsProjectZomboid['temperature'] = (float)$weather[1] ?? '';
-        $metricsProjectZomboid['season'] = $weather[2] ?? '';
+        $weather = (isset($worldInfo['Weather'])) ? $worldInfo['Weather'] : '';
+        $weather = explode('|', $weather);
+        $metricsProjectZomboid['weather'] = isset($weather[0]) ? $weather[0] : '';
+        $metricsProjectZomboid['temperature'] = isset($weather[1]) ? (float)$weather[1] : '';
+        $metricsProjectZomboid['season'] = isset($weather[2]) ? $weather[2] : '';
 
         $config = $this->getConfig($game . '.json');
         if($config) $metricsProjectZomboid = array_merge($metricsProjectZomboid, $config);
@@ -175,13 +150,6 @@ class Metrics {
     public function getMetricsVRising() {
         $game = 'vrising';
 
-        $metricsVRising = [
-            'server' => '',
-            'onlinePlayers' => 0,
-            'phase' => '',
-            'timeLeft' => ''
-        ];
-
         $fileLineCount = count(file('../metrics/' . $game . '.txt'));
         $metricsVRising['onlinePlayers'] = max(0, $fileLineCount - 1);
 
@@ -190,7 +158,7 @@ class Metrics {
             $worldInfo[$key] = $value;
         }
 
-        $bootTime = $worldInfo['Server Boot Time'];
+        $bootTime = (isset($worldInfo['Server Boot Time'])) ? $worldInfo['Server Boot Time'] : '';
         $bootTime = $this->convertToLocalTime($bootTime);
 
         $incursion = $this->calculateIncursion($bootTime);
@@ -210,19 +178,13 @@ class Metrics {
     public function getMetricsValheim() {
         $game = 'valheim';
 
-        $metricsValheim = [
-            'server' => '',
-            'onlinePlayers' => 0,
-            'worldAge' => 0
-        ];
-
         $fileContent = file_get_contents('../metrics/' . $game . '.txt');
 
         preg_match('/Online\s+(\d+)/', $fileContent, $match);
-        $metricsValheim['onlinePlayers'] = (int)$match[1];
+        $metricsValheim['onlinePlayers'] = isset($match[1]) ? (int)$match[1] : 0;
         
         preg_match('/Day\s+(\d+)/', $fileContent, $match);
-        $metricsValheim['worldAge'] = (int)$match[1];
+        $metricsValheim['worldAge'] = isset($match[1]) ? (int)$match[1] : 0;    
 
         $config = $this->getConfig($game . '.json');
         if($config) $metricsValheim = array_merge($metricsValheim, $config);
@@ -233,13 +195,6 @@ class Metrics {
     }
 
     private function getMetricsServer($metrics) {
-        $metricsServer = [
-            'status' => 0,
-            'statusIndicator' => '',
-            'statusText' => '',
-            'uptime24' => 0
-        ];
-
         $monitorId = $metrics['monitorId'];
         $serverData = $this->serverData;
         $heartbeats = $serverData['heartbeatList'][$monitorId];
