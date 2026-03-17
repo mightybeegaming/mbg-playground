@@ -3,7 +3,7 @@
     <data>
         <title>V Rising</title>
         <description>Rise as a vampire on the V Rising server at MBG Playground. Build your castle, hunt for blood, and conquer the night with other players.</description>
-        <image>https://mbgplayground.xyz/media/bannervrising.jpg</image>
+        <image>https://mbgplayground.xyz/media/vrisingbanner.jpg</image>
         <url>https://mbgplayground.xyz/vrising</url>
         <onloadJs>/js/vrising.js</onloadJs>
         <infoBox>

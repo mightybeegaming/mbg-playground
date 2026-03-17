@@ -3,7 +3,7 @@
     <data>
         <title>Hytale</title>
         <description>Explore the Hytale server on MBG Playground. Adventure with friends, build worlds, and experience a growing sandbox RPG community.</description>
-        <image>https://mbgplayground.xyz/media/bannerhytale.jpg</image>
+        <image>https://mbgplayground.xyz/media/hytalebanner.jpg</image>
         <url>https://mbgplayground.xyz/hytale</url>
         <onloadJs>/js/hytale.js</onloadJs>
         <infoBox>

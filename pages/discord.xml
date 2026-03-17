@@ -3,7 +3,7 @@
     <data>
         <title>Discord</title>
         <description>MBG Playground official Discord invitation.</description>
-        <image>https://mbgplayground.xyz/media/bannerdiscord.jpg</image>
+        <image>https://mbgplayground.xyz/media/discordbanner.jpg</image>
         <url>https://mbgplayground.xyz/discord</url>
         <onloadJs>/js/discord.js</onloadJs>
     </data>
