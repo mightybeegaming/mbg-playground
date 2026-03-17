@@ -69,7 +69,6 @@ footer {
 a {
 	color: #ff9a67;
 	font-weight: bold;
-	white-space: nowrap;
 }
 a:link, a:visited, a:active {
 	text-decoration: none;
