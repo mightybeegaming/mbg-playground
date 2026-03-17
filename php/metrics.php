@@ -300,9 +300,9 @@ class Metrics {
 /*
 * Handle Entry
 */
-header('Content-Type: application/json');
-
 if(!isset($_GET['server'])) exit;
+
+header('Content-Type: application/json');
 
 $server = $_GET['server'];
 $metrics = new Metrics();
