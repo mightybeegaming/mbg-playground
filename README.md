@@ -13,15 +13,18 @@ The goal is to make server information easy to access without needing to join th
 ### Endpoint
 `GET /php/metrics.php`
 
-### Parameter | server (Required)
+### Parameter | `server` (Required)
 | Values            | Description                       |
 |:-                 |:-                                 |
-| counterStrike     | Counter-Strike server metrics.    |
-| hytale            | Hytale server metrics.            |
-| projectZomboid    | Project Zomboid server metrics.   |
-| vRising           | V Rising server metrics.          |
-| valheim           | Valheim server metrics.           |
-| all               | Returns all server metrics.       |
+| `counterStrike`   | Counter-Strike server metrics.    |
+| `hytale`          | Hytale server metrics.            |
+| `projectZomboid`  | Project Zomboid server metrics.   |
+| `vRising`         | V Rising server metrics.          |
+| `valheim`         | Valheim server metrics.           |
+| `all`             | Returns all server metrics.       |
+
+### Example
+`GET /php/metrics.php?server=all`
 
 ## Related Links
 - Discord Invite Template - https://github.com/Ed0ardo/DiscordInvite
