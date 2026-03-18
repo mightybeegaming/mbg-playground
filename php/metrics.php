@@ -18,22 +18,22 @@ class Metrics {
         
         switch($_GET['server']) {
             case 'all':
-                $this->all = $this->getMetricsAll();
+                $this->all = $this->getAll();
                 break;
             case 'counterStrike':
-                $this->counterStrike = $this->getMetricsCounterStrike();
+                $this->counterStrike = $this->getCounterStrike();
                 break;
             case 'hytale':
-                $this->hytale = $this->getMetricsHytale();
+                $this->hytale = $this->getHytale();
                 break;
             case 'projectZomboid':
-                $this->projectZomboid = $this->getMetricsProjectZomboid();
+                $this->projectZomboid = $this->getProjectZomboid();
                 break;
             case 'vRising':
-                $this->vRising = $this->getMetricsVRising();
+                $this->vRising = $this->getVRising();
                 break;
             case 'valheim':
-                $this->valheim = $this->getMetricsValheim();
+                $this->valheim = $this->getValheim();
                 break;
         }
     }
@@ -41,12 +41,12 @@ class Metrics {
     /*
      * All Servers
      */
-    public function getMetricsAll() {
-        $metrics['counterStrike'] = $this->getMetricsCounterStrike();
-        $metrics['hytale'] = $this->getMetricsHytale();
-        $metrics['projectZomboid'] = $this->getMetricsProjectZomboid();
-        $metrics['vRising'] = $this->getMetricsVRising();
-        $metrics['valheim'] = $this->getMetricsValheim();
+    public function getAll() {
+        $metrics['counterStrike'] = $this->getCounterStrike();
+        $metrics['hytale'] = $this->getHytale();
+        $metrics['projectZomboid'] = $this->getProjectZomboid();
+        $metrics['vRising'] = $this->getVRising();
+        $metrics['valheim'] = $this->getValheim();
         
         return $metrics;
     }
@@ -54,7 +54,7 @@ class Metrics {
     /*
      * Counter-Strike
      */
-    public function getMetricsCounterStrike() {
+    public function getCounterStrike() {
         $game = 'counterstrike';
 
         $fileContent = file_get_contents('../metrics/' . $game . '.txt');
@@ -75,7 +75,7 @@ class Metrics {
         $config = $this->getConfig($game . '.json');
         if($config) $metricsCounterStrike = array_merge($metricsCounterStrike, $config);
 
-        $metricsCounterStrike['server'] = $this->getMetricsServer($metricsCounterStrike);
+        $metricsCounterStrike['server'] = $this->getServer($metricsCounterStrike);
 
         return $metricsCounterStrike;
     }
@@ -83,7 +83,7 @@ class Metrics {
     /*
      * Hytale
      */
-    public function getMetricsHytale() {
+    public function getHytale() {
         $game = 'hytale';
 
         $fileContent = file_get_contents('../metrics/' . $game . '.txt');
@@ -100,7 +100,7 @@ class Metrics {
         $config = $this->getConfig($game . '.json');
         if($config) $metricsHytale = array_merge($metricsHytale, $config);
 
-        $metricsHytale['server'] = $this->getMetricsServer($metricsHytale);
+        $metricsHytale['server'] = $this->getServer($metricsHytale);
 
         return $metricsHytale;
     }
@@ -108,7 +108,7 @@ class Metrics {
     /*
      * Project Zomboid
      */
-    public function getMetricsProjectZomboid() {
+    public function getProjectZomboid() {
         $game = 'projectzomboid';
 
         $fileLineCount = count(file('../metrics/' . $game . '.txt'));
@@ -139,7 +139,7 @@ class Metrics {
         $config = $this->getConfig($game . '.json');
         if($config) $metricsProjectZomboid = array_merge($metricsProjectZomboid, $config);
 
-        $metricsProjectZomboid['server'] = $this->getMetricsServer($metricsProjectZomboid);
+        $metricsProjectZomboid['server'] = $this->getServer($metricsProjectZomboid);
 
         return $metricsProjectZomboid;
     }
@@ -147,7 +147,7 @@ class Metrics {
     /*
      * V Rising
      */
-    public function getMetricsVRising() {
+    public function getVRising() {
         $game = 'vrising';
 
         $fileLineCount = count(file('../metrics/' . $game . '.txt'));
@@ -167,7 +167,7 @@ class Metrics {
         $config = $this->getConfig($game . '.json');
         if($config) $metricsVRising = array_merge($metricsVRising, $config);
 
-        $metricsVRising['server'] = $this->getMetricsServer($metricsVRising);
+        $metricsVRising['server'] = $this->getServer($metricsVRising);
 
         return $metricsVRising;
     }
@@ -175,7 +175,7 @@ class Metrics {
     /*
      * Valheim
      */
-    public function getMetricsValheim() {
+    public function getValheim() {
         $game = 'valheim';
 
         $fileContent = file_get_contents('../metrics/' . $game . '.txt');
@@ -189,12 +189,12 @@ class Metrics {
         $config = $this->getConfig($game . '.json');
         if($config) $metricsValheim = array_merge($metricsValheim, $config);
 
-        $metricsValheim['server'] = $this->getMetricsServer($metricsValheim);
+        $metricsValheim['server'] = $this->getServer($metricsValheim);
 
         return $metricsValheim;
     }
 
-    private function getMetricsServer($metrics) {
+    private function getServer($metrics) {
         $monitorId = $metrics['monitorId'];
         $serverData = $this->serverData;
         $heartbeats = $serverData['heartbeatList'][$monitorId];
