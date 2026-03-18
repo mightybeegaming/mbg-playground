@@ -8,5 +8,20 @@ The goal is to make server information easy to access without needing to join th
 - Check server uptime.
 - View current players online.
 
+## Metrics API
+
+### Endpoint
+`GET /php/metrics.php`
+
+### Parameter | server (Required)
+| Values            | Description                       |
+|:-                 |:-                                 |
+| counterStrike     | Counter-Strike server metrics.    |
+| hytale            | Hytale server metrics.            |
+| projectZomboid    | Project Zomboid server metrics.   |
+| vRising           | V Rising server metrics.          |
+| valheim           | Valheim server metrics.           |
+| all               | Returns all server metrics.       |
+
 ## Related Links
 - Discord Invite Template - https://github.com/Ed0ardo/DiscordInvite
