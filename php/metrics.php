@@ -91,8 +91,11 @@ class Metrics {
         preg_match('/^[^(]*\((\d+)\)/', $fileContent, $matches);
         $metricsHytale['onlinePlayers'] = isset($matches[1]) ? (int)$matches[1] : 0;
 
-        preg_match('/on (\d+)(?:st|nd|rd|th) day of year/', $fileContent, $matches);
-        $metricsHytale['worldAge'] = isset($matches[1]) ? (int)$matches[1] : 0;
+        preg_match('/at\s+(\d{4})-\d{2}-\d{2}T.*?on\s+(\d+)(?:st|nd|rd|th)\s+day of year/', $fileContent, $matches);
+        $year = isset($matches[1]) ? (int)$matches[1] : 0;
+        $dayOfYear = isset($matches[2]) ? (int)$matches[2] : 0;
+        $worldAge = ($year - 1) * 365 + $dayOfYear;
+        $metricsHytale['worldAge'] = $worldAge;
 
         preg_match('/with (\d+(?:st|nd|rd|th)) moon phase/', $fileContent, $matches);
         $metricsHytale['moonPhase'] = $matches[1] ?? '';
