@@ -63,14 +63,14 @@ class Metrics {
         $metricsCounterStrike['onlinePlayers'] = count($players[1]);
 
         preg_match('/SCORE:T=(\d+);CT=(\d+)/', $fileContent, $scores);
-        $metricsCounterStrike['scoreT'] = isset($scores[1]) ? (int)$scores[1] : 0;
-        $metricsCounterStrike['scoreCt'] = isset($scores[2]) ? (int)$scores[2] : 0;
+        $metricsCounterStrike['scoreT'] = isset($scores[1]) ? (int)$scores[1] : '?';
+        $metricsCounterStrike['scoreCt'] = isset($scores[2]) ? (int)$scores[2] : '?';
 
         preg_match('/map\s*:\s*([^\s]+)/i', $fileContent, $map);
-        $metricsCounterStrike['currentMap'] = $map[1] ?? '';
+        $metricsCounterStrike['currentMap'] = $map[1] ?? '?';
 
         preg_match('/"amx_nextmap"\s+is\s+"([^"]+)"/i', $fileContent, $map);
-        $metricsCounterStrike['nextMap'] = $map[1] ?? '';
+        $metricsCounterStrike['nextMap'] = $map[1] ?? '?';
 
         $config = $this->getConfig($game . '.json');
         if($config) $metricsCounterStrike = array_merge($metricsCounterStrike, $config);
@@ -92,8 +92,8 @@ class Metrics {
         $metricsHytale['onlinePlayers'] = isset($matches[1]) ? (int)$matches[1] : 0;
 
         preg_match('/at\s+(\d{4})-\d{2}-\d{2}T.*?on\s+(\d+(?:st|nd|rd|th))\s+day of year/', $fileContent, $matches);
-        $metricsHytale['year'] = isset($matches[1]) ? (int)$matches[1] : 0;
-        $metricsHytale['dayOfYear'] = isset($matches[2]) ? (int)$matches[2] : 0;
+        $metricsHytale['year'] = isset($matches[1]) ? (int)$matches[1] : '?';
+        $metricsHytale['dayOfYear'] = isset($matches[2]) ? (int)$matches[2] : '?';
 
         preg_match('/with (\d+(?:st|nd|rd|th)) moon phase/', $fileContent, $matches);
         $metricsHytale['moonPhase'] = $matches[1] ?? 'Unknown';
@@ -120,22 +120,24 @@ class Metrics {
             $worldInfo[$key] = trim($value, "\r\n");
         }
 
-        $metricsProjectZomboid['worldAge'] = isset($worldInfo['World Age']) ? (int)$worldInfo['World Age'] : 0;
+        $metricsProjectZomboid['worldAge'] = isset($worldInfo['World Age']) ? (int)$worldInfo['World Age'] : '?';
         
         $dateTime = (isset($worldInfo['Date Time'])) ? $worldInfo['Date Time'] : '';
-        $dateTime = explode('|', $dateTime);
-        $metricsProjectZomboid['worldDate'] = $dateTime[0] ?? '';
+        if($dateTime) $dateTime = explode('|', $dateTime);
+        $metricsProjectZomboid['worldDate'] = $dateTime[0] ?? '?';
 
-        $time = $dateTime[1] ?? 0;
-        $time = strtotime($time);
-        $time = date('g:i A', $time);
-        $metricsProjectZomboid['worldTime'] = $time;
+        $time = $dateTime[1] ?? '';
+        if($time) {
+            $time = strtotime($time);
+            $time = date('g:i A', $time);
+        }
+        $metricsProjectZomboid['worldTime'] = $time ? $time : '?';
 
         $weather = (isset($worldInfo['Weather'])) ? $worldInfo['Weather'] : '';
-        $weather = explode('|', $weather);
-        $metricsProjectZomboid['weather'] = isset($weather[0]) ? $weather[0] : '';
-        $metricsProjectZomboid['temperature'] = isset($weather[1]) ? (float)$weather[1] : '';
-        $metricsProjectZomboid['season'] = isset($weather[2]) ? $weather[2] : '';
+        if($weather) $weather = explode('|', $weather);
+        $metricsProjectZomboid['weather'] = isset($weather[0]) ? $weather[0] : '?';
+        $metricsProjectZomboid['temperature'] = isset($weather[1]) ? (float)$weather[1] : '?';
+        $metricsProjectZomboid['season'] = isset($weather[2]) ? $weather[2] : '?';
 
         $config = $this->getConfig($game . '.json');
         if($config) $metricsProjectZomboid = array_merge($metricsProjectZomboid, $config);
@@ -160,7 +162,7 @@ class Metrics {
         }
 
         $bootTime = (isset($worldInfo['Server Boot Time'])) ? $worldInfo['Server Boot Time'] : '';
-        $bootTime = $this->convertToLocalTime($bootTime);
+        if($bootTime) $bootTime = $this->convertToLocalTime($bootTime);
 
         $incursion = $this->calculateIncursion($bootTime);
         if($incursion) $metricsVRising = array_merge($metricsVRising, $incursion);
@@ -185,7 +187,7 @@ class Metrics {
         $metricsValheim['onlinePlayers'] = isset($match[1]) ? (int)$match[1] : 0;
         
         preg_match('/Day\s+(\d+)/', $fileContent, $match);
-        $metricsValheim['worldAge'] = isset($match[1]) ? (int)$match[1] : 0;    
+        $metricsValheim['worldAge'] = isset($match[1]) ? (int)$match[1] : '?';    
 
         $config = $this->getConfig($game . '.json');
         if($config) $metricsValheim = array_merge($metricsValheim, $config);
@@ -225,6 +227,12 @@ class Metrics {
     }
 
     private function calculateIncursion($bootTime) {
+        $incursion['phase'] = '?';
+        $incursion['timeLeft'] = '?';
+        $incursion['time'] = '?';
+
+        if(!$bootTime) return $incursion;
+
         $bootTime = strtotime($bootTime);
 
         $incursionDuration = 20 * 60;
