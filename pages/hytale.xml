@@ -8,7 +8,7 @@
         <onloadJs>/js/hytale.js</onloadJs>
         <infoBox>
             <![CDATA[
-                <div class="info-box"><b>World Age</b><br><span class="highlight right-side" id="worldAge"></span></div>
+                <div class="info-box"><b>World Age</b><br><div class="right-side" id="worldAge"></div></div>
                 <div class="info-box"><b>Moon</b><br><span class="highlight right-side" id="moonPhase"></span></div>
             ]]>
         </infoBox>
