@@ -265,7 +265,7 @@ class Metrics {
         $incursion['phase'] = $phase;
         $incursion['timeLeft'] = gmdate('H:i:s', $timeLeft);
 
-        $offset = 9.25;
+        $offset = 8;
         $dayDuration = 1200;
         $gameElapsed = $elapsed % $dayDuration;
         $inGameHour = ($gameElapsed / $dayDuration) * 24 + $offset;
