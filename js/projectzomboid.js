@@ -22,5 +22,5 @@ async function loadServerMetrics() {
     statusTextElement.textContent = status.text;
     statusTextElement.classList.add(status.text);
 }
-setInterval(loadServerMetrics, 5000);
+setInterval(loadServerMetrics, metricsUpdateInterval);
 loadServerMetrics();

@@ -13,5 +13,5 @@ async function loadServerMetrics() {
         tagsElement.innerHTML = tagBuilder(data.tags);
     });
 }
-setInterval(loadServerMetrics, 5000);
+setInterval(loadServerMetrics, metricsUpdateInterval);
 loadServerMetrics();

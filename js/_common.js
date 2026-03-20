@@ -1,3 +1,36 @@
+/*
+ * Last Updated
+ */
+
+function formatTime(sec) {
+    let minutes = Math.floor(sec / 60);
+    minutes = String(minutes).padStart(2, '0');
+
+    let seconds = sec % 60;
+    seconds = String(seconds).padStart(2, '0');
+
+    return minutes + ':' + seconds;
+}
+
+function startCountdown() {
+    const lastUpdatedElement = document.getElementById('lastUpdated');
+
+    setInterval(() => {
+        remaining--;
+        if(remaining < 0) remaining = intervalSeconds;
+
+        lastUpdatedElement.textContent = formatTime(remaining);
+    }, 1000);
+}
+
+let intervalSeconds = 300; // 5 minutes
+let remaining = intervalSeconds;
+startCountdown();
+
+/*
+ * Metrics Builders
+ */
+
 function tagBuilder(tags) {
     tags = tags.split('|');
 
@@ -24,3 +57,8 @@ function statusBuilder(metrics) {
 
     return status;
 }
+
+/*
+ * Globals
+ */
+const metricsUpdateInterval = 300000 // 5 minutes
