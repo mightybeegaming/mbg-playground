@@ -12,6 +12,8 @@ async function loadServerMetrics() {
     const statusTextElement = document.getElementById('statusText');
     statusTextElement.textContent = status.text;
     statusTextElement.classList.add(status.text);
+
+    remaining = intervalSeconds;
 }
 setInterval(loadServerMetrics, metricsUpdateInterval);
 loadServerMetrics();

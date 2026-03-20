@@ -155,7 +155,7 @@ h1.error {
 	border-radius: 8px;
 	border: 1px solid #ccc;
 }
-.last-updated {
+.auto-refresh {
 	color: #888;
 	margin-top: -20px;
 	font-size: 0.9em;

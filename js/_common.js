@@ -1,5 +1,10 @@
 /*
- * Last Updated
+ * Globals
+ */
+const metricsUpdateInterval = 10000;
+
+/*
+ * Auto Refresh Countdown
  */
 
 function formatTime(sec) {
@@ -12,20 +17,19 @@ function formatTime(sec) {
     return minutes + ':' + seconds;
 }
 
-function startCountdown() {
-    const lastUpdatedElement = document.getElementById('lastUpdated');
+function autoRefreshCountdown() {
+    const autoRefreshCountdownElement = document.getElementById('autoRefreshCountdown');
 
     setInterval(() => {
         remaining--;
         if(remaining < 0) remaining = intervalSeconds;
 
-        lastUpdatedElement.textContent = formatTime(remaining);
+        autoRefreshCountdownElement.textContent = formatTime(remaining);
     }, 1000);
 }
 
-let intervalSeconds = 300; // 5 minutes
-let remaining = intervalSeconds;
-startCountdown();
+let intervalSeconds = metricsUpdateInterval / 1000;
+autoRefreshCountdown();
 
 /*
  * Metrics Builders
@@ -57,8 +61,3 @@ function statusBuilder(metrics) {
 
     return status;
 }
-
-/*
- * Globals
- */
-const metricsUpdateInterval = 300000 // 5 minutes
