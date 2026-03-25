@@ -220,6 +220,7 @@ class Metrics {
         return $config;
     }
 
+    /*
     private function convertToLocalTime($dateTime) {
         $utcDateTime = new DateTime($dateTime, new DateTimeZone('UTC'));
         $utcDateTime->setTimezone(new DateTimeZone('Asia/Singapore'));
@@ -227,7 +228,9 @@ class Metrics {
 
         return $localDateTime;
     }
+    */
 
+    /*
     private function calculateIncursion($bootTime) {
         $incursion['phase'] = '?';
         $incursion['timeLeft'] = '?';
@@ -285,6 +288,7 @@ class Metrics {
 
         return $incursion;
     }
+    */
 }
 
 /*
