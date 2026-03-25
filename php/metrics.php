@@ -156,6 +156,7 @@ class Metrics {
         $fileLineCount = count(file("../metrics/{$game}.txt"));
         $metricsVRising['onlinePlayers'] = max(0, $fileLineCount - 1);
 
+        /*
         foreach(file('../metrics/vrisingworldinfo.txt') as $line) {
             [$key, $value] = explode(': ', $line, 2);
             $worldInfo[$key] = $value;
@@ -166,6 +167,7 @@ class Metrics {
 
         $incursion = $this->calculateIncursion($bootTime);
         if($incursion) $metricsVRising = array_merge($metricsVRising, $incursion);
+        */
 
         $config = $this->getConfig("{$game}.json");
         if($config) $metricsVRising = array_merge($metricsVRising, $config);

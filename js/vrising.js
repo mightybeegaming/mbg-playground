@@ -5,9 +5,11 @@ async function loadServerMetrics() {
 
     displayCommonMetrics(data);
 
+    /*
     document.getElementById('phase').textContent = data.phase;
     document.getElementById('timeLeft').textContent = data.timeLeft;
     document.getElementById('time').textContent = data.time;
+    */
 
     remaining = intervalSeconds;
 }

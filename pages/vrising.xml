@@ -7,11 +7,13 @@
         <url>https://mbgplayground.xyz/vrising</url>
         <onloadJs>/js/vrising.js</onloadJs>
         <infoBox>
+            <!--
             <![CDATA[
                 <div class="info-box"><b>Incursion Phase</b><br><span class="highlight right-side" id="phase"></span></div>
                 <div class="info-box"><b>Time Left (Phase)</b><br><span class="highlight right-side" id="timeLeft"></span></div>
                 <div class="info-box"><b>Time</b><br><span class="highlight right-side" id="time"></span></div>
             ]]>
+            -->
         </infoBox>
     </data>
 </config>
