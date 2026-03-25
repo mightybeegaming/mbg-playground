@@ -14,7 +14,7 @@ class Page {
 
     public function getConfig(){
         $configFile = $this->getConfigFile();
-        $configPath = 'pages/' . $configFile;
+        $configPath = "pages/{$configFile}";
         
         $config = simplexml_load_file($configPath);
         $config = $this->xmlToArray($config);
@@ -35,8 +35,9 @@ class Page {
         $path = $this->redirectUrl;
         if($path === '/') return 'home.xml';
 
-        $file = str_replace('/', '', $path) . '.xml';
-        $filePath = 'pages/' . $file;
+        $path = str_replace('/', '', $path);
+        $file = "{$path}.xml";
+        $filePath = "pages/{$file}";
         if(!file_exists($filePath)) return 'error.xml';
 
         return $file;
@@ -60,7 +61,7 @@ class Page {
         $redirectUrlParts = explode('/', $this->redirectUrl);
         $game = $redirectUrlParts[1];
 
-        $modPath = 'mods/' . $game . '.htm';
+        $modPath = "mods/{$game}.htm";
 
         if(!file_exists($modPath)) return;
 
@@ -84,8 +85,10 @@ class Page {
     }
 
     private function getLicense() {
+        $year = date('Y');
+
         $license = '';
-        $license .= '<p><span>© ' . date('Y') . ' <a href="/">MBG Playground</a>. All rights reserved.</span></p>';
+        $license .= "<p><span>© {$year} <a href=\"/\">MBG Playground</a>. All rights reserved.</span></p>";
 
         return $license;
     }
@@ -114,14 +117,18 @@ class Page {
         $list = '';
 
         foreach(scandir('_downloads/') as $file):
-            $file_full_path = '_downloads/' . $file;
+            $file_full_path = "_downloads/{$file}";
             
             if(!is_file($file_full_path)) continue;
 
+            $fileEscapedChars = htmlspecialchars($file);
+            $fileFormattedSize = $this->formatSize(filesize($file_full_path));
+            $fileUrlEncoded = urlencode($file);
+
             $list .= '<tr>';
-            $list .= '<td>' . htmlspecialchars($file) . '</td>';
-            $list .= '<td class="file-size align-right">' . $this->formatSize(filesize($file_full_path)) . '</td>';
-            $list .= '<td class="align-right"><span class="highlight"><a href="/_downloads/' . urlencode($file) . '" download>Download</a></span></td>';
+            $list .= "<td>{$fileEscapedChars}</td>";
+            $list .= "<td class=\"file-size align-right\">{$fileFormattedSize}</td>";
+            $list .= "<td class=\"align-right\"><span class=\"highlight\"><a href=\"/_downloads/{$fileUrlEncoded}\" download>Download</a></span></td>";
             $list .= '</tr>';
         endforeach;
 
@@ -129,14 +136,23 @@ class Page {
     }
 
     private function formatSize($bytes) {
-        $gb = 1073741824;
-        $mb = 1048576;
-        $kb = 1024;
+        $units = [
+            'GB' => 1073741824,
+            'MB' => 1048576,
+            'KB' => 1024
+        ];
 
-        if($bytes >= $gb) return number_format($bytes / $gb, 2) . ' GB';
-        if($bytes >= $mb) return number_format($bytes / $mb, 2) . ' MB';
-        if($bytes >= $kb) return number_format($bytes / $kb, 2) . ' KB';
-        
-        return $bytes . ' B';
+        $formattedSize = "{$bytes} B";
+
+        foreach($units as $unit => $value) {
+            if($bytes >= $value) {
+                $convertedSize = number_format($bytes / $value, 2);
+                $formattedSize = "{$convertedSize} {$unit}";
+
+                break;
+            }
+        }
+
+        return $formattedSize;
     }
 }

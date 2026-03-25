@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>MBG {{title}}</title>
+		<title>MBG {{ title }}</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="{{description}}">
+		<meta name="description" content="{{ description }}">
 		<link rel="icon" href="/media/mbglogo.png" type="image/png">
 		<link rel="stylesheet" href="/css/game.css">
 	</head>
@@ -12,17 +12,17 @@
 		<canvas id="dust"></canvas>
 		<div class="container">
 			<div class="section">
-				<h1>MBG {{title}}</h1>
-				<p>{{description}}</p>
+				<h1>MBG {{ title }}</h1>
+				<p>{{ description }}</p>
 			</div>
 			<div class="section">
 				<h1>Mod Collection</h1>
-				{{modList}}
+				{{ modList }}
 			</div>
 		</div>
 		<footer>
-			{{license}}
-			{{poweredBy}}
+			{{ license }}
+			{{ poweredBy }}
 		</footer>
 		<script defer src="/js/dust.js"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGJJZV6FJE"></script>

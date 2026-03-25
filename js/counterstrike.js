@@ -4,13 +4,13 @@ async function loadServerMetrics() {
     // console.log(data);
 
     let matchScore = '';
-    matchScore += '<span class="highlight">Ts : ' + data.scoreT + '</span>';
+    matchScore += `<span class="highlight">Ts : ${data.scoreT}</span>`;
     matchScore += '<b> | </b>';
-    matchScore += '<span class="highlight">CTs : ' + data.scoreCt + '</span>';
+    matchScore += `<span class="highlight">CTs : ${data.scoreCt}</span>`;
 
     document.getElementById('tags').innerHTML = tagBuilder(data.tags);
-    document.getElementById('uptime24').textContent = data.server.uptime24 + ' %';
-    document.getElementById('onlinePlayers').textContent = data.onlinePlayers + ' / ' + data.maxPlayers;
+    document.getElementById('uptime24').textContent = `${data.server.uptime24} %`;
+    document.getElementById('onlinePlayers').textContent = `${data.onlinePlayers} / ${data.maxPlayers}`;
     document.getElementById('matchScore').innerHTML = matchScore;
     document.getElementById('currentMap').textContent = data.currentMap;
     document.getElementById('nextMap').textContent = data.nextMap;

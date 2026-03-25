@@ -4,15 +4,15 @@ async function loadServerMetrics() {
     // console.log(data);
 
     let worldAge = '';
-    worldAge += '<span class="highlight">Day ' + data.dayOfYear + '</span>';
+    worldAge += `<span class="highlight">Day ${data.dayOfYear}</span>`;
     worldAge += '<b> | </b>';
-    worldAge += '<span class="highlight">Year ' + data.year + '</span>';
+    worldAge += `<span class="highlight">Year ${data.year}</span>`;
 
     document.getElementById('tags').innerHTML = tagBuilder(data.tags);
-    document.getElementById('uptime24').textContent = data.server.uptime24 + ' %';
-    document.getElementById('onlinePlayers').textContent = data.onlinePlayers + ' / ' + data.maxPlayers;
+    document.getElementById('uptime24').textContent = `${data.server.uptime24} %`;
+    document.getElementById('onlinePlayers').textContent = `${data.onlinePlayers} / ${data.maxPlayers}`;
     document.getElementById('worldAge').innerHTML = worldAge;
-    document.getElementById('moonPhase').textContent = data.moonPhase + ' phase';
+    document.getElementById('moonPhase').textContent = `${data.moonPhase} phase`;
 
     const status = statusBuilder(data);
     const statusTextElement = document.getElementById('statusText');

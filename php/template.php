@@ -19,7 +19,7 @@ Class Template {
     private function parse() {
         $placeHolders = array_combine(
             array_map(
-                fn($key) => '{{' . $key . '}}',
+                fn($key) => "{{ {$key} }}",
                 array_keys($this->data)
             ),
             $this->data
