@@ -14,7 +14,7 @@ function formatTime(sec) {
     let seconds = sec % 60;
     seconds = String(seconds).padStart(2, '0');
 
-    return `${minutes} : ${seconds}`;
+    return `${minutes}:${seconds}`;
 }
 
 function autoRefreshCountdown() {

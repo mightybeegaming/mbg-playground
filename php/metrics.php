@@ -153,8 +153,15 @@ class Metrics {
     public function getVRising() {
         $game = 'vrising';
 
-        $fileLineCount = count(file("../metrics/{$game}.txt"));
-        $metricsVRising['onlinePlayers'] = max(0, $fileLineCount - 1);
+        // $fileLineCount = count(file("../metrics/{$game}.txt"));
+        // $metricsVRising['onlinePlayers'] = max(0, $fileLineCount - 1);
+
+        $fileContent = file_get_contents("../metrics/{$game}.txt");
+
+        preg_match('/Total online players:\s*(\d+)/', $fileContent, $matches);
+        $metricsVRising['onlinePlayers'] = isset($matches[1]) ? (int)$matches[1] : 0;
+
+        $metricsVRising['clans'] = substr_count($fileContent, 'Clan Name');
 
         /*
         foreach(file('../metrics/vrisingworldinfo.txt') as $line) {

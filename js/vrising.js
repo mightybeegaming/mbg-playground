@@ -5,6 +5,8 @@ async function loadServerMetrics() {
 
     displayCommonMetrics(data);
 
+    document.getElementById('clans').textContent = data.clans;
+
     /*
     document.getElementById('phase').textContent = data.phase;
     document.getElementById('timeLeft').textContent = data.timeLeft;

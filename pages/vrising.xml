@@ -7,6 +7,9 @@
         <url>https://mbgplayground.xyz/vrising</url>
         <onloadJs>/js/vrising.js</onloadJs>
         <infoBox>
+            <![CDATA[
+                <div class="info-box"><b>Clans</b><br><span class="highlight right-side" id="clans"></span></div>
+            ]]>
             <!--
             <![CDATA[
                 <div class="info-box"><b>Incursion Phase</b><br><span class="highlight right-side" id="phase"></span></div>
