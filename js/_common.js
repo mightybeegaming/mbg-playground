@@ -24,7 +24,7 @@ function autoRefreshCountdown() {
         remaining--;
         if(remaining < 0) remaining = intervalSeconds;
 
-        autoRefreshCountdownElement.textContent = formatTime(remaining);
+        if(autoRefreshCountdownElement) autoRefreshCountdownElement.textContent = formatTime(remaining);
     }, 1000);
 }
 

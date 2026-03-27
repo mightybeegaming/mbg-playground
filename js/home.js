@@ -12,6 +12,8 @@ async function loadServerMetrics() {
         const tagsElement = document.getElementById('tags-' + server);
         tagsElement.innerHTML = tagBuilder(data.tags);
     });
+
+    remaining = intervalSeconds;
 }
 setInterval(loadServerMetrics, metricsUpdateInterval);
 loadServerMetrics();
