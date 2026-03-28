@@ -153,9 +153,6 @@ class Metrics {
     public function getVRising() {
         $game = 'vrising';
 
-        // $fileLineCount = count(file("../metrics/{$game}.txt"));
-        // $metricsVRising['onlinePlayers'] = max(0, $fileLineCount - 1);
-
         $fileContent = file_get_contents("../metrics/{$game}.txt");
 
         preg_match('/Total online players:\s*(\d+)/', $fileContent, $matches);
