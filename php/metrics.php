@@ -12,29 +12,24 @@ class Metrics {
     public $valheim;
     
     private $serverData;
+    private $metricsMapper;
 
     public function __construct() {
         $this->serverData = json_decode(file_get_contents('../metrics/_server.txt'), true);
-        
-        switch($_GET['server']) {
-            case 'all':
-                $this->all = $this->getAll();
-                break;
-            case 'counterStrike':
-                $this->counterStrike = $this->getCounterStrike();
-                break;
-            case 'hytale':
-                $this->hytale = $this->getHytale();
-                break;
-            case 'projectZomboid':
-                $this->projectZomboid = $this->getProjectZomboid();
-                break;
-            case 'vRising':
-                $this->vRising = $this->getVRising();
-                break;
-            case 'valheim':
-                $this->valheim = $this->getValheim();
-                break;
+
+        $this->metricsMapper = [
+            'all' => 'getAll',
+            'counterStrike' => 'getCounterStrike',
+            'hytale' => 'getHytale',
+            'projectZomboid' => 'getProjectZomboid',
+            'vRising' => 'getVRising',
+            'valheim' => 'getValheim'
+        ];
+
+        $server = $_GET['server'];
+        if(isset($this->metricsMapper[$server])) {
+            $method = $this->metricsMapper[$server];
+            $this->$server = $this->$method();
         }
     }
 
@@ -42,11 +37,9 @@ class Metrics {
      * All Servers
      */
     public function getAll() {
-        $metrics['counterStrike'] = $this->getCounterStrike();
-        $metrics['hytale'] = $this->getHytale();
-        $metrics['projectZomboid'] = $this->getProjectZomboid();
-        $metrics['vRising'] = $this->getVRising();
-        $metrics['valheim'] = $this->getValheim();
+        foreach($this->metricsMapper as $server => $method) {
+            if($server !== 'all') $metrics[$server] = $this->$method();
+        }
         
         return $metrics;
     }
@@ -59,25 +52,18 @@ class Metrics {
 
         $fileContent = file_get_contents("../metrics/{$game}.txt");
 
-        preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $fileContent, $players);
-        $metricsCounterStrike['onlinePlayers'] = count($players[1]);
-
+        preg_match_all('/^#\s*\d+\s+"[^"]+"\s+\d+\s+(STEAM_[0-5]:[01]:\d+)/m', $fileContent, $onlinePlayers);
         preg_match('/SCORE:T=(\d+);CT=(\d+)/', $fileContent, $scores);
+        preg_match('/map\s*:\s*([^\s]+)/i', $fileContent, $currentMap);
+        preg_match('/"amx_nextmap"\s+is\s+"([^"]+)"/i', $fileContent, $nextMap);
+
+        $metricsCounterStrike['onlinePlayers'] = count($onlinePlayers[1]);
         $metricsCounterStrike['scoreT'] = isset($scores[1]) ? (int)$scores[1] : '?';
         $metricsCounterStrike['scoreCt'] = isset($scores[2]) ? (int)$scores[2] : '?';
+        $metricsCounterStrike['currentMap'] = $currentMap[1] ?? '?';
+        $metricsCounterStrike['nextMap'] = $nextMap[1] ?? '?';
 
-        preg_match('/map\s*:\s*([^\s]+)/i', $fileContent, $map);
-        $metricsCounterStrike['currentMap'] = $map[1] ?? '?';
-
-        preg_match('/"amx_nextmap"\s+is\s+"([^"]+)"/i', $fileContent, $map);
-        $metricsCounterStrike['nextMap'] = $map[1] ?? '?';
-
-        $config = $this->getConfig("{$game}.json");
-        if($config) $metricsCounterStrike = array_merge($metricsCounterStrike, $config);
-
-        $metricsCounterStrike['server'] = $this->getServer($metricsCounterStrike);
-
-        return $metricsCounterStrike;
+        return $this->mergeCommonData($game, $metricsCounterStrike);
     }
 
     /*
@@ -88,22 +74,16 @@ class Metrics {
 
         $fileContent = file_get_contents("../metrics/{$game}.txt");
 
-        preg_match('/^[^(]*\((\d+)\)/', $fileContent, $matches);
-        $metricsHytale['onlinePlayers'] = isset($matches[1]) ? (int)$matches[1] : 0;
+        preg_match('/^[^(]*\((\d+)\)/', $fileContent, $onlinePlayers);
+        preg_match('/at\s+(\d{4})-\d{2}-\d{2}T.*?on\s+(\d+(?:st|nd|rd|th))\s+day of year/', $fileContent, $worldAge);
+        preg_match('/with (\d+(?:st|nd|rd|th)) moon phase/', $fileContent, $moonPhase);
 
-        preg_match('/at\s+(\d{4})-\d{2}-\d{2}T.*?on\s+(\d+(?:st|nd|rd|th))\s+day of year/', $fileContent, $matches);
-        $metricsHytale['year'] = isset($matches[1]) ? (int)$matches[1] : '?';
-        $metricsHytale['dayOfYear'] = isset($matches[2]) ? (int)$matches[2] : '?';
+        $metricsHytale['onlinePlayers'] = isset($onlinePlayers[1]) ? (int)$onlinePlayers[1] : 0;
+        $metricsHytale['year'] = isset($worldAge[1]) ? (int)$worldAge[1] : '?';
+        $metricsHytale['dayOfYear'] = isset($worldAge[2]) ? (int)$worldAge[2] : '?';
+        $metricsHytale['moonPhase'] = $moonPhase[1] ?? 'Unknown';
 
-        preg_match('/with (\d+(?:st|nd|rd|th)) moon phase/', $fileContent, $matches);
-        $metricsHytale['moonPhase'] = $matches[1] ?? 'Unknown';
-
-        $config = $this->getConfig("{$game}.json");
-        if($config) $metricsHytale = array_merge($metricsHytale, $config);
-
-        $metricsHytale['server'] = $this->getServer($metricsHytale);
-
-        return $metricsHytale;
+        return $this->mergeCommonData($game, $metricsHytale);
     }
 
     /*
@@ -139,12 +119,7 @@ class Metrics {
         $metricsProjectZomboid['temperature'] = isset($weather[1]) ? (float)$weather[1] : '?';
         $metricsProjectZomboid['season'] = isset($weather[2]) ? $weather[2] : '?';
 
-        $config = $this->getConfig("{$game}.json");
-        if($config) $metricsProjectZomboid = array_merge($metricsProjectZomboid, $config);
-
-        $metricsProjectZomboid['server'] = $this->getServer($metricsProjectZomboid);
-
-        return $metricsProjectZomboid;
+        return $this->mergeCommonData($game, $metricsProjectZomboid);
     }
 
     /*
@@ -155,9 +130,9 @@ class Metrics {
 
         $fileContent = file_get_contents("../metrics/{$game}.txt");
 
-        preg_match('/Total online players:\s*(\d+)/', $fileContent, $matches);
-        $metricsVRising['onlinePlayers'] = isset($matches[1]) ? (int)$matches[1] : 0;
+        preg_match('/Total online players:\s*(\d+)/', $fileContent, $onlinePlayers);
 
+        $metricsVRising['onlinePlayers'] = isset($onlinePlayers[1]) ? (int)$onlinePlayers[1] : 0;
         $metricsVRising['clans'] = substr_count($fileContent, 'Clan Name');
 
         /*
@@ -173,12 +148,7 @@ class Metrics {
         if($incursion) $metricsVRising = array_merge($metricsVRising, $incursion);
         */
 
-        $config = $this->getConfig("{$game}.json");
-        if($config) $metricsVRising = array_merge($metricsVRising, $config);
-
-        $metricsVRising['server'] = $this->getServer($metricsVRising);
-
-        return $metricsVRising;
+        return $this->mergeCommonData($game, $metricsVRising);
     }
 
     /*
@@ -189,18 +159,13 @@ class Metrics {
 
         $fileContent = file_get_contents("../metrics/{$game}.txt");
 
-        preg_match('/Online\s+(\d+)/', $fileContent, $match);
-        $metricsValheim['onlinePlayers'] = isset($match[1]) ? (int)$match[1] : 0;
-        
-        preg_match('/Day\s+(\d+)/', $fileContent, $match);
-        $metricsValheim['worldAge'] = isset($match[1]) ? (int)$match[1] : '?';    
+        preg_match('/Online\s+(\d+)/', $fileContent, $onlinePlayers);
+        preg_match('/Day\s+(\d+)/', $fileContent, $worldAge);
 
-        $config = $this->getConfig("{$game}.json");
-        if($config) $metricsValheim = array_merge($metricsValheim, $config);
+        $metricsValheim['onlinePlayers'] = isset($onlinePlayers[1]) ? (int)$onlinePlayers[1] : 0;
+        $metricsValheim['worldAge'] = isset($worldAge[1]) ? (int)$worldAge[1] : '?';    
 
-        $metricsValheim['server'] = $this->getServer($metricsValheim);
-
-        return $metricsValheim;
+        return $this->mergeCommonData($game, $metricsValheim);
     }
 
     private function getServer($metrics) {
@@ -215,6 +180,15 @@ class Metrics {
         $metricsServer['uptime24'] = round($uptime24 * 100, 2);
         
         return $metricsServer;
+    }
+
+    private function mergeCommonData($game, $serverMetrics) {
+        $config = $this->getConfig("{$game}.json");
+        if($config) $serverMetrics = array_merge($serverMetrics, $config);
+
+        $serverMetrics['server'] = $this->getServer($serverMetrics);
+
+        return $serverMetrics;
     }
 
     private function getConfig($file) {
