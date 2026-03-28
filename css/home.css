@@ -83,7 +83,7 @@ body {
 	z-index: 10;
 }
 footer {
-	margin-top: 10px;
+	margin-top: -10px;
 	text-align: center;
 	padding: 15px;
 	font-size: 0.9em;
