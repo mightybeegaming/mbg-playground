@@ -6,10 +6,10 @@ async function loadServerMetrics() {
         server = server.toLowerCase();
 
         const status = statusBuilder(data);
-        const statusElement = document.getElementById('status-' + server);
+        const statusElement = document.getElementById(`status-${server}`);
         statusElement.innerHTML = status.indicator;
 
-        const tagsElement = document.getElementById('tags-' + server);
+        const tagsElement = document.getElementById(`tags-${server}`);
         tagsElement.innerHTML = tagBuilder(data.tags);
     });
 
