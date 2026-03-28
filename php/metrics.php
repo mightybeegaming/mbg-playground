@@ -93,32 +93,32 @@ class Metrics {
         $game = 'projectzomboid';
 
         $fileLineCount = count(file("../metrics/{$game}.txt"));
-        $metricsProjectZomboid['onlinePlayers'] = max(0, $fileLineCount - 1);
         
         foreach(file('../metrics/projectzomboidworldinfo.txt') as $line) {
             [$key, $value] = explode(': ', $line, 2);
             $worldInfo[$key] = trim($value, "\r\n");
         }
 
-        $metricsProjectZomboid['worldAge'] = isset($worldInfo['World Age']) ? (int)$worldInfo['World Age'] : '?';
-        
         $dateTime = (isset($worldInfo['Date Time'])) ? $worldInfo['Date Time'] : '';
         if($dateTime) $dateTime = explode('|', $dateTime);
-        $metricsProjectZomboid['worldDate'] = $dateTime[0] ?? '?';
-
+        
         $time = $dateTime[1] ?? '';
         if($time) {
             $time = strtotime($time);
             $time = date('g:i A', $time);
         }
-        $metricsProjectZomboid['worldTime'] = $time ? $time : '?';
-
+        
         $weather = (isset($worldInfo['Weather'])) ? $worldInfo['Weather'] : '';
         if($weather) $weather = explode('|', $weather);
+
+        $metricsProjectZomboid['onlinePlayers'] = max(0, $fileLineCount - 1);
+        $metricsProjectZomboid['worldAge'] = isset($worldInfo['World Age']) ? (int)$worldInfo['World Age'] : '?';
+        $metricsProjectZomboid['worldDate'] = $dateTime[0] ?? '?';
+        $metricsProjectZomboid['worldTime'] = $time ? $time : '?';
         $metricsProjectZomboid['weather'] = isset($weather[0]) ? $weather[0] : '?';
         $metricsProjectZomboid['temperature'] = isset($weather[1]) ? (float)$weather[1] : '?';
         $metricsProjectZomboid['season'] = isset($weather[2]) ? $weather[2] : '?';
-
+        
         return $this->mergeCommonData($game, $metricsProjectZomboid);
     }
 
