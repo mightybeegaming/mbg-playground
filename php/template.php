@@ -26,15 +26,13 @@ Class Template {
         );
 
         $template = $this->getTemplateFile();
-        $template = strtr($template, $placeHolders);
 
-        return $template;
+        return strtr($template, $placeHolders);
     }
 
     private function getTemplateFile() {
         $templateFile = $this->config['templateFile'];
-        $templateFile = file_get_contents($templateFile);
 
-        return $templateFile;
+        return file_get_contents($templateFile);
     }
 }

@@ -64,10 +64,8 @@ class Page {
         $modPath = "mods/{$game}.htm";
 
         if(!file_exists($modPath)) return;
-
-        $modList = file_get_contents($modPath);
         
-        return $modList;
+        return file_get_contents($modPath);
     }
 
     private function xmlToArray($xml) {
