@@ -58,10 +58,10 @@ class Metrics {
         preg_match('/"amx_nextmap"\s+is\s+"([^"]+)"/i', $fileContent, $nextMap);
 
         $metricsCounterStrike['onlinePlayers'] = count($onlinePlayers[1]);
-        $metricsCounterStrike['scoreT'] = isset($scores[1]) ? (int)$scores[1] : '?';
-        $metricsCounterStrike['scoreCt'] = isset($scores[2]) ? (int)$scores[2] : '?';
-        $metricsCounterStrike['currentMap'] = $currentMap[1] ?? '?';
-        $metricsCounterStrike['nextMap'] = $nextMap[1] ?? '?';
+        $metricsCounterStrike['scoreT'] = isset($scores[1]) ? (int)$scores[1] : 0;
+        $metricsCounterStrike['scoreCt'] = isset($scores[2]) ? (int)$scores[2] : 0;
+        $metricsCounterStrike['currentMap'] = $currentMap[1] ?? 0;
+        $metricsCounterStrike['nextMap'] = $nextMap[1] ?? 0;
 
         return $this->mergeCommonData($game, $metricsCounterStrike);
     }
@@ -79,9 +79,9 @@ class Metrics {
         preg_match('/with (\d+(?:st|nd|rd|th)) moon phase/', $fileContent, $moonPhase);
 
         $metricsHytale['onlinePlayers'] = isset($onlinePlayers[1]) ? (int)$onlinePlayers[1] : 0;
-        $metricsHytale['year'] = isset($worldAge[1]) ? (int)$worldAge[1] : '?';
-        $metricsHytale['dayOfYear'] = isset($worldAge[2]) ? (int)$worldAge[2] : '?';
-        $metricsHytale['moonPhase'] = $moonPhase[1] ?? 'Unknown';
+        $metricsHytale['year'] = isset($worldAge[1]) ? (int)$worldAge[1] : 0;
+        $metricsHytale['dayOfYear'] = isset($worldAge[2]) ? (int)$worldAge[2] : 0;
+        $metricsHytale['moonPhase'] = $moonPhase[1] ?? '?';
 
         return $this->mergeCommonData($game, $metricsHytale);
     }
@@ -112,12 +112,12 @@ class Metrics {
         if($weather) $weather = explode('|', $weather);
 
         $metricsProjectZomboid['onlinePlayers'] = max(0, $fileLineCount - 1);
-        $metricsProjectZomboid['worldAge'] = isset($worldInfo['World Age']) ? (int)$worldInfo['World Age'] : '?';
-        $metricsProjectZomboid['worldDate'] = $dateTime[0] ?? '?';
-        $metricsProjectZomboid['worldTime'] = $time ? $time : '?';
-        $metricsProjectZomboid['weather'] = isset($weather[0]) ? $weather[0] : '?';
-        $metricsProjectZomboid['temperature'] = isset($weather[1]) ? (float)$weather[1] : '?';
-        $metricsProjectZomboid['season'] = isset($weather[2]) ? $weather[2] : '?';
+        $metricsProjectZomboid['worldAge'] = isset($worldInfo['World Age']) ? (int)$worldInfo['World Age'] : 0;
+        $metricsProjectZomboid['worldDate'] = $dateTime[0] ?? 0;
+        $metricsProjectZomboid['worldTime'] = $time ? $time : 0;
+        $metricsProjectZomboid['weather'] = isset($weather[0]) ? $weather[0] : 0;
+        $metricsProjectZomboid['temperature'] = isset($weather[1]) ? (float)$weather[1] : 0;
+        $metricsProjectZomboid['season'] = isset($weather[2]) ? $weather[2] : 0;
         
         return $this->mergeCommonData($game, $metricsProjectZomboid);
     }
@@ -135,19 +135,6 @@ class Metrics {
         $metricsVRising['onlinePlayers'] = isset($onlinePlayers[1]) ? (int)$onlinePlayers[1] : 0;
         $metricsVRising['clans'] = substr_count($fileContent, 'Clan Name');
 
-        /*
-        foreach(file('../metrics/vrisingworldinfo.txt') as $line) {
-            [$key, $value] = explode(': ', $line, 2);
-            $worldInfo[$key] = $value;
-        }
-
-        $bootTime = (isset($worldInfo['Server Boot Time'])) ? $worldInfo['Server Boot Time'] : '';
-        if($bootTime) $bootTime = $this->convertToLocalTime($bootTime);
-
-        $incursion = $this->calculateIncursion($bootTime);
-        if($incursion) $metricsVRising = array_merge($metricsVRising, $incursion);
-        */
-
         return $this->mergeCommonData($game, $metricsVRising);
     }
 
@@ -163,7 +150,7 @@ class Metrics {
         preg_match('/Day\s+(\d+)/', $fileContent, $worldAge);
 
         $metricsValheim['onlinePlayers'] = isset($onlinePlayers[1]) ? (int)$onlinePlayers[1] : 0;
-        $metricsValheim['worldAge'] = isset($worldAge[1]) ? (int)$worldAge[1] : '?';    
+        $metricsValheim['worldAge'] = isset($worldAge[1]) ? (int)$worldAge[1] : 0;    
 
         return $this->mergeCommonData($game, $metricsValheim);
     }
@@ -197,76 +184,6 @@ class Metrics {
 
         return $config;
     }
-
-    /*
-    private function convertToLocalTime($dateTime) {
-        $utcDateTime = new DateTime($dateTime, new DateTimeZone('UTC'));
-        $utcDateTime->setTimezone(new DateTimeZone('Asia/Singapore'));
-        $localDateTime = $utcDateTime->format('Y-m-d H:i:s');
-
-        return $localDateTime;
-    }
-    */
-
-    /*
-    private function calculateIncursion($bootTime) {
-        $incursion['phase'] = '?';
-        $incursion['timeLeft'] = '?';
-        $incursion['time'] = '?';
-
-        if(!$bootTime) return $incursion;
-
-        $bootTime = strtotime($bootTime);
-
-        $incursionDuration = 20 * 60;
-        $incursionInterval = 30 * 60;
-        $preparingDuration = $incursionDuration;
-
-        $now = time();
-        $elapsed = $now - $bootTime;
-        
-        $cycleLength = $preparingDuration + $incursionDuration + $incursionInterval;
-        $cycleNumber = floor($elapsed / $cycleLength);
-        $cycleStart = $bootTime + $cycleNumber * $cycleLength;
-        $activeStart = $cycleStart + $preparingDuration;
-
-        if($now < $activeStart) {
-            $phase = 'Preparing';
-
-            $timeLeft = $activeStart - $now;
-        } elseif($now < $activeStart + $incursionDuration) {
-            $phase = 'Active';
-
-            $timeLeft = $activeStart + $incursionDuration - $now;
-        } else {
-            $phase = 'Waiting';
-
-            $nextCycleStart = $cycleStart + $cycleLength;
-            $timeLeft = $nextCycleStart - $now;
-        }
-
-        $incursion['phase'] = $phase;
-        $incursion['timeLeft'] = gmdate('H:i:s', $timeLeft);
-
-        $offset = 10;
-        $dayDuration = 1200;
-        $gameElapsed = $elapsed % $dayDuration;
-        $inGameHour = ($gameElapsed / $dayDuration) * 24 + $offset;
-
-        $hours = floor($inGameHour);
-        $minutes = floor(($inGameHour - $hours) * 60);
-
-        $ampm = ($hours >= 12) ? 'PM' : 'AM';
-        $hours = $hours % 12;
-        if($hours == 0) $hours = 12;
-
-        $time = sprintf('%2d:%02d %s', $hours, $minutes, $ampm);
-
-        $incursion['time'] = $time;
-
-        return $incursion;
-    }
-    */
 }
 
 /*
