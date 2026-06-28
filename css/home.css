@@ -35,7 +35,7 @@ body {
 	position: relative;
 	border: 1px solid #ccc;
 }
-.card .game-card::after {
+/* .card .game-card::after {
 	font-family: "Bungee" !important;
 	font-style: italic;
 	content: 'PLAY';
@@ -55,13 +55,15 @@ body {
 		0 0 20px #ff9a67,
 		0 0 40px #ff9a67,
 		0 0 80px #ff9a67;
-}
-.card:hover .game-card::after {
+} */
+/* .card:hover .game-card::after {
+	opacity: 1;
+} */
+.card:hover .game-card img {
 	opacity: 1;
 }
-.card:hover .game-card img {
-	opacity: 0.25;
-	filter: grayscale(1);
+.card .game-card img {
+	opacity: 0.4;
 }
 .card img {
 	width: 100%;
@@ -73,14 +75,19 @@ body {
 	font-size: 1em;
 	font-weight: bold;
 	text-shadow:
-		0 0 5px #ff9a67,
-		0 0 10px #ff9a67,
-		0 0 20px #ff9a67;
+		0 0 2px #ff9a67,
+		0 0 4px #ff9a67,
+		0 0 8px #ff9a67,
+		0 0 16px #ff9a67;
 }
 .card:hover {
-	box-shadow: 0 0 15px #ff9a67;
-	transform: scale(1.05);
+	transform: scale(1.04);
 	z-index: 10;
+	box-shadow:
+		0 0 2px #ff9a67,
+		0 0 4px #ff9a67,
+		0 0 8px #ff9a67,
+		0 0 16px #ff9a67;
 }
 footer {
 	margin-top: -10px;
@@ -101,10 +108,10 @@ h1 {
 	font-size: 2.5em;
 	transition: opacity 0.3s ease;
 	text-shadow:
-		0 0 5px #ff9a67,
-		0 0 10px #ff9a67,
-		0 0 20px #ff9a67,
-		0 0 40px #ff9a67;
+		0 0 2px #ff9a67,
+		0 0 4px #ff9a67,
+		0 0 8px #ff9a67,
+		0 0 16px #ff9a67;
 }
 a {
 	color: #ff9a67;
