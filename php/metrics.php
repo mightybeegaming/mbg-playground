@@ -93,11 +93,10 @@ class Metrics {
     public function getPalworld() {
         $game = 'palworld';
 
-        $fileContent = file_get_contents("../metrics/{$game}.txt");
+        $fileContent = file_get_contents("../metrics/{$game}.json");
+        $data = json_decode($fileContent, true);
 
-        preg_match('/^[^(]*\((\d+)\)/', $fileContent, $onlinePlayers);
-
-        $metricsPalworld['onlinePlayers'] = isset($onlinePlayers[1]) ? (int)$onlinePlayers[1] : 0;
+        $metricsPalworld['onlinePlayers'] = count($data['players']);
 
         return $this->mergeCommonData($game, $metricsPalworld);
     }
