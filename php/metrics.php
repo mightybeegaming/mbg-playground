@@ -94,9 +94,14 @@ class Metrics {
         $game = 'palworld';
 
         $fileContent = file_get_contents("../metrics/{$game}.json");
-        $data = json_decode($fileContent, true);
 
-        $metricsPalworld['onlinePlayers'] = count($data['players']);
+        $onlinePlayers = 0;
+        if($fileContent !== '') {
+            $data = json_decode($fileContent, true);
+            $onlinePlayers = count($data['players']);
+        }
+        
+        $metricsPalworld['onlinePlayers'] = $onlinePlayers;
 
         return $this->mergeCommonData($game, $metricsPalworld);
     }
