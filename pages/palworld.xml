@@ -1,0 +1,11 @@
+<config>
+    <templateFile>templates/game.htm</templateFile>
+    <data>
+        <title>Palworld</title>
+        <description>Capture. Build. Explore. Conquer. Join the MBG Playground Palworld server for a stable, community-driven adventure where everyone is welcome.</description>
+        <image>https://mbgplayground.xyz/media/palworldbanner.jpg</image>
+        <url>https://mbgplayground.xyz/palworld</url>
+        <onloadJs>/js/palworld.js</onloadJs>
+        <infoBox></infoBox>
+    </data>
+</config>

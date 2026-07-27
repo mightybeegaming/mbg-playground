@@ -21,6 +21,7 @@ class Metrics {
             'all' => 'getAll',
             'counterStrike' => 'getCounterStrike',
             'hytale' => 'getHytale',
+            'palworld' => 'getPalworld',
             'projectZomboid' => 'getProjectZomboid',
             'vRising' => 'getVRising',
             'valheim' => 'getValheim'
@@ -84,6 +85,21 @@ class Metrics {
         $metricsHytale['moonPhase'] = $moonPhase[1] ?? '?';
 
         return $this->mergeCommonData($game, $metricsHytale);
+    }
+
+    /*
+     * Palworld
+     */
+    public function getPalworld() {
+        $game = 'palworld';
+
+        $fileContent = file_get_contents("../metrics/{$game}.txt");
+
+        preg_match('/^[^(]*\((\d+)\)/', $fileContent, $onlinePlayers);
+
+        $metricsPalworld['onlinePlayers'] = isset($onlinePlayers[1]) ? (int)$onlinePlayers[1] : 0;
+
+        return $this->mergeCommonData($game, $metricsPalworld);
     }
 
     /*
