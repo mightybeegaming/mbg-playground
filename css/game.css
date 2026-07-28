@@ -33,11 +33,12 @@ body {
 	border-bottom: 1px solid #444;
 	padding-bottom: 5px;
 	font-size: 1.5em;
-	text-shadow:
+	color: #ff9a67;
+	/* text-shadow:
 		0 0 2px #ff9a67,
 		0 0 4px #ff9a67,
 		0 0 8px #ff9a67,
-		0 0 16px #ff9a67;
+		0 0 16px #ff9a67; */
 }
 .line {
 	border-bottom: 1px solid #444;
