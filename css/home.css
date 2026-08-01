@@ -59,12 +59,12 @@ body {
 /* .card:hover .game-card::after {
 	opacity: 1;
 } */
-.card:hover .game-card img {
+/* .card:hover .game-card img {
 	opacity: 1;
 }
 .card .game-card img {
 	opacity: 0.4;
-}
+} */
 .card img {
 	width: 100%;
 	height: 172px;
