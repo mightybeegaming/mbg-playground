@@ -96,6 +96,7 @@ class Page {
         $navBar .= '<p>';
         $navBar .= '<a href="/counterstrike">Counter-Strike</a>&ensp;&ensp;';
         $navBar .= '<a href="/hytale">Hytale</a>&ensp;&ensp;';
+        $navBar .= '<a href="/palworld">Palworld</a>&ensp;&ensp;';
         $navBar .= '<a href="/projectzomboid">Project&nbsp;Zomboid</a>&ensp;&ensp;';
         $navBar .= '<a href="/vrising">V&nbsp;Rising</a>&ensp;&ensp;';
         $navBar .= '<a href="/valheim">Valheim</a>';
