@@ -4,11 +4,4 @@
         <title>Counter-Strike Mods</title>
         <description>Mod collection for the MBG Counter-Strike dedicated server.</description>
     </data>
-    <features>
-        <![CDATA[
-            <ul>
-                <li>xxxxxxxx</li>
-            </ul>
-        ]]>
-    </features>
 </config>
