@@ -6,6 +6,15 @@
         <image>https://mbgplayground.xyz/media/hytalebanner.jpg</image>
         <url>https://mbgplayground.xyz/hytale</url>
         <onloadJs>/js/hytale.js</onloadJs>
+        <features>
+            <![CDATA[
+                <ul>
+                    <li><b>Vanilla</b> gameplay experience.</li>
+                    <li><b>No wipes</b>, unless necessary.</li>
+                </ul>
+                <i>Last Wipe: June 24, 2026</i>
+            ]]>
+        </features>
         <infoBox>
             <![CDATA[
                 <div class="info-box"><b>World Age</b><br><div class="right-side" id="worldAge"></div></div>

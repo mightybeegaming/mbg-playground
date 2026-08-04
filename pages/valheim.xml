@@ -6,6 +6,16 @@
         <image>https://mbgplayground.xyz/media/valheimbanner.jpg</image>
         <url>https://mbgplayground.xyz/valheim</url>
         <onloadJs>/js/valheim.js</onloadJs>
+        <features>
+            <![CDATA[
+                <ul>
+                    <li><b>ValheimPlus</b> gameplay experience.</li>
+                    <li>Client vs. Server mod validation.</li>
+                    <li><b>No wipes</b>, unless necessary.</li>
+                </ul>
+                <i>Last Wipe: March 14, 2026</i>
+            ]]>
+        </features>
         <infoBox>
             <![CDATA[
                 <div class="info-box"><b>World Age</b><br><span class="highlight right-side" id="worldAge"></span></div>

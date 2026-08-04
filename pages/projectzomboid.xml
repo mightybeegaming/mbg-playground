@@ -6,6 +6,17 @@
         <image>https://mbgplayground.xyz/media/projectzomboidbanner.jpg</image>
         <url>https://mbgplayground.xyz/projectzomboid</url>
         <onloadJs>/js/projectzomboid.js</onloadJs>
+        <features>
+            <![CDATA[
+                <ul>
+                    <li><b>Modded</b> gameplay experience.</li>
+                    <li>Infinite electricity and water supply with occasional outages.</li>
+                    <li>Items left on the floor for over 256 in-game hours <b>will be deleted</b>. <i>(Placed items are not affected)</i></li>
+                    <li><b>No wipes</b>, unless necessary.</li>
+                </ul>
+                <i>Last Wipe: August 2, 2026</i>
+            ]]>
+        </features>
         <infoBox>
             <![CDATA[
                 <div class="info-box"><b>World Age</b><br><span class="highlight right-side" id="worldAge"></span></div>

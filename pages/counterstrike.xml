@@ -6,6 +6,15 @@
         <image>https://mbgplayground.xyz/media/counterstrikebanner.jpg</image>
         <url>https://mbgplayground.xyz/counterstrike</url>
         <onloadJs>/js/counterstrike.js</onloadJs>
+        <features>
+            <![CDATA[
+                <ul>
+                    <li>Running on <b>Legacy</b> version.</li>
+                    <li><b>Vanilla</b> gameplay experience. <i>(with PodBot)</i></li>
+                    <li>Uses <b>ReHLDS</b> and <b>ReGameDLL_CS</b> for performance and stability enhancements.</li>
+                </ul>
+            ]]>
+        </features>
         <infoBox>
             <![CDATA[
                 <div class="info-box"><b>Match Score</b><br><div class="right-side" id="matchScore"></div></div>
