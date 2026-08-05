@@ -24,6 +24,7 @@
                 <div class="info-box"><b>Season</b><br><span class="highlight right-side" id="season"></span></div>
                 <div class="info-box"><b>Weather</b><br><span class="highlight right-side" id="weather"></span></div>
                 <div class="info-box"><b>Temperature</b><br><span class="highlight right-side" id="temperature"></span></div>
+                <div class="info-box"><b>Utility Status</b><br><div class="right-side" id="utilityStatus"></div></div>
             ]]>
         </infoBox>
     </data>

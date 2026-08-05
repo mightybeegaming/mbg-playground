@@ -10,11 +10,17 @@ async function loadServerMetrics() {
     dateTime += '<b> | </b>';
     dateTime += `<span class="highlight">${data.worldTime}</span>`;
 
+    let utilityStatus = '';
+    utilityStatus += `<span class="highlight">Electricity: ${data.electricity}</span>`;
+    utilityStatus += '<b> | </b>';
+    utilityStatus += `<span class="highlight">Water: ${data.water}</span>`;
+
     document.getElementById('worldAge').textContent = `Day ${data.worldAge}`;
     document.getElementById('dateTime').innerHTML = dateTime;
     document.getElementById('season').textContent = data.season;
     document.getElementById('weather').textContent = data.weather;
     document.getElementById('temperature').textContent = `${data.temperature} °C`;
+    document.getElementById('utilityStatus').innerHTML = utilityStatus;
 
     remaining = intervalSeconds;
 }
