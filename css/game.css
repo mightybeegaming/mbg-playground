@@ -7,7 +7,7 @@ body {
 	line-height: 1.6;
 	background: #121212;
 }
-#dust {
+/* #dust {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -15,7 +15,7 @@ body {
 	height: 100%;
 	z-index: -1;
 	pointer-events: none;
-}
+} */
 .container {
 	max-width: 1000px;
 	margin: auto;
