@@ -138,8 +138,8 @@ class Metrics {
         $metricsProjectZomboid['weather'] = isset($weather[0]) ? $weather[0] : 0;
         $metricsProjectZomboid['temperature'] = isset($weather[1]) ? (float)$weather[1] : 0;
         $metricsProjectZomboid['season'] = isset($weather[2]) ? $weather[2] : 0;
-        $metricsProjectZomboid['electricity'] = $worldInfo['Electricity'] ?? '?';
-        $metricsProjectZomboid['water'] = $worldInfo['Water'] ?? '?';
+        $metricsProjectZomboid['electricity'] = $worldInfo['Blackout'] == 'false' ? 'On' : 'Off';
+        $metricsProjectZomboid['water'] = $worldInfo['Water Shut'] == 'false' ? 'On' : 'Off';
         
         return $this->mergeCommonData($game, $metricsProjectZomboid);
     }
