@@ -15,6 +15,10 @@
                 <i>Last Wipe: July 28, 2026</i>
             ]]>
         </features>
-        <infoBox></infoBox>
+        <infoBox>
+            <![CDATA[
+                <div class="info-box"><b>World Age</b><br><span class="highlight right-side" id="worldAge"></span></div>
+            ]]>
+        </infoBox>
     </data>
 </config>

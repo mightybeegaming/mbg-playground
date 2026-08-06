@@ -5,6 +5,8 @@ async function loadServerMetrics() {
 
     displayCommonMetrics(data);
 
+    document.getElementById('worldAge').textContent = `Day ${data.worldAge}`;
+
     remaining = intervalSeconds;
 }
 setInterval(loadServerMetrics, metricsUpdateInterval);
