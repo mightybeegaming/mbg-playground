@@ -1,7 +1,0 @@
-<config>
-    <templateFile>templates/mods.htm</templateFile>
-    <data>
-        <title>Valheim Mods</title>
-        <description>Mod collection for the MBG Valheim dedicated server.</description>
-    </data>
-</config>

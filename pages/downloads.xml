@@ -1,9 +1,0 @@
-<config>
-    <templateFile>templates/downloads.htm</templateFile>
-    <data>
-        <title>Downloads</title>
-        <description>This is the official consolidated downloads page for MBG Playground.</description>
-        <image>https://mbgplayground.xyz/media/mbglogo.png</image>
-        <onloadJs>/js/downloads.js</onloadJs>
-    </data>
-</config>

@@ -1,7 +1,0 @@
-<config>
-    <templateFile>templates/mods.htm</templateFile>
-    <data>
-        <title>V Rising Mods</title>
-        <description>Mod collection for the MBG V Rising dedicated server.</description>
-    </data>
-</config>

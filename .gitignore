@@ -1,5 +1,7 @@
 /_downloads
 /config
+/media
 /metrics
 /mods
+/pages
 .deploy.bat
