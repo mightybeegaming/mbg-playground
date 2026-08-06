@@ -18,6 +18,7 @@
         <infoBox>
             <![CDATA[
                 <div class="info-box"><b>World Age</b><br><span class="highlight right-side" id="worldAge"></span></div>
+                <div class="info-box"><b>Base Camps</b><br><span class="highlight right-side" id="baseCamps"></span></div>
             ]]>
         </infoBox>
     </data>

@@ -98,6 +98,7 @@ class Metrics {
         
         $metricsPalworld['onlinePlayers'] = $data['currentplayernum'];
         $metricsPalworld['worldAge'] = $data['days'];
+        $metricsPalworld['baseCamps'] = $data['basecampnum'];
 
         return $this->mergeCommonData($game, $metricsPalworld);
     }

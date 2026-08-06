@@ -6,6 +6,7 @@ async function loadServerMetrics() {
     displayCommonMetrics(data);
 
     document.getElementById('worldAge').textContent = `Day ${data.worldAge}`;
+    document.getElementById('baseCamps').textContent = data.baseCamps;
 
     remaining = intervalSeconds;
 }
