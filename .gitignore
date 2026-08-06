@@ -5,3 +5,5 @@
 /mods
 /pages
 .deploy.bat
+mbgsitemap.xml
+robots.txt

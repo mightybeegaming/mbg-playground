@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://mbgplayground.xyz/mbgsitemap.xml
