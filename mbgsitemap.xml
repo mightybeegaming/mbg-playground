@@ -12,12 +12,12 @@
 		<changefreq>daily</changefreq>
 		<priority>0.80</priority>
 	</url>
-	<url>
+	<!-- <url>
 		<loc>https://mbgplayground.xyz/hytale</loc>
 		<lastmod>2026-07-29T00:00:00+00:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>0.80</priority>
-	</url>
+	</url> -->
 	<url>
 		<loc>https://mbgplayground.xyz/palworld</loc>
 		<lastmod>2026-07-29T00:00:00+00:00</lastmod>

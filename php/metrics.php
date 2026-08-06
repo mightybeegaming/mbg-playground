@@ -20,7 +20,7 @@ class Metrics {
         $this->metricsMapper = [
             'all' => 'getAll',
             'counterStrike' => 'getCounterStrike',
-            'hytale' => 'getHytale',
+            // 'hytale' => 'getHytale',
             'palworld' => 'getPalworld',
             'projectZomboid' => 'getProjectZomboid',
             'vRising' => 'getVRising',
