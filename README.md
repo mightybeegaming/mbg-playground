@@ -16,7 +16,6 @@ The goal is to make server information easy to access without needing to join th
 ### Parameter | `server` (Required)
 | Values            | Description                       |
 |:-                 |:-                                 |
-| `counterStrike`   | Counter-Strike server metrics.    |
 | `palworld`        | Palworld server metrics.          |
 | `projectZomboid`  | Project Zomboid server metrics.   |
 | `vRising`         | V Rising server metrics.          |

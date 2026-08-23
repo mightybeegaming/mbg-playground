@@ -94,7 +94,7 @@ class Page {
     private function getNavBar() {
         $navBar = '';
         $navBar .= '<p>';
-        $navBar .= '<a href="/counterstrike">Counter-Strike</a>&ensp;&ensp;';
+        // $navBar .= '<a href="/counterstrike">Counter-Strike</a>&ensp;&ensp;';
         // $navBar .= '<a href="/hytale">Hytale</a>&ensp;&ensp;';
         $navBar .= '<a href="/palworld">Palworld</a>&ensp;&ensp;';
         $navBar .= '<a href="/projectzomboid">Project&nbsp;Zomboid</a>&ensp;&ensp;';
